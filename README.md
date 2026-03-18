@@ -7,7 +7,7 @@
 |                 |       |                      |
 |                 |       |                      |
 |                 |       |                      |
-
+|César Ulises Salazar Amaya|C27103|cesar.salazaramaya@ucr.ac.cr|
 ## Descripción del proyecto
 
 <!-- Describa brevemente el tema, la pregunta de investigación y el objetivo general del proyecto. -->
