@@ -1,0 +1,57 @@
+---
+title: "Bitácora #1"
+subtitle: "CA-0303 Estadística Actuarial I"
+author: "Oscar Espinoza, Gerardo Montero, Gabriel Robles, César Salazar"
+date: today
+lang: es
+format:
+  pdf:
+    toc: true
+    number-sections: true
+---
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# Bitácora #1
+
+## Planificación
+
+### Pregunta de investigación
+
+#### Definición de la idea
+
+#### Conceptualización de la idea
+
+#### Identificación de tensiones
+
+#### Reformulación de la idea en forma de pregunta
+
+#### Argumentación de la pregunta
+
+#### Argumentación a través de datos
+
+#### Audiencia del proyecto
+
+### Revisión bibliográfica
+
+#### Fichas de literatura
+
+### UVE de Gowin
+
+## Parte de escritura
+
+## Arco narrativo del proyecto
+
+### Posicionamiento del equipo
+
+## Diario de aprendizaje
+
+## Rastro de decisiones
+
+## Registro de uso de AI
+
+## Log de contribuciones
+
+
