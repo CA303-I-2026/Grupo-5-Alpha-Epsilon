@@ -6,7 +6,7 @@
 |-----------------|-------|----------------------|
 |                 |       |                      |
 |                 |       |                      |
-|                 |       |                      |
+|Gerardo Andrés Montero Fuetes|C05010|gerardo.montero@ucr.ac.cr|
 |César Ulises Salazar Amaya|C27103|cesar.salazaramaya@ucr.ac.cr|
 ## Descripción del proyecto
 
