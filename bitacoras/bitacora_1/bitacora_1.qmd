@@ -5,9 +5,11 @@ author: "Oscar Espinoza, Gerardo Montero, Gabriel Robles, César Salazar"
 date: today
 lang: es
 format:
+  html:
+    theme: cerulean
+    embed-resources: true
   pdf:
     toc: true
-    number-sections: true
 ---
 
 ------------------------------------------------------------------------
