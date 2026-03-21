@@ -10,13 +10,15 @@ format:
     embed-resources: true
   pdf:
     toc: true
+bibliography: ../../referencias/referencias.bib
+csl: apa.csl
 ---
 
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
-# Bitácora #1
+# Bitácora #1 {.unnumbered .unlisted}
 
 ## Planificación
 
@@ -24,7 +26,19 @@ format:
 
 #### Definición de la idea
 
+Idea: **"¿Cuáles son las características en las personas que más influyen en enfermedades cardíacas?"**
+
 #### Conceptualización de la idea
+
+De la idea anterior, se definen las palabras clave según la @RAE:
+
+**Característica:** Cualidad que da carácter o sirve para distinguir a alguien o algo de sus semejantes.
+
+**Influir:** Dicho de una cosa: Producir sobre otra ciertos efectos; como el hierro sobre la aguja imantada, la luz sobre la vegetación, etc.
+
+Además, se define según la @WHF:
+
+**Enfermedades Cardiovasculares:** Enfermedades que afectan al corazón o a los vasos sanguíneos (venas y arterias). Pueden estar causadas por una combinación de factores de riesgo socioeconómicos, conductuales y ambientales, como hipertensión arterial, dieta poco saludable, colesterol alto, diabetes, contaminación atmosférica, obesidad, tabaquismo, enfermedades renales, inactividad física, consumo nocivo de alcohol y estrés. *Los antecedentes familiares, el origen étnico, el sexo y la edad* también pueden afectar al riesgo de enfermedad cardiovascular de una persona.
 
 #### Identificación de tensiones
 
@@ -52,8 +66,14 @@ format:
 
 ## Rastro de decisiones
 
+1. **Pregunta de investigación:** Se tenía como idea principal hacer predicciones sobre si un grupo de personas podrían tener enfermedades cardiovasculares o no, pero al no tener las herramientas adecuadas en este curso, se optó por ver la relación de ciertas características de las personas con tener las enfermedades o no.
+
 ## Registro de uso de AI
 
 ## Log de contribuciones
 
+## Referencias
+
+::: {#refs}
+:::
 
