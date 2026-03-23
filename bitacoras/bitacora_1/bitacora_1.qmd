@@ -26,7 +26,7 @@ csl: apa.csl
 
 #### Definición de la idea
 
-Idea: **"¿Cuáles son las características en las personas que más influyen en enfermedades cardíacas?"**
+Idea: **"Se quiere identificar las características en las personas que más influyen en enfermedades cardíacas**
 
 #### Conceptualización de la idea
 
@@ -43,6 +43,12 @@ Además, se define según la @WHF:
 #### Identificación de tensiones
 
 #### Reformulación de la idea en forma de pregunta
+
+1. ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
+2. ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
+3. ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
+4. ¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
+
 
 #### Argumentación de la pregunta
 
