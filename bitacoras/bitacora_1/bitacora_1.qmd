@@ -131,11 +131,62 @@ El análisis de las características más influyentes en enfermedades cardíacas
 
 ## Arco narrativo del proyecto
 
+"El problema que nadie ha resuelto completamente aún es identificar con claridad cuáles características individuales tienen mayor influencia en las enfermedades cardíacas a partir de los datos"
+
 ### Posicionamiento del equipo
 
 ## Diario de aprendizaje
 
+Como equipo, hemos aprendido que el análisis de datos no comienza con la aplicación de métodos, sino con la correcta formulación de una pregunta de investigación alineada con los datos disponibles y de esta forma tener claro cual camino seguir. Al inicio no teníamos claro cómo delimitar una idea en un problema investigable, pero ahora entendemos la importancia de estructurar el enfoque del proyecto desde etapas tempranas, para asi que el flujo de trabajo vaya en la mejor forma. También comprendimos que los datos observacionales no permiten establecer relaciones causales, sino asociaciones, lo que influye directamente en la interpretación de los resultados. Además, identificamos que las limitaciones del dataset condicionan el alcance del análisis. Finalmente, aprendimos que la toma de decisiones es un proceso clave que impacta el desarrollo del proyecto, ya que debido a esto se define cómo se analiza la información y qué conclusiones se pueden obtener.
+
 ## Rastro de decisiones
+
+### Decisión 1: Uso del dataset
+
+- Opciones consideradas:
+  - Buscar múltiples datasets
+  - Utilizar un único dataset de Kaggle
+
+- Opción elegida:
+  - Dataset de Kaggle sobre enfermedades cardíacas
+
+- Opciones descartadas:
+  - Integración de múltiples fuentes de datos
+
+- Justificación:
+  - El dataset de Kaggle es accesible, estructurado y contiene variables relevantes para el análisis, lo que permite avanzar de forma eficiente sin necesidad de procesos complejos de integración de datos, además de ser proveniente de una fuente confiable y de uso sencillo y un tema adecuado.
+
+### Decisión 2: Enfoque del proyecto
+
+- Opciones consideradas:
+  - Construir un modelo predictivo de enfermedades cardíacas
+  - Analizar la relación entre variables y la enfermedad
+
+- Opción elegida:
+  - Análisis de la relación entre características y enfermedades cardíacas
+
+- Opciones descartadas:
+  - Modelo predictivo completo
+
+- Justificación:
+  - El desarrollo de modelos predictivos requiere herramientas y conocimientos más avanzados (machine learning) que no son parte del curso. Por ello, y recomendacion del profesor, se decidió enfocarse en un análisis exploratorio y descriptivo que permita identificar relaciones relevantes entre variables.
+
+### Decisión 3: Selección de la pregunta de investigación
+
+- Opciones consideradas:
+  - ¿Qué importancia tiene conocer estas características?
+  - ¿Cómo influyen estas características?
+  - ¿Cuáles características influyen más?
+  - ¿Qué patrones presentan estas características?
+
+- Opción elegida:
+  - ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
+
+- Opciones descartadas:
+  - Preguntas demasiado generales o conceptuales
+
+- Justificación:
+  - La pregunta seleccionada permite un análisis directo con los datos disponibles, facilitando la identificación de variables relevantes mediante métodos estadísticos, además de ser la que nos sonó mas acertada.
 
 ## Registro de uso de AI
 
