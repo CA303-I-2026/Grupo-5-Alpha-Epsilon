@@ -42,13 +42,16 @@ Además, se define según la @WHF:
 
 #### Identificación de tensiones
 
+1. Puede que el tamaño de la muestra no sen suficiente para concluir estadísticamente acerca de la influencia de ciertas variables en la presencia de enfermedades cardíacas. 
+2.Es posible que los valores de las variables estén muy dispersos y no se note una clara distinción en cuál variable influye realmente en tener la la presencia de alguna enfermedad cardíaca. 
+3. Según la WHF, son variables relevantes los antecedentes familiares y el origen étnico al momento de evaluar la posibilidad de tener problemas cardíacos, la ausencia de estas variables en el dataset limita el alcance explicativo del análisis. 
+
 #### Reformulación de la idea en forma de pregunta
 
-1. ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
-2. ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
-3. ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
-4. ¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
-
+1.  ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
+2.  ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
+3.  ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
+4.  ¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
 
 #### Argumentación de la pregunta
 
@@ -72,7 +75,7 @@ Además, se define según la @WHF:
 
 ## Rastro de decisiones
 
-1. **Pregunta de investigación:** Se tenía como idea principal hacer predicciones sobre si un grupo de personas podrían tener enfermedades cardiovasculares o no, pero al no tener las herramientas adecuadas en este curso, se optó por ver la relación de ciertas características de las personas con tener las enfermedades o no.
+1.  **Pregunta de investigación:** Se tenía como idea principal hacer predicciones sobre si un grupo de personas podrían tener enfermedades cardiovasculares o no, pero al no tener las herramientas adecuadas en este curso, se optó por ver la relación de ciertas características de las personas con tener las enfermedades o no.
 
 ## Registro de uso de AI
 
@@ -82,4 +85,3 @@ Además, se define según la @WHF:
 
 ::: {#refs}
 :::
-
