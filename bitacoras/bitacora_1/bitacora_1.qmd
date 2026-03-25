@@ -31,6 +31,91 @@ format:
 #### Reformulación de la idea en forma de pregunta
 
 #### Argumentación de la pregunta
+***Pregunta 1**
+¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
+
+**Lógica:**  
+Conocer la importancia de estas características no necesariamente implica poder predecir o prevenir la enfermedad, ya que pueden existir variables ocultas o factores no medidos en el dataset.
+
+**Ética:**  
+El uso de datos médicos puede generar interpretaciones incorrectas si no se consideran contextos clínicos adecuados, lo que podría llevar a conclusiones irresponsables.
+
+**Emocional:**  
+La difusión de resultados sobre factores de riesgo puede generar ansiedad en las personas si se interpretan como determinantes absolutos de la enfermedad.
+
+### Argumentos
+
+**Lógica:**  
+El análisis de variables como edad, colesterol y presión arterial permite identificar patrones asociados a enfermedades cardíacas, lo cual es fundamental en estudios poblacionales de la salud.
+
+**Ética:**  
+Trabajar con datos anonimizados y públicos permite realizar análisis responsables sin comprometer la privacidad de las personas.
+
+**Emocional:**  
+El conocimiento de factores de riesgo puede benerficiar a las personas para adoptar hábitos más saludables y tomar decisiones informadas sobre su salud.
+
+### Conclusión
+
+Conocer la influencia de ciertas características en enfermedades cardíacas es fundamental para la prevención y comprensión del problema. Aunque existen limitaciones en los datos y posibles interpretaciones erróneas, el valor informativo de este análisis justifica su estudio, especialmente en contextos donde la prevención es clave.
+
+**Pregunta 2**
+
+¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
+
+### Contraargumentos
+
+**Lógica:**  
+Los datos disponibles permiten identificar correlaciones, pero no necesariamente relaciones causales, lo que limita la interpretación de cómo influyen realmente las variables.
+
+**Ética:**  
+La simplificación de la influencia de variables podría llevar a conclusiones reduccionistas, ignorando factores sociales, genéticos o ambientales no incluidos en el dataset, por la diversidad de posibilidades.
+
+**Emocional:**  
+Las personas podrían asumir que ciertas características determinan su condición de salud, lo que puede generar fatalismo o decisiones equivocadas.
+
+### Argumentos
+
+**Lógica:**  
+A través de métodos estadísticos como regresión o análisis de correlación, es posible identificar el grado de asociación entre variables y la presencia de enfermedades cardíacas.
+
+**Ética:**  
+El uso de datos estructurados y documentados permite realizar análisis transparentes y replicables, garantizando la integridad del estudio.
+
+**Emocional:**  
+Comprender cómo influyen las variables permite comunicar mejor los riesgos y fomentar cambios positivos en el estilo de vida de las personas.
+
+### Conclusión
+
+Si bien los datos no permiten establecer causalidad directa, sí es posible analizar cómo influyen ciertas características en enfermedades cardíacas mediante relaciones estadísticas. Este enfoque aporta valor al entendimiento del problema, siempre que se interprete con cautela y dentro de sus limitaciones.
+
+**Pregunta 3**
+¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
+
+#### Contraargumentos de la pregunta:
+
+**Lógica:**  
+La identificación de las características más influyentes depende del método utilizado, lo que puede generar resultados distintos y dificultar determinar cuáles variables son realmente las más relevantes.
+
+**Ética:**  
+El dataset puede no ser representativo de toda la población, lo que introduce sesgos en los resultados.
+
+**Emocional:**  
+Las personas podrían interpretar erróneamente los resultados y generar preocupación innecesaria sobre su salud.
+
+#### Argumentos
+
+**Lógica:**  
+Mediante análisis estadísticos como correlación y modelos de clasificación, es posible identificar variables con mayor peso en la predicción de enfermedades cardíacas de acuerdo a los datos.
+
+**Ética:**  
+El uso de datos públicos y anonimizados provenientes de sitios conocidos por ser usados para bases de datos, como es el caso de kaggle, garantiza que no se vulnera la privacidad de los individuos.
+
+**Emocional:**  
+El análisis puede contribuir a la concientización sobre factores de riesgo y promover hábitos saludables.
+
+#### Conclusión
+
+El análisis de las características más influyentes en enfermedades cardíacas es viable mediante herramientas estadísticas y de aprendizaje automático. Sin embargo, los resultados deben interpretarse con cautela debido a posibles sesgos y a la naturaleza no causal de los datos. Aun así, este estudio puede aportar valor en la identificación de factores de riesgo relevantes.
 
 #### Argumentación a través de datos
 
@@ -46,13 +131,66 @@ format:
 
 ## Arco narrativo del proyecto
 
+"El problema que nadie ha resuelto completamente aún es identificar con claridad cuáles características individuales tienen mayor influencia en las enfermedades cardíacas a partir de los datos"
+
 ### Posicionamiento del equipo
 
 ## Diario de aprendizaje
 
+Como equipo, hemos aprendido que el análisis de datos no comienza con la aplicación de métodos, sino con la correcta formulación de una pregunta de investigación alineada con los datos disponibles y de esta forma tener claro cual camino seguir. Al inicio no teníamos claro cómo delimitar una idea en un problema investigable, pero ahora entendemos la importancia de estructurar el enfoque del proyecto desde etapas tempranas, para asi que el flujo de trabajo vaya en la mejor forma. También comprendimos que los datos observacionales no permiten establecer relaciones causales, sino asociaciones, lo que influye directamente en la interpretación de los resultados. Además, identificamos que las limitaciones del dataset condicionan el alcance del análisis. Finalmente, aprendimos que la toma de decisiones es un proceso clave que impacta el desarrollo del proyecto, ya que debido a esto se define cómo se analiza la información y qué conclusiones se pueden obtener.
+
 ## Rastro de decisiones
 
+### Decisión 1: Uso del dataset
+
+- Opciones consideradas:
+  - Buscar múltiples datasets
+  - Utilizar un único dataset de Kaggle
+
+- Opción elegida:
+  - Dataset de Kaggle sobre enfermedades cardíacas
+
+- Opciones descartadas:
+  - Integración de múltiples fuentes de datos
+
+- Justificación:
+  - El dataset de Kaggle es accesible, estructurado y contiene variables relevantes para el análisis, lo que permite avanzar de forma eficiente sin necesidad de procesos complejos de integración de datos, además de ser proveniente de una fuente confiable y de uso sencillo y un tema adecuado.
+
+### Decisión 2: Enfoque del proyecto
+
+- Opciones consideradas:
+  - Construir un modelo predictivo de enfermedades cardíacas
+  - Analizar la relación entre variables y la enfermedad
+
+- Opción elegida:
+  - Análisis de la relación entre características y enfermedades cardíacas
+
+- Opciones descartadas:
+  - Modelo predictivo completo
+
+- Justificación:
+  - El desarrollo de modelos predictivos requiere herramientas y conocimientos más avanzados (machine learning) que no son parte del curso. Por ello, y recomendacion del profesor, se decidió enfocarse en un análisis exploratorio y descriptivo que permita identificar relaciones relevantes entre variables.
+
+### Decisión 3: Selección de la pregunta de investigación
+
+- Opciones consideradas:
+  - ¿Qué importancia tiene conocer estas características?
+  - ¿Cómo influyen estas características?
+  - ¿Cuáles características influyen más?
+  - ¿Qué patrones presentan estas características?
+
+- Opción elegida:
+  - ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
+
+- Opciones descartadas:
+  - Preguntas demasiado generales o conceptuales
+
+- Justificación:
+  - La pregunta seleccionada permite un análisis directo con los datos disponibles, facilitando la identificación de variables relevantes mediante métodos estadísticos, además de ser la que nos sonó mas acertada.
+
 ## Registro de uso de AI
+
+Para la argumentacion de logica, etica y emocional, se usó IA de forma que se le daban las preguntas y se le pedia que hiciera argumentos y contraargumentos de las debidas partes, para de esta manera comprender que tipo de respuestas son las adecuadas de acuerdo a cada elemento, despues, dada la respuesta de la IA, se acomodan sus respuestas para que tenga un tono mas natural y ser capaces de comprenderlo en nuestras palabras.
 
 ## Log de contribuciones
 
