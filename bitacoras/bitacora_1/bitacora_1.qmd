@@ -217,6 +217,42 @@ Para la argumentacion de logica, etica y emocional, se usó IA de forma que se l
 
 ## Log de contribuciones
 
+## Marco teórico
+
+Para esta investigación se van a utilizar conceptos fundamentales de la estadística y probabilidad que influyen el proceso en los factores de riesgo en ciertas demografías. A continuación se va a elaborar no solamente los enfoques probabilísticos y estadísticos para la investigación sino también otros conceptos no completamente relacionados a esos. El presente reporte articula un marco teórico exhaustivo que responde a la necesidad de identificar patrones, jerarquizar influencias y modelar la probabilidad de eventos adversos, integrando la estadística clásica con las fronteras del aprendizaje automático y la inferencia causal.
+
+En primer lugar, se deben introducir ciertas definiciones básicas de estadística antes de profundizar los enfoques que se van abordar.
+
+De acuerdo a DeGroot & Schrevish (2012),
+Suponga que la cantidad observable de variables aleatorias de interés son $X₁,\cdots,X_n$. Sea r una función arbitraria con valores reales. Entonces la variable aleatoria $T = r(X_1 ,\cdots, X_n )$ es un **estadístico**. Tres ejemplos de estadísticos son la media aritmética $\bar{Xn}$, el máximo $Yn$ de los valores $X_1,\cdots,X_n$ y la función $r(X_1 ,\cdots, X_n )$, que tiene el valor constante de 3 para todos los valores de $X_1 ,\cdots, X_n $. (p. 382)
+Un estadístico entonces es una función que conjuga una cantidad definida de variables aleatorias y devuelve un número real. Para efectos de esta investigación, es un concepto integral para las siguientes definiciones ya que se utiliza para inferir propiedades de una población.
+
+De la misma obra, se van a definir dos conceptos adicionales a éstos. La **distribución previa** por ejemplo,
+Suponga que uno tiene un modelo estadístico con parametro theta. Si uno trata theta como aleatorio entonces la distribución que le da a theta antes de observar las otras variables aleatorias de interés. Eso se llama la distribución previa. Si el espacio donde está theta es contable, entonces la distribución previa es discreta y se refiere como *p.f. previa*, si theta es continua, se refiere como  *p.d.f previa* pues sería continua la distribución previa. Se va a denotar xi(theta) como ambas p.f y p.d.f en función de solo theta. (p. 385)
+La distribución previa es una función de una variable theta, donde theta es el parámetro de la distribución de una variable aleatoria de interés, que a priori se sabe su distribución. Nota: de ahora en adelante, se va a referir a $\xi(\theta)$ como $\pi(\theta)$.
+
+Después sigue la **distribución posterior** que se demuestra como
+La distribución condicional de theta dado x1,…,xn. La p.f. o p.d.f. de theta dado x1 = x1,…, xn = xn sellama la p.f. posterior o p.d.f. posterior y se denota $\xi(\theta|x1,..,xn)$. (…) Si se supone que este parametro theta es desconocido y la p.f o p.d.f previa de theta es $\xi(\theta)$. Entonces la p.d.f o p.f. posterior de \theta es
+\begin{align*}
+\xi(\theta | \mathbf{x}) = \frac{f(x_1| \theta) \cdots f(x_n | \theta) \xi(\theta)}{g_n(\theta)}; \quad \theta \in \Omega \\
+donde g_n = \idotsint_{\Omega_{X_1}, \cdots, \Omega_{X_n}}f( x_1| \theta) \cdots f(x_n | \theta) \xi(\theta)
+\end {align*}
+ (p. 387-388)
+Luego en la página 388, el denominador de la posterior se define como la **p.f. o p.d.f junta marginal de $X_1, \cdots, X_n$**, y se denota por $g_n(x)$, El numerador de la posterior se define como la **verosimilitud** y se denota por $\mathcal{L}(\theta | \mathbb{x})$. Similarmente a la previa, la distribución posterior  ($\xi (\theta | \mathbf{x})$)se va a denotar de ahora en adelante como $\pi(\theta | \mathbf{x})$
+
+Ya con varios conceptos fundamentales definidos, hay dos enfoques estadísticos que se pueden usar para la investigación. Esos son el **Bayesiano** o el **frecuentista o clásico**. Se van a definir ambos - sin embargo es indudable que se va a usar el enfoque bayesiano por razones que se van a especificar a lo largo de esta sección.
+
+El **enfoque clásico o frecuentista** consiste en 
+La idea de que, si un experimento fuese a ser replicado una gran cantidad de veces, se puede establecer una distribución de muestra de un estadístico específico, como $\bar{X_d}$. Se reconoce que el valor que se obtiene cada vez será diferente cuando  se repite el experimento porque los participantes totales siempre cambian (…) Dado la distribución de $\bar{X_d}$, se puede estimar el exento de la variabilidad, el error o la desviación del estadístico $\mu_d$. (Pek & Van Zandt, 2019)
+Asimismo, el frecuentista establece que al tener datos grandes, los estadísticos cambian cada vez que se suman datos nuevos, por lo que se usan datos históricos para definir estos nuevos estadísticos. Este enfoque tiene sus ventajas al tener datos más grandes, más repetibles y con mejores datos históricos.
+
+El **enfoque bayesiano** es completamente diferente al clásico pues
+	En lugar de la distribución de $X_d$, el enfoque bayesiano usa la distribución posterior del 	parámetro de éstos. Como se ha describido, la posterior depende  de la selección de la 	distribución previa del parámetro y la verosimilitud. Por ejemplo, si se toma datos que siguen 	una distribución normal con media $\mu$ y desviación estándar 0; y si además se escoje una 	distribución previa para $\mu$ de media 1 y desviación 0, tendrá una posterior con media .41 y 	desviación $\sqrt{2}$ (Bolstad, 2010). Usando esta posterior, se pueden calcular las 	probabilidades de que $\mu$ tome valores dentro de un intervalo de interés.
+
+La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que el enfoque bayesiano y clásico ambos crean intervalos en los que puede “vivir” el parámetro, la manera en que se construye es muy diferente. De una manera resumida, el enfoque bayesiano usa la distribución previa de los parámetros para crear un **intervalo creíble de Bayes** donde se estima que 95% de estos parámetros podrían estar ubicados ahí, mas el enfoque clásico usa estadísticos “viejos” y los varía a través de un **intervalo de confianza**, donde se estima que 95% de los valores posibles del parámetro pueden llegar a estar ahí.
+
+WIP: pq se va a usar el bayesiano
+
 ## Referencias
 
 ::: {#refs}
