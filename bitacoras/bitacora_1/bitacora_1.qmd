@@ -148,6 +148,36 @@ El análisis puede contribuir a la concientización sobre factores de riesgo y p
 
 El análisis de las características más influyentes en enfermedades cardíacas es viable mediante herramientas estadísticas y de aprendizaje automático. Sin embargo, los resultados deben interpretarse con cautela debido a posibles sesgos y a la naturaleza no causal de los datos. Aun así, este estudio puede aportar valor en la identificación de factores de riesgo relevantes.
 
+**Pregunta 4**
+
+¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
+
+### Contraargumentos
+
+**Lógica:**
+El análisis de patrones puede verse limitado por la dispersión de los datos, lo que dificulta identificar diferencias claras entre personas con y sin enfermedades cardíacas.
+
+**Ética:**
+El dataset no incluye todas las variables relevantes (como antecedentes familiares o factores genéticos), lo que puede generar interpretaciones incompletas o sesgadas.
+
+**Emocional:**
+Las personas podrían interpretar los patrones como determinantes absolutos de su salud, generando preocupación innecesaria o conclusiones erróneas.
+
+### Argumentos
+
+**Lógica:**
+El dataset permite dividir la población en dos grupos (con y sin enfermedad cardiovascular) y analizar diferencias en variables como edad, presión arterial, colesterol y hábitos de vida, lo que facilita la identificación de patrones característicos en cada grupo.
+
+**Ética:**
+El uso de datos anonimizados y públicos permite realizar análisis responsables sin comprometer la privacidad de los individuos, siempre que se interpreten los resultados con cautela.
+
+**Emocional:**
+Identificar patrones puede ayudar a generar conciencia sobre factores asociados a enfermedades cardíacas, incentivando hábitos saludables y una mayor atención a la salud personal.
+
+### Conclusión
+
+El análisis de patrones entre personas con y sin enfermedades cardíacas es viable con los datos disponibles y aporta una perspectiva descriptiva importante para el proyecto. Aunque existen limitaciones en el dataset, este enfoque permite complementar la pregunta principal y contribuir al entendimiento del problema desde un análisis exploratorio.
+
 #### Argumentación a través de datos
 
 ### Revisión bibliográfica
