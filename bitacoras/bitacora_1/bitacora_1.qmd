@@ -20,6 +20,12 @@ csl: ../../referencias/apa.csl
 
 # Bitácora #1 {.unnumbered .unlisted}
 
+## Audiencia del proyecto
+
+"Esta semana, le diría a un actuario de seguros médico o de vida que las enfermedades cardiovasculares representan uno de los riesgos más significativos que enfrenta su cartera de asegurados, y que contar con un análisis estadístico riguroso de sus factores predictores podría mejorar la precisión en la estimación de primas y la gestión del riesgo."
+
+La audiencia de este proyecto es el actuario especializado en seguros de vida o seguros de salud. Las enfermedades cardíacas constituyen una de las principales causas de mortalidad a nivel mundial, lo que las convierte en un factor determinante al momento de estimar el riesgo de vida de un asegurado. Al identificar qué características clínicas y físicas están más asociadas con la presencia de enfermedades cardiovasculares, un actuario puede incorporar esa información al proceso de suscripción y tarifación: ajustar la prima según el perfil de riesgo del cliente, establecer exclusiones pertinentes o diseñar productos más precisos. Este proyecto busca, entonces, proveerle a ese profesional una base estadística que respalde sus decisiones con evidencia.
+
 ## Planificación
 
 ### Pregunta de investigación
@@ -52,6 +58,8 @@ Además, se define según la @WHF:
 2.  ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
 3.  ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
 4.  ¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
+
+Se descarta la pregunta 1, pues la importancia es muy bien conocida, pues al conocer dichas características se puede prevenir la presencia de enfermedades cardiovasculares, además de que dicha importancia no se puede medir con los datos encontrados. De igual forma con la pregunta 2 con los mismos datos no es posible entender exactamente cómo influyen estas características en la aparición de estas enfermedades, por lo que se descarta su estudio. Finalmente se descarta la pregunta 4, pues se requieren de muchas herramientas fuera del alcance del curso para analizar completamente los patrones que existen en los datos utilizados, por lo que se decide trabajar con la pregunta 3, además de que esta última pregunta explica mejor la idea inicialmente expuesta.
 
 #### Argumentación de la pregunta
 ***Pregunta 1**
@@ -141,8 +149,6 @@ El análisis puede contribuir a la concientización sobre factores de riesgo y p
 El análisis de las características más influyentes en enfermedades cardíacas es viable mediante herramientas estadísticas y de aprendizaje automático. Sin embargo, los resultados deben interpretarse con cautela debido a posibles sesgos y a la naturaleza no causal de los datos. Aun así, este estudio puede aportar valor en la identificación de factores de riesgo relevantes.
 
 #### Argumentación a través de datos
-
-#### Audiencia del proyecto
 
 ### Revisión bibliográfica
 
