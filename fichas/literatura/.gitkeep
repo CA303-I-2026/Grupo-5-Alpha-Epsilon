@@ -84,3 +84,105 @@ de evaluación de modelos que propone: adoptaremos el C-estadístico como medida
 discriminación y la comparación entre probabilidades predichas y tasas observadas como
 criterio de calibración para juzgar la calidad de los modelos de clasificación que
 desarrollaremos sobre la variable respuesta binaria de nuestro dataset.
+
+---
+
+## Ficha de Literatura 2
+
+### Nivel descriptivo
+
+**Título:** Machine Learning-Based Predictive Models for Detection of Cardiovascular
+Diseases
+
+**Autor(es):** Ogunpola, A.; Saeed, F.; Basurra, S.; Albarrak, A. M.; Qasem, S. N.
+
+**Año:** 2024
+
+**Nombre del tema:** Comparación de modelos de machine learning para la detección
+de enfermedades cardiovasculares mediante preprocesamiento de datos y evaluación
+de métricas de clasificación.
+
+**Clasificación:** *Metodológica* — se eligió esta etiqueta porque el núcleo del
+documento es la aplicación y comparación de siete algoritmos de clasificación (KNN,
+SVM, Regresión Logística, CNN, Gradient Boost, XGBoost, Random Forest) sobre datos
+cardiovasculares, con énfasis en técnicas de preprocesamiento; no propone un marco
+teórico nuevo ni es un recuento cronológico del campo.
+
+**Resumen en una oración:** Siete modelos de machine learning se comparan para
+detectar enfermedades cardiovasculares con XGBoost como mejor clasificador.
+
+**Argumento central:** Ningún algoritmo de machine learning es universalmente
+superior para la predicción cardiovascular; la calidad del preprocesamiento
+(sobremuestreo, normalización, reducción de dimensionalidad) tiene tanto impacto
+en el desempeño final como la elección del algoritmo. El estudio muestra que
+XGBoost supera a los demás clasificadores, pero que la regresión logística, aunque
+más simple, sigue siendo competitiva y más interpretable, especialmente en contextos
+clínicos donde la explicabilidad del modelo es relevante.
+
+**Problemas con el argumento o el tema:** Los autores reconocen que los modelos
+fueron entrenados sobre datasets con desequilibrio de clases, lo cual puede inflar
+artificialmente las métricas de exactitud; además, las técnicas de sobremuestreo
+aplicadas (como SMOTE) generan datos sintéticos que podrían no reflejar la
+variabilidad real de la población. El estudio tampoco aborda la calibración
+probabilística de los modelos, limitándose a métricas de clasificación binaria.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Este artículo es directamente aplicable a nuestro
+proyecto porque trabaja con variables clínicas equivalentes a las de `cardio_train.csv`
+(edad, presión arterial, colesterol, glucosa) y evalúa exactamente los modelos de
+clasificación binaria que planeamos usar sobre nuestra variable respuesta. En
+particular, la comparación entre regresión logística y modelos de ensemble (Random
+Forest, XGBoost) nos ofrece un marco de referencia para decidir qué modelo priorizar
+según la relación entre interpretabilidad y precisión predictiva.
+
+**Lo que NO dice el autor:** El artículo no discute cómo interpretar los coeficientes
+del modelo en términos de riesgo clínico para cada variable, que es precisamente lo
+que nos interesa argumentar en nuestro proyecto: no solo predecir, sino entender qué
+variables tienen mayor peso en la predicción. Tampoco evalúa la calibración de los
+modelos (qué tan bien reflejan las probabilidades predichas la realidad), criterio que
+el artículo de D'Agostino sí considera central.
+
+**Contraste con otra fuente:** Este artículo se complementa con D'Agostino et al.
+(2013) pero también revela una tensión metodológica importante: mientras Framingham
+prioriza la calibración y la interpretabilidad clínica del modelo (¿qué tan bien
+reflejan las probabilidades predichas el riesgo real?), Ogunpola et al. priorizan
+métricas de clasificación como exactitud, F1-score y AUC-ROC sin evaluar calibración.
+Esto significa que un modelo puede tener alta exactitud pero producir probabilidades
+de riesgo mal calibradas, lo cual sería problemático en un contexto clínico real.
+Framingham resuelve este problema con el test de Nam-D'Agostino, que Ogunpola et al.
+no mencionan. En nuestro proyecto usaremos ambos enfoques: métricas de clasificación
+para comparar modelos y calibración para evaluar la confiabilidad de las
+probabilidades predichas.
+
+**Evaluación de aplicabilidad (5/5):** La metodología de este artículo es totalmente
+aplicable a nuestros datos: trabaja con variables clínicas del mismo tipo que las de
+`cardio_train.csv`, usa una variable respuesta binaria idéntica a la nuestra, y
+compara directamente los algoritmos que planeamos implementar en R. Además, el
+enfoque de preprocesamiento descrito (normalización, manejo de valores atípicos en
+presión arterial, balance de clases) es transferible sin modificaciones a nuestro
+pipeline de análisis.
+
+**Pregunta que le haría al autor:** ¿Cómo cambiaría el ranking de los modelos si
+en lugar de exactitud como métrica principal se utilizara la calibración probabilística
+mediante el test de Nam-D'Agostino, especialmente considerando que en un contexto
+clínico una probabilidad bien calibrada puede ser más útil que una clasificación de
+alta exactitud?
+
+**Resumen argumentativo:** El problema que Ogunpola et al. intentan resolver es
+identificar cuál algoritmo de machine learning ofrece el mejor desempeño para
+detectar enfermedades cardiovasculares cuando se aplica un pipeline riguroso de
+preprocesamiento. La solución propuesta funciona bien para nuestro contexto porque
+demuestra empíricamente que variables como las disponibles en `cardio_train.csv`
+son suficientes para entrenar modelos con alto poder predictivo. Sin embargo,
+presenta una limitación relevante para nuestro proyecto: al enfocarse exclusivamente
+en métricas de clasificación y omitir la calibración, no permite determinar si las
+probabilidades de riesgo que producen los modelos son confiables para uso clínico,
+que es una pregunta central en nuestro trabajo. El elemento que usaremos directamente
+de este artículo es el esquema de comparación entre clasificadores: adoptaremos sus
+métricas de evaluación (precisión, recall, F1-score, AUC-ROC) como base para comparar
+modelos, complementándolas con el análisis de calibración que propone D'Agostino et
+al., construyendo así un marco de evaluación más completo que el de cualquiera de las
+dos fuentes por separado.
