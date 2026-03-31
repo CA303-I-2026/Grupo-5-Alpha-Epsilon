@@ -11,7 +11,7 @@ format:
   pdf:
     toc: true
 bibliography: ../../referencias/referencias.bib
-csl: apa.csl
+csl: ../../referencias/apa.csl
 ---
 
 ------------------------------------------------------------------------
@@ -146,6 +146,16 @@ El análisis de las características más influyentes en enfermedades cardíacas
 
 ### Revisión bibliográfica
 
+Sobre el tema de los problemas cardiovasculares en el ambiente de la estadística se ha escrito una gran cantidad de artículos. Entre ellos, uno de los más destacados es la obra de @Gill (Why Clinitians are natural Bayesian); que a pesar de la edad del artículo, provee detalles de por qué el enfoque bayesianoes mejor usarse en lugar del enfoque clásico. De acuerdo a @Gill "El enfoque bayesiano no devuelve una respuesta de sí o no, sino una probabilidad condicional que refleja el contexto en el que el se hace la prueba". Por lo tanto, el enfoque bayesiano tiene la ventaja de que el contexto cambia las conclusiones que se pueden extraer para los datos. La diferencia entre estos dos se va a profundizar aún más en el marco teórico de esta investigación, pero este artículo es fundamental para comprender por qué se usa el enfoque bayesiano sobre el clásico o frecuentista.
+
+Además de este artículo, hay más que explican por qué se prefiere el enfoque bayesiano para datos como estos. Entre estos, el articulo de @Lorca *Inferencia Bayesiana en el proceso de diagnóstico clínico:
+un enfoque docente para la toma de decisiones* es una obra mucho más reciente que la anterior, en particular algo llamativo es su metodología, pues usan una modificación del Teorema de Bayes:
+
+![Metodología de @Lorca ](figuras/Rev1.png)
+
+El uso del factor de Bayes como un cociente de probabilidades condicionales entre eventos similares pero opuestos en cómo se condicionan provee información importante para la metodología que se podrá usar en el proyecto.
+
+
 #### Fichas de literatura
 
 ### UVE de Gowin
@@ -223,7 +233,7 @@ Para esta investigación se van a utilizar conceptos fundamentales de la estadí
 
 En primer lugar, se deben introducir ciertas definiciones básicas de estadística antes de profundizar los enfoques que se van abordar.
 
-De acuerdo a DeGroot & Schrevish (2012),
+De acuerdo a @Degroot ,
 Suponga que la cantidad observable de variables aleatorias de interés son $X₁,\cdots,X_n$. Sea r una función arbitraria con valores reales. Entonces la variable aleatoria $T = r(X_1 ,\cdots, X_n )$ es un **estadístico**. Tres ejemplos de estadísticos son la media aritmética $\bar{Xn}$, el máximo $Yn$ de los valores $X_1,\cdots,X_n$ y la función $r(X_1 ,\cdots, X_n )$, que tiene el valor constante de 3 para todos los valores de $X_1 ,\cdots, X_n $. (p. 382)
 Un estadístico entonces es una función que conjuga una cantidad definida de variables aleatorias y devuelve un número real. Para efectos de esta investigación, es un concepto integral para las siguientes definiciones ya que se utiliza para inferir propiedades de una población.
 
@@ -243,7 +253,7 @@ Luego en la página 388, el denominador de la posterior se define como la **p.f.
 Ya con varios conceptos fundamentales definidos, hay dos enfoques estadísticos que se pueden usar para la investigación. Esos son el **Bayesiano** o el **frecuentista o clásico**. Se van a definir ambos - sin embargo es indudable que se va a usar el enfoque bayesiano por razones que se van a especificar a lo largo de esta sección.
 
 El **enfoque clásico o frecuentista** consiste en 
-La idea de que, si un experimento fuese a ser replicado una gran cantidad de veces, se puede establecer una distribución de muestra de un estadístico específico, como $\bar{X_d}$. Se reconoce que el valor que se obtiene cada vez será diferente cuando  se repite el experimento porque los participantes totales siempre cambian (…) Dado la distribución de $\bar{X_d}$, se puede estimar el exento de la variabilidad, el error o la desviación del estadístico $\mu_d$. (Pek & Van Zandt, 2019)
+La idea de que, si un experimento fuese a ser replicado una gran cantidad de veces, se puede establecer una distribución de muestra de un estadístico específico, como $\bar{X_d}$. Se reconoce que el valor que se obtiene cada vez será diferente cuando  se repite el experimento porque los participantes totales siempre cambian (…) Dado la distribución de $\bar{X_d}$, se puede estimar el exento de la variabilidad, el error o la desviación del estadístico $\mu_d$. @Pek
 Asimismo, el frecuentista establece que al tener datos grandes, los estadísticos cambian cada vez que se suman datos nuevos, por lo que se usan datos históricos para definir estos nuevos estadísticos. Este enfoque tiene sus ventajas al tener datos más grandes, más repetibles y con mejores datos históricos.
 
 El **enfoque bayesiano** es completamente diferente al clásico pues
