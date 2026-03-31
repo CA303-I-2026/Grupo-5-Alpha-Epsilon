@@ -8,6 +8,8 @@
 |Gabriel Robles Arias|C36611|gabriel.roblesarias@ucr.ac.cr|
 |Gerardo Andrés Montero Fuetes|C05010|gerardo.montero@ucr.ac.cr|
 |César Ulises Salazar Amaya|C27103|cesar.salazaramaya@ucr.ac.cr|
+|Oscar Mario Espinoza Camacho|C32699|oscar.espinozacamacho@ucr.ac.cr|
+
 ## Descripción del proyecto
 
 <!-- Describa brevemente el tema, la pregunta de investigación y el objetivo general del proyecto. -->
