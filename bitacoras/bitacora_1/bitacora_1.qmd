@@ -178,7 +178,138 @@ Identificar patrones puede ayudar a generar conciencia sobre factores asociados 
 
 El análisis de patrones entre personas con y sin enfermedades cardíacas es viable con los datos disponibles y aporta una perspectiva descriptiva importante para el proyecto. Aunque existen limitaciones en el dataset, este enfoque permite complementar la pregunta principal y contribuir al entendimiento del problema desde un análisis exploratorio.
 
-#### Argumentación a través de datos
+### Argumentación a través de datos
+
+El conjunto de datos utilizado en este proyecto corresponde a un dataset clínico orientado
+al estudio de enfermedades cardiovasculares, conocido como **"Cardiovascular Disease Dataset"
+(cardio_train.csv)**. Este tipo de información es ampliamente utilizado en estudios estadísticos
+y de aprendizaje automático para analizar factores de riesgo asociados a condiciones cardíacas.
+
+#### Fuente de los datos
+
+El dataset proviene de una base de datos pública disponible en la plataforma Kaggle
+([https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)),
+construida a partir de registros médicos anonimizados. Su uso es frecuente en contextos
+académicos debido a la variedad de variables clínicas y de estilo de vida que contiene.
+
+#### Contexto temporal y espacial
+
+El dataset no especifica de manera explícita el periodo de recolección ni la ubicación
+geográfica exacta de los pacientes. Esta limitación tiene implicaciones directas para nuestra
+pregunta de investigación: los factores de riesgo cardiovascular pueden variar significativamente
+entre poblaciones de distintas regiones geográficas y épocas, por lo que los patrones
+identificados en este dataset podrían no generalizarse a otras poblaciones. En consecuencia,
+los resultados del análisis deben interpretarse como asociaciones válidas dentro del contexto
+de esta muestra específica, sin asumir representatividad global. Se asume que los datos
+provienen de un entorno clínico estructurado, lo que garantiza cierta consistencia en las
+mediciones.
+
+#### Facilidad de obtención de la información
+
+El dataset es de acceso público y gratuito, disponible en la plataforma Kaggle. Puede
+descargarse directamente en formato CSV, lo que facilita su manipulación en herramientas
+estadísticas como R o Python. No requiere permisos especiales ni procesos complejos de
+adquisición.
+
+#### Población de estudio
+
+La población corresponde a pacientes adultos evaluados mediante diferentes mediciones
+clínicas. No se cuenta con información específica del país o institución de origen, pero se
+asume que los datos provienen de un entorno médico controlado.
+
+#### Muestra observada
+
+El conjunto de datos está compuesto por aproximadamente 70,000 registros de pacientes.
+Cada uno corresponde a una observación individual, lo que permite trabajar con un tamaño
+de muestra suficientemente grande para realizar análisis estadísticos confiables.
+
+#### Unidad estadística
+
+La unidad estadística es cada paciente individual registrado en el dataset. Cada fila
+representa una observación independiente con sus respectivas características médicas y hábitos.
+
+#### Estructura de la tabla de datos
+
+Cada fila del dataset representa un paciente individual. Cada columna corresponde a una
+variable específica que describe alguna característica del paciente, ya sea demográfica,
+fisiológica, bioquímica o de comportamiento. Cada celda contiene el valor observado de esa
+variable para un paciente determinado. Por ejemplo, la celda en la columna de presión
+arterial sistólica para una fila dada indica la medición exacta de ese paciente en ese
+indicador, lo cual es uno de los valores que el modelo utilizará para determinar si ese
+paciente presenta o no enfermedad cardiovascular.
+
+#### Variables del dataset y su relación con la pregunta de investigación
+
+El conjunto de datos incluye variables tanto cuantitativas como cualitativas. A continuación
+se describen y se explica su relevancia para la pregunta de investigación.
+
+**Variables demográficas:**
+
+- *Edad (en días):* Representa la edad del paciente al momento del registro. Para el
+  análisis se transformará a años dividiendo entre 365, lo cual facilita la interpretación.
+  La edad es un factor de riesgo cardiovascular ampliamente documentado: a mayor edad,
+  mayor probabilidad de desarrollar enfermedades del corazón, por lo que esta variable es
+  central en nuestro argumento.
+
+- *Género:* Variable categórica que permite explorar si existen diferencias estadísticamente
+  significativas en la prevalencia de enfermedades cardiovasculares entre hombres y mujeres,
+  lo cual es relevante para caracterizar la población en riesgo.
+
+**Variables fisiológicas:**
+
+- *Altura y peso:* Permiten calcular el Índice de Masa Corporal (IMC), un indicador del
+  estado nutricional del paciente. El sobrepeso y la obesidad son factores de riesgo
+  cardiovascular reconocidos, por lo que estas variables contribuyen directamente a
+  argumentar la relación entre composición corporal y enfermedad.
+
+- *Presión arterial sistólica y diastólica:* Son variables centrales para el análisis.
+  La hipertensión es uno de los factores de riesgo cardiovascular más documentados en la
+  literatura médica. Su presencia en el dataset permite explorar directamente la asociación
+  estadística entre niveles de presión arterial y la variable respuesta.
+
+**Variables bioquímicas:**
+
+- *Nivel de colesterol:* Variable categórica ordinal (normal, por encima de lo normal, muy
+  por encima de lo normal). El colesterol elevado está asociado a la acumulación de placas
+  en las arterias, lo que incrementa el riesgo de enfermedades cardiovasculares. Esta
+  variable permite argumentar el efecto de los marcadores bioquímicos en el diagnóstico.
+
+- *Nivel de glucosa:* Similar al colesterol, permite explorar la relación entre niveles de
+  azúcar en sangre y la presencia de enfermedad cardiovascular, lo cual es especialmente
+  relevante considerando la asociación entre diabetes y riesgo cardíaco.
+
+**Variables de comportamiento:**
+
+- *Consumo de alcohol, hábito de fumar y nivel de actividad física:* Estas variables
+  categóricas binarias capturan los hábitos de vida del paciente. Su inclusión permite
+  argumentar que los factores de estilo de vida, además de los fisiológicos y bioquímicos,
+  tienen un rol en la probabilidad de desarrollar enfermedades cardiovasculares. Son
+  variables que conectan emocionalmente con el lector, ya que representan decisiones que
+  cualquier persona puede modificar.
+
+**Variable respuesta:**
+
+- *Presencia o ausencia de enfermedad cardiovascular:* Variable binaria (0 = ausencia,
+  1 = presencia). Es la variable que se busca explicar y predecir a partir de todas las
+  anteriores. Su naturaleza dicotómica determina el tipo de técnicas estadísticas a aplicar,
+  como regresión logística u otros modelos de clasificación.
+
+#### Naturaleza de los datos
+
+Los datos son de tipo **observacional**, ya que no provienen de un experimento controlado
+sino de registros existentes. Esto implica que las relaciones encontradas entre variables
+deben interpretarse como asociaciones y no necesariamente como causalidad. El dataset
+contiene variables discretas, continuas y categóricas, lo cual lo hace adecuado para
+aplicar diversas técnicas estadísticas vistas en el curso.
+
+#### Relevancia para el proyecto
+
+Este dataset es pertinente porque permite analizar de forma integral cómo factores
+demográficos, fisiológicos, bioquímicos y de comportamiento se asocian con la probabilidad
+de desarrollar enfermedades cardiovasculares. La diversidad de variables facilita abordar
+la pregunta de investigación desde múltiples ángulos, aplicando herramientas como análisis
+descriptivo, exploración de relaciones entre variables y modelado predictivo, alineándose
+directamente con los objetivos del curso.
 
 ### Revisión bibliográfica
 
