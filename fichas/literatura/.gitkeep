@@ -54,8 +54,14 @@ física junto a los marcadores clínicos clásicos, dimensión que nuestro datas
 permite explorar. Tampoco discute el impacto de trabajar con datos sin contexto
 geográfico definido, limitación que afecta directamente a `cardio_train.csv`.
 
-**Contraste con otra fuente:** *(Pendiente — se completará al incorporar la segunda
-ficha.)*
+**Contraste con otra fuente:** Este artículo contrasta con Ogunpola et al. (2024)
+en su enfoque de evaluación de modelos. D'Agostino prioriza la calibración
+probabilística —que las probabilidades predichas reflejen tasas de eventos reales—
+mientras que Ogunpola et al. se concentran en métricas de clasificación (exactitud,
+F1-score, AUC-ROC) sin evaluar calibración. Ambos enfoques se complementan: el
+primero es más adecuado para uso clínico donde se necesita estimar riesgo real, y
+el segundo para comparar el poder discriminatorio entre algoritmos. En nuestro
+proyecto combinaremos ambos marcos de evaluación. 
 
 **Evaluación de aplicabilidad (4/5):** La metodología del modelo de Cox y la regresión
 logística son directamente aplicables a nuestros datos, ya que compartimos las mismas
