@@ -313,15 +313,31 @@ directamente con los objetivos del curso.
 
 ### Revisión bibliográfica
 
-Sobre el tema de los problemas cardiovasculares en el ambiente de la estadística se ha escrito una gran cantidad de artículos. Entre ellos, uno de los más destacados es la obra de @Gill (Why Clinitians are natural Bayesian); que a pesar de la edad del artículo, provee detalles de por qué el enfoque bayesianoes mejor usarse en lugar del enfoque clásico. De acuerdo a @Gill "El enfoque bayesiano no devuelve una respuesta de sí o no, sino una probabilidad condicional que refleja el contexto en el que el se hace la prueba". Por lo tanto, el enfoque bayesiano tiene la ventaja de que el contexto cambia las conclusiones que se pueden extraer para los datos. La diferencia entre estos dos se va a profundizar aún más en el marco teórico de esta investigación, pero este artículo es fundamental para comprender por qué se usa el enfoque bayesiano sobre el clásico o frecuentista.
+Sobre el tema de los problemas cardiovasculares en el ambiente de la estadística se ha escrito una gran cantidad de artículos. Entre ellos, uno de los más destacados es la obra de @Gill *Why Clinitians are natural Bayesians*; que a pesar de la edad del artículo, provee detalles de por qué el enfoque bayesianoes mejor usarse en lugar del enfoque clásico. De acuerdo a @Gill "El enfoque bayesiano no devuelve una respuesta de sí o no, sino una probabilidad condicional que refleja el contexto en el que el se hace la prueba". Por lo tanto, el enfoque bayesiano tiene la ventaja de que el contexto cambia las conclusiones que se pueden extraer para los datos. La diferencia entre estos dos se va a profundizar aún más en el marco teórico de esta investigación, pero este artículo es fundamental para comprender por qué se usa el enfoque bayesiano sobre el clásico o frecuentista.
 
 Además de este artículo, hay más que explican por qué se prefiere el enfoque bayesiano para datos como estos. Entre estos, el articulo de @Lorca *Inferencia Bayesiana en el proceso de diagnóstico clínico:
 un enfoque docente para la toma de decisiones* es una obra mucho más reciente que la anterior, en particular algo llamativo es su metodología, pues usan una modificación del Teorema de Bayes:
 
-![Metodología de @Lorca ](figuras/Rev1.png)
+![Figura 1.2.1.1: Metodología de @Lorca ](figuras/Rev1.png)
 
-El uso del factor de Bayes como un cociente de probabilidades condicionales entre eventos similares pero opuestos en cómo se condicionan provee información importante para la metodología que se podrá usar en el proyecto.
+El uso del factor de Bayes como un cociente de probabilidades condicionales entre eventos similares pero opuestos en cómo se condicionan provee información importante para la metodología que se podrá usar en la investigación.
 
+Otro artículo que es similar al anterior es *Una pequeña mirada a la estadística bayesiana en el análisis de datos cardiológicos* por @Armero. Esto se da gracias a que la metodología de este también hace uso del teorema de Bayes para construir un factor de Bayes. En particular, además demuestra como se puede incorporar información de estudios previos y manejar muestras pequeñas o datos complejos, lo cual es una tendencia común en otros artículos referenciados en esta sección.
+
+*The Information Theoretic Perspective on Medical Diagnostic Inference* por @Eiseman, donde se provee una tabla útil para ver cómo definieron su factor de Bayes 
+
+![Figura 1.2.1.2: Metodología de @Eiseman](figuras/Rev2.jpg)
+El factor de Bayes en este caso varía un poco comparado a los otros pero la idea general se basa en tomar una probabilidad basada en el Teorema de Bayes, usando ocurrencias falsas y verdaderas del padecimiento. Este enfoque complementa la estadística bayesiana al medir cuánta "información" aporta realmente un biomarcador o un signo clínico en el proceso diagnóstico.
+
+El factor de Bayes como metodología se cubre también ampliamente en la obra de @Ramos *El uso del factor Bayes en la investigación clínica de cardiología*. En particular, empieza explicando por qué el factor de bayes es usado en la cardiología. Pues, como indica las investigaciónes clínicas ocupan evidencia con la mayor credibilidad posible, pero se complica por la poca cantidad de eventos. En su caso, usan el factor de Bayes como una probabilidad de los datos frente una hipóteis nula frente a hipótesis alternativa. Resumido, considera que el Factor de Bayes permite conclusiones más sólidas en los estudios de cardiología.
+
+Aparte de aplicaciones directas de la estadística para la cardiología, también hay artículos que se basan en modelos predictivos. El más reciente de este es el artículo de @Kaufmann *A Bayesian Network Analysis of the Diagnostic Process and its Accuracy to Determine How Clinicians Estimate Cardiac Function in Critically Ill Patients: Prospective Observational Cohort Study*. En este artículo definien una función que dependen de probabilidades condicionales, cuyas condiciones en sí son dependientes de varios factores de riesgo. Lo particular de este artículo es su uso de redes bayesianes. Realiza un estudio de cohorte prospectivo utilizando redes bayesianas para modelar cómo los médicos estiman la función cardíaca en pacientes críticos. El estudio identifica dependencias clave, como el uso de noradrenalina y el llenado capilar, revelando que el juicio clínico a menudo es poco preciso y puede mejorarse mediante herramientas digitales de entrenamiento basadas en probabilidades.
+
+Siguiendo con el tema de modelos predictivos, la obra de @Damen *Prediction models for cardiovascular disease risk in the general population: systematic review* se destaca entre las otras pues se enfoca menos en el ámbito teórico y empieza a aplicarlo a datos reales; en particular, más de 100 modelos. En los modelos analizados en el estudio, los más importantes fueron sexo: que se incluyeron en 24% de los estudios pero 88% de esos modelos se enfocaron en solo uno de los sexos. 66% de esos incluyeron predictores que consistían edad, fumador, presión de sangre y colesterol. 52%  incluían diabetes, 29% incluían índice de masa corporal y sólamente 15% incluían el uso de tratamiento (ie drogas contra hypertension, etc.). Una limitación de este artículo, a pesar de su gran versatilidad es la alta variabilidad de muestras, con un mínimo de 51 en un modelo y un máximo de 1.189.845 en otro (mediana de 3969). Además, la cantidad de eventos también varía mucho: de 28 a 55.667. Critica la proliferación de nuevos modelos que a menudo carecen de validación externa y resalta la importancia de la metodología estadística rigurosa para asegurar que estas herramientas sean útiles y no introduzcan sesgos en la prevención cardiovascular
+
+*Cardiología "basada en la evidencia": aplicaciones prácticas de la epidemiología. IV. Modelos de predicción de riesgo cardiovascular* por @Rodriguez provee otro punto de vista en los modelos predictivos. En particular, considera el factor de riesgo más importante como la edad. Esto es gracias a que la supervivencia edad en sí sigue una distribución exponencial, entonces el riesgo cardiovascular también se ve afectado. El segundo factor de riesgo, es el sexo por razones similares a la edad, el hombre tiende a tener una expectativa de vida menor a la mujer. Para ilustrar esto, compara un caso de una mujer de 50 años y un hombre de 50 años. Analiza cómo las variables estadísticas se transforman en herramientas de puntuación clínica para predecir eventos futuros, subrayando la necesidad de que estos modelos se adapten a las poblaciones específicas donde se aplican  
+
+Finalmente, para complementar la bibliografía existente, se van a utilizar varias obras para definir conceptos teóricos centrales a la investigación. Para explicar la diferencia entre inferencia bayesiana y clásica, la obra de @Pek *Frequentist and Bayesian approaches to  to data analysis: Evaluation and estimation*. Esta explica la diferencia entre ambos con simplicidad, pero también provee ejemplos que ilustran cómo diferentes conclusiones se pueden extraer de los mismos datos a partir de los dos enfoques. Para conceptos de estadística, el libro de @Degroot *Probability & Statistics* provee definiciones amplias para conceptos necesarios para explicar la inferencia bayesiana y clásica.
 
 #### Fichas de literatura
 
@@ -391,6 +407,20 @@ Como equipo, hemos aprendido que el análisis de datos no comienza con la aplica
 ## Registro de uso de AI
 
 Para la argumentacion de logica, etica y emocional, se usó IA de forma que se le daban las preguntas y se le pedia que hiciera argumentos y contraargumentos de las debidas partes, para de esta manera comprender que tipo de respuestas son las adecuadas de acuerdo a cada elemento, despues, dada la respuesta de la IA, se acomodan sus respuestas para que tenga un tono mas natural y ser capaces de comprenderlo en nuestras palabras.
+
+Para la sección de revisión bibliográfica, se uso la inteligencia artificial de Google Gemini sólamente para ayudar a buscar referencias. El nivel de las referencias resultó siendo un rango que variaba de adecuado a muy ambicioso para el proyecto. La ventaja de esta IA es que al ser de Google, tiene una opción llamada *DeepResearch*, donde procesa la solicitud por un tiempo prolongado antes de entregar un resultado donde lista una gran cantidad de sitios donde encontró la información. Lo interesante no fue mucho el resultado, pues la interpretación se hizo sin mucha ayuda de la IA; aunque se usó para clasificar ciertos artículos para facilitar el encadenamiento de ideas, aunque algunos referenciados no fueron usados al final. Sino, los sitios que brindó muchos fueron escogidos directamente de éste. A continuación se muestra los *prompts* usados y el archivo en *Google Docs* que brindó. Es importante denotar que no todas las fuentes se sacaron de éste, sino que fue fruto de investigación propia.
+
+[*Prompt 1: adquisicion de sitios*](figuras/IA1.png)
+Resultado: 
+https://docs.google.com/document/d/14ii_ogSwLz_tq7yO52Qays3HO7yRcLUx_kn5kYjsWaw/edit?usp=sharing
+
+[*Prompt 2.1: Encadenamiento de ideas*](figuras/IA2_5.png)
+Resultado:
+[Parte 1](figuras/IA2_4.png)
+[Parte 2](figuras/IA2_3.png)
+[Parte 3](figuras/IA2_2.png)
+[Parte 4](figuras/IA2_1.png)
+
 
 ## Log de contribuciones
 
