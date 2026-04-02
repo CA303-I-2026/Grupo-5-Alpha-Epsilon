@@ -26,6 +26,10 @@ csl: ../../referencias/apa.csl
 
 La audiencia de este proyecto es el actuario especializado en seguros de vida o seguros de salud. Las enfermedades cardíacas constituyen una de las principales causas de mortalidad a nivel mundial, lo que las convierte en un factor determinante al momento de estimar el riesgo de vida de un asegurado. Al identificar qué características clínicas y físicas están más asociadas con la presencia de enfermedades cardiovasculares, un actuario puede incorporar esa información al proceso de suscripción y tarifación: ajustar la prima según el perfil de riesgo del cliente, establecer exclusiones pertinentes o diseñar productos más precisos. Este proyecto busca, entonces, proveerle a ese profesional una base estadística que respalde sus decisiones con evidencia.
 
+## Posicionamiento del equipo
+
+El equipo está conformado por estudiantes de Ciencias Actuariales, se aborda este proyecto desde una perspectiva directamente alineada con su aplicación profesional, la gestión del riesgo en seguros de vida y salud. Un integrante cuenta con experiencia en pasantía desarrollando aplicaciones de visualización de datos con Shiny usando información real de la Superintendencia de Pensiones, lo que aporta familiaridad con datos institucionales y herramientas de análisis en R. Otro integrante trabaja en una operadora de pensiones realizando análisis cuantitativo y cualitativo de instrumentos financieros, lo que nos da contacto directo con el sector financiero regulado costarricense. Estas experiencias, combinadas con la formación actuarial compartida por todos los integrantes, nos posicionan para abordar este problema desde una perspectiva tanto técnica como aplicada.
+
 ## Planificación
 
 ### Pregunta de investigación
@@ -348,8 +352,6 @@ Finalmente, para complementar la bibliografía existente, se van a utilizar vari
 ## Arco narrativo del proyecto
 
 "El problema que nadie ha resuelto completamente aún es identificar con claridad cuáles características individuales tienen mayor influencia en las enfermedades cardíacas a partir de los datos"
-
-### Posicionamiento del equipo
 
 ## Diario de aprendizaje
 
