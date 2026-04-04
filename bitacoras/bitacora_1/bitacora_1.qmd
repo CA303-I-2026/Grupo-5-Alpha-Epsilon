@@ -350,6 +350,9 @@ Finalmente, para complementar la bibliografía existente, se van a utilizar vari
 
 ## UVE de Gowin
 
+![UVE de Gowin: relación entre el dominio conceptual y metodológico
+del estudio de enfermedades cardiovasculares.](figuras/V_Gowin.png){#fig-uve width="90%" fig-align="center"}
+
 ## Parte de escritura
 
 ## Arco narrativo del proyecto
