@@ -12,6 +12,7 @@ format:
     toc: true
 bibliography: ../../referencias/referencias.bib
 csl: ../../referencias/apa.csl
+number-sections: true
 ---
 
 ------------------------------------------------------------------------
@@ -20,25 +21,25 @@ csl: ../../referencias/apa.csl
 
 # Bitácora #1 {.unnumbered .unlisted}
 
-## Audiencia del proyecto
+## Audiencia del proyecto {.unnumbered .unlisted}
 
 "Esta semana, le diría a un actuario de seguros médico o de vida que las enfermedades cardiovasculares representan uno de los riesgos más significativos que enfrenta su cartera de asegurados, y que contar con un análisis estadístico riguroso de sus factores predictores podría mejorar la precisión en la estimación de primas y la gestión del riesgo."
 
 La audiencia de este proyecto es el actuario especializado en seguros de vida o seguros de salud. Las enfermedades cardíacas constituyen una de las principales causas de mortalidad a nivel mundial, lo que las convierte en un factor determinante al momento de estimar el riesgo de vida de un asegurado. Al identificar qué características clínicas y físicas están más asociadas con la presencia de enfermedades cardiovasculares, un actuario puede incorporar esa información al proceso de suscripción y tarifación: ajustar la prima según el perfil de riesgo del cliente, establecer exclusiones pertinentes o diseñar productos más precisos. Este proyecto busca, entonces, proveerle a ese profesional una base estadística que respalde sus decisiones con evidencia.
 
-## Posicionamiento del equipo
+## Posicionamiento del equipo {.unnumbered .unlisted}
 
 El equipo está conformado por estudiantes de Ciencias Actuariales, se aborda este proyecto desde una perspectiva directamente alineada con su aplicación profesional, la gestión del riesgo en seguros de vida y salud. Un integrante cuenta con experiencia en pasantía desarrollando aplicaciones de visualización de datos con Shiny usando información real de la Superintendencia de Pensiones, lo que aporta familiaridad con datos institucionales y herramientas de análisis en R. Otro integrante se desempeña en una operadora de pensiones complementarias, liderando análisis financiero y de datos aplicado a la evaluación de instrumentos y vehículos de inversión. Su trabajo integra modelación cuantitativa, análisis cualitativo y desarrollo de soluciones analíticas, lo que le permite generar insights sobre el comportamiento de los activos y mantener un vínculo directo con el entorno financiero regulado costarricense. Estas experiencias, combinadas con la formación actuarial compartida por todos los integrantes, nos posicionan para abordar este problema desde una perspectiva tanto técnica como aplicada.
 
-## Planificación
+# Planificación
 
-### Pregunta de investigación
+## Pregunta de investigación
 
-#### Definición de la idea
+### Definición de la idea
 
 Idea: **"Se quiere identificar las características en las personas que más influyen en enfermedades cardíacas**
 
-#### Conceptualización de la idea
+### Conceptualización de la idea
 
 De la idea anterior, se definen las palabras clave según la @RAE:
 
@@ -50,13 +51,13 @@ Además, se define según la @WHF:
 
 **Enfermedades Cardiovasculares:** Enfermedades que afectan al corazón o a los vasos sanguíneos (venas y arterias). Pueden estar causadas por una combinación de factores de riesgo socioeconómicos, conductuales y ambientales, como hipertensión arterial, dieta poco saludable, colesterol alto, diabetes, contaminación atmosférica, obesidad, tabaquismo, enfermedades renales, inactividad física, consumo nocivo de alcohol y estrés. *Los antecedentes familiares, el origen étnico, el sexo y la edad* también pueden afectar al riesgo de enfermedad cardiovascular de una persona.
 
-#### Identificación de tensiones
+### Identificación de tensiones
 
 1. Puede que el tamaño de la muestra no sen suficiente para concluir estadísticamente acerca de la influencia de ciertas variables en la presencia de enfermedades cardíacas. 
 2.Es posible que los valores de las variables estén muy dispersos y no se note una clara distinción en cuál variable influye realmente en tener la la presencia de alguna enfermedad cardíaca. 
 3. Según la WHF, son variables relevantes los antecedentes familiares y el origen étnico al momento de evaluar la posibilidad de tener problemas cardíacos, la ausencia de estas variables en el dataset limita el alcance explicativo del análisis. 
 
-#### Reformulación de la idea en forma de pregunta
+### Reformulación de la idea en forma de pregunta
 
 1.  ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
 2.  ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
@@ -65,9 +66,11 @@ Además, se define según la @WHF:
 
 Se descarta la pregunta 1, pues la importancia es muy bien conocida, pues al conocer dichas características se puede prevenir la presencia de enfermedades cardiovasculares, además de que dicha importancia no se puede medir con los datos encontrados. De igual forma con la pregunta 2 con los mismos datos no es posible entender exactamente cómo influyen estas características en la aparición de estas enfermedades, por lo que se descarta su estudio. Finalmente se descarta la pregunta 4, pues se requieren de muchas herramientas fuera del alcance del curso para analizar completamente los patrones que existen en los datos utilizados, por lo que se decide trabajar con la pregunta 3, además de que esta última pregunta explica mejor la idea inicialmente expuesta.
 
-#### Argumentación de la pregunta
+### Argumentación de la pregunta
 ***Pregunta 1**
 ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
+
+### Contraargumentos
 
 **Lógica:**  
 Conocer la importancia de estas características no necesariamente implica poder predecir o prevenir la enfermedad, ya que pueden existir variables ocultas o factores no medidos en el dataset.
@@ -78,7 +81,7 @@ El uso de datos médicos puede generar interpretaciones incorrectas si no se con
 **Emocional:**  
 La difusión de resultados sobre factores de riesgo puede generar ansiedad en las personas si se interpretan como determinantes absolutos de la enfermedad.
 
-### Argumentos
+#### Argumentos
 
 **Lógica:**  
 El análisis de variables como edad, colesterol y presión arterial permite identificar patrones asociados a enfermedades cardíacas, lo cual es fundamental en estudios poblacionales de la salud.
@@ -89,7 +92,7 @@ Trabajar con datos anonimizados y públicos permite realizar análisis responsab
 **Emocional:**  
 El conocimiento de factores de riesgo puede benerficiar a las personas para adoptar hábitos más saludables y tomar decisiones informadas sobre su salud.
 
-### Conclusión
+#### Conclusión
 
 Conocer la influencia de ciertas características en enfermedades cardíacas es fundamental para la prevención y comprensión del problema. Aunque existen limitaciones en los datos y posibles interpretaciones erróneas, el valor informativo de este análisis justifica su estudio, especialmente en contextos donde la prevención es clave.
 
@@ -97,7 +100,7 @@ Conocer la influencia de ciertas características en enfermedades cardíacas es 
 
 ¿Cómo influyen ciertas características de personas en enfermedades cardíacas?
 
-### Contraargumentos
+#### Contraargumentos
 
 **Lógica:**  
 Los datos disponibles permiten identificar correlaciones, pero no necesariamente relaciones causales, lo que limita la interpretación de cómo influyen realmente las variables.
@@ -108,7 +111,7 @@ La simplificación de la influencia de variables podría llevar a conclusiones r
 **Emocional:**  
 Las personas podrían asumir que ciertas características determinan su condición de salud, lo que puede generar fatalismo o decisiones equivocadas.
 
-### Argumentos
+#### Argumentos
 
 **Lógica:**  
 A través de métodos estadísticos como regresión o análisis de correlación, es posible identificar el grado de asociación entre variables y la presencia de enfermedades cardíacas.
@@ -119,14 +122,14 @@ El uso de datos estructurados y documentados permite realizar análisis transpar
 **Emocional:**  
 Comprender cómo influyen las variables permite comunicar mejor los riesgos y fomentar cambios positivos en el estilo de vida de las personas.
 
-### Conclusión
+#### Conclusión
 
 Si bien los datos no permiten establecer causalidad directa, sí es posible analizar cómo influyen ciertas características en enfermedades cardíacas mediante relaciones estadísticas. Este enfoque aporta valor al entendimiento del problema, siempre que se interprete con cautela y dentro de sus limitaciones.
 
 **Pregunta 3**
 ¿Cuáles son las características en personas que más influyen en enfermedades cardíacas?
 
-#### Contraargumentos de la pregunta:
+#### Contraargumentos
 
 **Lógica:**  
 La identificación de las características más influyentes depende del método utilizado, lo que puede generar resultados distintos y dificultar determinar cuáles variables son realmente las más relevantes.
@@ -156,7 +159,7 @@ El análisis de las características más influyentes en enfermedades cardíacas
 
 ¿Qué patrones presentan estas características en personas con y sin enfermedades cardíacas?
 
-### Contraargumentos
+#### Contraargumentos
 
 **Lógica:**
 El análisis de patrones puede verse limitado por la dispersión de los datos, lo que dificulta identificar diferencias claras entre personas con y sin enfermedades cardíacas.
@@ -167,7 +170,7 @@ El dataset no incluye todas las variables relevantes (como antecedentes familiar
 **Emocional:**
 Las personas podrían interpretar los patrones como determinantes absolutos de su salud, generando preocupación innecesaria o conclusiones erróneas.
 
-### Argumentos
+#### Argumentos
 
 **Lógica:**
 El dataset permite dividir la población en dos grupos (con y sin enfermedad cardiovascular) y analizar diferencias en variables como edad, presión arterial, colesterol y hábitos de vida, lo que facilita la identificación de patrones característicos en cada grupo.
@@ -178,7 +181,7 @@ El uso de datos anonimizados y públicos permite realizar análisis responsables
 **Emocional:**
 Identificar patrones puede ayudar a generar conciencia sobre factores asociados a enfermedades cardíacas, incentivando hábitos saludables y una mayor atención a la salud personal.
 
-### Conclusión
+#### Conclusión
 
 El análisis de patrones entre personas con y sin enfermedades cardíacas es viable con los datos disponibles y aporta una perspectiva descriptiva importante para el proyecto. Aunque existen limitaciones en el dataset, este enfoque permite complementar la pregunta principal y contribuir al entendimiento del problema desde un análisis exploratorio.
 
@@ -315,7 +318,7 @@ la pregunta de investigación desde múltiples ángulos, aplicando herramientas 
 descriptivo, exploración de relaciones entre variables y modelado predictivo, alineándose
 directamente con los objetivos del curso.
 
-### Revisión bibliográfica
+## Revisión bibliográfica
 
 Sobre el tema de los problemas cardiovasculares en el ambiente de la estadística se ha escrito una gran cantidad de artículos. Entre ellos, uno de los más destacados es la obra de @Gill *Why Clinitians are natural Bayesians*; que a pesar de la edad del artículo, provee detalles de por qué el enfoque bayesianoes mejor usarse en lugar del enfoque clásico. De acuerdo a @Gill "El enfoque bayesiano no devuelve una respuesta de sí o no, sino una probabilidad condicional que refleja el contexto en el que el se hace la prueba". Por lo tanto, el enfoque bayesiano tiene la ventaja de que el contexto cambia las conclusiones que se pueden extraer para los datos. La diferencia entre estos dos se va a profundizar aún más en el marco teórico de esta investigación, pero este artículo es fundamental para comprender por qué se usa el enfoque bayesiano sobre el clásico o frecuentista.
 
@@ -343,9 +346,9 @@ Siguiendo con el tema de modelos predictivos, la obra de @Damen *Prediction mode
 
 Finalmente, para complementar la bibliografía existente, se van a utilizar varias obras para definir conceptos teóricos centrales a la investigación. Para explicar la diferencia entre inferencia bayesiana y clásica, la obra de @Pek *Frequentist and Bayesian approaches to  to data analysis: Evaluation and estimation*. Esta explica la diferencia entre ambos con simplicidad, pero también provee ejemplos que ilustran cómo diferentes conclusiones se pueden extraer de los mismos datos a partir de los dos enfoques. Para conceptos de estadística, el libro de @Degroot *Probability & Statistics* provee definiciones amplias para conceptos necesarios para explicar la inferencia bayesiana y clásica.
 
-#### Fichas de literatura
+## Fichas de literatura
 
-### UVE de Gowin
+## UVE de Gowin
 
 ## Parte de escritura
 
@@ -459,8 +462,6 @@ El **enfoque bayesiano** es completamente diferente al clásico pues
 	En lugar de la distribución de $X_d$, el enfoque bayesiano usa la distribución posterior del 	parámetro de éstos. Como se ha describido, la posterior depende  de la selección de la 	distribución previa del parámetro y la verosimilitud. Por ejemplo, si se toma datos que siguen 	una distribución normal con media $\mu$ y desviación estándar 0; y si además se escoje una 	distribución previa para $\mu$ de media 1 y desviación 0, tendrá una posterior con media .41 y 	desviación $\sqrt{2}$ (Bolstad, 2010). Usando esta posterior, se pueden calcular las 	probabilidades de que $\mu$ tome valores dentro de un intervalo de interés.
 
 La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que el enfoque bayesiano y clásico ambos crean intervalos en los que puede “vivir” el parámetro, la manera en que se construye es muy diferente. De una manera resumida, el enfoque bayesiano usa la distribución previa de los parámetros para crear un **intervalo creíble de Bayes** donde se estima que 95% de estos parámetros podrían estar ubicados ahí, mas el enfoque clásico usa estadísticos “viejos” y los varía a través de un **intervalo de confianza**, donde se estima que 95% de los valores posibles del parámetro pueden llegar a estar ahí.
-
-WIP: pq se va a usar el bayesiano
 
 ## Referencias
 
