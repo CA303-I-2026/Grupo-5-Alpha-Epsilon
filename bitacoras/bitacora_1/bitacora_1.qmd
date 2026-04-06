@@ -651,7 +651,7 @@ Como equipo, hemos aprendido que el análisis de datos no comienza con la aplica
 
 ## Registro de uso de IA
 
-### Prompt: Redacción audiencia y posicionamiento
+### Consulta: Redacción audiencia y posicionamiento
 
 *Prompt resumido:* Revisa la redacción de audiencia y posicionamiento del equipo.
 
@@ -663,31 +663,35 @@ Como equipo, hemos aprendido que el análisis de datos no comienza con la aplica
 
 **Aprendizaje:** Lenguaje más técnico y se amplió el alcance de la audiencia inicialmente concebida, reconociendo que los hallazgos pueden ser relevantes para perfiles más diversos dentro del sector asegurador.
 
-### Prompt: Revisión de preguntas de investigación y tensiones
+### Consulta: Revisión de preguntas de investigación y tensiones
 
-Herramienta: Claude 
+**Herramienta:** Claude 
 
-Prompt resumido: Revisa las 4 preguntas formuladas y la sección de tensiones.
+**Prompt resumido:** Revisa las 4 preguntas formuladas y la sección de tensiones.
 
-Respuesta de la IA resumida: Dijo que la pregunta 1 era la más débil y  propuso reformulación más sólida. En tensiones señaló que las mismas estaban mezcladas en un solo párrafo, que la expresión "muy dispersos" era vaga, y que faltaba conectar la tercera tensión con sus consecuencias analíticas. Ofreció versión reescrita.
+**Respuesta de la IA resumida:** Dijo que la pregunta 1 era la más débil y  propuso reformulación más sólida. En tensiones señaló que las mismas estaban mezcladas en un solo párrafo, que la expresión "muy dispersos" era vaga, y que faltaba conectar la tercera tensión con sus consecuencias analíticas. Ofreció versión reescrita.
 
-### Prompt: Preguntas de lógica, ética y emocional
+**Evaluación:** Solo cambió una pregunta, hubiera sido mejor que mejorara la redacción de todas la preguntas.
 
-Herramienta: ChatGPT Plus
+**Modificaciones:** Se reformula la pregunta 1 completamente, pasa de "¿qué es?" a "¿qué importancia tiene?"
 
-Prompt: “Ayúdame a elaborar argumentos y contraargumentos para preguntas de lógica, ética y emoción, de manera que pueda identificar qué tipo de respuesta corresponde a cada elemento y luego adaptarlas a un tono más natural y comprensible.”
+**Aprendizaje:** Hablar de qué son las características que influyen en las enfermedades del corazón no aporta mucho a la investigación, pues se responde con una definición y listo. Hablar de la importancia en cambio puede derivar en más conceptos y definiciones.
 
-Respuesta de la IA: La herramienta generó propuestas de argumentos y contraargumentos para cada una de las dimensiones solicitadas: lógica, ética y emocional. Estas respuestas sirvieron como guía inicial para reconocer la estructura esperada en cada tipo de argumentación y diferenciar el enfoque adecuado según el elemento analizado, dado a que inicialmente no se comprendia la naturaleza que debian tener las respuestas a dichas preguntas.
+### Consulta: Preguntas de lógica, ética y emocional
 
-Evaluación: Fue útil porque permitió contar con una base inicial de ideas y ejemplos sobre cómo desarrollar argumentos y contraargumentos según cada perspectiva. Sin embargo, algunas respuestas eran demasiado generales o sonaban poco naturales, por lo que no podían incorporarse directamente al trabajo sin una revisión previa, por lo que seguido de una comprensión de lo que representaba cada parte de las preguntas, se continuó con su elaboración completa.
+**Herramienta:** ChatGPT Plus
 
-Modificaciones: Las respuestas generadas por la IA fueron reorganizadas, reformuladas y adaptadas con un lenguaje más natural, para que reflejaran mejor la forma en que el equipo comprendía y expresaba las ideas. Además, se ajustó la redacción para que los argumentos estuvieran más alineados con el contexto del trabajo.
+**Prompt:** “Ayúdame a elaborar argumentos y contraargumentos para preguntas de lógica, ética y emoción, de manera que pueda identificar qué tipo de respuesta corresponde a cada elemento y luego adaptarlas a un tono más natural y comprensible.”
 
-Aprendizaje: Se aprendió a distinguir con mayor claridad las características de una argumentación lógica, ética y emocional, así como la forma en que los contraargumentos deben construirse según cada caso. También se comprendió la importancia de no copiar literalmente la respuesta de la IA, sino usarla como apoyo para desarrollar una redacción propia y mejor entendida.
+**Respuesta de la IA:** La herramienta generó propuestas de argumentos y contraargumentos para cada una de las dimensiones solicitadas: lógica, ética y emocional. Estas respuestas sirvieron como guía inicial para reconocer la estructura esperada en cada tipo de argumentación y diferenciar el enfoque adecuado según el elemento analizado, dado a que inicialmente no se comprendia la naturaleza que debian tener las respuestas a dichas preguntas.
 
----
+**Evaluación:** Fue útil porque permitió contar con una base inicial de ideas y ejemplos sobre cómo desarrollar argumentos y contraargumentos según cada perspectiva. Sin embargo, algunas respuestas eran demasiado generales o sonaban poco naturales, por lo que no podían incorporarse directamente al trabajo sin una revisión previa, por lo que seguido de una comprensión de lo que representaba cada parte de las preguntas, se continuó con su elaboración completa.
 
-### Consulta — Revisión de la sección 1.1.6
+**Modificaciones:** Las respuestas generadas por la IA fueron reorganizadas, reformuladas y adaptadas con un lenguaje más natural, para que reflejaran mejor la forma en que el equipo comprendía y expresaba las ideas. Además, se ajustó la redacción para que los argumentos estuvieran más alineados con el contexto del trabajo.
+
+**Aprendizaje:** Se aprendió a distinguir con mayor claridad las características de una argumentación lógica, ética y emocional, así como la forma en que los contraargumentos deben construirse según cada caso. También se comprendió la importancia de no copiar literalmente la respuesta de la IA, sino usarla como apoyo para desarrollar una redacción propia y mejor entendida.
+
+### Consulta: Revisión de la sección 1.1.6
 
 **Herramienta:** Claude (Anthropic)
 
@@ -715,9 +719,7 @@ ajustado en tono y contenido.
 su relevancia para la investigación. Cada variable debe estar justificada en función
 de la pregunta de investigación, no solo listada.
 
----
-
-### Consulta — Apoyo en el formato de la ficha de D'Agostino et al. (2013)
+### Consulta: Apoyo en el formato de la ficha de D'Agostino et al. (2013)
 
 **Herramienta:** Claude (Anthropic)
 
@@ -748,9 +750,7 @@ es el nivel analítico, ya que requiere conectar el documento leído con el proy
 propio. Esa conexión no puede construirse sin haber leído el artículo y tener claro
 el contexto del trabajo.
 
----
-
-### Consulta — Apoyo en el formato de la ficha de Damen et al. (2016)
+### Consulta: Apoyo en el formato de la ficha de Damen et al. (2016)
 
 **Herramienta:** Claude (Anthropic)
 
@@ -777,7 +777,8 @@ propia del artículo y del razonamiento sobre su utilidad para el proyecto.
 bibliográfica: no aportan un método concreto sino un panorama crítico del campo, lo
 cual es igual de valioso para contextualizar las decisiones metodológicas propias y
 reconocer honestamente las limitaciones del trabajo.
-### Prompt: Revisión Bibliográfica
+
+### Consulta: Revisión Bibliográfica
 
 Para la sección de revisión bibliográfica, se uso la inteligencia artificial de Google Gemini sólamente para ayudar a buscar referencias. El nivel de las referencias resultó siendo un rango que variaba de adecuado a muy ambicioso para el proyecto. La ventaja de esta IA es que al ser de Google, tiene una opción llamada *DeepResearch*, donde procesa la solicitud por un tiempo prolongado antes de entregar un resultado donde lista una gran cantidad de sitios donde encontró la información. Lo interesante no fue mucho el resultado, pues la interpretación se hizo sin mucha ayuda de la IA; aunque se usó para clasificar ciertos artículos para facilitar el encadenamiento de ideas, aunque algunos referenciados no fueron usados al final. Sino, los sitios que brindó muchos fueron escogidos directamente de éste. A continuación se muestra los *prompts* usados y el archivo en *Google Docs* que brindó. Es importante denotar que no todas las fuentes se sacaron de éste, sino que fue fruto de investigación propia.
 
@@ -792,13 +793,19 @@ Resultado:
 [Parte 3](figuras/IA2_2.png)
 [Parte 4](figuras/IA2_1.png)
 
-### Prompt: Consulta sobre UVE de Gowin
+### Consulta: Consulta sobre UVE de Gowin
 
-Herramienta: Claude
+**Herramienta:** Claude
 
-Prompt resumido: Qué herramientas puedo usar para construir la UVE, qué va en cada parte, qué conceptos debería poner sobre enfermedades cardiovasculares.
+**Prompt resumido:** Qué herramientas puedo usar para construir la UVE, qué va en cada parte, qué conceptos debería poner sobre enfermedades cardiovasculares.
 
-Respuesta de la IA resumida: Recomendó draw.io sobre Canva; explicó la estructura V y la diferencia entre objeto de estudio e instrumento; dio una lista de conceptos clínicos y estadísticos; recomendó usar principios y prodecimientos del marco teórico y dio formatos de cita en APA para draw.io.
+**Respuesta de la IA resumida:** Recomendó draw.io sobre Canva; explicó la estructura V y la diferencia entre objeto de estudio e instrumento; dio una lista de conceptos clínicos y estadísticos; recomendó usar principios y prodecimientos del marco teórico y dio formatos de cita en APA para draw.io.
+
+**Evaluación:** Draw.io fue una elección acertada, incluso recomendó que paletas de colores usar en la V, por lo que fue de mucha ayuda.
+
+**Modificaciones:** No cambió nada, solo recomendó herramientas a utilizar.
+
+**Aprendizaje:** Se tiene más claridad sobre la composición de la UVE, además de cómo acomodar la información del proyecto dentro de la UVE.
 
 ## Marco teórico
 
