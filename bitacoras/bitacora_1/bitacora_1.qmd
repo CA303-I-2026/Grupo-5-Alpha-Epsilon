@@ -54,7 +54,7 @@ Además, se define según la @WHF:
 ### Identificación de tensiones
 
 1. Puede que el tamaño de la muestra no sen suficiente para concluir estadísticamente acerca de la influencia de ciertas variables en la presencia de enfermedades cardíacas. 
-2.Es posible que los valores de las variables estén muy dispersos y no se note una clara distinción en cuál variable influye realmente en tener la la presencia de alguna enfermedad cardíaca. 
+2. Es posible que los valores de las variables estén muy dispersos y no se note una clara distinción en cuál variable influye realmente en tener la la presencia de alguna enfermedad cardíaca. 
 3. Según la WHF, son variables relevantes los antecedentes familiares y el origen étnico al momento de evaluar la posibilidad de tener problemas cardíacos, la ausencia de estas variables en el *dataset* limita el alcance explicativo del análisis. 
 
 ### Reformulación de la idea en forma de pregunta
@@ -70,7 +70,7 @@ Se descarta la pregunta 1, pues la importancia es muy bien conocida, pues al con
 ***Pregunta 1**
 ¿Qué importancia tiene conocer la influencia de ciertas características de personas en enfermedades cardíacas?
 
-### Contraargumentos
+#### Contraargumentos
 
 **Lógica:**  
 Conocer la importancia de estas características no necesariamente implica poder predecir o prevenir la enfermedad, ya que pueden existir variables ocultas o factores no medidos en el *dataset*.
@@ -681,8 +681,6 @@ Resultado:
 [Parte 4](figuras/IA2_1.png)
 
 
-## Log de contribuciones
-
 ## Marco teórico
 
 Para esta investigación se van a utilizar conceptos fundamentales de la estadística y probabilidad que influyen el proceso en los factores de riesgo en ciertas demografías. A continuación se va a elaborar no solamente los enfoques probabilísticos y estadísticos para la investigación sino también otros conceptos no completamente relacionados a esos. El presente reporte articula un marco teórico exhaustivo que responde a la necesidad de identificar patrones, jerarquizar influencias y modelar la probabilidad de eventos adversos, integrando la estadística clásica con las fronteras del aprendizaje automático y la inferencia causal.
@@ -716,6 +714,15 @@ El **enfoque bayesiano** es completamente diferente al clásico pues
 	En lugar de la distribución de $X_d$, el enfoque bayesiano usa la distribución posterior del 	parámetro de éstos. Como se ha descrito, la posterior depende  de la selección de la 	distribución previa del parámetro y la verosimilitud. Por ejemplo, si se toma datos que siguen 	una distribución normal con media $\mu$ y desviación estándar 0; y si además se escoge una 	distribución previa para $\mu$ de media 1 y desviación 0, tendrá una posterior con media .41 y 	desviación $\sqrt{2}$ (Bolstad, 2010). Usando esta posterior, se pueden calcular las 	probabilidades de que $\mu$ tome valores dentro de un intervalo de interés.
 
 La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que el enfoque bayesiano y clásico ambos crean intervalos en los que puede “vivir” el parámetro, la manera en que se construye es muy diferente. De una manera resumida, el enfoque bayesiano usa la distribución previa de los parámetros para crear un **intervalo creíble de Bayes** donde se estima que 95% de estos parámetros podrían estar ubicados ahí, mas el enfoque clásico usa estadísticos “viejos” y los varía a través de un **intervalo de confianza**, donde se estima que 95% de los valores posibles del parámetro pueden llegar a estar ahí.
+
+## Log de contribuciones
+
+| Integrante | Sección / Tarea realizada |
+|:-----------|:--------------------------|
+| César Salazar | Definición de la idea, Conceptualización, Identificación de tensiones, Cuatro preguntas y párrafo de descarte, Audiencia del proyecto, Posicionamiento del equipo, UVE de Gowin |
+| Gerardo Montero | Argumentación preguntas 1, 2 y 3, Rastro de decisiones, Arco narrativo, Diario de aprendizaje |
+| Óscar Espinoza | Argumentación pregunta 4, Descripción del *dataset*, 2 fichas de literatura |
+| Gabriel Robles | Búsqueda bibliográfica, Organización en `.bib`, Identificación de teorías/principios y metodologías, Marco teórico, 1 ficha de literatura |
 
 ## Referencias
 
