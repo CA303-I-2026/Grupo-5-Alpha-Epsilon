@@ -413,8 +413,21 @@ Como equipo, hemos aprendido que el análisis de datos no comienza con la aplica
   - La pregunta seleccionada permite un análisis directo con los datos disponibles, facilitando la identificación de variables relevantes mediante métodos estadísticos, además de ser la que nos sonó mas acertada.
 
 ## Registro de uso de AI
+### Preguntas de lógica, ética y emocional
 
-Para la argumentacion de logica, etica y emocional, se usó IA de forma que se le daban las preguntas y se le pedia que hiciera argumentos y contraargumentos de las debidas partes, para de esta manera comprender que tipo de respuestas son las adecuadas de acuerdo a cada elemento, despues, dada la respuesta de la IA, se acomodan sus respuestas para que tenga un tono mas natural y ser capaces de comprenderlo en nuestras palabras.
+Herramienta: ChatGPT Plus
+
+Prompt: “Ayúdame a elaborar argumentos y contraargumentos para preguntas de lógica, ética y emoción, de manera que pueda identificar qué tipo de respuesta corresponde a cada elemento y luego adaptarlas a un tono más natural y comprensible.”
+
+Respuesta de la IA: La herramienta generó propuestas de argumentos y contraargumentos para cada una de las dimensiones solicitadas: lógica, ética y emocional. Estas respuestas sirvieron como guía inicial para reconocer la estructura esperada en cada tipo de argumentación y diferenciar el enfoque adecuado según el elemento analizado, dado a que inicialmente no se comprendia la naturaleza que debian tener las respuestas a dichas preguntas.
+
+Evaluación: Fue útil porque permitió contar con una base inicial de ideas y ejemplos sobre cómo desarrollar argumentos y contraargumentos según cada perspectiva. Sin embargo, algunas respuestas eran demasiado generales o sonaban poco naturales, por lo que no podían incorporarse directamente al trabajo sin una revisión previa, por lo que seguido de una comprensión de lo que representaba cada parte de las preguntas, se continuó con su elaboración completa.
+
+Modificaciones: Las respuestas generadas por la IA fueron reorganizadas, reformuladas y adaptadas con un lenguaje más natural, para que reflejaran mejor la forma en que el equipo comprendía y expresaba las ideas. Además, se ajustó la redacción para que los argumentos estuvieran más alineados con el contexto del trabajo.
+
+Aprendizaje: Se aprendió a distinguir con mayor claridad las características de una argumentación lógica, ética y emocional, así como la forma en que los contraargumentos deben construirse según cada caso. También se comprendió la importancia de no copiar literalmente la respuesta de la IA, sino usarla como apoyo para desarrollar una redacción propia y mejor entendida.
+
+### Bibliográfica
 
 Para la sección de revisión bibliográfica, se uso la inteligencia artificial de Google Gemini sólamente para ayudar a buscar referencias. El nivel de las referencias resultó siendo un rango que variaba de adecuado a muy ambicioso para el proyecto. La ventaja de esta IA es que al ser de Google, tiene una opción llamada *DeepResearch*, donde procesa la solicitud por un tiempo prolongado antes de entregar un resultado donde lista una gran cantidad de sitios donde encontró la información. Lo interesante no fue mucho el resultado, pues la interpretación se hizo sin mucha ayuda de la IA; aunque se usó para clasificar ciertos artículos para facilitar el encadenamiento de ideas, aunque algunos referenciados no fueron usados al final. Sino, los sitios que brindó muchos fueron escogidos directamente de éste. A continuación se muestra los *prompts* usados y el archivo en *Google Docs* que brindó. Es importante denotar que no todas las fuentes se sacaron de éste, sino que fue fruto de investigación propia.
 
