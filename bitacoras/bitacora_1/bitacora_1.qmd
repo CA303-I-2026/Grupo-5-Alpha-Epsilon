@@ -685,6 +685,98 @@ Modificaciones: Las respuestas generadas por la IA fueron reorganizadas, reformu
 
 Aprendizaje: Se aprendió a distinguir con mayor claridad las características de una argumentación lógica, ética y emocional, así como la forma en que los contraargumentos deben construirse según cada caso. También se comprendió la importancia de no copiar literalmente la respuesta de la IA, sino usarla como apoyo para desarrollar una redacción propia y mejor entendida.
 
+---
+
+### Consulta — Revisión de la sección 1.1.6
+
+**Herramienta:** Claude (Anthropic)
+
+**Prompt:** "según estas indicaciones y esta descripción del dataset, dime si la
+sección 1.1.6 está cubierta de manera correcta"
+
+**Respuesta de la IA:** Claude revisó la sección 1.1.6 que ya había sido redactada
+por el equipo, e identificó qué campos cumplían con lo solicitado y cuáles necesitaban
+refuerzo. Señaló que el contexto temporal y espacial no discutía las implicaciones
+concretas de esa limitación para la pregunta de investigación, y que la conexión
+entre cada variable y la pregunta de investigación no estaba explícita.
+
+**Evaluación:** Fue útil para obtener una revisión externa del texto ya redactado y
+detectar vacíos que desde adentro eran difíciles de ver. Sin embargo, algunas
+sugerencias eran demasiado generales y no consideraban el tono ni el enfoque que el
+equipo ya había establecido, por lo que no podían incorporarse directamente.
+
+**Modificaciones:** La retroalimentación de Claude se usó como lista de verificación.
+Las secciones señaladas como incompletas fueron reescritas por el equipo, usando las
+observaciones como guía pero manteniendo la redacción y el criterio propio. Claude
+generó una versión de referencia que sirvió de borrador, pero el texto final fue
+ajustado en tono y contenido.
+
+**Aprendizaje:** Se comprendió que describir variables no es lo mismo que argumentar
+su relevancia para la investigación. Cada variable debe estar justificada en función
+de la pregunta de investigación, no solo listada.
+
+---
+
+### Consulta — Apoyo en el formato de la ficha de D'Agostino et al. (2013)
+
+**Herramienta:** Claude (Anthropic)
+
+**Prompt:** "ayúdame a hacer la ficha de literatura de esta referencia, ya tengo
+una estructura base pero necesito completar los campos del nivel descriptivo según
+las indicaciones del profesor"
+
+**Respuesta de la IA:** Claude complementó la ficha que el equipo había comenzado
+sobre D'Agostino et al. (2013), apoyando en la redacción de los campos del nivel
+descriptivo que estaban incompletos, como el resumen en una oración, el argumento
+central y los problemas con el argumento. También sugirió ajustes al campo de
+clasificación para que cumpliera con el formato exacto solicitado por el profesor.
+
+**Evaluación:** Fue útil para estructurar los campos descriptivos de forma ordenada
+y verificar que el formato correspondía exactamente a lo pedido. Sin embargo, el
+resumen en una oración generado excedía el límite de palabras establecido por el
+profesor y el argumento central usaba un lenguaje más técnico del apropiado para
+el nivel del curso.
+
+**Modificaciones:** El resumen en una oración fue reescrito por el equipo para
+ajustarse al límite de 10 a 15 palabras. El argumento central fue simplificado en
+su redacción. Los campos del nivel analítico fueron redactados completamente por el
+equipo, ya que requieren conectar el artículo con el proyecto propio y eso exige
+un juicio que solo el equipo puede ejercer.
+
+**Aprendizaje:** Se aprendió que la parte más importante de una ficha de literatura
+es el nivel analítico, ya que requiere conectar el documento leído con el proyecto
+propio. Esa conexión no puede construirse sin haber leído el artículo y tener claro
+el contexto del trabajo.
+
+---
+
+### Consulta — Apoyo en el formato de la ficha de Damen et al. (2016)
+
+**Herramienta:** Claude (Anthropic)
+
+**Prompt:** "completa los campos descriptivos que me faltan en la ficha de Damen
+et al., que ya está en mi archivo de bibliografía"
+
+**Respuesta de la IA:** Claude completó los campos descriptivos faltantes de la
+ficha de Damen et al. (2016) que el equipo tenía iniciada, desarrollando
+principalmente el resumen en una oración, el argumento central y los problemas con
+el argumento, a partir de la información extraída del artículo.
+
+**Evaluación:** Fue útil para agilizar la redacción de los campos descriptivos y
+asegurarse de que la información extraída del artículo era correcta. El borrador
+capturó bien las ideas principales, aunque el lenguaje era más técnico de lo
+necesario y algunos detalles no eran precisos respecto al alcance real del estudio.
+
+**Modificaciones:** Los campos generados fueron simplificados en su redacción para
+reflejar el nivel de comprensión del equipo. Los campos del nivel analítico,
+incluyendo la conexión con el proyecto, el contraste entre fuentes y el resumen
+argumentativo, fueron redactados completamente por el equipo a partir de la lectura
+propia del artículo y del razonamiento sobre su utilidad para el proyecto.
+
+**Aprendizaje:** Se comprendió el valor de las revisiones sistemáticas como fuente
+bibliográfica: no aportan un método concreto sino un panorama crítico del campo, lo
+cual es igual de valioso para contextualizar las decisiones metodológicas propias y
+reconocer honestamente las limitaciones del trabajo.
 ### Prompt: Revisión Bibliográfica
 
 Para la sección de revisión bibliográfica, se uso la inteligencia artificial de Google Gemini sólamente para ayudar a buscar referencias. El nivel de las referencias resultó siendo un rango que variaba de adecuado a muy ambicioso para el proyecto. La ventaja de esta IA es que al ser de Google, tiene una opción llamada *DeepResearch*, donde procesa la solicitud por un tiempo prolongado antes de entregar un resultado donde lista una gran cantidad de sitios donde encontró la información. Lo interesante no fue mucho el resultado, pues la interpretación se hizo sin mucha ayuda de la IA; aunque se usó para clasificar ciertos artículos para facilitar el encadenamiento de ideas, aunque algunos referenciados no fueron usados al final. Sino, los sitios que brindó muchos fueron escogidos directamente de éste. A continuación se muestra los *prompts* usados y el archivo en *Google Docs* que brindó. Es importante denotar que no todas las fuentes se sacaron de éste, sino que fue fruto de investigación propia.
