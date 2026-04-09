@@ -542,9 +542,16 @@ Como equipo, hemos aprendido que el análisis de datos no comienza con la aplica
 
 Para la sección de revisión bibliográfica, se uso la inteligencia artificial de Google Gemini sólamente para ayudar a buscar referencias. El nivel de las referencias resultó siendo un rango que variaba de adecuado a muy ambicioso para el proyecto. La ventaja de esta IA es que al ser de Google, tiene una opción llamada *DeepResearch*, donde procesa la solicitud por un tiempo prolongado antes de entregar un resultado donde lista una gran cantidad de sitios donde encontró la información. Lo interesante no fue mucho el resultado, pues la interpretación se hizo sin mucha ayuda de la IA; aunque se usó para clasificar ciertos artículos para facilitar el encadenamiento de ideas, aunque algunos referenciados no fueron usados al final. Sino, los sitios que brindó muchos fueron escogidos directamente de éste. A continuación se muestra los *prompts* usados y el archivo en *Google Docs* que brindó. Es importante denotar que no todas las fuentes se sacaron de éste, sino que fue fruto de investigación propia.
 
-[*Prompt 1: Adquisición de sitios*](figuras/IA1.png) Resultado: https://docs.google.com/document/d/14ii_ogSwLz_tq7yO52Qays3HO7yRcLUx_kn5kYjsWaw/edit?usp=sharing
+![Prompt 1: Adquisición de sitios](figuras/IA1.png) 
+Resultado:
+[Documento](https://docs.google.com/document/d/14ii_ogSwLz_tq7yO52Qays3HO7yRcLUx_kn5kYjsWaw/edit?usp=sharing)
 
-[*Prompt 2.1: Encadenamiento de ideas*](figuras/IA2_5.png) Resultado: [Parte 1](figuras/IA2_4.png) [Parte 2](figuras/IA2_3.png) [Parte 3](figuras/IA2_2.png) [Parte 4](figuras/IA2_1.png)
+![*Prompt 2.1: Encadenamiento de ideas*](figuras/IA2_5.png)
+Resultado:
+![Parte 1](figuras/IA2_4.png) 
+![Parte 2](figuras/IA2_3.png) 
+![Parte 3](figuras/IA2_2.png) 
+![Parte 4](figuras/IA2_1.png)
 
 ### Consulta: Consulta sobre UVE de Gowin
 
@@ -566,18 +573,20 @@ Para esta investigación se van a utilizar conceptos fundamentales de la estadí
 
 En primer lugar, se deben introducir ciertas definiciones básicas de estadística antes de profundizar los enfoques que se van abordar.
 
-De acuerdo a @Degroot , Suponga que la cantidad observable de variables aleatorias de interés son $X₁,\cdots,X_n$. Sea r una función arbitraria con valores reales. Entonces la variable aleatoria $T = r(X_1 ,\cdots, X_n )$ es un **estadístico**. Tres ejemplos de estadísticos son la media aritmética $\bar{Xn}$, el máximo $Yn$ de los valores $X_1,\cdots,X_n$ y la función $r(X_1 ,\cdots, X_n )$, que tiene el valor constante de 3 para todos los valores de $X_1 ,\cdots, X_n$. (p. 382) Un estadístico entonces es una función que conjuga una cantidad definida de variables aleatorias y devuelve un número real. Para efectos de esta investigación, es un concepto integral para las siguientes definiciones ya que se utiliza para inferir propiedades de una población.
+De acuerdo a @Degroot , Suponga que la cantidad observable de variables aleatorias de interés son $X_1,\dots,X_n$. Sea r una función arbitraria con valores reales. Entonces la variable aleatoria $T = r(X_1 ,\dots, X_n )$ es un **estadístico**. Tres ejemplos de estadísticos son la media aritmética $\bar{Xn}$, el máximo $Yn$ de los valores $X_1,\dots,X_n$ y la función $r(X_1 ,\dots, X_n )$, que tiene el valor constante de 3 para todos los valores de $X_1 ,\dots, X_n$. (p. 382) 
 
-De la misma obra, se van a definir dos conceptos adicionales a éstos. La **distribución previa** por ejemplo, Suponga que uno tiene un modelo estadístico con parámetro $\theta$. Si uno trata $\theta$ como aleatorio entonces la distribución que le da a $\theta$ antes de observar las otras variables aleatorias de interés. Eso se llama la distribución previa. Si el espacio donde está $\theta$ es contable, entonces la distribución previa es discreta y se refiere como *p.f. previa*, si $\theta$ es continua, se refiere como *p.d.f previa* pues sería continua la distribución previa. Se va a denotar $\xi(\theta)$ como ambas p.f y p.d.f en función de solo theta. (p. 385) La distribución previa es una función de una variable $\theta$, donde theta es el parámetro de la distribución de una variable aleatoria de interés, que a priori se sabe su distribución. Nota: de ahora en adelante, se va a referir a $\xi(\theta)$ como $\pi(\theta)$.
+Un estadístico entonces es una función que conjuga una cantidad definida de variables aleatorias y devuelve un número real. Para efectos de esta investigación, es un concepto integral para las siguientes definiciones ya que se utiliza para inferir propiedades de una población.
 
-Después sigue la **distribución posterior** que se demuestra como La distribución condicional de $\theta$ dado $x_1,…,x_n$. La p.f. o p.d.f. de $\theta$ dado $X = x_1,X_2 = x_2…, X_n = x_n $ se llama la p.f. posterior o p.d.f. posterior y se denota $\xi(\theta|x1,..,xn)$. (…) Si se supone que este parámetro $\theta$ es desconocido y la p.f o p.d.f previa de theta es $\xi(\theta)$. Entonces la p.d.f o p.f. posterior de $\theta$ es 
+De la misma obra, se van a definir dos conceptos adicionales a éstos. La **distribución previa** por ejemplo, Suponga que uno tiene un modelo estadístico con parámetro $\theta$. Si uno trata $\theta$ como aleatorio entonces la distribución que le da a $\theta$ antes de observar las otras variables aleatorias de interés. Eso se llama la distribución previa. Si el espacio donde está $\theta$ es contable, entonces la distribución previa es discreta y se refiere como **p.f. previa**, si $\theta$ es continua, se refiere como **p.d.f previa** pues sería continua la distribución previa. Se va a denotar $\xi(\theta)$ como ambas p.f y p.d.f en función de solo theta. (p. 385) La distribución previa es una función de una variable $\theta$, donde theta es el parámetro de la distribución de una variable aleatoria de interés, que a priori se sabe su distribución. Nota: de ahora en adelante, se va a referir a $\xi(\theta)$ como $\pi(\theta)$.
+
+Después sigue la **distribución posterior** que se demuestra como La distribución condicional de $\theta$ dado $x_1,\dots,x_n$. La p.f. o p.d.f. de $\theta$ dado $X = x_1,X_2 = x_2 \dots, X_n = x_n$ se llama la p.f. posterior o p.d.f. posterior y se denota $\xi(\theta|x_1,\dots,x_n)$. (…) Si se supone que este parámetro $\theta$ es desconocido y la p.f o p.d.f previa de theta es $\xi(\theta)$. Entonces la p.d.f o p.f. posterior de $\theta$ es 
+
 \begin{align*}
-\xi(\theta \mid \mathbf{x}) &= \frac{f(x_1 \mid \theta) \cdots f(x_n \mid \theta)
-\xi(\theta)}{g_n(\theta)}; \quad \theta \in \Omega \\
-\text{donde } g_n &= \idotsint_{\Omega_{X_1}, \cdots, \Omega_{X_n}} f(x_1 \mid \theta)
-\cdots f(x_n \mid \theta) \xi(\theta)
-\end{align*}
-(p. 387-388) Luego en la página 388, el denominador de la posterior se define como la **p.f. o p.d.f junta marginal de** $\mathbf{X_1, \cdots, X_n}$, y se denota por $g_n(x)$, El numerador de la posterior se define como la **verosimilitud** y se denota por $\mathcal{L}(\theta | \mathbb{x})$. Similarmente a la previa, la distribución posterior ($\xi (\theta | \mathbf{x})$)se va a denotar de ahora en adelante como $\pi(\theta | \mathbf{x})$
+\pi(\theta \mid \mathbf{x}) &= \frac{f(x_1 \mid \theta) \cdots f(x_n \mid \theta) \pi(\theta)}{g_n(\mathbf{x})}; \quad \theta \in \Omega \\
+\text{donde } g_n(\mathbf{x}) &= \int_{\Omega} f(x_1 \mid \theta) \cdots f(x_n \mid \theta) \pi(\theta) \, d\theta
+\end{align*}(p. 387-388) 
+
+Luego en la página 388, el denominador de la posterior se define como la **p.f. o p.d.f junta marginal de** $\mathbf{X_1, \dots , X_n}$, y se denota por $g_n(x)$, El numerador de la posterior se define como la **verosimilitud** y se denota por $\mathcal{L}(\theta | \mathbb{x})$. Similarmente a la previa, la distribución posterior ($\xi (\theta | \mathbf{x})$)se va a denotar de ahora en adelante como $\pi(\theta | \mathbf{x})$
 
 Ya con varios conceptos fundamentales definidos, hay dos enfoques estadísticos que se pueden usar para la investigación. Esos son el **Bayesiano** o el **frecuentista o clásico**. Se van a definir ambos - sin embargo es indudable que se va a usar el enfoque bayesiano por razones que se van a especificar a lo largo de esta sección.
 
