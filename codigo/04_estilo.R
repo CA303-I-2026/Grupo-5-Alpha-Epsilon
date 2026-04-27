@@ -2,11 +2,11 @@
 # Para utilizar usar source("codigo/04_estilo.R")
 
 #si no tiene los paquetes quitar el comentario linea 5
-install.packages(c("cowplot", "ggplot2", "showtexts"))
+#install.packages(c("cowplot", "ggplot2", "showtext"))
 
 library(ggplot2)
 library(cowplot)
-library(showtexts)
+library(showtext)
 
 colores_riesgocardio <- c(
   "Saludable" = "#2E86AB",  
@@ -15,6 +15,8 @@ colores_riesgocardio <- c(
 )
 
 
+# Funcion que cambia la tipografia usando cowplot. 
+# Se pone despues de un + a los graficos
 set_tipografia <- function(base_size = 12, base_family = "serif") {
   theme_cowplot(font_size = base_size, font_family = base_family) %+replace%
     theme(
