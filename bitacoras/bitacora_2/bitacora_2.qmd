@@ -1,0 +1,17 @@
+---
+title: "Bitácora #1"
+subtitle: "CA-0303 Estadística Actuarial I"
+author: "Oscar Espinoza, Gerardo Montero, Gabriel Robles, César Salazar"
+date: today
+lang: es
+format:
+  html:
+    theme: cerulean
+    embed-resources: true
+  pdf:
+    toc: true
+bibliography: ../../referencias/referencias.bib
+csl: ../../referencias/apa.csl
+number-sections: true
+---
+
