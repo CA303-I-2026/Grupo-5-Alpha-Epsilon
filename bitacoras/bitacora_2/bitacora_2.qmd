@@ -15,3 +15,65 @@ csl: ../../referencias/apa.csl
 number-sections: true
 ---
 
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# Bitácora #2 {.unnumbered .unlisted}
+# Parte de planificacion
+## 1.1. Ordenamiento de la literatura
+ Clasificación | Justificación breve | Título | Año | Autor(es) |
+|--------------|-------------------|--------|-----|----------|
+| Estado de arte | Explicación del enfoque bayesiano en el diagnóstico clínico | Why clinicians are natural Bayesians | 2005 | Gill et al. |
+| Metodológica | Desarrollo de modelos multivariables para predicción de riesgo cardiovascular | Cardiovascular Disease Risk Assessment: Insights from Framingham | 2013 | D’Agostino et al. |
+| Temática | Revisión del estado del arte en modelos de predicción cardiovascular | Prediction models for cardiovascular disease risk in the general population | 2016 | Damen et al. |
+
+# Enlaces de literatura
+El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando distintos enfoques que buscan no solo describir el fenómeno, sino también estimar y predecir el riesgo asociado a diversas características individuales y colectivas. En este contexto, la literatura revisada permite identificar tres grandes líneas de análisis: el enfoque teórico basado en la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado del estudio en términos metodológicos.
+
+En primer lugar, el trabajo de Gill et al. (2005) introduce una perspectiva fundamental sobre el uso del razonamiento probabilístico en el ámbito clínico, proponiendo que los médicos, incluso sin formalizarlo matemáticamente, operan bajo principios bayesianos al momento de diagnosticar pacientes.
+
+Resumen: Gill et al. argumentan que el proceso diagnóstico no debe entenderse como una decisión binaria, sino como una actualización continua de probabilidades, donde la información previa (probabilidad pre-test) se combina con nueva evidencia clínica para ajustar la probabilidad de que un paciente presente una enfermedad. Este enfoque resalta la importancia del contexto y de la incertidumbre en la toma de decisiones médicas.
+
+Contraste: Este planteamiento contrasta de manera clara con enfoques más estructurados y formalizados como el desarrollado por D’Agostino et al. (2013), quienes proponen modelos estadísticos específicos —basados en regresión de Cox— para estimar el riesgo cardiovascular a partir de un conjunto fijo de variables. Mientras que Gill et al. enfatizan la flexibilidad del razonamiento clínico y la adaptación continua a nueva información, el modelo de Framingham se basa en una estructura definida, donde las variables y sus coeficientes están previamente determinados y el resultado es una probabilidad cuantificada dentro de un marco rígido.
+
+Contribución propia: Esta diferencia no es menor, ya que plantea una tensión central en el análisis del riesgo cardiovascular: la necesidad de balancear flexibilidad e interpretabilidad. El enfoque bayesiano permite incorporar incertidumbre y adaptar conclusiones a contextos específicos, lo cual es especialmente útil cuando los datos son incompletos o heterogéneos. Sin embargo, los modelos estructurados ofrecen ventajas en términos de replicabilidad y validación, mas enfocados en el análisis de datos. Para el proyecto, esta dualidad sugiere que no basta con identificar relaciones entre variables, sino que es necesario interpretar dichas relaciones dentro de un marco probabilístico que reconozca la incertidumbre inherente a los datos observacionales. A partir de esta base conceptual, el modelo de Framingham desarrollado por D’Agostino et al. (2013) representa uno de los avances más relevantes en la cuantificación del riesgo cardiovascular mediante herramientas estadísticas.
+
+Resumen: D’Agostino et al. desarrollan funciones de riesgo multivariables que integran factores como edad, presión arterial sistólica, colesterol, tabaquismo y diabetes en un modelo de Cox, permitiendo estimar la probabilidad de desarrollar enfermedad cardiovascular en un horizonte de diez años. Este modelo ha demostrado una alta capacidad de discriminación y calibración, lo que lo convierte en una referencia dentro del campo de una forma más moderna.
+
+Contraste: No obstante, este tipo de modelos también presenta limitaciones que son evidenciadas por la revisión sistemática de Damen et al. (2016). Mientras el modelo de Framingham se presenta como un caso exitoso de validación y aplicación, Damen et al. muestran que la mayoría de los modelos predictivos desarrollados en el campo no cumplen con estándares metodológicos adecuados, especialmente en lo que respecta a validación externa. Esto implica que, aunque un modelo pueda tener buen desempeño en su muestra original, su aplicabilidad en otras poblaciones es incierta.
+
+Contribución propia: Este contraste es particularmente relevante para nuestro proyecto, dado que el dataset utilizado no cuenta con información sobre el origen geográfico ni permite realizar una validación externa rigurosa. En consecuencia, cualquier modelo o análisis que se derive de estos datos debe interpretarse con cautela, reconociendo que los resultados reflejan asociaciones dentro de una muestra específica y no necesariamente patrones generalizables. Esto refuerza la importancia de mantener un enfoque crítico al interpretar los resultados y de priorizar la claridad en la comunicación de las limitaciones del análisis, además de ayudarnos a tener un criterio propio en dicho análisis. Además de la validez de los modelos, otro aspecto importante es la selección de variables relevantes para la predicción del riesgo cardiovascular. En este sentido, tanto D’Agostino et al. como Damen et al. coinciden en la importancia de variables como la edad, la presión arterial, el colesterol y el tabaquismo.
+
+Resumen: La revisión de Damen et al. identifica que estos factores aparecen de manera consistente en la mayoría de los modelos analizados, lo que sugiere que constituyen los principales predictores del riesgo cardiovascular en la literatura existente.
+
+Contraste: Sin embargo, esta coincidencia también plantea una limitación en términos de innovación metodológica. Mientras los modelos tradicionales se enfocan en un conjunto relativamente estable de variables, el enfoque bayesiano propuesto por Gill et al. abre la posibilidad de incorporar información adicional, como el contexto clínico o la experiencia previa, que no siempre está disponible en los datos estructurados. Esto evidencia una diferencia entre el conocimiento teórico y la información observable en los datasets.
+
+Contribución propia: En el contexto de nuestro proyecto, esta situación es evidente, ya que el dataset incluye variables clínicas y de comportamiento, pero carece de información más profunda como antecedentes familiares o factores genéticos. Por lo tanto, el análisis debe reconocer que, aunque se pueden identificar variables relevantes, existe una parte del riesgo cardiovascular que no puede ser capturada únicamente con los datos disponibles. Esto refuerza la idea de que los resultados deben interpretarse como aproximaciones y no como explicaciones completas del fenómeno.
+
+Por otro lado, la revisión sistemática de Damen et al. (2016) aporta una perspectiva crítica sobre el estado del campo, señalando que existe una proliferación de modelos predictivos que no siempre cumplen con estándares metodológicos adecuados.
+
+Resumen: Los autores concluyen que muchos modelos presentan deficiencias como tamaños de muestra insuficientes, falta de validación externa y reporte incompleto de resultados, lo que limita su utilidad práctica.
+
+Contraste: Este hallazgo contrasta con la percepción de que el desarrollo de nuevos modelos necesariamente implica avances en la predicción del riesgo cardiovascular. Mientras que el modelo de Framingham representa un ejemplo sólido y validado, la revisión muestra que este tipo de modelos bien construidos son la excepción más que la regla.
+
+Contribución propia: Esta observación tiene implicaciones directas para el enfoque del proyecto. En lugar de intentar desarrollar un modelo predictivo complejo sin las herramientas adecuadas para validarlo, se opta por un análisis descriptivo que permita explorar las relaciones entre variables de manera clara y fundamentada. Esta decisión no solo está alineada con los objetivos del curso, sino que también evita caer en las deficiencias metodológicas señaladas en la literatura.
+
+Finalmente, al integrar las distintas perspectivas analizadas, se observa que el estudio del riesgo cardiovascular requiere tanto de un marco conceptual sólido como de herramientas estadísticas adecuadas y una evaluación crítica de sus limitaciones.
+
+Resumen: La literatura revisada muestra que el riesgo cardiovascular es un fenómeno multifactorial que puede ser abordado desde distintos enfoques, cada uno con sus propias ventajas y limitaciones.
+
+Contraste: Mientras el enfoque bayesiano ofrece una interpretación flexible y adaptativa del riesgo, los modelos estadísticos proporcionan una estructura formal para su cuantificación, y las revisiones sistemáticas permiten evaluar críticamente el estado del campo.
+
+Contribución propia: En este contexto, el proyecto se posiciona como un esfuerzo por integrar estas perspectivas a través de un análisis descriptivo que identifique variables relevantes y explore sus relaciones, reconociendo al mismo tiempo las limitaciones inherentes a los datos observacionales. De esta manera, se busca aportar evidencia que, aunque no definitiva, contribuya a una mejor comprensión de los factores asociados a las enfermedades cardiovasculares.
+
+## Registro de uso de IA
+
+### Consulta: tabla 1.1 
+
+*Prompt resumido:* Ayudame a poner una tabla en un qmd con las columnas (nombres de columnas) y la informacion de cieras fichas de literatura
+*Respuesta de la IA resumido:* Dio la tabla puesta en la seccion 1.1, con algunos cambios no solicitados
+**Evaluación:** Ayuda a dar una idea clara de como es el formato para poner tablas en documentos estilo qmd, sin romper el orden del documento.
+**Modificaciones:** Ajustes de palabras tales como Estado de arte, ya que lo cambió sin la solicitud.
+**Aprendizaje:** A realizar dichas tablas, ya que al inicio se realizó de forma erronea.
