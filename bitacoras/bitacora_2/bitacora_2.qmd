@@ -29,7 +29,7 @@ number-sections: true
 | Metodológica | Desarrollo de modelos multivariables para predicción de riesgo cardiovascular | Cardiovascular Disease Risk Assessment: Insights from Framingham | 2013 | D’Agostino et al. |
 | Temática | Revisión del estado del arte en modelos de predicción cardiovascular | Prediction models for cardiovascular disease risk in the general population | 2016 | Damen et al. |
 
-# Enlaces de literatura
+# 2. Enlaces de literatura
 El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando distintos enfoques que buscan no solo describir el fenómeno, sino también estimar y predecir el riesgo asociado a diversas características individuales y colectivas. En este contexto, la literatura revisada permite identificar tres grandes líneas de análisis: el enfoque teórico basado en la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado del estudio en términos metodológicos.
 
 En primer lugar, el trabajo de Gill et al. (2005) introduce una perspectiva fundamental sobre el uso del razonamiento probabilístico en el ámbito clínico, proponiendo que los médicos, incluso sin formalizarlo matemáticamente, operan bajo principios bayesianos al momento de diagnosticar pacientes.
@@ -50,17 +50,13 @@ Resumen: La revisión de Damen et al. identifica que estos factores aparecen de 
 
 Contraste: Sin embargo, esta coincidencia también plantea una limitación en términos de innovación metodológica. Mientras los modelos tradicionales se enfocan en un conjunto relativamente estable de variables, el enfoque bayesiano propuesto por Gill et al. abre la posibilidad de incorporar información adicional, como el contexto clínico o la experiencia previa, que no siempre está disponible en los datos estructurados. Esto evidencia una diferencia entre el conocimiento teórico y la información observable en los datasets.
 
-Contribución propia: En el contexto de nuestro proyecto, esta situación es evidente, ya que el dataset incluye variables clínicas y de comportamiento, pero carece de información más profunda como antecedentes familiares o factores genéticos. Por lo tanto, el análisis debe reconocer que, aunque se pueden identificar variables relevantes, existe una parte del riesgo cardiovascular que no puede ser capturada únicamente con los datos disponibles. Esto refuerza la idea de que los resultados deben interpretarse como aproximaciones y no como explicaciones completas del fenómeno.
-
-Por otro lado, la revisión sistemática de Damen et al. (2016) aporta una perspectiva crítica sobre el estado del campo, señalando que existe una proliferación de modelos predictivos que no siempre cumplen con estándares metodológicos adecuados.
+Contribución propia: En el contexto de nuestro proyecto, esta situación es evidente, ya que el dataset incluye variables clínicas y de comportamiento, pero carece de información más profunda como antecedentes familiares o factores genéticos. Por lo tanto, el análisis debe reconocer que, aunque se pueden identificar variables relevantes, existe una parte del riesgo cardiovascular que no puede ser capturada únicamente con los datos disponibles. Esto refuerza la idea de que los resultados deben interpretarse como aproximaciones y no como explicaciones completas del fenómeno. Por otro lado, la revisión sistemática de Damen et al. (2016) aporta una perspectiva crítica sobre el estado del campo, señalando que existe una proliferación de modelos predictivos que no siempre cumplen con estándares metodológicos adecuados.
 
 Resumen: Los autores concluyen que muchos modelos presentan deficiencias como tamaños de muestra insuficientes, falta de validación externa y reporte incompleto de resultados, lo que limita su utilidad práctica.
 
 Contraste: Este hallazgo contrasta con la percepción de que el desarrollo de nuevos modelos necesariamente implica avances en la predicción del riesgo cardiovascular. Mientras que el modelo de Framingham representa un ejemplo sólido y validado, la revisión muestra que este tipo de modelos bien construidos son la excepción más que la regla.
 
-Contribución propia: Esta observación tiene implicaciones directas para el enfoque del proyecto. En lugar de intentar desarrollar un modelo predictivo complejo sin las herramientas adecuadas para validarlo, se opta por un análisis descriptivo que permita explorar las relaciones entre variables de manera clara y fundamentada. Esta decisión no solo está alineada con los objetivos del curso, sino que también evita caer en las deficiencias metodológicas señaladas en la literatura.
-
-Finalmente, al integrar las distintas perspectivas analizadas, se observa que el estudio del riesgo cardiovascular requiere tanto de un marco conceptual sólido como de herramientas estadísticas adecuadas y una evaluación crítica de sus limitaciones.
+Contribución propia: Esta observación tiene implicaciones directas para el enfoque del proyecto. En lugar de intentar desarrollar un modelo predictivo complejo sin las herramientas adecuadas para validarlo, se opta por un análisis descriptivo que permita explorar las relaciones entre variables de manera clara y fundamentada. Esta decisión no solo está alineada con los objetivos del curso, sino que también evita caer en las deficiencias metodológicas señaladas en la literatura. Finalmente, al integrar las distintas perspectivas analizadas, se observa que el estudio del riesgo cardiovascular requiere tanto de un marco conceptual sólido como de herramientas estadísticas adecuadas y una evaluación crítica de sus limitaciones.
 
 Resumen: La literatura revisada muestra que el riesgo cardiovascular es un fenómeno multifactorial que puede ser abordado desde distintos enfoques, cada uno con sus propias ventajas y limitaciones.
 
@@ -77,3 +73,11 @@ Contribución propia: En este contexto, el proyecto se posiciona como un esfuerz
 **Evaluación:** Ayuda a dar una idea clara de como es el formato para poner tablas en documentos estilo qmd, sin romper el orden del documento.
 **Modificaciones:** Ajustes de palabras tales como Estado de arte, ya que lo cambió sin la solicitud.
 **Aprendizaje:** A realizar dichas tablas, ya que al inicio se realizó de forma erronea.
+
+### Consulta: Enlaces de literatura
+
+*Prompt resumido:* Ayudame a ordenar este texto y revisión ortográfica (del texto inicial)
+*Respuesta de la IA resumido:* El texto ordenado, con ideas más claras y ortografía corregida.
+**Evaluación:** Ayuda a el ordenamiento principal de ideas de forma concisa sin cambiar la idea principal.
+**Modificaciones:** Ajustes del texto leve, para evitar la lectura de forma monótona
+**Aprendizaje:** Estructuración de ideas.
