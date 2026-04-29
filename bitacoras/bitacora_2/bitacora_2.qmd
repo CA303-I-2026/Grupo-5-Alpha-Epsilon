@@ -115,6 +115,7 @@ Este gráfico compara la proporción de personas con y sin enfermedad cardiovasc
 ```{r}
 resultados$grafico_presion
 ```
+El gráfico muestra la proporción de personas con y sin enfermedad cardiovascular según la categoría de presión arterial sistólica. Se observa si los niveles más altos de presión concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite evaluar visualmente la relación entre hipertensión y riesgo cardíaco, dado que esta fue la categoria con mayor correlacion, se le hace también un análisis a su gráfico.
 
 ```{r}
 knitr::kable(resultados$eda_balance_cardio)
