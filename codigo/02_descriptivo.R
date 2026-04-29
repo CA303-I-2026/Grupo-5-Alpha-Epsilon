@@ -256,15 +256,16 @@ eda_por_cardio <- cardio %>%
 
 
 # guardar en lista los resultados
-list(grafico_correlacion,
-grafico_edad,
-grafico_factores,
-grafico_colesterol,
-grafico_imc,
-eda_tipos,
-eda_faltantes,
-eda_numericas,
-eda_categoricas,
-eda_balance_cardio,
-eda_por_cardio
+list(
+  grafico_correlacion = grafico_correlacion,
+  grafico_edad = grafico_edad,
+  grafico_factores = grafico_factores,
+  grafico_colesterol = grafico_colesterol,
+  grafico_imc = grafico_imc,
+  eda_tipos = eda_tipos,
+  eda_faltantes = eda_faltantes,
+  eda_numericas = eda_numericas,
+  eda_categoricas = eda_categoricas,
+  eda_balance_cardio = eda_balance_cardio,
+  eda_por_cardio = eda_por_cardio
 )
