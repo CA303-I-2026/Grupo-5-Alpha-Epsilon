@@ -49,8 +49,10 @@ colores_default = c("#457B9D", "#1D3557") # Cool blues for density/histograms
 
 # colores finales para riesgo cardiovascular
 colores_riesgocardio <- c(
-  "No" = "#2E86AB",  # Sin enfermedad cardiovascular
-  "Si" = "#F24236"   # Con enfermedad cardiovascular
+  "Saludable" = "#2E86AB",  
+ "En Peligro" = "#F6AF65",
+  "Riesgo Alto" = "#F24236"
+   
 )
 
 
