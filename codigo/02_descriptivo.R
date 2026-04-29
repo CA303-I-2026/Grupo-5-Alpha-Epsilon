@@ -254,7 +254,10 @@ eda_por_cardio <- cardio %>%
     .groups = "drop"
   )
 
-
+eda_dimensiones <- tibble(
+  filas = nrow(cardio),
+  columnas = ncol(cardio)
+)
 # guardar en lista los resultados
 list(
   grafico_correlacion = grafico_correlacion,
@@ -267,5 +270,6 @@ list(
   eda_numericas = eda_numericas,
   eda_categoricas = eda_categoricas,
   eda_balance_cardio = eda_balance_cardio,
-  eda_por_cardio = eda_por_cardio
+  eda_por_cardio = eda_por_cardio,
+  eda_dimensiones = eda_dimensiones
 )
