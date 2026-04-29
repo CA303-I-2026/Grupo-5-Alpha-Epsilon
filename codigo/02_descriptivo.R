@@ -183,6 +183,37 @@ grafico_imc <- ggplot(cardio, aes(x = imc, fill = cardio)) +
   set_tipografia()
 
 
+cardio_presion <- cardio %>%
+  mutate(
+    categoria_presion = case_when(
+      ap_hi < 120 ~ "Normal",
+      ap_hi >= 120 & ap_hi < 140 ~ "Elevada",
+      ap_hi >= 140 ~ "Alta",
+      TRUE ~ NA_character_
+    ),
+    categoria_presion = factor(
+      categoria_presion,
+      levels = c("Normal", "Elevada", "Alta")
+    )
+  ) %>%
+  group_by(categoria_presion, cardio) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(categoria_presion) %>%
+  mutate(porcentaje = n / sum(n)) %>%
+  ungroup()
+
+grafico_presion <- ggplot(cardio_presion, aes(x = categoria_presion, y = porcentaje, fill = cardio)) +
+  geom_col(position = "fill") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = colores_si_no) +
+  labs(
+    title = "Prevalencia de enfermedad cardiovascular por presión arterial sistólica",
+    x = "Categoría de presión sistólica",
+    y = "Porcentaje",
+    fill = "Enfermedad cardiovascular"
+  ) +
+  set_tipografia()
+
 # Tipos de variables
 eda_tipos <- tibble(
   variable = names(cardio),
@@ -265,6 +296,7 @@ list(
   grafico_factores = grafico_factores,
   grafico_colesterol = grafico_colesterol,
   grafico_imc = grafico_imc,
+  grafico_presion = grafico_presion,
   eda_tipos = eda_tipos,
   eda_faltantes = eda_faltantes,
   eda_numericas = eda_numericas,
