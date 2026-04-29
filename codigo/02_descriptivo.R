@@ -39,8 +39,8 @@ cardio <- cardio %>%
 
 # Paleta para variables binarias tipo Si / No
 colores_si_no <- c(
-  "No" = colores_factorriesgo["0"],
-  "Si" = colores_factorriesgo["1"]
+  "No" = unname(colores_factorriesgo["0"]),
+  "Si" = unname(colores_factorriesgo["1"])
 )
 # ============================================================
 # Grafico 1: correlacion con enfermedad cardiovascular
