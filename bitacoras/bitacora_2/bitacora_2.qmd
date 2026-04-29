@@ -89,30 +89,42 @@ A continuación, se presentan gráficos exploratorios para analizar la relación
 resultados$grafico_correlacion
 ```
 
-Se observa que variables como la edad, la presión arterial, tanto hi (sistólica) como lo (diastólica), y el IMC presentan mayor asociación con la enfermedad cardiovascular, lo que sugiere que estos factores podrían ser relevantes en su explicación.
+Se observa que variables como la edad, la presión arterial, tanto hi (sistólica) como lo (diastólica), y el IMC presentan mayor asociación con la enfermedad cardiovascular, lo que sugiere que estos factores podrían ser relevantes en su explicación, en cambio, el colesterol sorpresivamente salio con la menor correlación.
 
 ```{r}
 resultados$grafico_edad
 ```
-La distribución de la edad muestra que los pacientes con enfermedad cardiovascular tienden a concentrarse en edades mayores, lo cual es consistente con la literatura médica.
+La distribución de la edad muestra que los pacientes con enfermedad cardiovascular tienden a concentrarse en edades mayores, lo cual es consistente con la literatura médica, en contraste, hay muy pocos con enfermedades cardiovasculares con edades menores a 40.
 
 ```{r}
 resultados$grafico_imc
 ```
-Se observa que los pacientes con enfermedad cardiovascular presentan una distribución del IMC desplazada hacia valores más altos, lo que sugiere una posible relación entre sobrepeso y riesgo cardiovascular.
+Se observa que los pacientes con enfermedad cardiovascular presentan una distribución del IMC desplazada ligeramente hacia valores más altos, lo que sugiere una posible relación entre sobrepeso y riesgo cardiovascular, a pesar de esto, se observa que dado que la mayoria de personas se encuentran entre los valores de 25, puede ser dificil analizar esta variable con claridad.
 
 ```{r}
 resultados$grafico_colesterol
 ```
-El gráfico muestra la proporción de personas con y sin enfermedad cardiovascular según el nivel de colesterol. Se observa si los niveles más altos de colesterol concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite relacionar este indicador bioquímico con la pregunta de investigación.
+El gráfico muestra la proporción de personas con y sin enfermedad cardiovascular según el nivel de colesterol. Se observa si los niveles más altos de colesterol concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite relacionar este indicador bioquímico con la pregunta de investigación, de la misma forma, las personas con colesterol bajo son las que menos proporción tienen de enfermedades cardiovasculares.
+
+
+```{r}
+resultados$grafico_factores
+```
+Este gráfico compara la proporción de personas con y sin enfermedad cardiovascular según actividad física, glucosa y colesterol. Permite observar si ciertas categorías concentran una mayor presencia de enfermedad, conectando factores de comportamiento y bioquímicos con la pregunta de investigación, donde se puede observar de forma general, no tan detenida como en el grafico previo.
+
+```{r}
+resultados$grafico_presion
+```
+
 ```{r}
 knitr::kable(resultados$eda_balance_cardio)
 ```
 La variable respuesta presenta una distribución de `r round(resultados$eda_balance_cardio$porcentaje[1]*100,2)`% sin enfermedad y `r round(resultados$eda_balance_cardio$porcentaje[2]*100,2)`% con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
 
-El análisis exploratorio permitió identificar que variables como la edad, el índice de masa corporal y la presión arterial presentan patrones asociados con la presencia de enfermedad cardiovascular. 
-
+El análisis exploratorio permitió identificar que variables como la edad, el índice de masa corporal y la presión arterial presentan patrones asociados con la presencia de enfermedad cardiovascular, además de darnos una comprensión mayor de los datos que estamos trabajando. 
 Asimismo, se observó que la base de datos no presenta problemas de calidad significativos, lo que permite avanzar hacia etapas de análisis más complejas con un nivel adecuado de confianza en los datos.
+
+
 ## Registro de uso de IA
 
 ### Consulta: tabla 1.1 
