@@ -62,12 +62,57 @@ Mientras el enfoque bayesiano ofrece una interpretación flexible y adaptativa d
 
 
 # 3. Análisis estadísticos
-
+```{r}
+resultados <- source("codigo/02_descriptivo.R")$value
+```
 ## Analisis descriptivo
 
 La base de datos analizada contiene información de pacientes con variables demográficas, clínicas y de comportamiento relacionadas con el riesgo cardiovascular. Cada fila representa un paciente y cada columna una variable, cumpliendo con la estructura de datos tidy.
 
 La base cuenta con `r resultados$eda_dimensiones$filas` observaciones y `r resultados$eda_dimensiones$columnas` variables.
+Se evaluó la presencia de valores faltantes en las variables, observándose que no existen valores perdidos significativos en la base de datos, por lo que no fue necesario realizar procesos de imputación.
+
+```{r}
+knitr::kable(resultados$eda_faltantes)
+```
+
+Se calcularon medidas resumen para las variables numéricas, incluyendo media, mediana, desviación estándar y percentiles, con el fin de entender la distribución de los datos.
+```{r}
+knitr::kable(resultados$eda_numericas, digits = 2)
+```
+En general, la edad presenta una media cercana a `r round(resultados$eda_numericas$media[resultados$eda_numericas$variable=="age"],2)` años, con una dispersión moderada. 
+
+El índice de masa corporal muestra valores concentrados en rangos intermedios, aunque con presencia de valores altos que podrían indicar posibles casos de sobrepeso u obesidad, aun que en la actualidad el IMC es una medida que ha perdido relevancia por su poca certeza, donde muchas veces no representa el estado actual de la persona, sin embargo, aún asi se toma en cuenta para el análisis.
+
+A continuación, se presentan gráficos exploratorios para analizar la relación entre variables y la presencia de enfermedad cardiovascular.
+```{r}
+resultados$grafico_correlacion
+```
+
+Se observa que variables como la edad, la presión arterial, tanto hi (sistólica) como lo (diastólica), y el IMC presentan mayor asociación con la enfermedad cardiovascular, lo que sugiere que estos factores podrían ser relevantes en su explicación.
+
+```{r}
+resultados$grafico_edad
+```
+La distribución de la edad muestra que los pacientes con enfermedad cardiovascular tienden a concentrarse en edades mayores, lo cual es consistente con la literatura médica.
+
+```{r}
+resultados$grafico_imc
+```
+Se observa que los pacientes con enfermedad cardiovascular presentan una distribución del IMC desplazada hacia valores más altos, lo que sugiere una posible relación entre sobrepeso y riesgo cardiovascular.
+
+```{r}
+resultados$grafico_colesterol
+```
+El gráfico muestra la proporción de personas con y sin enfermedad cardiovascular según el nivel de colesterol. Se observa si los niveles más altos de colesterol concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite relacionar este indicador bioquímico con la pregunta de investigación.
+```{r}
+knitr::kable(resultados$eda_balance_cardio)
+```
+La variable respuesta presenta una distribución de `r round(resultados$eda_balance_cardio$porcentaje[1]*100,2)`% sin enfermedad y `r round(resultados$eda_balance_cardio$porcentaje[2]*100,2)`% con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
+
+El análisis exploratorio permitió identificar que variables como la edad, el índice de masa corporal y la presión arterial presentan patrones asociados con la presencia de enfermedad cardiovascular. 
+
+Asimismo, se observó que la base de datos no presenta problemas de calidad significativos, lo que permite avanzar hacia etapas de análisis más complejas con un nivel adecuado de confianza en los datos.
 ## Registro de uso de IA
 
 ### Consulta: tabla 1.1 
