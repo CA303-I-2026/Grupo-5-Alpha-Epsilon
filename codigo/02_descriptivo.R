@@ -17,13 +17,6 @@ source("codigo/funciones/04_estilo.R")
 # Datos de Cesar
 cardio <- read_csv("datos/procesados/cardio_procesado.csv")
 
-# Transformaciones para IMC 
-cardio <- cardio %>%
-  mutate(
-    cardio = factor(cardio, levels = c("No", "Si")),
-    imc = weight / ((height / 100)^2)
-  )
-
 # Preparacion de datos
 cardio <- cardio %>%
   mutate(
