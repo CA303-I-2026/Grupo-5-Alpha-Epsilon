@@ -63,7 +63,9 @@ Mientras el enfoque bayesiano ofrece una interpretación flexible y adaptativa d
 
 # 3. Análisis descriptivo
 
+```{r}
 source("codigo/02_descriptivo.R")
+```
 ## Registro de uso de IA
 
 ### Consulta: tabla 1.1 
