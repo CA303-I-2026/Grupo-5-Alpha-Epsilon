@@ -3,6 +3,7 @@
 # Autor: Andrés Montero
 # Fecha: 29/4/26
 # Librerías
+
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -10,12 +11,13 @@ library(ggplot2)
 library(cowplot)
 library(showtext)
 library(scales)
+library(here)
 
 # Estilo de robles
-source("codigo/funciones/04_estilo.R")
+source(here("codigo/04_estilo.R"))
 
 # Datos de Cesar
-cardio <- read_csv("datos/procesados/cardio_procesado.csv")
+cardio <- read_csv(here("datos/procesados/cardio_procesado.csv"))
 
 # Preparacion de datos
 cardio <- cardio %>%

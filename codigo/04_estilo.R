@@ -17,14 +17,14 @@ library(showtext)
  
 colores_sexo <- c(
   "1" = "#01A6EA",
-  "2" = "#FFB1CB",
+  "2" = "#FFB1CB"
 )
 
 # colores factores boleanos
 # fumar, alcohol, cardio
 colores_factorriesgo <- c(
     "0" = "#D9D9D9",  
-    "1" = "#E63946",  
+    "1" = "#E63946"  
 )
 
 # Lo mismo pero al reves 
@@ -32,7 +32,7 @@ colores_factorriesgo <- c(
 # nivel de actividad es bueno entonces se invierten
 colores_actividad <- c(
   "1" = "#D9D9D9",  
-  "0" = "#E63946",  
+  "0" = "#E63946"  
 )
 
 # Para glucosa y colesterol
