@@ -39,7 +39,7 @@ colores_actividad <- c(
 colores_gluccol = c(
   "1" = "#2A9D8F",  # Normal
   "2" = "#E9C46A",  # Alto
-  "3" = "#F4A261"   # Muy Alto
+  "3" = "#c75438"   # Muy Alto, cambiado a uno que restalta mas la diferencia
 )
 
 # Para variables continuas como edad, ap y peso
@@ -51,8 +51,7 @@ colores_default = c("#457B9D", "#1D3557") # Cool blues for density/histograms
 colores_riesgocardio <- c(
   "Saludable" = "#2E86AB",  
  "En Peligro" = "#F6AF65",
-  "Riesgo Alto" = "#F24236"
-   
+  "Riesgo Alto" = "#F24236"   
 )
 
 
