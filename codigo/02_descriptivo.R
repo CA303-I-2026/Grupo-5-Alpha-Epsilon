@@ -182,9 +182,89 @@ grafico_imc <- ggplot(cardio, aes(x = imc, fill = cardio)) +
   ) +
   set_tipografia()
 
-# Mostrar graficos al ejecutar el script
-grafico_correlacion
-grafico_edad
-grafico_factores
-grafico_colesterol
-grafico_imc
+
+# Tipos de variables
+eda_tipos <- tibble(
+  variable = names(cardio),
+  tipo = sapply(cardio, class)
+)
+
+#  Valores faltantes
+eda_faltantes <- cardio %>%
+  summarise(across(everything(), ~ sum(is.na(.)))) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "faltantes"
+  ) %>%
+  mutate(
+    porcentaje_faltantes = faltantes / nrow(cardio)
+  )
+
+#  Resumen de variables numericas
+eda_numericas <- cardio %>%
+  select(where(is.numeric)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "valor"
+  ) %>%
+  group_by(variable) %>%
+  summarise(
+    media = mean(valor, na.rm = TRUE),
+    mediana = median(valor, na.rm = TRUE),
+    sd = sd(valor, na.rm = TRUE),
+    minimo = min(valor, na.rm = TRUE),
+    q1 = quantile(valor, 0.25, na.rm = TRUE),
+    q3 = quantile(valor, 0.75, na.rm = TRUE),
+    maximo = max(valor, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#  Frecuencias de variables categoricas
+eda_categoricas <- cardio %>%
+  select(where(is.factor)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "categoria"
+  ) %>%
+  group_by(variable, categoria) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(variable) %>%
+  mutate(porcentaje = n / sum(n)) %>%
+  ungroup()
+
+#  Balance de la variable respuesta
+eda_balance_cardio <- cardio %>%
+  count(cardio) %>%
+  mutate(porcentaje = n / sum(n))
+
+#  Resumen por enfermedad cardiovascular
+eda_por_cardio <- cardio %>%
+  group_by(cardio) %>%
+  summarise(
+    edad_media = mean(age, na.rm = TRUE),
+    edad_mediana = median(age, na.rm = TRUE),
+    imc_medio = mean(imc, na.rm = TRUE),
+    imc_mediano = median(imc, na.rm = TRUE),
+    presion_sistolica_media = mean(ap_hi, na.rm = TRUE),
+    presion_diastolica_media = mean(ap_lo, na.rm = TRUE),
+    peso_medio = mean(weight, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
+# guardar en lista los resultados
+list(grafico_correlacion,
+grafico_edad,
+grafico_factores,
+grafico_colesterol,
+grafico_imc,
+eda_tipos,
+eda_faltantes,
+eda_numericas,
+eda_categoricas,
+eda_balance_cardio,
+eda_por_cardio
+)
