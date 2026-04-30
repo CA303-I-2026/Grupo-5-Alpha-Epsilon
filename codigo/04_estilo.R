@@ -23,7 +23,7 @@ colores_sexo <- c(
 # colores factores boleanos
 # fumar, alcohol, cardio
 colores_factorriesgo <- c(
-    "0" = "#D9D9D9",  
+    "0" = "#AAD9FF",  
     "1" = "#E63946"  
 )
 
@@ -31,7 +31,7 @@ colores_factorriesgo <- c(
 # active
 # nivel de actividad es bueno entonces se invierten
 colores_actividad <- c(
-  "1" = "#D9D9D9",  
+  "1" = "#AAD9FF",  
   "0" = "#E63946"  
 )
 
