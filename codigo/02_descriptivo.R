@@ -19,6 +19,32 @@ source(here("codigo/04_estilo.R"))
 # Datos de Cesar
 cardio <- read_csv(here("datos/procesados/cardio_procesado.csv"))
 
+# 30 de abril: cambios por Robles de estilo 
+nombres_variables <- c(
+  "id" = "ID",
+  "cardio_num"     = "Factor De Riesgo",
+  "cardio"         = "Factor De Riesgo",
+  "age"            = "Edad",
+  "gender_num"     = "Sexo",
+  "gender"         = "Sexo",
+  "height"         = "Altura",
+  "weight"         = "Peso",
+  "imc"            = "IMC",
+  "ap_hi"          = "Presión arterial (alta)",
+  "ap_lo"          = "Presión arterial (baja)",
+  "cholesterol_num" = "Colesterol",
+  "cholesterol"    = "Colesterol",
+  "gluc_num"       = "Nivel de Glucosa",
+  "gluc"           = "Nivel de Glucosa",
+  "smoke_num"      = "Fumador",
+  "smoke"          = "Fumador",
+  "alco_num"       = "Bebedor de Alcohol",
+  "alco"           = "Bebedor de Alcohol",
+  "active_num"     = "Actividad física",
+  "active"         = "Actividad física"
+)
+
+
 # Preparacion de datos
 cardio <- cardio %>%
   mutate(
@@ -79,12 +105,14 @@ cor_cardio <- cardio_cor %>%
     names_to = "variable",
     values_to = "correlacion"
   ) %>%
-  arrange(desc(abs(correlacion)))
+  mutate(variable = nombres_variables[variable]) %>% 
+  arrange(desc(abs(correlacion))) 
 
 grafico_correlacion <- ggplot(
   cor_cardio,
   aes(x = reorder(variable, correlacion), y = correlacion)
 ) +
+  #nombres fijos de variables sin tener que cambiar el dataset
   geom_col(fill = colores_default[1]) +
   coord_flip() +
   labs(
@@ -92,6 +120,7 @@ grafico_correlacion <- ggplot(
     x = "Variable",
     y = "Correlación con enfermedad cardiovascular"
   ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   set_tipografia()
 
 # ============================================================
@@ -227,31 +256,35 @@ eda_faltantes <- cardio %>%
   summarise(across(everything(), ~ sum(is.na(.)))) %>%
   pivot_longer(
     cols = everything(),
-    names_to = "variable",
-    values_to = "faltantes"
+    names_to = "Variable",
+    values_to = "Faltantes"
   ) %>%
   mutate(
-    porcentaje_faltantes = faltantes / nrow(cardio)
+    `Porcentaje faltantes` = Faltantes / nrow(cardio),
+      Variable = nombres_variables[Variable]
   )
 
 #  Resumen de variables numericas
 eda_numericas <- cardio %>%
-  select(where(is.numeric)) %>%
+  select(where(is.numeric), -id) %>%
   pivot_longer(
     cols = everything(),
-    names_to = "variable",
-    values_to = "valor"
+    names_to = "Variable",
+    values_to = "Valor"
   ) %>%
-  group_by(variable) %>%
+  group_by(Variable) %>%
   summarise(
-    media = mean(valor, na.rm = TRUE),
-    mediana = median(valor, na.rm = TRUE),
-    sd = sd(valor, na.rm = TRUE),
-    minimo = min(valor, na.rm = TRUE),
-    q1 = quantile(valor, 0.25, na.rm = TRUE),
-    q3 = quantile(valor, 0.75, na.rm = TRUE),
-    maximo = max(valor, na.rm = TRUE),
-    .groups = "drop"
+    Media = mean(Valor, na.rm = TRUE),
+    Mediana = median(Valor, na.rm = TRUE),
+    sd = sd(Valor, na.rm = TRUE),
+    Mínimo = min(Valor, na.rm = TRUE),
+    Q1 = quantile(Valor, 0.25, na.rm = TRUE),
+    Q3 = quantile(Valor, 0.75, na.rm = TRUE),
+    Máximo = max(Valor, na.rm = TRUE),
+    .groups = "drop" 
+  ) %>% 
+  mutate(
+     Variable = nombres_variables[Variable]  
   )
 
 #  Frecuencias de variables categoricas
@@ -271,16 +304,19 @@ eda_categoricas <- cardio %>%
 #  Balance de la variable respuesta
 eda_balance_cardio <- cardio %>%
   count(cardio) %>%
-  mutate(porcentaje = n / sum(n))
+  rename( "Enfermedad Cardiovascular" = cardio) %>% 
+  mutate(
+    Porcentaje = scales::percent( n / sum(n), accuracy = 0.001)
+         )
 
 #  Resumen por enfermedad cardiovascular
 eda_por_cardio <- cardio %>%
   group_by(cardio) %>%
   summarise(
-    edad_media = mean(age, na.rm = TRUE),
-    edad_mediana = median(age, na.rm = TRUE),
-    imc_medio = mean(imc, na.rm = TRUE),
-    imc_mediano = median(imc, na.rm = TRUE),
+    `Edad Promedio` = mean(age, na.rm = TRUE),
+    `Edad Mediana` = median(age, na.rm = TRUE),
+    `IMC Promedio` = mean(imc, na.rm = TRUE),
+    `IMC` = median(imc, na.rm = TRUE),
     presion_sistolica_media = mean(ap_hi, na.rm = TRUE),
     presion_diastolica_media = mean(ap_lo, na.rm = TRUE),
     peso_medio = mean(weight, na.rm = TRUE),
