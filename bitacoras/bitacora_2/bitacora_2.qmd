@@ -117,7 +117,7 @@ Se calcularon medidas resumen para las variables numéricas, incluyendo media, m
 knitr::kable(resultados$eda_numericas, digits = 2)
 ```
 
-En general, la edad presenta una media cercana a `r round(resultados$eda_numericas$media[resultados$eda_numericas$variable=="age"],2)` años, con una dispersión moderada.
+En general, la edad presenta una media cercana a `r round(resultados$eda_numericas$Media[resultados$eda_numericas$Variable=="Edad"],2)` años, con una dispersión moderada.
 
 El índice de masa corporal muestra valores concentrados en rangos intermedios, aunque con presencia de valores altos que podrían indicar posibles casos de sobrepeso u obesidad, aun que en la actualidad el IMC es una medida que ha perdido relevancia por su poca certeza, donde muchas veces no representa el estado actual de la persona, sin embargo, aún asi se toma en cuenta para el análisis.
 
@@ -166,7 +166,7 @@ Se observa si los niveles más altos de presión concentran una mayor proporció
 knitr::kable(resultados$eda_balance_cardio)
 ```
 
-La variable respuesta presenta una distribución de `r round(resultados$eda_balance_cardio$porcentaje[1]*100,2)`% sin enfermedad y `r round(resultados$eda_balance_cardio$porcentaje[2]*100,2)`% con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
+La variable respuesta presenta una distribución de `r resultados$eda_balance_cardio$Porcentaje[1]` sin enfermedad y `r  resultados$eda_balance_cardio$Porcentaje[2]` con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
 
 El análisis exploratorio permitió identificar que variables como la edad, el índice de masa corporal y la presión arterial presentan patrones asociados con la presencia de enfermedad cardiovascular, además de darnos una comprensión mayor de los datos que estamos trabajando.
 Asimismo, se observó que la base de datos no presenta problemas de calidad significativos, lo que permite avanzar hacia etapas de análisis más complejas con un nivel adecuado de confianza en los datos.
