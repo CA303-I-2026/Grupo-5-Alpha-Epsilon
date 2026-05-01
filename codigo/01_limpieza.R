@@ -17,8 +17,8 @@ cardio <- cardio_raw %>%  # Pasar a factores
   mutate(
     age = round(age / 365),
     gender     = factor(gender, levels = c(1,2), labels = c("Mujer","Hombre")),
-    cholesterol = factor(cholesterol, levels = 1:3, labels = c("Normal","Alto","Muy alto")),
-    gluc        = factor(gluc, levels = 1:3, labels = c("Normal","Alto","Muy alto")),
+    cholesterol = factor(cholesterol, levels = 1:3, labels = c("Normal","Alto","Muy Alto")),
+    gluc        = factor(gluc, levels = 1:3, labels = c("Normal","Alto","Muy Alto")),
     smoke  = factor(smoke,  levels = c(0,1), labels = c("No","Si")),
     alco   = factor(alco,   levels = c(0,1), labels = c("No","Si")),
     active = factor(active, levels = c(0,1), labels = c("No","Si")),
