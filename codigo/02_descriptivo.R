@@ -63,6 +63,68 @@ colores_si_no <- c(
   "No" = unname(colores_factorriesgo["0"]),
   "Si" = unname(colores_factorriesgo["1"])
 )
+
+# ===========================================================================
+# Cuadro resumen 1:  variables numericas estratificadas por enfermedad cardio
+# ===========================================================================
+
+eda_por_cardio <- cardio %>%
+  group_by(cardio) %>%
+  summarise(
+    age_r    = paste0(round(mean(age,    na.rm = TRUE), 1), " ± ", round(sd(age,    na.rm = TRUE), 1)),
+    imc_r    = paste0(round(mean(imc,    na.rm = TRUE), 1), " ± ", round(sd(imc,    na.rm = TRUE), 1)),
+    ap_hi_r  = paste0(round(mean(ap_hi,  na.rm = TRUE), 1), " ± ", round(sd(ap_hi,  na.rm = TRUE), 1)),
+    ap_lo_r  = paste0(round(mean(ap_lo,  na.rm = TRUE), 1), " ± ", round(sd(ap_lo,  na.rm = TRUE), 1)),
+    weight_r = paste0(round(mean(weight, na.rm = TRUE), 1), " ± ", round(sd(weight, na.rm = TRUE), 1)),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(
+    cols      = -cardio,
+    names_to  = "variable",
+    values_to = "valor"
+  ) %>%
+  pivot_wider(
+    names_from  = cardio,
+    values_from = valor
+  ) %>%
+  mutate(Variable = case_when(
+    variable == "age_r"    ~ "Edad",
+    variable == "imc_r"    ~ "IMC",
+    variable == "ap_hi_r"  ~ "Presión sistólica",
+    variable == "ap_lo_r"  ~ "Presión diastólica",
+    variable == "weight_r" ~ "Peso"
+  )) %>%
+  select(Variable, `Sin enfermedad` = No, `Con enfermedad` = Si)
+
+# ===========================================================================
+# Cuadro resumen 2: variables categoricas por grupo enfermedad
+# ===========================================================================
+
+eda_categoricas_por_cardio <- cardio %>%
+  select(cardio, gender, cholesterol, gluc, smoke, alco, active) %>%
+  pivot_longer(
+    cols = -cardio,
+    names_to = "variable",
+    values_to = "categoria"
+  ) %>%
+  group_by(variable, categoria, cardio) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(variable, cardio) %>%
+  mutate(porcentaje = paste0(round(n / sum(n) * 100, 1), "%")) %>%
+  ungroup() %>%
+  select(-n) %>%
+  pivot_wider(
+    names_from  = cardio,
+    values_from = porcentaje
+  ) %>%
+  mutate(variable = nombres_variables[variable]) %>%
+  rename(
+    Variable  = variable,
+    Categoría = categoria,
+    `Sin enfermedad` = No,
+    `Con enfermedad` = Si
+  )
+
 # ============================================================
 # Grafico 1: correlacion con enfermedad cardiovascular
 # ============================================================
@@ -288,18 +350,7 @@ eda_numericas <- cardio %>%
   )
 
 #  Frecuencias de variables categoricas
-eda_categoricas <- cardio %>%
-  select(where(is.factor)) %>%
-  pivot_longer(
-    cols = everything(),
-    names_to = "variable",
-    values_to = "categoria"
-  ) %>%
-  group_by(variable, categoria) %>%
-  summarise(n = n(), .groups = "drop") %>%
-  group_by(variable) %>%
-  mutate(porcentaje = n / sum(n)) %>%
-  ungroup()
+
 
 #  Balance de la variable respuesta
 eda_balance_cardio <- cardio %>%
@@ -309,24 +360,11 @@ eda_balance_cardio <- cardio %>%
     Porcentaje = scales::percent( n / sum(n), accuracy = 0.001)
          )
 
-#  Resumen por enfermedad cardiovascular
-eda_por_cardio <- cardio %>%
-  group_by(cardio) %>%
-  summarise(
-    `Edad Promedio` = mean(age, na.rm = TRUE),
-    `Edad Mediana` = median(age, na.rm = TRUE),
-    `IMC Promedio` = mean(imc, na.rm = TRUE),
-    `IMC` = median(imc, na.rm = TRUE),
-    presion_sistolica_media = mean(ap_hi, na.rm = TRUE),
-    presion_diastolica_media = mean(ap_lo, na.rm = TRUE),
-    peso_medio = mean(weight, na.rm = TRUE),
-    .groups = "drop"
-  )
-
 eda_dimensiones <- tibble(
   filas = nrow(cardio),
   columnas = ncol(cardio)
 )
+
 # guardar en lista los resultados
 list(
   grafico_correlacion = grafico_correlacion,
@@ -338,7 +376,7 @@ list(
   eda_tipos = eda_tipos,
   eda_faltantes = eda_faltantes,
   eda_numericas = eda_numericas,
-  eda_categoricas = eda_categoricas,
+  eda_categoricas_por_cardio = eda_categoricas_por_cardio,
   eda_balance_cardio = eda_balance_cardio,
   eda_por_cardio = eda_por_cardio,
   eda_dimensiones = eda_dimensiones
