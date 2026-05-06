@@ -24,12 +24,16 @@ editor:
 
 # Bitácora #2 {.unnumbered .unlisted}
 
+# Audiencia del proyecto {.unnumbered .unlisted}
+
+Esta semana, le diría al actuario especializado en seguros de vida y salud que las variables más asociadas con la enfermedad cardiovascular en nuestros datos son la edad, la presión arterial sistólica y el índice de masa corporal, mientras que el colesterol (considerado un factor central en el riesgo cardíaco) mostró una asociación notablemente menor, lo que sugiere revisar el peso que se le asigna en los modelos de tarificación.
+
 # Parte de planificacion
 
 ## 1.1. Ordenamiento de la literatura
 
 | Clasificación | Justificación breve | Título | Año | Autor(es) |
-|-------------|-------------------|-------------|-------------|-------------|
+|--------------|----------------|--------------|--------------|--------------|
 | Estado de arte | Explicación del enfoque bayesiano en el diagnóstico clínico | Why clinicians are natural Bayesians | 2005 | Gill et al. |
 | Metodológica | Desarrollo de modelos multivariables para predicción de riesgo cardiovascular | Cardiovascular Disease Risk Assessment: Insights from Framingham | 2013 | D’Agostino et al. |
 | Temática | Revisión del estado del arte en modelos de predicción cardiovascular | Prediction models for cardiovascular disease risk in the general population | 2016 | Damen et al. |
@@ -187,27 +191,28 @@ Asimismo, se observó que la base de datos no presenta problemas de calidad sign
 **Modificaciones:** Ajustes del texto leve, para evitar la lectura de forma monótona **Aprendizaje:** Estructuración de ideas.
 
 # 
+
 ## Arco narrativo del proyecto
 
 "La pregunta del último arco narrativo poco a poco se está resolviendo. De acuerdo a la modelación de los datos en la parte anterior, es claro la correlación entre ciertos variables y el riesgo cardiovascualar; sin embargo, se debe aplicar un análisis más profundo."
 
 # Metadatos
 
-
 ## Diario de aprendizaje
 
-La comunicación es una de las áreas en las que se trabajó más en esta bitácora, pues unas partes se tuvieron que equiparar para que la distribución del trabajo sea justa. Además, para mejorar el coeficiente gini y la cantidad de caracteres por integrantes, algunos tuvieron que hacer mucho más que otros. No obstante, esto no impactó el desarrollo del objetivo y se logro visualizar la relación entre las variables de manera eficaz. Algo que se mejoró de la última bitácora fue el manejo de tiempo, que no es sorpresa gracias a que la bitácora 1 tenía una parte adelantada: el marco teórico. Finalmente, la importancia de las fichas de literatura se sigue profundizando conforme avanza la investigación pues tener una manera de leer las referencias de una manera más resumida que leer las obras directamente resuelta siendo conveniente para llegar a conclusiones extraídas de los datos.
-Además, se logró comprender de manera más clara el uso de los gráficos como herramienta fundamental para el análisis de datos. La visualización permite interpretar la información de forma más intuitiva, facilitando la identificación de patrones, tendencias y relaciones relevantes dentro de los datos que se desean estudiar.
-
-
+La comunicación es una de las áreas en las que se trabajó más en esta bitácora, pues unas partes se tuvieron que equiparar para que la distribución del trabajo sea justa.
+Además, para mejorar el coeficiente gini y la cantidad de caracteres por integrantes, algunos tuvieron que hacer mucho más que otros.
+No obstante, esto no impactó el desarrollo del objetivo y se logro visualizar la relación entre las variables de manera eficaz.
+Algo que se mejoró de la última bitácora fue el manejo de tiempo, que no es sorpresa gracias a que la bitácora 1 tenía una parte adelantada: el marco teórico.
+Finalmente, la importancia de las fichas de literatura se sigue profundizando conforme avanza la investigación pues tener una manera de leer las referencias de una manera más resumida que leer las obras directamente resuelta siendo conveniente para llegar a conclusiones extraídas de los datos.
+Además, se logró comprender de manera más clara el uso de los gráficos como herramienta fundamental para el análisis de datos.
+La visualización permite interpretar la información de forma más intuitiva, facilitando la identificación de patrones, tendencias y relaciones relevantes dentro de los datos que se desean estudiar.
 
 ## Log de contribuciones
 
 | Integrante | Sección / Tarea realizada |
-|:----------------------|:------------------------------------------------|
-| César Salazar | Sección 3.4 "La imagen que cuenta la historia", dos cuadros de resumen, respuesta a la retroalimentación de Dr. Maikol Solís, Rastro de decisiones grupal, diario|
-| Gerardo Montero | Sección 2: Enlaces de la literatura, Sección 1.1 Tabla de ordenamiento de literatura, cinco gráficos del análisis descriptivo, diario de aprendizaje|
-| Óscar Espinoza | 4 fichas de resultados, Verificación de formato tidy|
-| Gabriel Robles | Arco narrativo del proyecto, Identidad visual del proyecto, diario de aprendizaje|
-
-
+|:-----------------------|:-----------------------------------------------|
+| César Salazar | Sección 3.4 "La imagen que cuenta la historia", dos cuadros de resumen, respuesta a la retroalimentación de Dr. Maikol Solís, Rastro de decisiones grupal, diario |
+| Gerardo Montero | Sección 2: Enlaces de la literatura, Sección 1.1 Tabla de ordenamiento de literatura, cinco gráficos del análisis descriptivo, diario de aprendizaje |
+| Óscar Espinoza | 4 fichas de resultados, Verificación de formato tidy |
+| Gabriel Robles | Arco narrativo del proyecto, Identidad visual del proyecto, diario de aprendizaje |
