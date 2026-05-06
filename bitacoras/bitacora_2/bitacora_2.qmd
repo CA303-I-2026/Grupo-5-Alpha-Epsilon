@@ -1,7 +1,7 @@
 ---
 title: "Bitácora #2"
 subtitle: "CA-0303 Estadística Actuarial I"
-author: "Oscar Espinoza, Gerardo Montero, Gabriel Robles, César Salazar"
+author: "Oscar Espinoza C3, Gerardo Montero C05010, Gabriel Robles C36611, César Salazar C27103"
 date: today
 lang: es
 format:
@@ -33,7 +33,7 @@ Esta semana, le diría al actuario especializado en seguros de vida y salud que 
 ## 1.1. Ordenamiento de la literatura
 
 | Clasificación | Justificación breve | Título | Año | Autor(es) |
-|--------------|----------------|--------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Estado de arte | Explicación del enfoque bayesiano en el diagnóstico clínico | Why clinicians are natural Bayesians | 2005 | Gill et al. |
 | Metodológica | Desarrollo de modelos multivariables para predicción de riesgo cardiovascular | Cardiovascular Disease Risk Assessment: Insights from Framingham | 2013 | D’Agostino et al. |
 | Temática | Revisión del estado del arte en modelos de predicción cardiovascular | Prediction models for cardiovascular disease risk in the general population | 2016 | Damen et al. |
@@ -211,7 +211,7 @@ La visualización permite interpretar la información de forma más intuitiva, f
 ## Log de contribuciones
 
 | Integrante | Sección / Tarea realizada |
-|:-----------------------|:-----------------------------------------------|
+|:------------------------|:----------------------------------------------|
 | César Salazar | Sección 3.4 "La imagen que cuenta la historia", dos cuadros de resumen, respuesta a la retroalimentación de Dr. Maikol Solís, Rastro de decisiones grupal, diario |
 | Gerardo Montero | Sección 2: Enlaces de la literatura, Sección 1.1 Tabla de ordenamiento de literatura, cinco gráficos del análisis descriptivo, diario de aprendizaje |
 | Óscar Espinoza | 4 fichas de resultados, Verificación de formato tidy |
