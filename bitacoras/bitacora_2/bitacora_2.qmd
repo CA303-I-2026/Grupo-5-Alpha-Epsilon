@@ -125,6 +125,18 @@ En general, la edad presenta una media cercana a `r round(resultados$eda_numeric
 
 El índice de masa corporal muestra valores concentrados en rangos intermedios, aunque con presencia de valores altos que podrían indicar posibles casos de sobrepeso u obesidad, aun que en la actualidad el IMC es una medida que ha perdido relevancia por su poca certeza, donde muchas veces no representa el estado actual de la persona, sin embargo, aún asi se toma en cuenta para el análisis.
 
+El siguiente cuadro presenta la media y desviación estándar de las variables numéricas estratificadas por presencia o ausencia de enfermedad cardiovascular. Se observa que los pacientes con enfermedad presentan, en promedio, mayor edad, mayor presión arterial sistólica y diastólica, mayor peso e IMC en comparación con quienes no la presentan, lo que sugiere que estas variables podrían tener un rol relevante en la explicación del riesgo cardiovascular.
+
+```{r}
+knitr::kable(eda_por_cardio)
+```
+
+El siguiente cuadro muestra la distribución porcentual de las variables categóricas según la presencia o ausencia de enfermedad cardiovascular. Se observa un patrón en donde conforme aumenta el nivel del indicador (ya sea colesterol o glucosa por ejemplo) crece también la proporción de personas con enfermedad cardiovascular dentro de ese grupo. Por ejemplo, las personas con colesterol o glucosa en niveles altos concentran un mayor porcentaje de casos positivos que quienes presentan niveles normales. Este patrón es coherente con lo reportado en la literatura especializada y refuerza la pertinencia de incluir estas variables en el análisis inferencial.
+
+```{r}
+knitr::kable(eda_categoricas_por_cardio)
+```
+
 A continuación, se presentan gráficos exploratorios para analizar la relación entre variables y la presencia de enfermedad cardiovascular.
 
 ```{r}
