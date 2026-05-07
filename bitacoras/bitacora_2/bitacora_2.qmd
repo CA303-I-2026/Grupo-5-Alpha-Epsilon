@@ -189,6 +189,104 @@ La variable respuesta presenta una distribución de `r resultados$eda_balance_ca
 El análisis exploratorio permitió identificar que variables como la edad, el índice de masa corporal y la presión arterial presentan patrones asociados con la presencia de enfermedad cardiovascular, además de darnos una comprensión mayor de los datos que estamos trabajando.
 Asimismo, se observó que la base de datos no presenta problemas de calidad significativos, lo que permite avanzar hacia etapas de análisis más complejas con un nivel adecuado de confianza en los datos.
 
+## Fichas de resultados
+
+### Ficha de resultados 1
+
+#### Nivel descriptivo (qué encontraron)
+
+**Titular:** Pacientes mayores concentran más enfermedad cardiovascular
+
+**Nombre del hallazgo/resultado:** Distribución de edad según presencia de enfermedad cardiovascular.
+
+**Resumen en una oración:** Pacientes con enfermedad cardiovascular presentan edades mayores respecto al grupo sin enfermedad.
+
+**Método o análisis que lo produjo:** Gráfico de densidad comparativo de edad entre personas con y sin enfermedad cardiovascular.
+
+**Evidencia:** Distribución de edad según enfermedad cardiovascular; cuadro resumen descriptivo por grupos.
+
+#### Nivel analítico (qué significa)
+
+**Conexión con la pregunta de investigación:** Este hallazgo sugiere que la edad es una característica relevante para diferenciar pacientes con y sin enfermedad cardiovascular dentro del dataset analizado.
+
+**Contraste con la literatura:** El resultado coincide con D’Agostino et al. (2013) y Rodríguez-Escudero et al. (2012), donde la edad aparece como uno de los factores más importantes asociados al riesgo cardiovascular.
+
+**Lo que NO explica este resultado:** El análisis descriptivo no permite determinar cuánto influye exactamente la edad ni si su efecto cambia junto con otras variables fisiológicas.
+
+**Implicación para el siguiente paso:** La edad debe mantenerse como variable central en los análisis posteriores y compararse con otros factores de riesgo.
+
+### Ficha de resultados 2
+
+#### Nivel descriptivo (qué encontraron)
+
+**Titular:** Presión sistólica alta domina en pacientes cardiovasculares
+
+**Nombre del hallazgo/resultado:** Prevalencia de enfermedad cardiovascular según presión arterial sistólica.
+
+**Resumen en una oración:** La prevalencia cardiovascular aumenta conforme incrementa la presión arterial sistólica.
+
+**Método o análisis que lo produjo:** Gráfico de barras apiladas comparando categorías de presión arterial sistólica y presencia de enfermedad cardiovascular.
+
+**Evidencia:** Prevalencia de enfermedad cardiovascular por presión arterial sistólica; resumen descriptivo por grupos; correlación de variables con enfermedad cardiovascular.
+
+#### Nivel analítico (qué significa)
+
+**Conexión con la pregunta de investigación:** El hallazgo aporta evidencia descriptiva de que la presión arterial podría ser una de las variables más relacionadas con la enfermedad cardiovascular.
+
+**Contraste con la literatura:** El resultado coincide con D’Agostino et al. (2013) y Damen et al. (2016), quienes identifican la presión arterial sistólica como predictor recurrente en modelos cardiovasculares.
+
+**Lo que NO explica este resultado:** No se puede distinguir si la hipertensión observada es persistente, temporal o influenciada por otros factores clínicos no medidos.
+
+**Implicación para el siguiente paso:** Se recomienda analizar conjuntamente presión arterial, edad e IMC para explorar patrones descriptivos más complejos.
+
+### Ficha de resultados 3
+
+#### Nivel descriptivo (qué encontraron)
+
+**Titular:** Colesterol muy alto concentra más pacientes cardiovasculares
+
+**Nombre del hallazgo/resultado:** Distribución de colesterol según enfermedad cardiovascular.
+
+**Resumen en una oración:** Pacientes con colesterol muy alto presentan mayor prevalencia de enfermedad cardiovascular.
+
+**Método o análisis que lo produjo:** Gráficos de barras apiladas y tablas de proporciones para niveles de colesterol.
+
+**Evidencia:** Prevalencia de enfermedad cardiovascular por colesterol; proporción de enfermedad cardiovascular por actividad, glucosa y colesterol; tabla de proporciones categóricas por enfermedad.
+
+#### Nivel analítico (qué significa)
+
+**Conexión con la pregunta de investigación:** El hallazgo sugiere que el colesterol podría ser una característica importante para diferenciar perfiles de riesgo cardiovascular.
+
+**Contraste con la literatura:** El resultado coincide con D’Agostino et al. (2013) y Damen et al. (2016), donde el colesterol aparece consistentemente como variable relevante en estudios de riesgo cardiovascular.
+
+**Lo que NO explica este resultado:** El dataset no incluye información sobre tratamientos médicos, dieta o historial clínico que podrían afectar los niveles de colesterol.
+
+**Implicación para el siguiente paso:** Se recomienda comparar conjuntamente colesterol, glucosa e IMC para identificar posibles asociaciones descriptivas adicionales.
+
+### Ficha de resultados 4
+
+#### Nivel descriptivo (qué encontraron)
+
+**Titular:** Pacientes cardiovasculares muestran IMC más elevado
+
+**Nombre del hallazgo/resultado:** Distribución del índice de masa corporal según enfermedad cardiovascular.
+
+**Resumen en una oración:** Pacientes con enfermedad cardiovascular presentan distribuciones de IMC desplazadas hacia valores mayores.
+
+**Método o análisis que lo produjo:** Gráfico de densidad comparativo del índice de masa corporal entre grupos.
+
+**Evidencia:** Distribución del IMC según enfermedad cardiovascular; resumen descriptivo por grupos; correlación de variables con enfermedad cardiovascular.
+
+#### Nivel analítico (qué significa)
+
+**Conexión con la pregunta de investigación:** El hallazgo sugiere que el IMC podría formar parte de las características asociadas con enfermedad cardiovascular dentro de la muestra estudiada.
+
+**Contraste con la literatura:** El resultado coincide parcialmente con Damen et al. (2016), donde el índice de masa corporal aparece como predictor presente en múltiples modelos de riesgo cardiovascular.
+
+**Lo que NO explica este resultado:** El IMC no diferencia composición corporal, masa muscular ni distribución de grasa, por lo que puede simplificar excesivamente el estado físico real de los pacientes.
+
+**Implicación para el siguiente paso:** Se recomienda explorar conjuntamente IMC, peso y actividad física para analizar posibles patrones descriptivos relacionados con el riesgo cardiovascular.
+
 ## Registro de uso de IA
 
 ### Consulta: tabla 1.1
