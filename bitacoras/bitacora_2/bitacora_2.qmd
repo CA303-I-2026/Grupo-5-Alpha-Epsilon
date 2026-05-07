@@ -504,10 +504,6 @@ información de forma clara a terceros.
 
 **UVE de Gowin:** Se actualiza y se utiliza otra herramienta para mejorar la visualización de la misma, esta vez con ayuda de una AI. 
 
-**Arco narrativo del proyecto:** 
-
-**Referencias:** 
-
 ## Diario de aprendizaje
 
 La comunicación es una de las áreas en las que se trabajó más en esta bitácora, pues unas partes se tuvieron que equiparar para que la distribución del trabajo fuese justa.
