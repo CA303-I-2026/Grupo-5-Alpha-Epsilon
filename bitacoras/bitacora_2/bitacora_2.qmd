@@ -3,11 +3,8 @@ title: "Bitácora #2"
 subtitle: "CA-0303 Estadística Actuarial I"
 author:
   - name: "Oscar Espinoza  C32699"
-    id: 
   - name: "Gerardo Montero  C05010"
-    id: 
   - name: "Gabriel Robles  C36611"
-    id: 
   - name: "César Salazar  C27103"
 
 date: today
@@ -320,6 +317,9 @@ El problema es que el gráfico simplifica aspectos importantes: solo captura rel
 
 "La pregunta del último arco narrativo poco a poco se está resolviendo. De acuerdo a la modelación de los datos en la parte anterior, es claro la correlación entre ciertos variables y el riesgo cardiovascualar; sin embargo, se debe aplicar un análisis más profundo."
 
+# v de Gowin
+
+![V de Gowin](figuras/VdeGowin2.png)
 # Metadatos
 
 ## Diario de aprendizaje
