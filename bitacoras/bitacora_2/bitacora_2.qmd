@@ -372,6 +372,9 @@ library(tidyr)       # Pivoteo / limpieza
 library(coda)        # Diagnósticos MCMC (R-hat, ESS)
 library(HDInterval)  # Intervalos creíbles de mayor densidad (HDI)
 
+# Previas para rstanarm
+prior_coef      <- normal(location = 0, scale = 2.5)
+prior_intercept <- normal(location = 0, scale = 10)
 
 # Visualizar la previa de coeficientes
 x_seq <- seq(-8, 8, length.out = 300)
@@ -492,7 +495,7 @@ información de forma clara a terceros.
 
 "La pregunta del último arco narrativo poco a poco se está resolviendo. De acuerdo con la modelación de los datos en la parte anterior, es clara la correlación entre ciertos variables y el riesgo cardiovascular. Como se puede observar en la figura 1, los factores de riesgo como bebedores de alcohol, actividad física, nivel de glucosa y fumador no son los que aportan más la presencia de enfermedad cardiovascular como se había pensado antes. Sino, datos más cuantitativos en lugar de booleanos son los que se correlacionan más con la enfermedad cardiovascular. Esto se puede observar en la figura 2 y 3, donde un patrón más pronunciado se ve en la distribución de los individuos con enfermedad cardiovascular suelen tener mayor índice de masa corporal. Otro desarrollo importante es que el nivel de presión arterial es el que se correlaciona mejor con la presencia de enfermedad cardiovascular, como se muestra en la figura 6, la diferencia entre cada nivel de cambia la demografía de enfermos dependiendo solamente si tienen presión normal o elevada. El problema que nadie ha resuelto es por qué es que estos factores son los que tienen la mayor relación con la presencia de enfermedad cardiovascular, pues de los datos se puede extraer conclusiones de cuál es el factor más interesante a analizar, pero falta profundizar en si algo como la presión arterial siendo el que aporta más a la correlación entre enfermedad cardiovascular es causal o resultado de ésta."
 
-# v de Gowin
+# UVE de Gowin
 ::: {.landscape}
 
 ![V de Gowin](figuras/VdeGowin2.png){fig-align="center" height="90%"}
@@ -518,10 +521,10 @@ La visualización permite interpretar la información de forma más intuitiva, f
 
 | Integrante | Sección / Tarea realizada |
 |:------------------------|:----------------------------------------------|
-| César Salazar | Sección 3.4 "La imagen que cuenta la historia", dos cuadros de resumen, respuesta a la retroalimentación de Dr. Maikol Solís, Rastro de decisiones grupal, diario |
+| César Salazar | Sección 3.4: "La imagen que cuenta la historia", dos cuadros de resumen, respuesta a la retroalimentación de Dr. Maikol Solís, UVE de Gowin|
 | Gerardo Montero | Sección 2: Enlaces de la literatura, Sección 1.1 Tabla de ordenamiento de literatura, cinco gráficos del análisis descriptivo, diario de aprendizaje |
-| Óscar Espinoza | 4 fichas de resultados, Verificación de formato tidy, 1 ficha de literatura|
-| Gabriel Robles | Arco narrativo del proyecto, Identidad visual del proyecto, diario de aprendizaje |
+| Óscar Espinoza | 4 fichas de resultados, verificación de formato tidy, 1 ficha de literatura |
+| Gabriel Robles | Arco narrativo del proyecto, identidad visual del proyecto, diario de aprendizaje |
 
 # Referencias
 
