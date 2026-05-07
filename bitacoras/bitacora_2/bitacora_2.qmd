@@ -438,6 +438,55 @@ Antes de usar el propio *dataset* que se ha usado para el análisis poblacional 
 **Evaluación:** Ayuda a el ordenamiento principal de ideas de forma concisa sin cambiar la idea principal.
 **Modificaciones:** Ajustes del texto leve, para evitar la lectura de forma monótona **Aprendizaje:** Estructuración de ideas.
 
+### Consulta: Distribución de tareas
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Compara las indicaciones de la Bitácora 1 y la Bitácora 2,
+  y distribuir equitativamente el trabajo nuevo entre los 4 integrantes
+  del grupo, omitiendo lo ya realizado.
+- **Respuesta de la IA resumido:** Se generó una tabla de distribución por
+  integrante, donde se intentó equilibrar el trabajo pensando en la competencia de GitHub.
+- **Evaluación:** La distribución si logró que se equilibrara un poco mejor el porcentaje de trabajo.
+- **Modificaciones:** Se utilizó la distribución original.
+- **Aprendizaje:** A pesar de tener el mismo trabajo, no se refleja así en la competencia de GitHub.
+
+### Consulta: Correcciones
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Revisa las indicaciones de la Bitácora 2, la rúbrica y el
+  `.qmd` actual, listar los errores encontrados y dar recomendaciones de
+  corrección.
+- **Respuesta de la IA resumida:** Diagnóstico organizado por gravedad. Problemas
+  graves: ausencia total de la UVE de Gowin (rubro de hasta 4 puntos) y
+  falta de la Propuesta Metodológica con ecuaciones, programa maqueta en
+  R y validación. Problemas intermedios: fichas literarias con campos
+  incompletos, nombres cortados en el encabezado, secciones fuera de
+  orden, y figuras y cuadros sin leyenda. Errores menores: tildes
+  faltantes en varias palabras e
+  inconsistencia de numeración en la sección 3.4.
+- **Evaluación:** Buenas observaciones, algunas se pasan por alto, pues son correcciones pequeñas y en un documento grande.
+- **Modificaciones:** Se cambiaron o agregaron las partes mencionadas.
+- **Aprendizaje:** No solo es importante leer las indicaciones de la bitácora, si no también la rúbrica
+de evaluación antes de repartir el trabajo.
+
+### Consulta: Cuadros para EDA
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Explica cómo estructurar los cuadros resumen del análisis
+  exploratorio de datos (EDA) y qué contenido incluirles, tomando en
+  cuenta las indicaciones del profesor y el avance grupal. 
+- **Respuesta de la IA resumida:** Se explicó la estructura esperada para cada
+  cuadro: una estadística descriptiva apropiada al tipo de variable
+  (media, mediana, dispersión o frecuencias), al menos un gráfico, e
+  interpretación en contexto. Se orientó la selección hacia las
+  variables más relevantes para la pregunta de investigación del
+  proyecto (factores influyentes en enfermedades cardiovasculares).
+- **Evaluación:** Se dio una explicación breve y resumida de estándares para 
+análisis de EDA, suficiente para trabajar con los datos encontrados.
+- **Modificaciones:** Se hicieron los cuadros resumen basados en la dirección
+proporcionada por la AI.
+- **Aprendizaje:** Recordatorio del formato tidy y la importancia de transmitir
+información de forma clara a terceros.
 
 ## Arco narrativo del proyecto
 
