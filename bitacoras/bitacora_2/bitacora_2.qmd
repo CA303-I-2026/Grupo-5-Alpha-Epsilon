@@ -158,6 +158,7 @@ resultados$grafico_correlacion
 
 Se observa que variables como la edad, la presión arterial, tanto hi (sistólica) como lo (diastólica), y el IMC presentan mayor asociación con la enfermedad cardiovascular, lo que sugiere que estos factores podrían ser relevantes en su explicación, en cambio, el colesterol sorpresivamente salio con la menor correlación.
 
+
 ```{r}
 #| label: fig-edad
 #| fig-cap: "Distribución de edad según enfermedad cardiovascular."
@@ -212,8 +213,9 @@ El gráfico muestra la proporción de personas con y sin enfermedad cardiovascul
 Se observa si los niveles más altos de presión concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite evaluar visualmente la relación entre hipertensión y riesgo cardíaco, dado que esta fue la categoria con mayor correlacion, se le hace también un análisis a su gráfico.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(resultados$eda_balance_cardio,
-             caption = "Cuadro 5. Distribución de la variable enfermedad cardiovascular.")
+#| label: tabla-n
+#| fig-cap: "Tamaño de población y presencia de enfermedad cardiovascular"
+knitr::kable(resultados$eda_balance_cardio)
 ```
 
 La variable respuesta presenta una distribución de `r resultados$eda_balance_cardio$Porcentaje[1]` sin enfermedad y `r  resultados$eda_balance_cardio$Porcentaje[2]` con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
@@ -344,7 +346,7 @@ El problema es que el gráfico simplifica aspectos importantes: solo captura rel
 
 ## Arco narrativo del proyecto
 
-"La pregunta del último arco narrativo poco a poco se está resolviendo. De acuerdo a la modelación de los datos en la parte anterior, es claro la correlación entre ciertos variables y el riesgo cardiovascualar; sin embargo, se debe aplicar un análisis más profundo."
+"La pregunta del último arco narrativo poco a poco se está resolviendo. De acuerdo a la modelación de los datos en la parte anterior, es claro la correlación entre ciertos variables y el riesgo cardiovascualar. Como se puede observar en la figura 1, los factores de riesgo como bebedores de alcohol, actividad física, nivel de glucosa y fumador no son los que aportan más la presencia de enfermedad cardiovascular como se había pensado antes. Sino, datos más cuantitativos en lugar de boleanos son los que se correlacionan más con la enfermedad cardiovascular. Esto se puede observar en la figura 2 y 3, donde un patrón más pronunciado se ve en la distribución de los individuos con enfermedad cardiovascular suelen tener mayor índice de masa corporal. Otro desarrollo importante es que el nivel de presión arterial es el que se correlaciona mejor con la presencia de enfermedad cardiovascular, como se muestra en la figura 6, la diferencia entre cada nivel de cambia la demografía de enfermos dependiendo sólamente si tienen presión normal o elevada. El problema que nadie ha resuelto es por qué es que estos factores son los que tienen la mayor relación con la presencia de enfermedad cardiovascular, pues de los datos se puede extraer conclusiones de cuál es el factor más interesante a analizar, pero falta profundizar en si algo como la presión arterial siendo el que aporta más a la correlación entre enfermedad cardiovascular es causal o resultado de ésta."
 
 # v de Gowin
 ::: {.landscape}
