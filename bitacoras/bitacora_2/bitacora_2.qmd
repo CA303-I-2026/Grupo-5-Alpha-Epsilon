@@ -325,6 +325,16 @@ El problema es que el gráfico simplifica aspectos importantes: solo captura rel
 ![V de Gowin](figuras/VdeGowin2.png){fig-align="center" height="90%"}
 
 :::
+# Retroalimentación
+
+**Origen geográfico del *dataset*:** Una limitación importante del dataset cardio_train.csv es que no se especifica claramente su origen geográfico ni la población exacta de donde fueron recolectados los datos. Aunque el conjunto contiene variables relevantes para el análisis cardiovascular, la ausencia de contexto poblacional dificulta evaluar qué tan representativos son los individuos incluidos respecto a otras poblaciones. Desde una perspectiva actuarial, esto afecta la validez externa de los resultados, ya que factores como hábitos alimenticios, acceso a servicios de salud, genética, condiciones socioeconómicas y estilos de vida pueden variar significativamente entre países o regiones. En consecuencia, los patrones de riesgo identificados en el dataset podrían no generalizarse adecuadamente a cualquier tipo de población.
+
+**UVE de Gowin:** Se actualiza y se utiliza otra herramienta para mejorar la visualización de la misma, esta vez con ayuda de una AI. 
+
+**Arco narrativo del proyecto:** 
+
+**Referencias:** 
+
 # Metadatos
 
 ## Diario de aprendizaje
