@@ -242,4 +242,40 @@ generalización de nuestros resultados.
 
 ---
 
+## Ficha de Literatura 4
+
+### Nivel descriptivo
+
+**Título:** Factores de riesgo cardiovascular y su relación con enfermedades cardíacas
+
+**Autor(es):** Rodríguez-Escudero, J. P. et al.
+
+**Año:** 2012
+
+**Nombre del tema:** Relación entre factores fisiológicos y de comportamiento con la presencia de enfermedad cardiovascular en población adulta.
+
+**Clasificación:** *Temática* — se eligió esta clasificación porque el documento se enfoca en identificar y describir factores asociados al riesgo cardiovascular dentro de una población específica, analizando patrones y relaciones entre variables clínicas y conductuales. No desarrolla una metodología estadística nueva ni propone un marco conceptual distinto, sino que estudia el fenómeno cardiovascular como problema aplicado.
+
+**Resumen en una oración:** Edad, hipertensión y colesterol elevado aparecen asociados con mayor riesgo cardiovascular.
+
+**Argumento central:** El riesgo cardiovascular está relacionado con múltiples factores fisiológicos y de comportamiento que actúan de manera conjunta, especialmente edad, presión arterial elevada, colesterol alto, sobrepeso y hábitos poco saludables. El estudio sostiene que estos factores presentan asociaciones observables dentro de los datos clínicos y pueden utilizarse para identificar perfiles de mayor riesgo cardiovascular en población adulta.
+
+**Problemas con el argumento o el tema:** Los autores reconocen que el análisis se basa en datos observacionales, por lo que las asociaciones encontradas no implican causalidad directa. Además, algunas variables relevantes como antecedentes familiares, genética o contexto socioeconómico no fueron incorporadas en el estudio, limitando la explicación completa del fenómeno cardiovascular.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Este artículo respalda directamente el análisis descriptivo realizado en nuestro proyecto, ya que variables como edad, presión arterial sistólica, colesterol e IMC —presentes en `cardio_train.csv`— aparecen como factores asociados con enfermedad cardiovascular. Además, el estudio coincide con los patrones observados en nuestros gráficos exploratorios y cuadros descriptivos, especialmente en la relación entre hipertensión, edad avanzada y presencia de enfermedad cardiovascular.
+
+**Lo que NO dice el autor:** El artículo no analiza técnicas modernas de modelación estadística ni compara el desempeño predictivo de distintos modelos de clasificación cardiovascular. Tampoco discute problemas relacionados con datasets públicos sin información geográfica definida, limitación presente en `cardio_train.csv`.
+
+**Contraste con otra fuente:** Este artículo complementa a D’Agostino et al. (2013) desde una perspectiva más descriptiva. Mientras D’Agostino desarrolla funciones matemáticas formales de predicción mediante modelos de Cox, Rodríguez-Escudero et al. se enfoca principalmente en identificar asociaciones observables entre factores clínicos y enfermedad cardiovascular. Ambos coinciden en la relevancia de variables como edad, presión arterial y colesterol, aunque difieren en el nivel de formalización estadística utilizado.
+
+**Evaluación de aplicabilidad (4/5):** El estudio es bastante aplicable a nuestro proyecto porque trabaja con variables clínicas similares a las disponibles en `cardio_train.csv`, permitiendo comparar directamente patrones descriptivos observados en nuestros gráficos y tablas. Se descuenta un punto porque el artículo no desarrolla procedimientos de validación predictiva ni métricas de desempeño comparables con las etapas posteriores del proyecto.
+
+**Pregunta que le haría al autor:** ¿Cómo cambiarían las asociaciones observadas entre factores cardiovasculares si el análisis incorporara información sobre actividad física detallada, antecedentes familiares y contexto geográfico de los pacientes?
+
+**Resumen argumentativo:** El problema que Rodríguez-Escudero et al. intentan resolver es identificar cuáles factores clínicos y de comportamiento aparecen más asociados con la presencia de enfermedad cardiovascular dentro de población adulta. La solución propuesta consiste en utilizar análisis descriptivos y comparaciones entre grupos para detectar patrones relevantes entre variables fisiológicas y enfermedad cardiovascular. Este enfoque funciona bien para nuestro contexto porque el objetivo actual del proyecto también se centra en explorar asociaciones descriptivas antes de construir modelos predictivos más complejos. Sin embargo, el estudio presenta limitaciones similares a las de nuestro dataset, especialmente la ausencia de variables más profundas como genética, antecedentes familiares y contexto geográfico. A pesar de ello, el principal aporte del documento para nuestro proyecto es reforzar la interpretación descriptiva de variables como edad, presión arterial, colesterol e IMC como posibles indicadores asociados al riesgo cardiovascular.
+
 
