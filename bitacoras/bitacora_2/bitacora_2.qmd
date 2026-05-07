@@ -362,7 +362,7 @@ La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que
 
 A continuación se va apresentar el siguiente programa maqueta en **R** donde se va an a aplicar estos conceptos 
 
-```{r}
+```{r, echo=FALSE, warning=FALSE}, message=FALSE}
 #Se van a utilizar los siguientes paquetes
 library(rstanarm)    # Modelos bayesianos via Stan
 library(bayesplot)   # Visualización de distribuciones posteriores
@@ -400,7 +400,7 @@ p_prior <- df_prior %>%
 
 Antes de usar el propio *dataset* que se ha usado para el análisis poblacional en partes previas, se va a intentar la modelación de otro *dataset* similar a este, del paquete `bestglm`.
 
-```{r}
+```{r, echo=FALSE, warning=FALSE}, message=FALSE}
  library(bestglm)
   data(SAheart)
   datos_reales <- SAheart %>%
