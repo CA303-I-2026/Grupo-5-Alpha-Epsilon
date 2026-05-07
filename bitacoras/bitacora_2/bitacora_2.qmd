@@ -1,7 +1,15 @@
 ---
 title: "Bitácora #2"
 subtitle: "CA-0303 Estadística Actuarial I"
-author: "Oscar Espinoza C3, Gerardo Montero C05010, Gabriel Robles C36611, César Salazar C27103"
+author:
+  - name: "Oscar Espinoza  C32699"
+    id: 
+  - name: "Gerardo Montero  C05010"
+    id: 
+  - name: "Gabriel Robles  C36611"
+    id: 
+  - name: "César Salazar  C27103"
+
 date: today
 lang: es
 format:
@@ -98,7 +106,7 @@ De esta manera, se busca aportar evidencia que, aunque no definitiva, contribuya
 
 # Análisis estadísticos
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(here)
 resultados <- source(here("codigo/02_descriptivo.R"))$value
 ```
