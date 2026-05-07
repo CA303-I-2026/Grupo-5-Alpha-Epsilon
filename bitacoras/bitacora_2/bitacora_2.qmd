@@ -106,6 +106,7 @@ De esta manera, se busca aportar evidencia que, aunque no definitiva, contribuya
 # Análisis estadísticos
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
 library(here)
 resultados <- source(here("codigo/02_descriptivo.R"))$value
 ```
@@ -119,13 +120,14 @@ La base cuenta con `r resultados$eda_dimensiones$filas` observaciones y `r resul
 Se evaluó la presencia de valores faltantes en las variables, observándose que no existen valores perdidos significativos en la base de datos, por lo que no fue necesario realizar procesos de imputación.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(resultados$eda_faltantes)
+
+knitr::kable(resultados$eda_faltantes, caption = "Cuadro 1. Valores faltantes por variable.")
 ```
 
 Se calcularon medidas resumen para las variables numéricas, incluyendo media, mediana, desviación estándar y percentiles, con el fin de entender la distribución de los datos.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(resultados$eda_numericas, digits = 2)
+knitr::kable(resultados$eda_numericas, digits = 2, caption = "Cuadro 2. Estadísticos descriptivos de variables numéricas.")
 ```
 
 En general, la edad presenta una media cercana a `r round(resultados$eda_numericas$Media[resultados$eda_numericas$Variable=="Edad"],2)` años, con una dispersión moderada.
@@ -135,13 +137,15 @@ El índice de masa corporal muestra valores concentrados en rangos intermedios, 
 El siguiente cuadro presenta la media y desviación estándar de las variables numéricas estratificadas por presencia o ausencia de enfermedad cardiovascular. Se observa que los pacientes con enfermedad presentan, en promedio, mayor edad, mayor presión arterial sistólica y diastólica, mayor peso e IMC en comparación con quienes no la presentan, lo que sugiere que estas variables podrían tener un rol relevante en la explicación del riesgo cardiovascular.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(eda_por_cardio)
+knitr::kable(eda_por_cardio,
+             caption = "Cuadro 3. Media y desviación estándar de variables numéricas según enfermedad cardiovascular.")
 ```
 
 Luego se tiene este cuadro donde se muestra la distribución porcentual de las variables categóricas según la presencia o ausencia de enfermedad cardiovascular. Se observa un patrón en donde conforme aumenta el nivel del indicador (ya sea colesterol o glucosa por ejemplo) crece también la proporción de personas con enfermedad cardiovascular dentro de ese grupo. Por ejemplo, las personas con colesterol o glucosa en niveles altos concentran un mayor porcentaje de casos positivos que quienes presentan niveles normales. Este patrón es coherente con lo reportado en la literatura especializada y refuerza la pertinencia de incluir estas variables en el análisis inferencial.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(eda_categoricas_por_cardio)
+knitr::kable(eda_categoricas_por_cardio,
+             caption = "Cuadro 4. Distribución porcentual de variables categóricas según enfermedad cardiovascular.")
 ```
 
 A continuación, se presentan gráficos exploratorios para analizar la relación entre variables y la presencia de enfermedad cardiovascular.
@@ -154,33 +158,53 @@ resultados$grafico_correlacion
 
 Se observa que variables como la edad, la presión arterial, tanto hi (sistólica) como lo (diastólica), y el IMC presentan mayor asociación con la enfermedad cardiovascular, lo que sugiere que estos factores podrían ser relevantes en su explicación, en cambio, el colesterol sorpresivamente salio con la menor correlación.
 
-```{r, echo=FALSE, warning=FALSE}
+```{r}
+#| label: fig-edad
+#| fig-cap: "Distribución de edad según enfermedad cardiovascular."
+#| echo: false
+#| warning: false
 resultados$grafico_edad
 ```
 
 La distribución de la edad muestra que los pacientes con enfermedad cardiovascular tienden a concentrarse en edades mayores, lo cual es consistente con la literatura médica, en contraste, hay muy pocos con enfermedades cardiovasculares con edades menores a 40.
 
-```{r, echo=FALSE, warning=FALSE}
+```{r}
+#| label: fig-imc
+#| fig-cap: "Distribución del IMC según enfermedad cardiovascular."
+#| echo: false
+#| warning: false
 resultados$grafico_imc
 ```
 
 Se observa que los pacientes con enfermedad cardiovascular presentan una distribución del IMC desplazada ligeramente hacia valores más altos, lo que sugiere una posible relación entre sobrepeso y riesgo cardiovascular, a pesar de esto, se observa que dado que la mayoria de personas se encuentran entre los valores de 25, puede ser dificil analizar esta variable con claridad.
 
-```{r, echo=FALSE, warning=FALSE}
+```{r}
+#| label: fig-colesterol
+#| fig-cap: "Prevalencia de enfermedad cardiovascular por nivel de colesterol."
+#| echo: false
+#| warning: false
 resultados$grafico_colesterol
 ```
 
 El gráfico muestra la proporción de personas con y sin enfermedad cardiovascular según el nivel de colesterol.
 Se observa si los niveles más altos de colesterol concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite relacionar este indicador bioquímico con la pregunta de investigación, de la misma forma, las personas con colesterol bajo son las que menos proporción tienen de enfermedades cardiovasculares.
 
-```{r, echo=FALSE, warning=FALSE}
+```{r}
+#| label: fig-factores
+#| fig-cap: "Proporción de enfermedad cardiovascular por actividad física, glucosa y colesterol."
+#| echo: false
+#| warning: false
 resultados$grafico_factores
 ```
 
 Este gráfico compara la proporción de personas con y sin enfermedad cardiovascular según actividad física, glucosa y colesterol.
 Permite observar si ciertas categorías concentran una mayor presencia de enfermedad, conectando factores de comportamiento y bioquímicos con la pregunta de investigación, donde se puede observar de forma general, no tan detenida como en el grafico previo.
 
-```{r, echo=FALSE, warning=FALSE}
+```{r}
+#| label: fig-presion
+#| fig-cap: "Prevalencia de enfermedad cardiovascular por categoría de presión arterial sistólica."
+#| echo: false
+#| warning: false
 resultados$grafico_presion
 ```
 
@@ -188,7 +212,8 @@ El gráfico muestra la proporción de personas con y sin enfermedad cardiovascul
 Se observa si los niveles más altos de presión concentran una mayor proporción de casos con enfermedad cardiovascular, lo cual permite evaluar visualmente la relación entre hipertensión y riesgo cardíaco, dado que esta fue la categoria con mayor correlacion, se le hace también un análisis a su gráfico.
 
 ```{r, echo=FALSE, warning=FALSE}
-knitr::kable(resultados$eda_balance_cardio)
+knitr::kable(resultados$eda_balance_cardio,
+             caption = "Cuadro 5. Distribución de la variable enfermedad cardiovascular.")
 ```
 
 La variable respuesta presenta una distribución de `r resultados$eda_balance_cardio$Porcentaje[1]` sin enfermedad y `r  resultados$eda_balance_cardio$Porcentaje[2]` con enfermedad, lo que indica que la base se encuentra relativamente balanceada.
@@ -294,6 +319,13 @@ Asimismo, se observó que la base de datos no presenta problemas de calidad sign
 
 **Implicación para el siguiente paso:** Se recomienda explorar conjuntamente IMC, peso y actividad física para analizar posibles patrones descriptivos relacionados con el riesgo cardiovascular.
 
+
+### La imagen que cuenta la historia
+
+Se seleccionó el gráfico @fig-correlacion de correlaciones como la visualización central de esta bitácora porque es el único que responde de forma directa y simultánea a la pregunta de investigación: ¿cuáles variables presentan mayor asociación con la presencia de enfermedad cardiovascular? Los demás gráficos profundizan en variables individuales y resultan útiles como complemento, pero no ofrecen una visión de conjunto comparable. Una persona que vea únicamente este gráfico podría tomar decisiones concretas: por ejemplo, un actuario podría priorizar la presión arterial sistólica, la edad y el IMC como variables de entrada en un modelo de tarificación, dado que son las que presentan mayor correlación positiva con la enfermedad. El gráfico también es accesible para una audiencia no especializada, pues la longitud de cada barra comunica de manera intuitiva la magnitud de la asociación, sin requerir conocimiento estadístico previo. 
+
+El problema es que el gráfico simplifica aspectos importantes: solo captura relaciones lineales, por lo que una variable con efecto umbral (como la edad a partir de cierto punto) podría aparecer subestimada. Tampoco informa si cada correlación es estadísticamente significativa, ni controla por variables confusoras; la correlación del IMC, por ejemplo, podría estar parcialmente explicada por la edad. Adicionalmente, la dirección negativa de las barras de colesterol y glucosa puede resultar contraintuitiva, ya que en los cuadros de resumen se observa que niveles más altos de estas variables se asocian con mayor proporción de enfermos; esta aparente contradicción se debe a la codificación numérica de esas variables en el dataset y no queda explicada en el gráfico por sí solo. El gráfico tampoco muestra la distribución de cada variable ni su escala original, lo que limita la interpretación de la magnitud real de las diferencias. En resumen, esta visualización cumple bien su función de orientar la pregunta de investigación, pero debe leerse en conjunto con los demás gráficos y los cuadros de resumen para una interpretación completa.
+
 ## Registro de uso de IA
 
 ### Consulta: tabla 1.1
@@ -309,11 +341,6 @@ Asimismo, se observó que la base de datos no presenta problemas de calidad sign
 **Evaluación:** Ayuda a el ordenamiento principal de ideas de forma concisa sin cambiar la idea principal.
 **Modificaciones:** Ajustes del texto leve, para evitar la lectura de forma monótona **Aprendizaje:** Estructuración de ideas.
 
-### La imagen que cuenta la historia
-
-Se seleccionó el gráfico @fig-correlacion de correlaciones como la visualización central de esta bitácora porque es el único que responde de forma directa y simultánea a la pregunta de investigación: ¿cuáles variables presentan mayor asociación con la presencia de enfermedad cardiovascular? Los demás gráficos profundizan en variables individuales y resultan útiles como complemento, pero no ofrecen una visión de conjunto comparable. Una persona que vea únicamente este gráfico podría tomar decisiones concretas: por ejemplo, un actuario podría priorizar la presión arterial sistólica, la edad y el IMC como variables de entrada en un modelo de tarificación, dado que son las que presentan mayor correlación positiva con la enfermedad. El gráfico también es accesible para una audiencia no especializada, pues la longitud de cada barra comunica de manera intuitiva la magnitud de la asociación, sin requerir conocimiento estadístico previo. 
-
-El problema es que el gráfico simplifica aspectos importantes: solo captura relaciones lineales, por lo que una variable con efecto umbral (como la edad a partir de cierto punto) podría aparecer subestimada. Tampoco informa si cada correlación es estadísticamente significativa, ni controla por variables confusoras; la correlación del IMC, por ejemplo, podría estar parcialmente explicada por la edad. Adicionalmente, la dirección negativa de las barras de colesterol y glucosa puede resultar contraintuitiva, ya que en los cuadros de resumen se observa que niveles más altos de estas variables se asocian con mayor proporción de enfermos; esta aparente contradicción se debe a la codificación numérica de esas variables en el dataset y no queda explicada en el gráfico por sí solo. El gráfico tampoco muestra la distribución de cada variable ni su escala original, lo que limita la interpretación de la magnitud real de las diferencias. En resumen, esta visualización cumple bien su función de orientar la pregunta de investigación, pero debe leerse en conjunto con los demás gráficos y los cuadros de resumen para una interpretación completa.
 
 ## Arco narrativo del proyecto
 
