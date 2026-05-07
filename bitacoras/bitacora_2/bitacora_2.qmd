@@ -23,6 +23,9 @@ editor:
     wrap: sentence
 header-includes:
   - \usepackage{pdflscape}
+language:
+  label:
+    tbl: "Cuadro"
 ---
 
 ------------------------------------------------------------------------
@@ -322,11 +325,40 @@ Asimismo, se observó que la base de datos no presenta problemas de calidad sign
 **Implicación para el siguiente paso:** Se recomienda explorar conjuntamente IMC, peso y actividad física para analizar posibles patrones descriptivos relacionados con el riesgo cardiovascular.
 
 
-### La imagen que cuenta la historia
+## La imagen que cuenta la historia
 
 Se seleccionó el gráfico @fig-correlacion de correlaciones como la visualización central de esta bitácora porque es el único que responde de forma directa y simultánea a la pregunta de investigación: ¿cuáles variables presentan mayor asociación con la presencia de enfermedad cardiovascular? Los demás gráficos profundizan en variables individuales y resultan útiles como complemento, pero no ofrecen una visión de conjunto comparable. Una persona que vea únicamente este gráfico podría tomar decisiones concretas: por ejemplo, un actuario podría priorizar la presión arterial sistólica, la edad y el IMC como variables de entrada en un modelo de tarificación, dado que son las que presentan mayor correlación positiva con la enfermedad. El gráfico también es accesible para una audiencia no especializada, pues la longitud de cada barra comunica de manera intuitiva la magnitud de la asociación, sin requerir conocimiento estadístico previo. 
 
 El problema es que el gráfico simplifica aspectos importantes: solo captura relaciones lineales, por lo que una variable con efecto umbral (como la edad a partir de cierto punto) podría aparecer subestimada. Tampoco informa si cada correlación es estadísticamente significativa, ni controla por variables confusoras; la correlación del IMC, por ejemplo, podría estar parcialmente explicada por la edad. Adicionalmente, la dirección negativa de las barras de colesterol y glucosa puede resultar contraintuitiva, ya que en los cuadros de resumen se observa que niveles más altos de estas variables se asocian con mayor proporción de enfermos; esta aparente contradicción se debe a la codificación numérica de esas variables en el dataset y no queda explicada en el gráfico por sí solo. El gráfico tampoco muestra la distribución de cada variable ni su escala original, lo que limita la interpretación de la magnitud real de las diferencias. En resumen, esta visualización cumple bien su función de orientar la pregunta de investigación, pero debe leerse en conjunto con los demás gráficos y los cuadros de resumen para una interpretación completa.
+
+# Metodología 
+
+Para esta investigación se van a utilizar conceptos fundamentales de la estadística y probabilidad que influyen el proceso en los factores de riesgo en ciertas demografías. A continuación se va a elaborar no solamente los enfoques probabilísticos y estadísticos para la investigación sino también otros conceptos no completamente relacionados a esos. El presente reporte articula un marco teórico exhaustivo que responde a la necesidad de identificar patrones, jerarquizar influencias y modelar la probabilidad de eventos adversos, integrando la estadística clásica con las fronteras del aprendizaje automático y la inferencia causal.
+
+En primer lugar, se deben introducir ciertas definiciones básicas de estadística antes de profundizar los enfoques que se van abordar.
+
+De acuerdo a @Degroot , Suponga que la cantidad observable de variables aleatorias de interés son $X_1,\dots,X_n$. Sea r una función arbitraria con valores reales. Entonces la variable aleatoria $T = r(X_1 ,\dots, X_n )$ es un **estadístico**. Tres ejemplos de estadísticos son la media aritmética $\bar{Xn}$, el máximo $Yn$ de los valores $X_1,\dots,X_n$ y la función $r(X_1 ,\dots, X_n )$, que tiene el valor constante de 3 para todos los valores de $X_1 ,\dots, X_n$. (p. 382) 
+
+Un estadístico entonces es una función que conjuga una cantidad definida de variables aleatorias y devuelve un número real. Para efectos de esta investigación, es un concepto integral para las siguientes definiciones ya que se utiliza para inferir propiedades de una población.
+
+De la misma obra, se van a definir dos conceptos adicionales a éstos. La **distribución previa** por ejemplo, Suponga que uno tiene un modelo estadístico con parámetro $\theta$. Si uno trata $\theta$ como aleatorio entonces la distribución que le da a $\theta$ antes de observar las otras variables aleatorias de interés. Eso se llama la distribución previa. Si el espacio donde está $\theta$ es contable, entonces la distribución previa es discreta y se refiere como **p.f. previa**, si $\theta$ es continua, se refiere como **p.d.f previa** pues sería continua la distribución previa. Se va a denotar $\xi(\theta)$ como ambas p.f y p.d.f en función de solo theta. (p. 385) La distribución previa es una función de una variable $\theta$, donde theta es el parámetro de la distribución de una variable aleatoria de interés, que a priori se sabe su distribución. Nota: de ahora en adelante, se va a referir a $\xi(\theta)$ como $\pi(\theta)$.
+
+Después sigue la **distribución posterior** que se demuestra como La distribución condicional de $\theta$ dado $x_1,\dots,x_n$. La p.f. o p.d.f. de $\theta$ dado $X = x_1,X_2 = x_2 \dots, X_n = x_n$ se llama la p.f. posterior o p.d.f. posterior y se denota $\xi(\theta|x_1,\dots,x_n)$. (…) Si se supone que este parámetro $\theta$ es desconocido y la p.f o p.d.f previa de theta es $\xi(\theta)$. Entonces la p.d.f o p.f. posterior de $\theta$ es 
+
+\begin{align*}
+\pi(\theta \mid \mathbf{x}) &= \frac{f(x_1 \mid \theta) \cdots f(x_n \mid \theta) \pi(\theta)}{g_n(\mathbf{x})}; \quad \theta \in \Omega \\
+\text{donde } g_n(\mathbf{x}) &= \int_{\Omega} f(x_1 \mid \theta) \cdots f(x_n \mid \theta) \pi(\theta) \, d\theta
+\end{align*}(p. 387-388) 
+
+Luego en la página 388, el denominador de la posterior se define como la **p.f. o p.d.f junta marginal de** $\mathbf{X_1, \dots , X_n}$, y se denota por $g_n(x)$, El numerador de la posterior se define como la **verosimilitud** y se denota por $\mathcal{L}(\theta | \mathbb{x})$. Similarmente a la previa, la distribución posterior ($\xi (\theta | \mathbf{x})$)se va a denotar de ahora en adelante como $\pi(\theta | \mathbf{x})$
+
+Ya con varios conceptos fundamentales definidos, hay dos enfoques estadísticos que se pueden usar para la investigación. Esos son el **Bayesiano** o el **frecuentista o clásico**. Se van a definir ambos - sin embargo es indudable que se va a usar el enfoque bayesiano por razones que se van a especificar a lo largo de esta sección.
+
+El **enfoque clásico o frecuentista** consiste en La idea de que, si un experimento fuese a ser replicado una gran cantidad de veces, se puede establecer una distribución de muestra de un estadístico específico, como $\bar{X_d}$. Se reconoce que el valor que se obtiene cada vez será diferente cuando se repite el experimento porque los participantes totales siempre cambian (…) Dado la distribución de $\bar{X_d}$, se puede estimar el exento de la variabilidad, el error o la desviación del estadístico $\mu_d$. @Pek Asimismo, el frecuentista establece que al tener datos grandes, los estadísticos cambian cada vez que se suman datos nuevos, por lo que se usan datos históricos para definir estos nuevos estadísticos. Este enfoque tiene sus ventajas al tener datos más grandes, más repetibles y con mejores datos históricos.
+
+El **enfoque bayesiano** es completamente diferente al clásico pues En lugar de la distribución de $X_d$, el enfoque bayesiano usa la distribución posterior del parámetro de éstos. Como se ha descrito, la posterior depende de la selección de la distribución previa del parámetro y la verosimilitud. Por ejemplo, si se toma datos que siguen una distribución normal con media $\mu$ y desviación estándar 0; y si además se escoge una distribución previa para $\mu$ de media 1 y desviación 0, tendrá una posterior con media .41 y desviación $\sqrt{2}$ (Bolstad, 2010). Usando esta posterior, se pueden calcular las probabilidades de que $\mu$ tome valores dentro de un intervalo de interés.
+
+La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que el enfoque bayesiano y clásico ambos crean intervalos en los que puede “vivir” el parámetro, la manera en que se construye es muy diferente. De una manera resumida, el enfoque bayesiano usa la distribución previa de los parámetros para crear un **intervalo creíble de Bayes** donde se estima que 95% de estos parámetros podrían estar ubicados ahí, mas el enfoque clásico usa estadísticos “viejos” y los varía a través de un **intervalo de confianza**, donde se estima que 95% de los valores posibles del parámetro pueden llegar a estar ahí.
 
 ## Registro de uso de IA
 
@@ -364,8 +396,6 @@ El problema es que el gráfico simplifica aspectos importantes: solo captura rel
 
 **Referencias:** 
 
-# Metadatos
-
 ## Diario de aprendizaje
 
 La comunicación es una de las áreas en las que se trabajó más en esta bitácora, pues unas partes se tuvieron que equiparar para que la distribución del trabajo sea justa.
@@ -384,3 +414,8 @@ La visualización permite interpretar la información de forma más intuitiva, f
 | Gerardo Montero | Sección 2: Enlaces de la literatura, Sección 1.1 Tabla de ordenamiento de literatura, cinco gráficos del análisis descriptivo, diario de aprendizaje |
 | Óscar Espinoza | 4 fichas de resultados, Verificación de formato tidy |
 | Gabriel Robles | Arco narrativo del proyecto, Identidad visual del proyecto, diario de aprendizaje |
+
+# Referencias
+
+::: {#refs}
+:::
