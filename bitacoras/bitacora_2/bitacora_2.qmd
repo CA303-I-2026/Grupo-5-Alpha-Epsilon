@@ -331,7 +331,7 @@ Se seleccionó el gráfico @fig-correlacion de correlaciones como la visualizaci
 
 El problema es que el gráfico simplifica aspectos importantes: solo captura relaciones lineales, por lo que una variable con efecto umbral (como la edad a partir de cierto punto) podría aparecer subestimada. Tampoco informa si cada correlación es estadísticamente significativa, ni controla por variables confusoras; la correlación del IMC, por ejemplo, podría estar parcialmente explicada por la edad. Adicionalmente, la dirección negativa de las barras de colesterol y glucosa puede resultar contraintuitiva, ya que en los cuadros de resumen se observa que niveles más altos de estas variables se asocian con mayor proporción de enfermos; esta aparente contradicción se debe a la codificación numérica de esas variables en el dataset y no queda explicada en el gráfico por sí solo. El gráfico tampoco muestra la distribución de cada variable ni su escala original, lo que limita la interpretación de la magnitud real de las diferencias. En resumen, esta visualización cumple bien su función de orientar la pregunta de investigación, pero debe leerse en conjunto con los demás gráficos y los cuadros de resumen para una interpretación completa.
 
-# Metodología 
+# Marco Teórico y Metodología 
 
 Para esta investigación se van a utilizar conceptos fundamentales de la estadística y probabilidad que influyen el proceso en los factores de riesgo en ciertas demografías. A continuación se va a elaborar no solamente los enfoques probabilísticos y estadísticos para la investigación sino también otros conceptos no completamente relacionados a esos. El presente reporte articula un marco teórico exhaustivo que responde a la necesidad de identificar patrones, jerarquizar influencias y modelar la probabilidad de eventos adversos, integrando la estadística clásica con las fronteras del aprendizaje automático y la inferencia causal.
 
@@ -359,6 +359,69 @@ El **enfoque clásico o frecuentista** consiste en La idea de que, si un experim
 El **enfoque bayesiano** es completamente diferente al clásico pues En lugar de la distribución de $X_d$, el enfoque bayesiano usa la distribución posterior del parámetro de éstos. Como se ha descrito, la posterior depende de la selección de la distribución previa del parámetro y la verosimilitud. Por ejemplo, si se toma datos que siguen una distribución normal con media $\mu$ y desviación estándar 0; y si además se escoge una distribución previa para $\mu$ de media 1 y desviación 0, tendrá una posterior con media .41 y desviación $\sqrt{2}$ (Bolstad, 2010). Usando esta posterior, se pueden calcular las probabilidades de que $\mu$ tome valores dentro de un intervalo de interés.
 
 La diferencia mayor entre ambos es claramente el uso de la posterior. Por lo que el enfoque bayesiano y clásico ambos crean intervalos en los que puede “vivir” el parámetro, la manera en que se construye es muy diferente. De una manera resumida, el enfoque bayesiano usa la distribución previa de los parámetros para crear un **intervalo creíble de Bayes** donde se estima que 95% de estos parámetros podrían estar ubicados ahí, mas el enfoque clásico usa estadísticos “viejos” y los varía a través de un **intervalo de confianza**, donde se estima que 95% de los valores posibles del parámetro pueden llegar a estar ahí.
+
+A continuación se va apresentar el siguiente programa maqueta en **R** donde se va an a aplicar estos conceptos 
+
+```{r}
+#Se van a utilizar los siguientes paquetes
+library(rstanarm)    # Modelos bayesianos via Stan
+library(bayesplot)   # Visualización de distribuciones posteriores
+library(ggplot2)     # Gráficos generales
+library(dplyr)       # Manipulación de datos
+library(tidyr)       # Pivoteo / limpieza
+library(coda)        # Diagnósticos MCMC (R-hat, ESS)
+library(HDInterval)  # Intervalos creíbles de mayor densidad (HDI)
+
+
+# Visualizar la previa de coeficientes
+x_seq <- seq(-8, 8, length.out = 300)
+df_prior <- data.frame(
+  x       = x_seq,
+  Normal  = dnorm(x_seq, 0, 2.5),
+  Cauchy  = dcauchy(x_seq, 0, 2.5)
+)
+ 
+p_prior <- df_prior %>%
+  pivot_longer(-x, names_to = "Previa", values_to = "Densidad") %>%
+  ggplot(aes(x = x, y = Densidad, color = Previa)) +
+  geom_line(linewidth = 1.2) +
+  labs(
+    title    = "Comparación de distribuciones previas para coeficientes",
+    subtitle = "Normal(0, 2.5) vs Cauchy(0, 2.5)",
+    x        = expression(beta),
+    y        = "Densidad"
+  ) +
+  theme_minimal(base_size = 13) +
+  scale_color_manual(values = c("Normal" = "#2166AC", "Cauchy" = "#D6604D"))
+```
+
+Antes de usar el propio *dataset* que se ha usado para el análisis poblacional en partes previas, se va a intentar la modelación de otro *dataset* similar a este, del paquete `bestglm`.
+
+```{r}
+ library(bestglm)
+  data(SAheart)
+  datos_reales <- SAheart %>%
+    select(chd, age, sbp, obesity, tobacco) %>%
+    rename(evento = chd, edad = age, presion = sbp, imc = obesity, fuma = tobacco) %>%
+    mutate(fuma = as.integer(fuma > 0))
+  
+  
+  
+  # intervalos de confianza
+   modelo_real <- stan_glm(
+    formula         = evento ~ edad + presion + imc + fuma,
+    data            = datos_reales,
+    family          = binomial(link = "logit"),
+    prior           = prior_coef,
+    prior_intercept = prior_intercept,
+    chains          = 4,
+    iter            = 2000,
+    seed            = 42,
+    refresh         = 0
+  )
+  
+   print(summary(modelo_real, digits = 3))
+```
 
 ## Registro de uso de IA
 
