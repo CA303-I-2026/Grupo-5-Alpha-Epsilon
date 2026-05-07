@@ -7,8 +7,10 @@
 library(readr)
 library(dplyr)
 library(tidyr)
-library(ggplot2)
+library(stringr)
 library(cowplot)
+library(ggplot2)
+
 library(showtext)
 library(scales)
 library(here)
@@ -226,12 +228,12 @@ grafico_factores <- ggplot(
   scale_y_continuous(labels = percent_format()) +
   scale_fill_manual(values = colores_si_no) +
   labs(
-    title = "Proporción de enfermedad cardiovascular por actividad, glucosa y colesterol",
+    title = str_wrap("Proporción de enfermedad cardiovascular por actividad, glucosa y colesterol", width = 60),
     x = "Categoría",
     y = "Porcentaje",
     fill = "Enfermedad cardiovascular"
   ) +
-  set_tipografia()
+  set_tipografia() 
 
 # ============================================================
 # Grafico 4: prevalencia por colesterol
@@ -300,7 +302,7 @@ grafico_presion <- ggplot(cardio_presion, aes(x = categoria_presion, y = porcent
   scale_y_continuous(labels = percent_format()) +
   scale_fill_manual(values = colores_si_no) +
   labs(
-    title = "Prevalencia de enfermedad cardiovascular por presión arterial sistólica",
+    title = str_wrap("Prevalencia de enfermedad cardiovascular por presión arterial sistólica", width = 60),
     x = "Categoría de presión sistólica",
     y = "Porcentaje",
     fill = "Enfermedad cardiovascular"
