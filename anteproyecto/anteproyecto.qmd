@@ -66,6 +66,26 @@ Por lo tanto:
 
 En este sentido, el proyecto busca generar evidencia descriptiva sobre los factores asociados con enfermedad cardiovascular, reconociendo las limitaciones inherentes a los datos observacionales.
 
+# Metodología
+
+## Intervalos Bayesianos
+
+- Comparar intervalos bayesianos en grupos de individuos
+- Ejemplo: media de edad con y sin enfermedad
+- Cómo se intersecan
+- Cómo difieren
+- Usando gráficos como apoyo
+
+## ¿Por qué Itervalos Bayesianos?
+
+- Estado del arte
+- Gill et al (Why clinicians are natural Bayesians)
+- Poca cantidad de datos
+- Gran cantidad de factores (dimensiones reducidas)
+- Ventajas predicción bayesiana
+- Alternativa: modelo frecuentista
+
+
 # Resultados esperados
 
 ## ¿Qué esperamos encontrar?
@@ -75,3 +95,9 @@ Se espera encontrar cuáles variables, como la presión arterial sistólica, la 
 ## ¿Cómo sabremos si la pregunta quedó respondida?
 
 Como criterio de respuesta a la pregunta de investigación, Se considerará que un factor es relevante si la diferencia entre las medias posteriores de las probabilidades de los dos grupos comparados es sustantiva en términos prácticos, y si sus intervalos de credibilidad al 95% no se solapan. También se realizará un análisis de sensibilidad a la distribución previa para evaluar la robustez de las conclusiones, dicho análisis se podría hacer comparando tres distribuciones previas (no informativa, ligeramente informativa e informativa) para verificar que las estimaciones posteriores no dependen sustancialmente de la elección de la prior.
+
+
+
+
+
+
