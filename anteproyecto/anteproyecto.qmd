@@ -1,0 +1,67 @@
+---
+title: "Presentación de Anteproyecto"
+subtitle: "Pregunta de investigación"
+author:
+  - "Oscar Espinoza"
+  - "Gerardo Montero"
+  - "Gabriel Robles"
+  - "César Salazar"
+format:
+  beamer:
+    theme: Madrid
+    colortheme: default
+    toc: false
+    slide-level: 2
+fontsize: 11pt
+lang: es
+---
+
+# Pregunta de investigación
+
+## ¿Qué queremos responder?
+
+La pregunta central del proyecto es:
+
+¿Cuáles variables presentan mayor relevancia con la presencia de enfermedades cardiovasculares en la población analizada?
+
+El proyecto busca identificar qué características demográficas, clínicas y de comportamiento muestran una relación más clara con la presencia de enfermedad cardiovascular dentro del dataset utilizado.
+
+En particular, se analizan variables como:
+
+- Edad
+- Presión arterial sistólica y diastólica
+- Índice de masa corporal
+- Colesterol
+- Glucosa
+- Sexo
+- Actividad física
+- Tabaquismo
+- Consumo de alcohol
+
+El objetivo no es afirmar causalidad, sino explorar patrones estadísticos que permitan reconocer cuáles variables podrían ser más relevantes para comprender el riesgo cardiovascular.
+
+## ¿Para quién es relevante?
+
+Esta pregunta es relevante para una audiencia actuarial, especialmente en áreas relacionadas con seguros de vida y salud, ya que la enfermedad cardiovascular representa un factor importante en la evaluación del riesgo individual y colectivo.
+
+Desde una perspectiva actuarial, identificar variables asociadas con mayor riesgo cardiovascular puede aportar insumos para:
+
+- Comprender mejor los perfiles de riesgo.
+- Apoyar futuros modelos de tarificación.
+- Mejorar procesos de segmentación de asegurados.
+- Evaluar la pertinencia de ciertas variables clínicas en modelos de riesgo.
+
+Además, el análisis también puede ser útil para una audiencia médica o de salud pública, ya que permite observar qué factores aparecen con mayor frecuencia asociados a pacientes con enfermedad cardiovascular.
+
+## Alcance de la investigación
+
+La investigación tiene un alcance descriptivo y exploratorio.
+
+Por lo tanto:
+
+- Los resultados deben interpretarse como asociaciones observadas dentro del dataset.
+- No se pretende establecer relaciones causales definitivas.
+- El análisis busca identificar patrones estadísticos relevantes.
+- Los hallazgos pueden servir como base para modelos predictivos futuros.
+
+En este sentido, el proyecto busca generar evidencia descriptiva sobre los factores asociados con enfermedad cardiovascular, reconociendo las limitaciones inherentes a los datos observacionales.
