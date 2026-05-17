@@ -65,3 +65,13 @@ Por lo tanto:
 - Los hallazgos pueden servir como base para modelos predictivos futuros.
 
 En este sentido, el proyecto busca generar evidencia descriptiva sobre los factores asociados con enfermedad cardiovascular, reconociendo las limitaciones inherentes a los datos observacionales.
+
+# Resultados esperados
+
+## ¿Qué esperamos encontrar?
+
+Se espera encontrar cuáles variables, como la presión arterial sistólica, la edad, el IMC, el colesterol etc., presentan una asociación estadísticamente significativa en la presencia de enfermedades cardiovasculares. Desde el enfoque bayesiano, se obtendrán distribuciones posteriores para los parámetros de interés, permitiendo construir intervalos de credibilidad al 95% para la probabilidad de enfermedad cardiovascular según cada factor de riesgo. 
+
+## ¿Cómo sabremos si la pregunta quedó respondida?
+
+Como criterio de respuesta a la pregunta de investigación, Se considerará que un factor es relevante si la diferencia entre las medias posteriores de las probabilidades de los dos grupos comparados es sustantiva en términos prácticos, y si sus intervalos de credibilidad al 95% no se solapan. También se realizará un análisis de sensibilidad a la distribución previa para evaluar la robustez de las conclusiones, dicho análisis se podría hacer comparando tres distribuciones previas (no informativa, ligeramente informativa e informativa) para verificar que las estimaciones posteriores no dependen sustancialmente de la elección de la prior.
