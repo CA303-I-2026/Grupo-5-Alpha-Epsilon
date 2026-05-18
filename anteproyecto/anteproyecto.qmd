@@ -1,6 +1,6 @@
 ---
 title: "Presentación de Anteproyecto"
-subtitle: "Pregunta de investigación"
+subtitle: "Características en las personas que más influyen en enfermedades cardíacas"
 author:
   - "Oscar Espinoza"
   - "Gerardo Montero"
