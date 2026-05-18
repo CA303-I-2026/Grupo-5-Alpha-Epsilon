@@ -66,6 +66,69 @@ Por lo tanto:
 
 En este sentido, el proyecto busca generar evidencia descriptiva sobre los factores asociados con enfermedad cardiovascular, reconociendo las limitaciones inherentes a los datos observacionales.
 
+# Datos
+
+## Fuente de datos
+
+El análisis utiliza el dataset `cardio_train.csv`, una base de datos con información clínica, demográfica y de comportamiento relacionada con enfermedades cardiovasculares.
+
+Cada fila representa un paciente y cada columna corresponde a una variable asociada al riesgo cardiovascular.
+
+El dataset incluye variables como:
+
+- Edad
+- Presión arterial sistólica y diastólica
+- Índice de masa corporal (IMC)
+- Colesterol
+- Glucosa
+- Sexo
+- Actividad física
+- Consumo de alcohol
+- Tabaquismo
+
+## Tamaño y estructura de los datos
+
+- Aproximadamente 70 000 observaciones
+- 13 variables principales
+- Datos en formato tidy
+- Variable respuesta balanceada:
+  - Presencia de enfermedad cardiovascular
+  - Ausencia de enfermedad cardiovascular
+
+No se encontraron valores faltantes significativos, por lo que no fue necesario realizar imputación de datos.
+
+## Limitaciones de los datos
+
+- El dataset no especifica claramente su origen geográfico.
+- No incluye variables como:
+  - antecedentes familiares,
+  - genética,
+  - tratamientos médicos,
+  - dieta.
+- Los resultados representan asociaciones observadas y no causalidad.
+- La validez externa del análisis puede ser limitada.
+
+## Análisis exploratorio de datos (AED)
+
+El análisis exploratorio mostró que las variables más asociadas con enfermedad cardiovascular son:
+
+- Edad
+- Presión arterial sistólica
+- Índice de masa corporal
+
+También se observaron patrones importantes:
+
+- Pacientes con enfermedad cardiovascular tienden a tener mayor edad.
+- La hipertensión presenta una relación clara con enfermedad cardiovascular.
+- Niveles altos de colesterol y glucosa concentran mayor proporción de pacientes con enfermedad cardiovascular.
+
+## Hallazgos principales del AED
+
+- La presión arterial sistólica fue la variable con mayor asociación observada.
+- El colesterol mostró una correlación menor a la esperada.
+- El IMC presentó distribuciones ligeramente mayores en pacientes cardiovasculares.
+- La base de datos no presentó problemas importantes de calidad.
+
 # Metodología
 
 ## Intervalos Bayesianos
@@ -85,7 +148,6 @@ En este sentido, el proyecto busca generar evidencia descriptiva sobre los facto
 - Ventajas predicción bayesiana
 - Alternativa: modelo frecuentista
 
-
 # Resultados esperados
 
 ## ¿Qué esperamos encontrar?
@@ -95,9 +157,3 @@ Se espera encontrar cuáles variables, como la presión arterial sistólica, la 
 ## ¿Cómo sabremos si la pregunta quedó respondida?
 
 Como criterio de respuesta a la pregunta de investigación, Se considerará que un factor es relevante si la diferencia entre las medias posteriores de las probabilidades de los dos grupos comparados es sustantiva en términos prácticos, y si sus intervalos de credibilidad al 95% no se solapan. También se realizará un análisis de sensibilidad a la distribución previa para evaluar la robustez de las conclusiones, dicho análisis se podría hacer comparando tres distribuciones previas (no informativa, ligeramente informativa e informativa) para verificar que las estimaciones posteriores no dependen sustancialmente de la elección de la prior.
-
-
-
-
-
-
