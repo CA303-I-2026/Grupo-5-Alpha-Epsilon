@@ -1,0 +1,92 @@
+---
+title: "Bitácora #3"
+subtitle: "CA-0303 Estadística Actuarial I"
+author:
+  - name: "Oscar Espinoza  C32699"
+  - name: "Gerardo Montero  C05010"
+  - name: "Gabriel Robles  C36611"
+  - name: "César Salazar  C27103"
+
+date: today
+lang: es
+format:
+  html:
+    theme: cerulean
+    embed-resources: true
+  pdf:
+    toc: true
+bibliography: ../../referencias/referencias.bib
+csl: ../../referencias/apa.csl
+number-sections: true
+editor: 
+  markdown: 
+    wrap: sentence
+header-includes:
+  - \usepackage{pdflscape}
+language:
+  label:
+    tbl: "Cuadro"
+---
+
+# Bitácora #3 {.unnumbered .unlisted}
+
+# Parte de planificación
+
+## Propuesta metodológica
+
+En el análisis exploratorio se reveló que la presión arterial sistólica es la variable con mayor correlación con la presencia de enfermedad cardiovascular (alrededor de $0{,}43$), hallazgo coherente con los factores de riesgo identificados tanto en modelos clásicos de predicción cardiovascular [@DAgostino2013; @Damen] como en las guías internacionales de hipertensión arterial [@WHO_ISH_2020; @Visseren2021].
+Con base en este resultado se formulan las siguientes hipótesis de interés.
+
+**Hipótesis primaria: presión arterial sistólica**
+
+$$H_0: \mu_{(\text{sin ECV})} = \mu_{(\text{con ECV})}$$
+
+$$H_0: \mu_{(\text{sin ECV})} \neq \mu_{(\text{con ECV})}$$
+
+**Hipótesis secundaria: presión arterial diastólica**
+
+$$H_0: \mu_{(\text{sin ECV})}^{\text{*}} = \mu_{(\text{con ECV})}^{\text{*}}$$
+
+$$H_0: \mu_{(\text{sin ECV})}^{\text{*}} \neq \mu_{(\text{con ECV})}^{\text{*}}$$
+
+Adicionalmente, el análisis exploratorio mostró un patrón de gradiente en la prevalencia de enfermedad cardiovascular conforme se acumulan factores de riesgo clínicos: hipertensión (presión arterial sistólica $\geq 140$ mmHg [@WHO_ISH_2020]), obesidad (índice de masa corporal $\geq 30$ kg/m² [@WHO_obesity_2000]), colesterol elevado (categorías *Alto* o *Muy Alto* en la escala ordinal del conjunto de datos) y edad $\geq 55$ años.
+Para cuantificar si ese patrón constituye evidencia estadística de asociación, se plantean dos hipótesis complementarias sobre el gradiente: **Hipótesis de correlación acumulada:**
+
+$$H_0^{**}: \rho(\texttt{n°factores},\ \texttt{cardio}) = 0$$
+
+$$H_1^{**}: \rho(\texttt{n° factores},\ \texttt{cardio}) \neq 0$$
+
+**Hipótesis de contraste entre extremos del gradiente:**
+
+$$H_0^{***}: P(\text{ECV} \mid k = 0) = P(\text{ECV} \mid k \geq 3)$$
+
+$$H_1^{***}: P(\text{ECV} \mid k = 0) \neq P(\text{ECV} \mid k \geq 3)$$
+
+Para evaluar todas las hipótesis anteriores se empleará el **Factor de Bayes** (BF), definido como el cociente entre las verosimilitudes marginales de los datos bajo cada hipótesis [@Degroot]:
+
+$$\text{BF}_{10} = \frac{P(\mathbf{x} \mid H_1)}{P(\mathbf{x} \mid H_0)}
+= \frac{\displaystyle\int P(\mathbf{x} \mid \theta_1,\, H_1)\,\pi(\theta_1 \mid H_1)\,d\theta_1}
+       {\displaystyle\int P(\mathbf{x} \mid \theta_0,\, H_0)\,\pi(\theta_0 \mid H_0)\,d\theta_0}$$
+
+Un valor $\text{BF}_{10} > 1$ indica que los datos son más verosímiles bajo $H_1$; un valor $< 1$ indica lo contrario.
+La interpretación sigue la escala de Jeffreys, donde valores entre 3 y 10 constituyen evidencia moderada, entre 10 y 30 evidencia fuerte, y superiores a 100 evidencia extrema [@Armero; @Ramos-Vera].
+
+**Justificación de la elección del método.** Con aproximadamente 68,000 observaciones, cualquier diferencia mínima entre grupos producirá un valor $p < 0{,}05$ en una prueba frecuentista, independientemente de su relevancia clínica o práctica [@Pek].
+El enfoque frecuentista no cuantifica la evidencia a favor de $H_1$: solo señala qué tan inusuales serían los datos si $H_0$ fuera cierta, sin que $H_1$ entre en el cálculo [@Pek; @Lorca].
+El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de $H_1$ como a favor de $H_0$ [@Ramos-Vera; @Armero].
+Esta propiedad resulta especialmente relevante en el contexto del proyecto, cuya pregunta de investigación no es simplemente si existe una diferencia estadística, sino **cuán fuerte es la evidencia** de que las variables de presión arterial y el número de factores de riesgo acumulados se asocian con la enfermedad cardiovascular.
+La implementación se realizará con las funciones `ttestBF()` y `correlationBF()` del paquete `BayesFactor` de R [@Ramos-Vera].
+
+## Fichas de resultados
+
+## Ordenamiento de elementos de reporte
+
+## La imagen que cuenta la historia
+
+# Arco narrativo
+
+# Parte de escritura
+
+# Parte de reflexión
+
+# Diario de aprendizaje
