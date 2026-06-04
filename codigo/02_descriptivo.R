@@ -276,6 +276,46 @@ grafico_imc <- ggplot(cardio, aes(x = imc, fill = cardio)) +
     fill = "Enfermedad cardiovascular"
   ) +
   set_tipografia()
+# ============================================================
+# Gráfico 6: Gradiantes de riesgo
+# ============================================================
+# Las cotas son estándar
+
+cardio <- cardio %>%
+  mutate(
+    hipertension    = ap_hi >= 140,           
+    obesidad        = imc   >= 30,            
+    colesterol_alto = cholesterol %in% c("Alto", "Muy Alto"),
+    mayor_55        = age   >= 55             
+  )
+cardio <- cardio %>%
+  mutate(
+    n_factores = hipertension + obesidad + colesterol_alto + mayor_55
+  )
+gradiente <- cardio %>%
+  group_by(n_factores) %>%
+  summarise(
+    prevalencia = mean(cardio == "Si"),
+    n = n(),
+    .groups = "drop"
+  )
+
+grafico_gradiante <- ggplot(gradiente, aes(x = n_factores, y = prevalencia)) +
+  geom_line(linewidth = 1.2, color = "#E63946") +
+  geom_point(aes(size = n), color = "#E63946") +
+  geom_text(
+    aes(label = scales::percent(prevalencia, accuracy = 1)),
+    vjust = -1.2, size = 3.5
+  ) +
+  scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+  guides(size = "none") +
+  scale_x_continuous(breaks = 0:4) +
+  labs(
+    title    = "Gradiente de riesgo cardiovascular acumulado",
+    x        = "Número de factores de riesgo",
+    y        = "Prevalencia de ECV"
+  ) +
+  set_tipografia()
 
 
 cardio_presion <- cardio %>%
@@ -375,6 +415,7 @@ list(
   grafico_colesterol = grafico_colesterol,
   grafico_imc = grafico_imc,
   grafico_presion = grafico_presion,
+  grafico_gradiante,
   eda_tipos = eda_tipos,
   eda_faltantes = eda_faltantes,
   eda_numericas = eda_numericas,
@@ -383,3 +424,7 @@ list(
   eda_por_cardio = eda_por_cardio,
   eda_dimensiones = eda_dimensiones
 )
+
+
+
+
