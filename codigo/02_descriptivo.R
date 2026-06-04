@@ -4,6 +4,8 @@
 # Fecha: 29/4/26
 # Librerías
 
+library(MASS)     
+library(moments) 
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -424,7 +426,6 @@ list(
   eda_por_cardio = eda_por_cardio,
   eda_dimensiones = eda_dimensiones
 )
-
 
 
 

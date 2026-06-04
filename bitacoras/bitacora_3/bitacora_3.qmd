@@ -77,6 +77,14 @@ El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hi
 Esta propiedad resulta especialmente relevante en el contexto del proyecto, cuya pregunta de investigación no es simplemente si existe una diferencia estadística, sino **cuán fuerte es la evidencia** de que las variables de presión arterial y el número de factores de riesgo acumulados se asocian con la enfermedad cardiovascular.
 La implementación se realizará con las funciones `ttestBF()` y `correlationBF()` del paquete `BayesFactor` de R [@Ramos-Vera].
 
+Complementariamente, se extraerá la distribución posterior de la diferencia de medias mediante simulación de la distribución posterior implícita en el modelo de `ttestBF()` en R.
+A partir de esta distribución se construirá un intervalo de credibilidad del 95%, definido como el intervalo $[\theta_{\alpha/2},\, \theta_{1-\alpha/2}]$ tal que
+
+$$P(\theta_{\alpha/2} \leq \delta \leq \theta_{1-\alpha/2} \mid \mathbf{x}) = 0.95$$
+
+donde $\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}$ es la diferencia de medias de presión arterial sistólica entre grupos.
+Este intervalo cuantifica la magnitud y dirección del efecto, información que el Factor de Bayes por sí solo no provee [@Lorca; @Armero].
+
 ## Fichas de resultados
 
 ## Ordenamiento de elementos de reporte
