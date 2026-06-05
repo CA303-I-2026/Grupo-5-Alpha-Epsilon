@@ -172,3 +172,89 @@ bf_valores <- c(
   extractBF(bf_extremos)$bf
 )
 
+tabla_bf <- tibble(
+  Prueba = c(
+    "Presión sistólica (ap\\_hi)",
+    "Presión diastólica (ap\\_lo)",
+    "Correlación gradiente ECV",
+    "Extremos del gradiente (k=0 vs k\u22653)"
+  ),
+  H0 = c(
+    "\u03bc_ap\\_hi igual entre grupos",
+    "\u03bc_ap\\_lo igual entre grupos",
+    "\u03c1(n\u00b0 factores, cardio) = 0",
+    "P(ECV|k=0) = P(ECV|k\u22653)"
+  ),
+  BF10      = bf_valores,
+  log10_BF  = log10(bf_valores),
+  Evidencia = clasificar_bf(bf_valores)
+)
+
+cat("\n====== Tabla resumen: Factores de Bayes ======\n")
+print(tabla_bf, n = Inf)
+
+# =============================================================================
+# Posteriores e intervalos de credibilidad
+# =============================================================================
+
+set.seed(2002) # Para un random diferente
+
+# Posterior de ap_hi
+cat("\n====== Posterior: ap_hi (10 000 iteraciones MCMC) ======\n")
+post_ap_hi <- posterior(bf_ap_hi, iterations = 10000)
+
+# Diferencia de medias en mmHg
+delta_ap_hi <- as.numeric(post_ap_hi[, "delta"] * sqrt(post_ap_hi[, "sig2"]))
+
+ic_ap_hi     <- quantile(delta_ap_hi, c(0.025, 0.975))
+media_ap_hi  <- mean(delta_ap_hi)
+mediana_ap_hi <- median(delta_ap_hi)
+
+cat("Diferencia de medias ap_hi (con ECV − sin ECV):\n")
+cat("  Media posterior:  ", round(media_ap_hi, 2), "mmHg\n")
+cat("  Mediana posterior:", round(mediana_ap_hi, 2), "mmHg\n")
+cat("  IC 95% credibilidad: [", round(ic_ap_hi[1], 2), ",", round(ic_ap_hi[2], 2), "] mmHg\n")
+
+# Gráfico: distribución posterior de la diferencia de medias
+grafico_posterior_ap_hi <- ggplot(
+  data.frame(delta = delta_ap_hi),
+  aes(x = delta)
+) +
+  geom_density(fill = "#E63946", alpha = 0.4, color = "#E63946", linewidth = 1) +
+  geom_vline(xintercept = media_ap_hi,  linetype = "dashed", color = "black") +
+  geom_vline(xintercept = ic_ap_hi[1],  linetype = "dotted", color = "#2471A3", linewidth = 1) +
+  geom_vline(xintercept = ic_ap_hi[2],  linetype = "dotted", color = "#2471A3", linewidth = 1) +
+  labs(
+    title    = "Distribución posterior: diferencia de presión sistólica",
+    x        = "\u0394\u03bc (mmHg)",
+    y        = "Densidad posterior"
+  ) +
+  set_tipografia()
+
+# Posterior para correlación del gradiente
+cat("\n====== Posterior: correlación gradiente (10 000 iteraciones) ======\n")
+post_cor <- posterior(bf_cor, iterations = 10000)
+
+rho_muestras <- as.numeric(post_cor[, "rho"])
+
+ic_rho     <- quantile(rho_muestras, c(0.025, 0.975))
+media_rho  <- mean(rho_muestras)
+
+cat("Correlación ρ(n_factores, cardio):\n")
+cat("  Media posterior:  ", round(media_rho, 4), "\n")
+cat("  IC 95% credibilidad: [", round(ic_rho[1], 4), ",", round(ic_rho[2], 4), "]\n")
+
+grafico_posterior_rho <- ggplot(
+  data.frame(rho = rho_muestras),
+  aes(x = rho)
+) +
+  geom_density(fill = "#2471A3", alpha = 0.4, color = "#2471A3", linewidth = 1) +
+  geom_vline(xintercept = 0,         linetype = "dashed", color = "grey50") +
+  geom_vline(xintercept = ic_rho[1], linetype = "dotted", color = "#E63946", linewidth = 1) +
+  geom_vline(xintercept = ic_rho[2], linetype = "dotted", color = "#E63946", linewidth = 1) +
+  labs(
+    title    = "Distribución posterior: correlación gradiente - ECV",
+    x        = "\u03c1",
+    y        = "Densidad posterior"
+  ) +
+  set_tipografia()
