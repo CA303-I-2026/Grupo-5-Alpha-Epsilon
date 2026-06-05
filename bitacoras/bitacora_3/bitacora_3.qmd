@@ -41,13 +41,13 @@ Con base en este resultado se formulan las siguientes hipótesis de interés.
 
 $$H_0: \mu_{(\text{sin ECV})} = \mu_{(\text{con ECV})}$$
 
-$$H_0: \mu_{(\text{sin ECV})} \neq \mu_{(\text{con ECV})}$$
+$$H_1: \mu_{(\text{sin ECV})} \neq \mu_{(\text{con ECV})}$$
 
 **Hipótesis secundaria: presión arterial diastólica**
 
 $$H_0: \mu_{(\text{sin ECV})}^{\text{*}} = \mu_{(\text{con ECV})}^{\text{*}}$$
 
-$$H_0: \mu_{(\text{sin ECV})}^{\text{*}} \neq \mu_{(\text{con ECV})}^{\text{*}}$$
+$$H_1: \mu_{(\text{sin ECV})}^{\text{*}} \neq \mu_{(\text{con ECV})}^{\text{*}}$$
 
 Adicionalmente, el análisis exploratorio mostró un patrón de gradiente en la prevalencia de enfermedad cardiovascular conforme se acumulan factores de riesgo clínicos: hipertensión (presión arterial sistólica $\geq 140$ mmHg [@WHO_ISH_2020]), obesidad (índice de masa corporal $\geq 30$ kg/m² [@WHO_obesity_2000]), colesterol elevado (categorías *Alto* o *Muy Alto* en la escala ordinal del conjunto de datos) y edad $\geq 55$ años.
 Para cuantificar si ese patrón constituye evidencia estadística de asociación, se plantean dos hipótesis complementarias sobre el gradiente: **Hipótesis de correlación acumulada:**
