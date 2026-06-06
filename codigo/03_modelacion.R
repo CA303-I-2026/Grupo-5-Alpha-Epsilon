@@ -258,3 +258,54 @@ grafico_posterior_rho <- ggplot(
     y        = "Densidad posterior"
   ) +
   set_tipografia()
+
+# =============================================================================
+# Prevalencia de ECV: Beta - Bernoulli
+# =============================================================================
+
+n_total  <- nrow(cardio)
+n_ecv    <- sum(cardio$cardio == "Si")
+n_sano   <- n_total - n_ecv
+
+# Parámetros de la posterior
+alpha_post <- 1 + n_ecv
+beta_post  <- 1 + n_sano
+
+prev_media  <- alpha_post / (alpha_post + beta_post)
+prev_moda   <- (alpha_post - 1) / (alpha_post + beta_post - 2)
+prev_ic95   <- qbeta(c(0.025, 0.975), alpha_post, beta_post)
+
+cat("\n====== BETA-BERNOULLI: prevalencia de ECV ======\n")
+cat("n total:    ", n_total, "\n")
+cat("n con ECV:  ", n_ecv, " (", round(n_ecv/n_total*100, 2), "%)\n")
+cat("Posterior:  Beta(", alpha_post, ",", beta_post, ")\n")
+cat("Media posterior:  ", round(prev_media, 6), "\n")
+cat("Moda posterior:   ", round(prev_moda, 6), "\n")
+cat("IC 95% credibilidad: [", round(prev_ic95[1], 5), ",", round(prev_ic95[2], 5), "]\n")
+
+# Gráfico de la posterior Beta
+margen <- 0.004  # Espacio intervalo del IC
+
+theta_seq <- seq(prev_ic95[1] - margen, 
+                 prev_ic95[2] + margen, 
+                 length.out = 1000)
+
+dens_post <- dbeta(theta_seq, alpha_post, beta_post)
+
+grafico_beta_bernoulli <- ggplot(
+  data.frame(theta = theta_seq, densidad = dens_post),
+  aes(x = theta, y = densidad)
+) +
+  geom_line(color = "#E63946", linewidth = 1.2) +
+  geom_vline(xintercept = prev_media,    linetype = "dashed", color = "black") +
+  geom_vline(xintercept = prev_ic95[1],  linetype = "dotted",
+             color = "#2471A3", linewidth = 1) +
+  geom_vline(xintercept = prev_ic95[2],  linetype = "dotted",
+             color = "#2471A3", linewidth = 1) +
+  coord_cartesian(xlim = c(prev_ic95[1] - margen, prev_ic95[2] + margen)) +
+  labs(
+    title    = "Posterior Beta-Bernoulli: prevalencia de ECV",
+    x = "\u03b8 (prevalencia)",
+    y = "Densidad posterior"
+  ) +
+  set_tipografia()
