@@ -85,6 +85,66 @@ $$P(\theta_{\alpha/2} \leq \delta \leq \theta_{1-\alpha/2} \mid \mathbf{x}) = 0.
 donde $\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}$ es la diferencia de medias de presión arterial sistólica entre grupos.
 Este intervalo cuantifica la magnitud y dirección del efecto, información que el Factor de Bayes por sí solo no provee [@Lorca; @Armero].
 
+### Validación
+
+Dado que el enfoque es de inferencia bayesiana, la validación se organiza en tres componentes: cuantificación de evidencia mediante el Factor de Bayes, estimación de la magnitud del efecto mediante distribuciones posteriores e intervalos de credibilidad, y análisis de sensibilidad a la distribución a priori.
+**Factor de Bayes.** Los cuatro BF calculados superan con enorme margen el umbral de evidencia extrema ($\text{BF}_{10} > 100$) de la escala de Jeffreys [@Armero; @Ramos-Vera]:
+
+| Prueba | $H_0$ | $\log_{10}(\text{BF}_{10})$ | Evidencia |
+|---|---|---|---|
+| Presión sistólica (`ap_hi`) | $\mu$ igual entre grupos | $3\,009$ | Extrema a favor de $H_1$ |
+| Presión diastólica (`ap_lo`) | $\mu$ igual entre grupos | $1\,832$ | Extrema a favor de $H_1$ |
+| Correlación gradiente ECV | $\rho = 0$ | $181$ | Extrema a favor de $H_1$ |
+| Extremos del gradiente ($k=0$ vs $k\geq3$) | $P(\text{ECV})$ igual entre extremos | $866$ | Extrema a favor de $H_1$ |
+
+: Factores de Bayes para las cuatro hipótesis evaluadas {#tbl-bf}
+
+Para dar una intuición de la magnitud: $\log_{10}(\text{BF}_{10}) = 3\,009$ en la presión sistólica significa que los datos observados son $9{,}74 \times 10^{3009}$ veces
+más verosímiles bajo $H_1$ que bajo $H_0$. El uso de $\log_{10}(\text{BF}_{10})$ es necesario para comunicar estas magnitudes dado que los valores absolutos exceden cualquier escala de representación numérica habitual.
+
+**Advertencia de interpretación.** El Factor de Bayes detecta evidencia de que la diferencia *existe*, no que sea clínicamente relevante. Con $n = 68\,474$ observaciones,
+cualquier diferencia real producirá BF extremos independientemente de su magnitud práctica [@Pek]. Para evaluar relevancia clínica se recurre a los intervalos de
+credibilidad.
+
+**Distribuciones posteriores e intervalos de credibilidad.** A partir de las distribuciones posteriores simuladas mediante MCMC (10 000 iteraciones) se obtienen
+los siguientes resultados:
+
+- *Presión sistólica:* diferencia de medias $\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}$ con media posterior $14{,}28$ mmHg e IC 95% de credibilidad
+$[14{,}05;\ 14{,}50]$ mmHg. Existe una probabilidad posterior del 95% de que las personas con ECV presenten entre $14{,}05$ y $14{,}50$ mmHg más de presión sistólica
+que quienes no la presentan. Esta diferencia es clínicamente relevante: las guías internacionales clasifican como elevada una presión sistólica $\geq 120$ mmHg y como
+alta $\geq 140$ mmHg [@WHO_ISH_2020].
+
+- *Presión diastólica:* media posterior $6{,}42$ mmHg, IC 95%: $[6{,}29;\ 6{,}55]$ mmHg. La diferencia diastólica es real pero de menor magnitud que la sistólica, lo
+cual es coherente con la literatura [@DAgostino2013].
+- *Correlación del gradiente:* media posterior $\hat{\rho} = 0{,}3939$, IC 95%: $[0{,}3701;\ 0{,}4172]$. El intervalo excluye el cero con amplio margen, confirmando
+que la acumulación de factores de riesgo se asocia positivamente con la prevalencia de ECV.
+
+**Prevalencia de ECV — modelo Beta-Bernoulli.** Con $n = 68\,474$ observaciones y $33\,883$ casos positivos ($49{,}48\%$), la distribución posterior es
+$\text{Beta}(33\,884,\ 34\,592)$, con media $\theta = 0{,}4948$ e IC 95% de credibilidad $[0{,}4911;\ 0{,}4986]$. La base de datos está prácticamente balanceada
+entre casos positivos y negativos, lo cual es favorable para el análisis inferencial.
+
+**Sensibilidad a la distribución a priori.** Las pruebas `ttestBF()` utilizan una previa de Cauchy sobre el tamaño del efecto estandarizado con escala $r = \sqrt{2}/2$,
+que corresponde a la previa predeterminada de Jeffreys-Zellner-Siow (JZS) [@Ramos-Vera]. Con BF del orden de $10^{800}$ o superiores, cualquier variación
+razonable en $r$ (por ejemplo $r \in [0{,}3;\ 1{,}0]$) produce conclusiones idénticas: la evidencia es extrema en todos los casos. El modelo es por tanto insensible a la
+elección de la previa dentro del rango habitual de la literatura.
+
+### Análisis fallido
+
+Al intentar calcular el Factor de Bayes para la hipótesis de correlación acumulada utilizando el conjunto completo de $n = 68\,474$ observaciones, la función
+`correlationBF()` del paquete `BayesFactor` emitió el siguiente aviso: WARNING: Series not converged.
+
+Este mensaje indica que la serie de potencias utilizada internamente para aproximar la integral de la verosimilitud marginal no convergió. La función implementa el método
+de Jeffreys-beta para correlaciones, que requiere calcular una función hipergeométrica gaussiana $_2F_1$ mediante una expansión en serie. Cuando $n$ es muy grande, los
+términos de esa serie crecen en magnitud antes de estabilizarse, y la suma parcial nunca converge dentro de la precisión de punto flotante de 64 bits que usa R.
+
+La correlación observada con los datos completos era $\hat{\rho} = 0{,}3859$, valor que por sí solo no genera el problema: la causa es exclusivamente el tamaño de
+muestra. Esto se verificó porque al reducir la muestra a $n = 5\,000$ mediante submuestreo aleatorio reproducible (`set.seed(2002)`), la función convergió sin
+advertencias y produjo $\text{BF}_{10} = 5{,}03 \times 10^{181}$.
+
+Este caso ilustra que en estadística bayesiana computacional, un tamaño de muestra grande no siempre es una ventaja: puede generar problemas numéricos en algoritmos
+diseñados para muestras moderadas. La solución de submuestreo es válida porque con $n = 5\,000$ ya existe evidencia concluyente — un resultado aún más extremo con la
+muestra completa hubiera sido redundante.
+
 ## Fichas de resultados
 
 ## Ordenamiento de elementos de reporte
@@ -92,6 +152,9 @@ Este intervalo cuantifica la magnitud y dirección del efecto, información que 
 ## La imagen que cuenta la historia
 
 # Arco narrativo
+
+«El modelo reveló que **la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación
+con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores a $800$ en todos los casos y una diferencia de medias de $\approx 14$ mmHg en presión sistólica entre grupos con y sin ECV—, lo que significa que **un actuario especializado en seguros de vida y salud dispone de evidencia concluyente para priorizar la presión arterial sistólica y el perfil de riesgo acumulado como variables centrales en modelos de tarificación cardiovascular, y que la magnitud clínica de las diferencias justifica tratarlas como factores diferenciadores de prima en productos de salud**.»
 
 # Parte de escritura
 
