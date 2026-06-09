@@ -64,9 +64,8 @@ $$H_1^{***}: P(\text{ECV} \mid k = 0) \neq P(\text{ECV} \mid k \geq 3)$$
 
 Para evaluar todas las hipótesis anteriores se empleará el **Factor de Bayes** (BF), definido como el cociente entre las verosimilitudes marginales de los datos bajo cada hipótesis [@Degroot]:
 
-$$\text{BF}_{10} = \frac{P(\mathbf{x} \mid H_1)}{P(\mathbf{x} \mid H_0)}
-= \frac{\displaystyle\int P(\mathbf{x} \mid \theta_1,\, H_1)\,\pi(\theta_1 \mid H_1)\,d\theta_1}
-       {\displaystyle\int P(\mathbf{x} \mid \theta_0,\, H_0)\,\pi(\theta_0 \mid H_0)\,d\theta_0}$$
+$$\text{BF}_{10} = \frac{P(\mathbf{x} \mid H_1)}{P(\mathbf{x} \mid H_0)} = \frac{\displaystyle\int P(\mathbf{x} \mid \theta_1,\, H_1)\,\pi(\theta_1 \mid H_1)\,d\theta_1}
+{\displaystyle\int P(\mathbf{x} \mid \theta_0,\, H_0)\,\pi(\theta_0 \mid H_0)\,d\theta_0}$$
 
 Un valor $\text{BF}_{10} > 1$ indica que los datos son más verosímiles bajo $H_1$; un valor $< 1$ indica lo contrario.
 La interpretación sigue la escala de Jeffreys, donde valores entre 3 y 10 constituyen evidencia moderada, entre 10 y 30 evidencia fuerte, y superiores a 100 evidencia extrema [@Armero; @Ramos-Vera].
@@ -148,7 +147,7 @@ muestra completa hubiera sido redundante.
 ## Fichas de resultados
 
 ## Ordenamiento de elementos de reporte
-
+Con el fin de comenzar a construir el borrador final del proyecto, se identifican los elementos primarios y secundarios del trabajo. Los elementos primarios son aquellos fundamentales para el proyecto: sin ellos, el trabajo no tendría sentido. Los elementos secundarios son importantes pero no fundamentales: si no existieran, el trabajo seguiría teniendo sentido.
 
 ### Elementos primarios y secundarios
 
