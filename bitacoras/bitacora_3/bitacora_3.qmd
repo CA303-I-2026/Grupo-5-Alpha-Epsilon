@@ -130,7 +130,7 @@ elección de la previa dentro del rango habitual de la literatura.
 ### Análisis fallido
 
 Al intentar calcular el Factor de Bayes para la hipótesis de correlación acumulada utilizando el conjunto completo de $n = 68\,474$ observaciones, la función
-`correlationBF()` del paquete `BayesFactor` emitió el siguiente aviso: WARNING: Series not converged.
+`correlationBF()` del paquete `BayesFactor` emitió el siguiente aviso: `WARNING: Series not converged`.
 
 Este mensaje indica que la serie de potencias utilizada internamente para aproximar la integral de la verosimilitud marginal no convergió. La función implementa el método
 de Jeffreys-beta para correlaciones, que requiere calcular una función hipergeométrica gaussiana $_2F_1$ mediante una expansión en serie. Cuando $n$ es muy grande, los
@@ -193,6 +193,7 @@ Con el fin de comenzar a construir el borrador final del proyecto, se identifica
 
 ## La imagen que cuenta la historia
 
+La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la mas simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con H_1. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis H_1.
 # Arco narrativo
 
 «El modelo reveló que **la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación
@@ -203,3 +204,5 @@ con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores
 # Parte de reflexión
 
 # Diario de aprendizaje
+
+Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para acceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes por aparte. La más destacada de estas es que la presión sistólica; que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular, suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
