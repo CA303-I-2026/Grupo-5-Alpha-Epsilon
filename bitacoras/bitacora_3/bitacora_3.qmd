@@ -149,6 +149,49 @@ muestra completa hubiera sido redundante.
 
 ## Ordenamiento de elementos de reporte
 
+
+### Elementos primarios y secundarios
+
+| Primarios | Secundarios |
+|---|---|
+| Inferencia bayesiana como marco teórico | Enfoque frecuentista como contraste metodológico |
+| Presión arterial sistólica como predictor principal | Presión arterial diastólica |
+| Factor de Bayes como método de cuantificación de evidencia | Escala de Jeffreys como criterio de interpretación |
+| Gradiente de riesgo acumulado ($k$ factores) | Modelo Beta-Bernoulli para prevalencia |
+| Intervalos de credibilidad al 95% | Submuestreo como solución al problema de convergencia numérica |
+| Modelo de Framingham como referencia empírica [@DAgostino2013] | Limitaciones de generalización externa [@Damen] |
+| Edad como predictor relevante del riesgo cardiovascular | IMC como predictor asociado |
+| Pregunta de investigación: características más influyentes en ECV | Ausencia de variables genéticas y antecedentes familiares en el dataset |
+
+### Estructura del trabajo final
+
+| Sección | Temas a tratar |
+|---|---|
+| Introducción | 1. Riesgo cardiovascular como fenómeno multifactorial (Primario) |
+| | 2. Necesidad de cuantificar incertidumbre en diagnóstico clínico (Primario) |
+| | 3. Modelo de Framingham como antecedente empírico [@DAgostino2013] (Primario) |
+| | 4. Limitaciones metodológicas de modelos existentes [@Damen] (Secundario) |
+| | 5. Pregunta de investigación y justificación del enfoque bayesiano (Primario) |
+| Marco teórico | 1. Estadístico, distribución previa y distribución posterior [@Degroot] (Primario) |
+| | 2. Teorema de Bayes aplicado al diagnóstico clínico [@Gill2005] (Primario) |
+| | 3. Factor de Bayes: definición e interpretación [@Armero; @Ramos-Vera] (Primario) |
+| | 4. Asociación estadística vs. causalidad (Primario) |
+| | 5. Diferencia entre intervalo de credibilidad e intervalo de confianza [@Pek; @Lorca] (Secundario) |
+| Metodología | 1. Descripción del dataset `cardio_train.csv` (Primario) |
+| | 2. Construcción de la variable `n_factores` (Primario) |
+| | 3. Hipótesis planteadas y justificación del BF (Primario) |
+| | 4. Extracción de distribuciones posteriores e intervalos de credibilidad (Primario) |
+| | 5. Modelo Beta-Bernoulli para estimación de prevalencia (Secundario) |
+| | 6. Problema de convergencia numérica y solución por submuestreo (Secundario) |
+| Resultados | 1. Tabla resumen de factores de Bayes (Primario) |
+| | 2. Distribución posterior de $\delta$ para presión sistólica (Primario) |
+| | 3. Intervalo de credibilidad para correlación del gradiente (Primario) |
+| | 4. Prevalencia de ECV vía Beta-Bernoulli (Secundario) |
+| Discusión | 1. Coincidencia con literatura — @DAgostino2013, @Damen (Primario) |
+| | 2. Colesterol como resultado contraintuitivo respecto a la literatura (Primario) |
+| | 3. Implicaciones para tarificación actuarial (Primario) |
+| | 4. Limitaciones del dataset: origen geográfico desconocido (Secundario) |
+
 ## La imagen que cuenta la historia
 
 # Arco narrativo
