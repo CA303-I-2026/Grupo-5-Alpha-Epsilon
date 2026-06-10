@@ -481,3 +481,46 @@ Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportun
 # Diario de aprendizaje
 
 Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para acceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes por aparte. La más destacada de estas es que la presión sistólica; que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular, suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
+
+
+# Registro de uso de IA
+
+## Consulta: Propuesta metodológica y validación bayesiana
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Revisar la redacción de la sección de propuesta metodológica de la Bitácora #3, con base en los resultados reales del script `03_modelacion.R`.
+- **Respuesta de la IA resumida:** Se corrigen faltas ortográficas de la sección, la tabla de factores de Bayes con valores reales ($\log_{10}(\text{BF}_{10})$ entre 181 y 3 009), los intervalos de credibilidad al 95% para presión sistólica, diastólica y correlación del gradiente, el modelo Beta-Bernoulli para prevalencia, y el análisis de sensibilidad a la distribución a priori, además de brindar las tablas de forma que sea mas sencilla su lectura.
+- **Evaluación:** La redacción incorporó correctamente los valores numéricos reales obtenidos al correr el código, además de corregir errores humanos y mejorar la visualización.
+- **Modificaciones:** Se verificó que el análisis fallido correspondiera a un intento real documentado en el script con el comentario
+  `# Este test falla, va en la sección de fallos`.
+- **Aprendizaje:** El Factor de Bayes con muestras grandes produce valores astronómicos que requieren expresarse en escala logarítmica, y su interpretación debe complementarse con intervalos de credibilidad para evaluar relevancia clínica.
+
+### Consulta: Análisis fallido
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Explicar por qué `correlationBF()` falla con $n = 68\,474$ observaciones y cómo documentarlo en la bitácora.
+- **Respuesta de la IA resumida:** Se explicó que la función implementa una expansión en serie de la función hipergeométrica gaussiana $_2F_1$, que no converge con muestras muy grandes dentro de la precisión de punto flotante de 64 bits de R, produciendo el aviso `WARNING: Series not converged.` Se propuso el submuestreo a $n = 5\,000$ como solución válida.
+- **Evaluación:** La explicación técnica es correcta y verificable — el warning apareció realmente al correr el código.
+- **Modificaciones:** Se mantuvo la solución de submuestreo que ya estaba implementada en `03_modelacion.R` con `set.seed(2002)`.
+- **Aprendizaje:** Un tamaño de muestra grande puede ser un obstáculo numérico en algoritmos bayesianos diseñados para muestras moderadas, y el submuestreo reproducible es una solución metodológicamente válida cuando la evidencia ya es concluyente con una fracción de los datos.
+
+### Consulta: Ordenamiento de elementos de reporte
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Construir la tabla de elementos primarios y secundarios y la estructura de secciones del trabajo final, basándose en el contenido de las Bitácoras #1 y #2 y lo indicado por el usuario.
+- **Respuesta de la IA resumida:** Se generó la tabla de elementos primarios y secundarios y la estructura de secciones con temas clasificados por primario o secundario, conectando los resultados del análisis bayesiano con el marco teórico ya desarrollado.
+- **Evaluación:** La tabla refleja correctamente los elementos trabajados en bitácoras anteriores sin agregar elementos no discutidos previamente, siguiendo las indicaciones de primario y secundario que se le indicó.
+- **Modificaciones:** Se usó directamente la estructura propuesta, con leves modificaciones.
+- **Aprendizaje:** Organizar los elementos del trabajo en primarios y secundarios antes de escribir ayuda a priorizar el espacio de redacción y evitar que secciones importantes queden subdesarrolladas.
+
+### Consulta: Arco narrativo
+
+- **Herramienta:** Claude (claude.ai)
+- **Prompt resumido:** Revisar la frase del arco narrativo con los resultados reales del modelo bayesiano.
+- **Respuesta de la IA resumida:** Se revisó la oración conectando los valores concretos de $\log_{10}(\text{BF}_{10})$ y la diferencia de medias
+  de presión sistólica con la implicación actuarial para tarificación de seguros de vida y salud.
+- **Evaluación:** La oración cumple con el formato solicitado por el profesor y conecta resultados con la pregunta de investigación y la audiencia del
+  proyecto, además de tener orden lógico.
+- **Modificaciones:** Se ajustó para que la magnitud citada ($> 800$ en $\log_{10}$) fuera la más conservadora entre los cuatro BF calculados.
+- **Aprendizaje:** El arco narrativo obliga a sintetizar en una sola oración qué encontró el modelo y qué significa para la audiencia, lo cual es un
+  ejercicio útil para identificar si los resultados están suficientemente interpretados.
