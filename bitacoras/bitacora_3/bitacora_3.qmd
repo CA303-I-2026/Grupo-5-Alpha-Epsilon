@@ -423,7 +423,8 @@ Con el fin de comenzar a construir el borrador final del proyecto, se identifica
 
 ## La imagen que cuenta la historia
 
-La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la mas simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con H_1. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis H_1.
+La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la mas simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con H_1. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis H_1. Los Factores de Bayes obtenidos son astronómicamente grandes. $BF_{10} = 10^{3009}$ para la presión sistólica es un número que no cabe en ninguna celda de tabla, no se puede comparar visualmente entre filas, y técnicamente ni siquiera puede representarse en doble precisión flotante (que tiene límite $10^{309}$). La escala logarítmica en base 10 resuelve los tres problemas a la vez: comprime los valores a números legibles (3009, 1832, 181, 866), mantiene las proporciones relativas entre pruebas, y permite comparación directa con la escala de Jeffreys, que también opera en $log_{10}$.
+
 # Arco narrativo
 
 «El modelo reveló que **la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación
@@ -476,9 +477,10 @@ Integradas las tres perspectivas —el marco conceptual bayesiano, los referente
 La magnitud de esa asociación es grande, consistente con la literatura y robusta ante las decisiones metodológicas del análisis.
 Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportunidad de discutir con precisión la diferencia entre evidencia interna y capacidad de generalización, distinción que está en el corazón del razonamiento estadístico responsable.
 
+
 # Parte de reflexión
 
-# Diario de aprendizaje
+## Diario de aprendizaje
 
 Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para acceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes por aparte. La más destacada de estas es que la presión sistólica; que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular, suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
 
@@ -524,3 +526,36 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 - **Modificaciones:** Se ajustó para que la magnitud citada ($> 800$ en $\log_{10}$) fuera la más conservadora entre los cuatro BF calculados.
 - **Aprendizaje:** El arco narrativo obliga a sintetizar en una sola oración qué encontró el modelo y qué significa para la audiencia, lo cual es un
   ejercicio útil para identificar si los resultados están suficientemente interpretados.
+
+
+## Consulta: UVE de Gowin
+- **Herramienta:** Claude (claude.ai)
+- **Prompt:** Actualice esta uve de godwin usando la informacion nueva del html, en particular la metodologia de factor de bayes y las fichas de resultado junto con lo de la plantilla de anterior. Usar letra 13 para que sea legible. Ser breve, no como el ejemplo anterior, puede abreviar unas partes como la verosimilitud. Puede cambiar los colores.
+-**Respuesta:** La V de Gowin está actualizada con la información de la Bitácora 3. Los cambios principales respecto a la versión anterior:
+Parte metodológica (derecha):
+
+Las 6 fichas de resultados condensadas con sus valores clave: $BF_{10}$($log_{10}$), intervalos de credibilidad al 95% y tamaños de efecto
+El procedimiento ahora incluye la fórmula del Factor de Bayes, la posterior, y las 4 hipótesis evaluadas con sus notas de implementación (ttestBF, correlationBF, submuestreo)
+
+Conceptos (izquierda):
+
+Se añadieron tags de Factor de Bayes, Escala de Jeffreys e IC de credibilidad en la sección de conceptos estadísticos
+Se reflejó el tamaño de muestra real (68 474 pacientes)
+
+Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo el cuerpo, fichas compactas en lugar de párrafos extensos.
+- **Modificaciones:** Se usó directamente la imagen *svg* propuesta, modificando errores visuales en InkScape.
+# Log de contribuciones
+
+| Integrante | Sección | Tarea realizada |
+|:------------------------|:----------------------------------------------|
+| César Salazar | Modelación en R, rastreo de deciciones, ortografía |
+| Gerardo Montero |Propuesta metodológica, Ordenamiento de Elementos, Arco Narrativo |
+| Óscar Espinoza | 8 fichas de resultados, Marco teórico, fichas B2 y B3 |
+| Gabriel Robles | Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones |
+
+# UVE de Gowin
+::: {.landscape}
+
+![V de Gowin](figures/uve_gowin.svg){fig-align="center" height="90%"}
+
+:::
