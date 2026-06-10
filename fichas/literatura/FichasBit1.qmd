@@ -278,4 +278,308 @@ generalización de nuestros resultados.
 
 **Resumen argumentativo:** El problema que Rodríguez-Escudero et al. intentan resolver es identificar cuáles factores clínicos y de comportamiento aparecen más asociados con la presencia de enfermedad cardiovascular dentro de población adulta. La solución propuesta consiste en utilizar análisis descriptivos y comparaciones entre grupos para detectar patrones relevantes entre variables fisiológicas y enfermedad cardiovascular. Este enfoque funciona bien para nuestro contexto porque el objetivo actual del proyecto también se centra en explorar asociaciones descriptivas antes de construir modelos predictivos más complejos. Sin embargo, el estudio presenta limitaciones similares a las de nuestro dataset, especialmente la ausencia de variables más profundas como genética, antecedentes familiares y contexto geográfico. A pesar de ello, el principal aporte del documento para nuestro proyecto es reforzar la interpretación descriptiva de variables como edad, presión arterial, colesterol e IMC como posibles indicadores asociados al riesgo cardiovascular.
 
+---
+
+## Ficha de Literatura 5
+
+### Nivel descriptivo
+
+**Título:** Probability and Statistics (4th Edition)
+
+**Autor(es):** DeGroot, M. H.; Schervish, M. J.
+
+**Año:** 2012
+
+**Nombre del tema:** Fundamentos matemáticos de la inferencia estadística y formulación formal de la inferencia bayesiana.
+
+**Clasificación:** *Teórica* — se eligió esta clasificación porque el documento desarrolla los fundamentos conceptuales y matemáticos de la probabilidad y la inferencia estadística, incluyendo la formulación formal del Factor de Bayes. No estudia un fenómeno específico (temática), no presenta una metodología aplicada concreta (metodológica) ni organiza conocimiento según una secuencia histórica (cronológica).
+
+**Resumen en una oración:** Presenta los fundamentos probabilísticos que sustentan la inferencia estadística y bayesiana moderna.
+
+**Argumento central:** La inferencia estadística debe entenderse como un proceso de actualización racional de creencias basado en la probabilidad. Los autores desarrollan un marco matemático que permite representar incertidumbre, formular hipótesis y actualizar conocimiento mediante evidencia observada. Dentro de este marco, el Factor de Bayes aparece como una herramienta formal para comparar hipótesis rivales a partir de sus probabilidades condicionales y distribuciones previas.
+
+**Problemas con el argumento o el tema:** Los autores reconocen que la aplicación práctica de los métodos bayesianos depende de la especificación de distribuciones previas adecuadas, lo que puede generar controversias cuando no existe información previa clara. Además, el texto se concentra en el desarrollo teórico y dedica menos espacio a aplicaciones específicas en campos como epidemiología o salud pública.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta obra constituye la base teórica de toda la metodología utilizada en la Bitácora 3. La definición formal del Factor de Bayes utilizada para contrastar hipótesis sobre presión arterial y enfermedad cardiovascular proviene directamente de este marco conceptual. Además, el libro justifica la interpretación de la inferencia estadística como un proceso de actualización de evidencia, principio que orienta nuestra decisión de utilizar métodos bayesianos en lugar de depender exclusivamente de pruebas frecuentistas tradicionales.
+
+**Lo que NO dice el autor:** El libro no discute cómo se comportan los Factores de Bayes cuando se trabaja con muestras extremadamente grandes como las de `cardio_procesado.csv`, que contiene decenas de miles de observaciones. Tampoco ofrece criterios específicos para interpretar resultados en contextos clínicos o cardiovasculares.
+
+**Contraste con otra fuente:** Esta fuente complementa a Ramos-Vera (2021). Mientras DeGroot y Schervish desarrollan la fundamentación matemática que justifica el Factor de Bayes, Ramos-Vera traslada esos principios a la investigación clínica cardiovascular. De esta forma, DeGroot explica por qué el método es válido y Ramos-Vera explica cómo puede utilizarse en estudios médicos reales.
+
+**Evaluación de aplicabilidad (5/5):** La aplicabilidad es máxima porque proporciona la formulación matemática exacta utilizada en nuestra metodología. Aunque no trabaja con datos cardiovasculares, el concepto central del proyecto —el contraste bayesiano de hipótesis— proviene directamente de esta obra.
+
+**Pregunta que le haría al autor:** ¿Cómo recomendaría interpretar Factores de Bayes extremadamente grandes cuando el tamaño de la muestra genera evidencia tan fuerte que se producen problemas de representación numérica?
+
+**Resumen argumentativo:** El problema que DeGroot y Schervish intentan resolver es cómo realizar inferencia estadística de manera coherente cuando existe incertidumbre sobre los fenómenos observados. Su solución consiste en construir un marco probabilístico riguroso donde las hipótesis puedan compararse mediante evidencia cuantificable. Esta propuesta funciona especialmente bien para nuestro contexto porque la investigación busca medir la fuerza de la evidencia que relaciona la presión arterial y otros factores clínicos con la enfermedad cardiovascular. La principal fortaleza del texto es proporcionar una justificación matemática sólida para la metodología empleada. Sin embargo, el libro no aborda aplicaciones específicas en salud, por lo que debe complementarse con fuentes clínicas. En nuestro proyecto utilizaremos principalmente su formulación del Factor de Bayes y su interpretación como medida relativa de evidencia entre hipótesis competidoras.
+
+---
+
+## Ficha de Literatura 6
+
+### Nivel descriptivo
+
+**Título:** Frequentist and Bayesian Approaches to Data Analysis: Evaluation and Estimation
+
+**Autor(es):** Pek, J.; Van Zandt, T.
+
+**Año:** 2019
+
+**Nombre del tema:** Comparación conceptual y metodológica entre la inferencia frecuentista y la inferencia bayesiana.
+
+**Clasificación:** *Metodológica* — se eligió esta clasificación porque el documento analiza y compara procedimientos estadísticos alternativos para evaluar evidencia e incertidumbre. Su propósito principal es discutir métodos de inferencia y sus implicaciones prácticas, más que estudiar un fenómeno específico o desarrollar una teoría nueva.
+
+**Resumen en una oración:** Compara inferencia frecuentista y bayesiana para evaluar evidencia estadística e incertidumbre.
+
+**Argumento central:** Los métodos frecuentistas y bayesianos responden preguntas diferentes sobre los datos y, por lo tanto, producen interpretaciones distintas de la evidencia. Los autores argumentan que los valores p suelen ser malinterpretados como medidas de evidencia cuando en realidad no cuantifican apoyo relativo entre hipótesis. En contraste, la inferencia bayesiana permite comparar explícitamente hipótesis rivales y medir la fuerza de la evidencia observada.
+
+**Problemas con el argumento o el tema:** Aunque el artículo desarrolla claramente las diferencias conceptuales entre ambos enfoques, no se enfoca en aplicaciones médicas específicas ni analiza problemas asociados con bases de datos observacionales de gran tamaño.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta fuente justifica directamente la decisión metodológica de utilizar Factores de Bayes para evaluar asociaciones entre presión arterial, factores de riesgo acumulados y enfermedad cardiovascular. Debido al gran tamaño de nuestra muestra, una prueba frecuentista podría detectar diferencias estadísticamente significativas incluso cuando su relevancia práctica sea limitada. Pek y Van Zandt explican precisamente por qué ocurre este fenómeno y por qué la inferencia bayesiana constituye una alternativa adecuada.
+
+**Lo que NO dice el autor:** El artículo no aborda aplicaciones específicas en cardiología ni discute cómo interpretar resultados bayesianos en variables clínicas como presión arterial sistólica o diastólica. Tampoco analiza el comportamiento computacional de estos métodos en bases de datos masivas.
+
+**Contraste con otra fuente:** Esta fuente complementa a DeGroot y Schervish (2012). Mientras DeGroot desarrolla la fundamentación matemática de la inferencia bayesiana, Pek y Van Zandt explican las ventajas prácticas de utilizarla frente a la inferencia frecuentista. En conjunto, ambas referencias proporcionan tanto la justificación teórica como la metodológica de nuestro análisis.
+
+**Evaluación de aplicabilidad (5/5):** El artículo es altamente aplicable porque aborda exactamente el problema metodológico presente en nuestro proyecto: cómo interpretar evidencia estadística cuando se dispone de una muestra muy grande. Sus argumentos respaldan directamente el uso de Factores de Bayes.
+
+**Pregunta que le haría al autor:** En estudios observacionales con decenas de miles de individuos, ¿qué estrategias recomienda para comunicar resultados bayesianos a investigadores acostumbrados únicamente a interpretar valores p?
+
+**Resumen argumentativo:** Pek y Van Zandt intentan resolver uno de los problemas más frecuentes en investigación aplicada: la confusión entre significancia estadística y evidencia científica. Los autores muestran que los valores p responden preguntas diferentes a las que muchos investigadores creen estar respondiendo. Como alternativa, presentan la inferencia bayesiana como una herramienta capaz de comparar hipótesis de manera más directa e interpretable. Esta propuesta resulta especialmente útil para nuestro proyecto porque trabajamos con una muestra lo suficientemente grande como para que diferencias pequeñas produzcan valores p extremadamente bajos. Su enfoque permite centrar el análisis en la fuerza de la evidencia y no únicamente en la significancia estadística. Utilizaremos principalmente sus argumentos metodológicos para justificar la elección del Factor de Bayes como herramienta principal de inferencia.
+
+---
+
+## Ficha de Literatura 7
+
+### Nivel descriptivo
+
+**Título:** El uso del factor Bayes en la investigación clínica de cardiología
+
+**Autor(es):** Ramos-Vera, C. A.
+
+**Año:** 2021
+
+**Nombre del tema:** Aplicación del Factor de Bayes en la investigación clínica cardiovascular.
+
+**Clasificación:** *Metodológica* — se eligió esta clasificación porque el documento se centra en explicar una herramienta estadística específica para evaluar evidencia científica dentro de la investigación cardiológica, enfatizando sus ventajas frente a procedimientos tradicionales de inferencia.
+
+**Resumen en una oración:** Explica cómo el Factor de Bayes mejora la evaluación de evidencia en cardiología.
+
+**Argumento central:** El Factor de Bayes permite cuantificar directamente la evidencia a favor o en contra de hipótesis científicas, proporcionando información más útil para la toma de decisiones clínicas que los enfoques basados exclusivamente en significancia estadística.
+
+**Problemas con el argumento o el tema:** El artículo se concentra principalmente en la interpretación metodológica del Factor de Bayes y no desarrolla estudios empíricos extensos con grandes bases de datos observacionales.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta es la referencia metodológica más cercana a nuestra investigación porque justifica explícitamente el uso de Factores de Bayes en el contexto cardiovascular. Además, proporciona criterios de interpretación que utilizamos para evaluar la fuerza de la evidencia obtenida en los contrastes sobre presión arterial y acumulación de factores de riesgo.
+
+**Lo que NO dice el autor:** No discute problemas computacionales asociados con muestras extremadamente grandes ni situaciones donde los Factores de Bayes alcanzan valores tan elevados que generan desbordamiento numérico.
+
+**Contraste con otra fuente:** Esta referencia complementa a Pek y Van Zandt (2019). Ambos trabajos defienden la utilidad de la inferencia bayesiana, pero Ramos-Vera traslada esa discusión al contexto específico de la cardiología, mostrando cómo puede utilizarse para interpretar evidencia clínica.
+
+**Evaluación de aplicabilidad (5/5):** Es probablemente la referencia metodológica más aplicable al proyecto porque conecta directamente la inferencia bayesiana con problemas de investigación cardiovascular.
+
+**Pregunta que le haría al autor:** ¿Cuál considera que es la mejor forma de reportar Factores de Bayes extremadamente grandes cuando aparecen problemas de representación numérica en software estadístico?
+
+**Resumen argumentativo:** Ramos-Vera intenta resolver las limitaciones interpretativas presentes en gran parte de la investigación clínica contemporánea. Su propuesta consiste en utilizar Factores de Bayes para cuantificar evidencia relativa entre hipótesis rivales y evitar interpretaciones excesivamente dependientes de los valores p. Esta solución resulta especialmente útil para nuestro proyecto porque el objetivo principal no es únicamente detectar diferencias estadísticas, sino medir cuán fuerte es la evidencia que relaciona determinados factores clínicos con la enfermedad cardiovascular. La principal fortaleza del artículo es su cercanía temática con nuestro problema de investigación. Aunque no aborda todos los desafíos computacionales asociados con muestras grandes, proporciona criterios claros para interpretar la evidencia obtenida mediante métodos bayesianos.
+
+---
+
+## Ficha de Literatura 8
+
+### Nivel descriptivo
+
+**Título:** Inferencia Bayesiana en el proceso de diagnóstico clínico: un enfoque docente para la toma de decisiones
+
+**Autor(es):** Lorca, J. C.; Águila, L. C.
+
+**Año:** 2024
+
+**Nombre del tema:** Aplicación de la inferencia bayesiana al razonamiento diagnóstico y la toma de decisiones clínicas.
+
+**Clasificación:** *Temática* — se eligió esta clasificación porque el documento estudia cómo la inferencia bayesiana contribuye al proceso de diagnóstico clínico y a la toma de decisiones médicas. Aunque utiliza conceptos estadísticos, su objetivo principal es comprender el fenómeno del razonamiento clínico.
+
+**Resumen en una oración:** Analiza cómo la inferencia bayesiana mejora el diagnóstico y la toma de decisiones médicas.
+
+**Argumento central:** El diagnóstico clínico puede entenderse como un proceso continuo de actualización probabilística en el que nueva evidencia modifica la plausibilidad de distintas hipótesis sobre el estado de salud de un paciente.
+
+**Problemas con el argumento o el tema:** El artículo se enfoca principalmente en aspectos conceptuales y pedagógicos del razonamiento bayesiano y no desarrolla procedimientos estadísticos detallados para el análisis de datos observacionales.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta fuente ayuda a interpretar los resultados obtenidos mediante Factores de Bayes desde una perspectiva de toma de decisiones en salud. Su principal aporte consiste en conectar la evidencia estadística con la utilidad práctica de los hallazgos dentro del contexto cardiovascular.
+
+**Lo que NO dice el autor:** El documento no desarrolla herramientas específicas para analizar factores de riesgo cardiovascular en bases de datos poblacionales ni aborda procedimientos de modelación estadística.
+
+**Contraste con otra fuente:** Esta referencia complementa a Gill et al. (2005). Ambos trabajos sostienen que el razonamiento clínico funciona como un proceso bayesiano de actualización de probabilidades basado en nueva evidencia. Sin embargo, Lorca y Águila desarrollan esta idea desde una perspectiva educativa más moderna y estructurada.
+
+**Evaluación de aplicabilidad (4/5):** Su utilidad es principalmente conceptual e interpretativa. Aunque no proporciona procedimientos estadísticos concretos, ofrece un marco útil para comprender el significado práctico de los resultados obtenidos.
+
+**Pregunta que le haría al autor:** ¿Cómo podrían traducirse los resultados de un análisis bayesiano poblacional en decisiones actuariales relacionadas con seguros de salud y evaluación de riesgo?
+
+**Resumen argumentativo:** Lorca y Águila intentan explicar cómo la inferencia bayesiana puede mejorar la toma de decisiones clínicas mediante la actualización sistemática de probabilidades a partir de nueva evidencia. Esta perspectiva resulta compatible con el objetivo de nuestro proyecto, que consiste en evaluar evidencia sobre factores asociados con enfermedad cardiovascular. Aunque el artículo no desarrolla herramientas cuantitativas específicas, sí proporciona un marco conceptual útil para interpretar los resultados obtenidos mediante Factores de Bayes. Su principal fortaleza es conectar teoría probabilística con decisiones reales en salud. En nuestro proyecto utilizaremos principalmente esta perspectiva para interpretar la evidencia estadística como un mecanismo de actualización de conocimiento y no simplemente como una prueba de significancia.
+
+---
+
+## Ficha de Literatura 9
+
+### Nivel descriptivo
+
+**Título:** Aplicaciones de la inferencia bayesiana en investigación cardiovascular
+
+**Autor(es):** Armero, C. et al.
+
+**Año:** 2022
+
+**Nombre del tema:** Uso de métodos bayesianos para evaluar evidencia en estudios cardiovasculares.
+
+**Clasificación:** *Metodológica* — se eligió esta clasificación porque el documento analiza herramientas estadísticas bayesianas utilizadas para cuantificar evidencia en investigación cardiovascular y compararlas con enfoques tradicionales de inferencia.
+
+**Resumen en una oración:** La inferencia bayesiana ofrece ventajas interpretativas para estudios cardiovasculares clínicos.
+
+**Argumento central:** Los métodos bayesianos permiten incorporar incertidumbre de manera explícita y ofrecen medidas directas de evidencia a favor o en contra de hipótesis científicas, mejorando la interpretación de resultados en investigación cardiovascular.
+
+**Problemas con el argumento o el tema:** Aunque los autores presentan ventajas metodológicas claras, reconocen que la adopción de herramientas bayesianas continúa siendo limitada debido a barreras de formación estadística y familiaridad con métodos frecuentistas tradicionales.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta fuente respalda directamente la utilización del Factor de Bayes para analizar la asociación entre presión arterial, acumulación de factores de riesgo y enfermedad cardiovascular. Además, proporciona criterios para interpretar la magnitud de la evidencia observada más allá de la significancia estadística.
+
+**Lo que NO dice el autor:** El artículo no analiza bases de datos observacionales específicas ni discute problemas asociados con muestras extremadamente grandes como la utilizada en nuestro proyecto.
+
+**Contraste con otra fuente:** Complementa a Ramos-Vera (2021). Ambos autores defienden la utilidad de la inferencia bayesiana en cardiología, pero Armero et al. presentan una discusión más amplia sobre las ventajas metodológicas generales, mientras que Ramos-Vera se concentra en la interpretación práctica del Factor de Bayes.
+
+**Evaluación de aplicabilidad (5/5):** La metodología descrita es directamente aplicable a nuestro proyecto porque justifica el uso de herramientas bayesianas para evaluar evidencia clínica en presencia de múltiples factores de riesgo cardiovascular.
+
+**Pregunta que le haría al autor:** ¿Considera que los Factores de Bayes deberían incorporarse rutinariamente en estudios observacionales cardiovasculares junto con las pruebas de significancia tradicionales?
+
+**Resumen argumentativo:** Los autores intentan resolver el problema de cómo interpretar adecuadamente evidencia estadística en estudios cardiovasculares. Argumentan que la dependencia exclusiva de los valores p limita la capacidad de evaluar la fuerza de la evidencia observada. Como alternativa, proponen la utilización de métodos bayesianos que permiten comparar hipótesis rivales de manera explícita. Esta propuesta resulta particularmente relevante para nuestro proyecto porque buscamos cuantificar la evidencia que relaciona presión arterial y enfermedad cardiovascular. El principal aporte del artículo es demostrar que la inferencia bayesiana puede integrarse exitosamente en contextos clínicos reales. En nuestro trabajo utilizaremos esta referencia para reforzar la justificación metodológica del uso del Factor de Bayes.
+
+---
+
+## Ficha de Literatura 10
+
+### Nivel descriptivo
+
+**Título:** 2020 International Society of Hypertension Global Hypertension Practice Guidelines
+
+**Autor(es):** Unger, T.; Borghi, C.; Charchar, F.; Khan, N. A.; Poulter, N. R.; Prabhakaran, D.; Ramirez, A.; Schlaich, M.; Stergiou, G. S.; Tomaszewski, M.; Wainford, R. D.; Williams, B.; Schutte, A. E.
+
+**Año:** 2020
+
+**Nombre del tema:** Diagnóstico, clasificación y manejo clínico de la hipertensión arterial.
+
+**Clasificación:** *Temática* — se eligió esta clasificación porque el documento establece criterios clínicos para identificar y clasificar hipertensión arterial, describiendo el fenómeno cardiovascular y sus implicaciones para la salud.
+
+**Resumen en una oración:** Define criterios clínicos globales para diagnosticar y manejar hipertensión arterial.
+
+**Argumento central:** La hipertensión constituye uno de los factores de riesgo modificables más importantes para enfermedad cardiovascular, por lo que su detección y tratamiento oportunos son fundamentales para reducir morbimortalidad cardiovascular.
+
+**Problemas con el argumento o el tema:** Las recomendaciones clínicas están diseñadas para múltiples contextos sanitarios globales y pueden requerir adaptaciones locales según disponibilidad de recursos y características poblacionales.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta guía proporciona el criterio utilizado para definir hipertensión en nuestro análisis de factores de riesgo acumulados. Específicamente, justifica el uso del umbral de presión arterial sistólica igual o superior a 140 mmHg para clasificar individuos hipertensos.
+
+**Lo que NO dice el autor:** No analiza bases de datos observacionales específicas ni evalúa cómo interactúa la hipertensión con otros factores de riesgo dentro de modelos estadísticos predictivos.
+
+**Contraste con otra fuente:** Complementa a Visseren et al. (2021). Mientras la guía ISH se concentra en la hipertensión como factor individual de riesgo, Visseren aborda el riesgo cardiovascular desde una perspectiva más integral que incorpora múltiples factores simultáneamente.
+
+**Evaluación de aplicabilidad (5/5):** Es directamente aplicable porque proporciona el criterio clínico utilizado para construir una de las variables fundamentales de nuestro análisis: la presencia o ausencia de hipertensión.
+
+**Pregunta que le haría al autor:** ¿Cómo deberían adaptarse estos umbrales clínicos cuando se analizan bases de datos observacionales internacionales cuyo origen geográfico no está claramente identificado?
+
+**Resumen argumentativo:** El problema que los autores intentan resolver es la necesidad de establecer criterios uniformes para diagnosticar y tratar la hipertensión arterial a nivel mundial. Su solución consiste en definir umbrales clínicos basados en evidencia acumulada sobre riesgo cardiovascular. Esta propuesta resulta altamente relevante para nuestro proyecto porque utilizamos la hipertensión como uno de los factores de riesgo principales dentro del análisis. Aunque la guía no desarrolla modelos estadísticos ni procedimientos predictivos, proporciona la justificación clínica necesaria para construir nuestras variables. En este proyecto utilizaremos principalmente sus criterios diagnósticos para definir hipertensión dentro del índice acumulativo de factores de riesgo.
+
+---
+
+## Ficha de Literatura 11
+
+### Nivel descriptivo
+
+**Título:** Obesity: Preventing and Managing the Global Epidemic
+
+**Autor(es):** World Health Organization
+
+**Año:** 2000
+
+**Nombre del tema:** Definición, clasificación y consecuencias de la obesidad como problema de salud pública.
+
+**Clasificación:** *Temática* — se eligió esta clasificación porque el documento describe la obesidad como fenómeno epidemiológico global y establece criterios clínicos para su identificación.
+
+**Resumen en una oración:** Establece criterios internacionales para clasificar obesidad mediante índice de masa corporal.
+
+**Argumento central:** La obesidad representa uno de los principales factores de riesgo modificables para múltiples enfermedades crónicas, incluyendo enfermedad cardiovascular, diabetes y trastornos metabólicos.
+
+**Problemas con el argumento o el tema:** Los criterios basados en IMC no capturan completamente diferencias en composición corporal, distribución de grasa ni variaciones entre grupos étnicos.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta referencia justifica el uso del umbral IMC ≥ 30 kg/m² para clasificar obesidad dentro del índice acumulativo de factores de riesgo utilizado en la Bitácora 3.
+
+**Lo que NO dice el autor:** El informe no analiza específicamente cómo interactúa la obesidad con otros factores cardiovasculares dentro de modelos estadísticos predictivos.
+
+**Contraste con otra fuente:** Complementa la guía WHO/ISH (2020). Mientras la guía de hipertensión se enfoca en presión arterial como factor de riesgo, este informe se concentra en obesidad. Ambas referencias aportan criterios clínicos para construir nuestro índice acumulativo de factores de riesgo.
+
+**Evaluación de aplicabilidad (5/5):** Es directamente aplicable porque proporciona el criterio clínico exacto utilizado para clasificar obesidad en nuestra base de datos.
+
+**Pregunta que le haría al autor:** ¿Considera que el IMC sigue siendo el mejor indicador poblacional de obesidad para estudios observacionales de gran escala?
+
+**Resumen argumentativo:** La OMS intenta resolver el problema de la falta de criterios uniformes para identificar obesidad dentro de distintas poblaciones. Su propuesta consiste en utilizar el índice de masa corporal como medida estandarizada para clasificar el estado nutricional. Esta solución resulta especialmente útil para nuestro proyecto porque permite construir una variable binaria de obesidad utilizando información disponible en el dataset. Aunque el IMC no captura todos los aspectos fisiológicos relacionados con adiposidad, continúa siendo uno de los indicadores más utilizados en investigación epidemiológica. En nuestro análisis utilizaremos este criterio para incorporar obesidad como uno de los factores de riesgo cardiovasculares acumulados.
+
+---
+
+## Ficha de Literatura 12
+
+### Nivel descriptivo
+
+**Título:** 2021 ESC Guidelines on cardiovascular disease prevention in clinical practice
+
+**Autor(es):** Visseren, F. L. J.; Mach, F.; Smulders, Y. M.; Carballo, D.; Koskinas, K. C.; Bäck, M.; Benetos, A.; Biffi, A.; Boavida, J. M.; Capodanno, D.; Cosyns, B.; Crawford, C.; Davos, C. H.; Desormais, I.; Di Angelantonio, E.; et al.
+
+**Año:** 2021
+
+**Nombre del tema:** Prevención integral de la enfermedad cardiovascular mediante la evaluación conjunta de factores de riesgo clínicos y conductuales.
+
+**Clasificación:** *Temática* — se eligió esta clasificación porque el documento estudia la prevención cardiovascular desde una perspectiva integral, analizando cómo múltiples factores de riesgo interactúan para influir en la probabilidad de desarrollar enfermedad cardiovascular. Su objetivo principal es comprender y gestionar el fenómeno cardiovascular en la práctica clínica.
+
+**Resumen en una oración:** Propone una evaluación integral del riesgo cardiovascular basada en múltiples factores clínicos.
+
+**Argumento central:** La enfermedad cardiovascular no debe evaluarse mediante factores aislados, sino a través de una valoración conjunta que incorpore presión arterial, obesidad, perfil lipídico, edad, hábitos de vida y otras características clínicas relevantes. Los autores sostienen que el riesgo cardiovascular es acumulativo y que las intervenciones preventivas deben priorizar una visión global del paciente.
+
+**Problemas con el argumento o el tema:** Los autores reconocen que la implementación de estrategias integrales de prevención puede verse limitada por diferencias en recursos sanitarios, acceso a servicios médicos y características específicas de cada población. Además, muchos de los modelos de riesgo utilizados requieren información clínica que no siempre está disponible en bases de datos observacionales.
+
+---
+
+### Nivel analítico
+
+**Conexión con mi proyecto:** Esta referencia es especialmente importante para justificar el análisis de acumulación de factores de riesgo realizado en la Bitácora 3. Nuestro índice compuesto por hipertensión, obesidad, colesterol elevado y edad avanzada refleja precisamente la idea central de las guías ESC: el riesgo cardiovascular debe entenderse como el resultado de múltiples factores actuando simultáneamente y no como la consecuencia de una única variable aislada.
+
+**Lo que NO dice el autor:** Las guías no proporcionan procedimientos estadísticos específicos para analizar bases de datos observacionales ni discuten cómo cuantificar la fuerza de la evidencia mediante Factores de Bayes. Tampoco consideran explícitamente problemas relacionados con datasets públicos sin información geográfica detallada.
+
+**Contraste con otra fuente:** Esta referencia complementa a la guía WHO/ISH (2020). Mientras WHO/ISH se enfoca principalmente en hipertensión como factor de riesgo cardiovascular, Visseren et al. amplían el análisis hacia una perspectiva multifactorial donde presión arterial, obesidad, colesterol, edad y estilo de vida interactúan para determinar el riesgo global. Esta diferencia resulta particularmente relevante para nuestro proyecto porque justifica la construcción del índice acumulativo de factores de riesgo.
+
+**Evaluación de aplicabilidad (5/5):** La aplicabilidad es muy alta porque el enfoque de riesgo acumulativo propuesto por los autores coincide directamente con una de las hipótesis principales evaluadas en la Bitácora 3. Además, las variables destacadas en las guías están disponibles en nuestro dataset.
+
+**Pregunta que le haría al autor:** ¿Cómo recomendaría adaptar los modelos de evaluación de riesgo cardiovascular cuando se dispone únicamente de variables observacionales básicas y no de información clínica completa sobre antecedentes médicos o tratamientos?
+
+**Resumen argumentativo:** El problema que Visseren y colaboradores intentan resolver es la tendencia a evaluar factores de riesgo cardiovascular de manera aislada, ignorando que la enfermedad cardiovascular surge de la interacción entre múltiples condiciones clínicas y conductuales. Su propuesta consiste en adoptar una perspectiva integral donde la acumulación de factores de riesgo determine la intensidad de las estrategias preventivas. Esta solución funciona especialmente bien para nuestro contexto porque una de las hipótesis principales del proyecto analiza precisamente si la acumulación de factores de riesgo aumenta la probabilidad de enfermedad cardiovascular. Aunque las guías no desarrollan procedimientos estadísticos específicos para el análisis de datos observacionales, proporcionan una justificación clínica sólida para la construcción del índice de riesgo acumulado utilizado en nuestra investigación. El principal elemento que incorporaremos de este documento es la idea de que el riesgo cardiovascular debe evaluarse como un fenómeno multifactorial y acumulativo, perspectiva que guía directamente nuestra estrategia de análisis. 
+
 
