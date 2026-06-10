@@ -495,7 +495,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
   `# Este test falla, va en la sección de fallos`.
 - **Aprendizaje:** El Factor de Bayes con muestras grandes produce valores astronómicos que requieren expresarse en escala logarítmica, y su interpretación debe complementarse con intervalos de credibilidad para evaluar relevancia clínica.
 
-### Consulta: Análisis fallido
+## Consulta: Análisis fallido
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Explicar por qué `correlationBF()` falla con $n = 68\,474$ observaciones y cómo documentarlo en la bitácora.
@@ -504,7 +504,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 - **Modificaciones:** Se mantuvo la solución de submuestreo que ya estaba implementada en `03_modelacion.R` con `set.seed(2002)`.
 - **Aprendizaje:** Un tamaño de muestra grande puede ser un obstáculo numérico en algoritmos bayesianos diseñados para muestras moderadas, y el submuestreo reproducible es una solución metodológicamente válida cuando la evidencia ya es concluyente con una fracción de los datos.
 
-### Consulta: Ordenamiento de elementos de reporte
+## Consulta: Ordenamiento de elementos de reporte
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Construir la tabla de elementos primarios y secundarios y la estructura de secciones del trabajo final, basándose en el contenido de las Bitácoras #1 y #2 y lo indicado por el usuario.
@@ -513,7 +513,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 - **Modificaciones:** Se usó directamente la estructura propuesta, con leves modificaciones.
 - **Aprendizaje:** Organizar los elementos del trabajo en primarios y secundarios antes de escribir ayuda a priorizar el espacio de redacción y evitar que secciones importantes queden subdesarrolladas.
 
-### Consulta: Arco narrativo
+## Consulta: Arco narrativo
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Revisar la frase del arco narrativo con los resultados reales del modelo bayesiano.
