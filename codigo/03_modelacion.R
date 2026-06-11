@@ -51,8 +51,8 @@ grafico_dist_ap_hi <- ggplot(cardio, aes(x = ap_hi)) +
                             sd   = fit_normal_hi$estimate["sd"]),
                 aes(color = "Normal"), linewidth = 1) +
   stat_function(fun = dgamma,
-                args = list(shape = fit_gamma$estimate["shape"],
-                            rate  = fit_gamma$estimate["rate"]),
+                args = list(shape = fit_gamma_hi$estimate["shape"],
+                            rate  = fit_gamma_hi$estimate["rate"]),
                 aes(color = "Gamma"), linewidth = 1) +
   scale_color_manual(values = c(Normal = "#E84855", Gamma = "#2E86AB")) +
   coord_cartesian(ylim = c(0, 0.047)) +          
@@ -79,8 +79,8 @@ grafico_dist_ap_lo <- ggplot(cardio, aes(x = ap_lo)) +
                             sd   = fit_normal_lo$estimate["sd"]),
                 aes(color = "Normal"), linewidth = 1) +
   stat_function(fun = dgamma,
-                args = list(shape = fit_gamma$estimate["shape"],
-                            rate  = fit_gamma$estimate["rate"]),
+                args = list(shape = fit_gamma_lo$estimate["shape"],
+                            rate  = fit_gamma_lo$estimate["rate"]),
                 aes(color = "Gamma"), linewidth = 1) +
   scale_color_manual(values = c(Normal = "#E84855", Gamma = "#2E86AB")) +
   coord_cartesian(ylim = c(0, 0.11)) +          
