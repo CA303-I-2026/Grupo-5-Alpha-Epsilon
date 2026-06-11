@@ -406,7 +406,7 @@ Con el fin de comenzar a construir el borrador final del proyecto, se identifica
 | | 4. Limitaciones metodológicas de modelos existentes [@Damen] (Secundario) |
 | | 5. Pregunta de investigación y justificación del enfoque bayesiano (Primario) |
 | Marco teórico | 1. Estadístico, distribución previa y distribución posterior [@Degroot] (Primario) |
-| | 2. Teorema de Bayes aplicado al diagnóstico clínico [@Gill2005] (Primario) |
+| | 2. Teorema de Bayes aplicado al diagnóstico clínico [@Gill] (Primario) |
 | | 3. Factor de Bayes: definición e interpretación [@Armero; @Ramos-Vera] (Primario) |
 | | 4. Asociación estadística vs. causalidad (Primario) |
 | | 5. Diferencia entre intervalo de credibilidad e intervalo de confianza [@Pek; @Lorca] (Secundario) |
@@ -439,7 +439,7 @@ con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores
 El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando enfoques que buscan no solo describir el fenómeno sino también estimar y cuantificar la evidencia de asociación entre factores de riesgo y la probabilidad de desarrollar la enfermedad.
 La literatura revisada permite identificar tres líneas de análisis complementarias: el enfoque teórico de la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado metodológico del campo.
 
-El trabajo de @Gill2005 propone que los médicos, incluso sin formalizarlo, operan bajo principios bayesianos al diagnosticar pacientes: el proceso diagnóstico es una actualización continua de probabilidades donde la información previa se combina con nueva evidencia clínica.
+El trabajo de @Gill propone que los médicos, incluso sin formalizarlo, operan bajo principios bayesianos al diagnosticar pacientes: el proceso diagnóstico es una actualización continua de probabilidades donde la información previa se combina con nueva evidencia clínica.
 Este encuadre teórico es relevante para el presente proyecto porque el Factor de Bayes, herramienta central del análisis, formaliza matemáticamente exactamente ese proceso: compara cuán verosímiles son los datos bajo dos hipótesis en competencia, sin limitarse a señalar si un valor $p$ cruza un umbral arbitrario.
 En una muestra de 68 474 pacientes, cualquier diferencia mínima entre grupos produciría un $p < 0{,}05$ con independencia de su relevancia clínica o práctica [@Pek]; el enfoque bayesiano resuelve este problema al cuantificar la fuerza de la evidencia en lugar de simplemente su existencia.
 La escala de Jeffreys provee el vocabulario para esa cuantificación: valores de $\log_{10}(\text{BF}_{10})$ superiores a 2 (equivalentes a $\text{BF}_{10} > 100$) constituyen evidencia extrema a favor de la hipótesis alternativa [@Armero; @Ramos-Vera].
@@ -475,7 +475,7 @@ Los resultados deben interpretarse como evidencia de asociaciones internas a la 
 
 Esta limitación conecta con la observación de @Damen sobre el valor de la validación externa: incluso modelos bien construidos como el de Framingham pierden calibración cuando se aplican fuera de la población en que fueron desarrollados.
 El presente análisis no busca construir un modelo predictivo sino cuantificar la fuerza de la evidencia de asociación entre variables clínicas y la presencia de ECV dentro de la muestra disponible.
-En ese sentido, el enfoque bayesiano propuesto por @Gill2005 resulta especialmente apropiado: permite responder cuán verosímil es cada hipótesis dado lo observado, sin pretender generalizar más allá de lo que los datos permiten [@Lorca; @Armero].
+En ese sentido, el enfoque bayesiano propuesto por @Gill resulta especialmente apropiado: permite responder cuán verosímil es cada hipótesis dado lo observado, sin pretender generalizar más allá de lo que los datos permiten [@Lorca; @Armero].
 
 Integradas las tres perspectivas —el marco conceptual bayesiano, los referentes empíricos del modelo de Framingham y la lectura crítica de @Damen—, el análisis conduce a una conclusión articulada: la evidencia disponible es extrema a favor de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la presencia de enfermedad cardiovascular en esta muestra.
 La magnitud de esa asociación es grande, consistente con la literatura y robusta ante las decisiones metodológicas del análisis.
@@ -486,7 +486,7 @@ Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportun
 
 ## Diario de aprendizaje
 
-Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para acceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes por aparte. La más destacada de estas es que la presión sistólica; que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular, suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
+Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para aceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes independientes. La más destacada de estas es que la presión sistólica, que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular: suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
 
 
 # Registro de uso de IA
@@ -613,4 +613,9 @@ hipertensión.
 
 ![V de Gowin](figures/uve_gowin.svg){fig-align="center" height="90%"}
 
+:::
+
+# Bibliografía
+
+::: #refs
 :::
