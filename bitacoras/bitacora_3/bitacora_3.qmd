@@ -549,6 +549,47 @@ Se reflejó el tamaño de muestra real (68 474 pacientes)
 Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo el cuerpo, fichas compactas en lugar de párrafos extensos.
 - **Modificaciones:** Se usó directamente la imagen *svg* propuesta, modificando errores visuales en InkScape.
 
+## Consulta: Explicación de Factor de Bayes.
+
+- **Herramienta:** Claude (Anthropic)
+- **Prompt resumido:** Comparar el enfoque frecuentista con el Factor de
+  Bayes para comparar distribuciones de `ap_hi` y `ap_lo` entre grupos.
+- **Respuesta de la IA resumida:** Confirmó que la distribución Gamma
+  ajusta mejor que la Normal a `ap_hi` (Δ log-verosimilitud ≈ 770 por
+  grupo). Identificó un patrón de gradiente de riesgo acumulado (0
+  factores → 23 %, 4 factores → 84 % de prevalencia) y recomendó usar
+  `BayesFactor::ttestBF()` en lugar de Stan/MCMC por complejidad.
+  Propuso arquitectura de scripts encadenados: `01_limpieza.R` →
+  `02_descriptivo.R` → `03_modelacion.R` vía `source()`. Ayudó a
+  delimitar el alcance real de trabajo pendiente para reducir la
+  sensación de saturación.
+- **Evaluación:** Claude comprende muy bien temas de estadística, entonces su recomendación fue de gran utilidad.
+- **Modificaciones:** Se adoptó la arquitectura de scripts propuesta y
+  el umbral de edad ≥ 55 años, justificado empíricamente por el salto
+  más pronunciado en prevalencia y la proximidad a la mediana muestral.
+  Se descartó la distribución Gamma como modelo formal y se mantuvo el
+  enfoque en el Factor de Bayes como herramienta central.
+- **Aprendizaje:** Se aprendió sobre funciones y paquetes en R que ayudan a hacer inferencia bayesiana.
+
+---
+
+---
+
+### Consulta: Redacción y ortografía de secciones.
+
+- **Herramienta:** Claude (Anthropic)
+- **Prompt resumido:** Revisión del estado actual de la Bitácora 3 y
+  diagnóstico de secciones faltantes. Corrección de redacción de log de
+  contribuciones, frase de audiencia, rastro de decisiones y respuesta
+  a retroalimentación
+- **Respuesta de la IA resumida:** Diagnóstico comparativo entre las
+  indicaciones y el `.qmd` actual; identificación de cinco elementos
+  preparatorios faltantes y dos secciones incompletas (Sec. 1.5 y
+  Sec. 3). Entrega de borradores listos para revisar y modificar.
+- **Evaluación:** Excelente, existen errores gramaticales y ortográficos que Claude detecta rápid, además de identificar partes faltantes.
+- **Modificaciones:** Redacción de los bloques antes mencionados.
+- **Aprendizaje:** Siempre se puede agilizar más la realización de tareas sencillas.
+
 # Rastro de decisiones
 
 **Decisión 1: Factor de Bayes como método de prueba de hipótesis
