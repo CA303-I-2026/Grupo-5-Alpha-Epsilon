@@ -36,6 +36,73 @@ Esta semana, le diría al actuario especializado en seguros de vida y salud que 
 
 # Parte de planificación
 
+```{r}
+#| label: setup
+#| include: false
+#| message: false
+#| warning: false
+library(here)
+source(here("codigo", "03_modelacion.R"))
+```
+
+## Análisis descriptivo
+
+Los siguientes resultados se derivan del análisis exploratorio 
+ejecutado en `02_descriptivo.R`, que corre automáticamente 
+al cargar el pipeline de modelación.
+
+```{r}
+#| label: tbl-balance
+#| echo: false
+#| tbl-cap: "Balance de la variable respuesta"
+knitr::kable(eda_balance_cardio)
+```
+
+```{r}
+#| label: tbl-medias
+#| echo: false
+#| tbl-cap: "Media ± DE de variables numéricas según ECV"
+knitr::kable(eda_por_cardio)
+```
+
+```{r}
+#| label: fig-correlacion
+#| echo: false
+#| warning: false
+#| fig-cap: "Correlación de variables con enfermedad cardiovascular"
+grafico_correlacion
+```
+
+```{r}
+#| label: fig-gradiante
+#| echo: false
+#| fig-cap: "Gradiente de prevalencia de ECV por número de factores de riesgo"
+grafico_gradiante
+```
+
+El análisis distribucional de las variables de presión arterial 
+revela que ambas se apartan de la normalidad. La presión sistólica 
+presenta asimetría positiva y curtosis elevada, lo que sugiere 
+que la distribución Gamma ajusta mejor que la Normal.
+
+```{r}
+#| label: fig-dist-aphi
+#| echo: true
+#| warning: false
+#| message: false
+#| fig-cap: "Ajuste distribucional de ap_hi: Normal vs. Gamma (MLE)"
+grafico_dist_ap_hi
+```
+
+```{r}
+#| label: fig-dist-aplo
+#| echo: true
+#| warning: false
+#| message: false
+#| fig-cap: "Ajuste distribucional de ap_lo: Normal vs. Gamma (MLE)"
+grafico_dist_ap_lo
+```
+
 ## Propuesta metodológica
 
 En el análisis exploratorio se reveló que la presión arterial sistólica es la variable con mayor correlación con la presencia de enfermedad cardiovascular (alrededor de $0{,}43$), hallazgo coherente con los factores de riesgo identificados tanto en modelos clásicos de predicción cardiovascular [@DAgostino2013; @Damen] como en las guías internacionales de hipertensión arterial [@WHO_ISH_2020; @Visseren2021].
