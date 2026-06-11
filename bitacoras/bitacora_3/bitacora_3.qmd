@@ -179,15 +179,44 @@ credibilidad.
 **Distribuciones posteriores e intervalos de credibilidad.** A partir de las distribuciones posteriores simuladas mediante MCMC (10 000 iteraciones) se obtienen
 los siguientes resultados:
 
+```{r}
+#| label: fig-posterior-aphi
+#| echo: false
+#| fig-cap: "Distribución posterior de la diferencia de medias en presión sistólica"
+grafico_posterior_ap_hi
+```
+
 - *Presión sistólica:* diferencia de medias $\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}$ con media posterior $14{,}28$ mmHg e IC 95% de credibilidad
 $[14{,}05;\ 14{,}50]$ mmHg. Existe una probabilidad posterior del 95% de que las personas con ECV presenten entre $14{,}05$ y $14{,}50$ mmHg más de presión sistólica
 que quienes no la presentan. Esta diferencia es clínicamente relevante: las guías internacionales clasifican como elevada una presión sistólica $\geq 120$ mmHg y como
 alta $\geq 140$ mmHg [@WHO_ISH_2020].
 
+```{r}
+#| label: fig-posterior-aplo
+#| echo: false
+#| fig-cap: "Distribución posterior de la diferencia de medias en presión diastólica"
+grafico_posterior_ap_lo
+```
+
 - *Presión diastólica:* media posterior $6{,}42$ mmHg, IC 95%: $[6{,}29;\ 6{,}55]$ mmHg. La diferencia diastólica es real pero de menor magnitud que la sistólica, lo
 cual es coherente con la literatura [@DAgostino2013].
+
+```{r}
+#| label: fig-posterior-rho
+#| echo: false
+#| fig-cap: "Distribución posterior de la correlación entre gradiente de riesgo y ECV"
+grafico_posterior_rho
+```
+
 - *Correlación del gradiente:* media posterior $\hat{\rho} = 0{,}3939$, IC 95%: $[0{,}3701;\ 0{,}4172]$. El intervalo excluye el cero con amplio margen, confirmando
 que la acumulación de factores de riesgo se asocia positivamente con la prevalencia de ECV.
+
+```{r}
+#| label: fig-beta-bernoulli
+#| echo: false
+#| fig-cap: "Posterior Beta-Bernoulli para la prevalencia de ECV"
+grafico_beta_bernoulli
+```
 
 **Prevalencia de ECV — modelo Beta-Bernoulli.** Con $n = 68\,474$ observaciones y $33\,883$ casos positivos ($49{,}48\%$), la distribución posterior es
 $\text{Beta}(33\,884,\ 34\,592)$, con media $\theta = 0{,}4948$ e IC 95% de credibilidad $[0{,}4911;\ 0{,}4986]$. La base de datos está prácticamente balanceada
@@ -217,9 +246,9 @@ muestra completa hubiera sido redundante.
 
 ## Fichas de resultados
 
-### Ficha 1 {.unnumbered}
+**Ficha 1**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- Nivel descriptivo (qué encontraron)
 
 **Titular:** La presión sistólica es 14 mmHg mayor en pacientes con ECV
 
@@ -231,7 +260,7 @@ muestra completa hubiera sido redundante.
 
 **Evidencia:** Cuadro resumen descriptivo estratificado por grupo (Bitácora 2); distribución posterior de $\delta$ con intervalo de credibilidad (@tbl-bf).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- Nivel analítico (qué significa)
 
 **Conexión con la pregunta de investigación:** El Factor de Bayes desborda la representación numérica estándar de R (`Inf`), lo que constituye evidencia extrema a favor de $H_1$ según la escala de Jeffreys ($\log_{10}(\text{BF}_{10}) = 3\,009$).
 El intervalo de credibilidad al 95% para la diferencia de medias es $\delta \in [14{,}05;\; 14{,}50]$ mmHg, el cual excluye el cero con holgura.
