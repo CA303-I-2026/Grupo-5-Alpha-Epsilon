@@ -599,6 +599,36 @@ simplicidad y reproducibilidad, reconociendo en las fichas de resultados
 que esta decisión puede subestimar la contribución relativa de la 
 hipertensión.
 
+# Respuesta a la retroalimentación
+
+**Rastro de decisiones:** La retroalimentación señaló la ausencia de 
+documentación sobre las decisiones metodológicas tomadas durante el 
+análisis. En esta bitácora se incorpora una sección de rastro de 
+decisiones que documenta las opciones consideradas, las descartadas y 
+las razones detrás de cada elección.
+
+**Identidad visual:** Se identificó que la paleta de colores utilizada 
+en la Bitácora 2 generaba poco contraste entre grupos en los gráficos 
+comparativos. Se migró a una identidad visual con mayor diferenciación 
+cromática, lo que facilita la lectura de los gráficos estratificados 
+por presencia o ausencia de enfermedad cardiovascular.
+
+**Profundidad del análisis de datos:** Se observó que el análisis 
+descriptivo de la Bitácora 2 no profundizaba en la distribución de las 
+variables de presión arterial ni en el patrón de gradiente de riesgo. 
+En esta bitácora se incorpora el análisis distribucional de `ap_hi` y 
+`ap_lo` (con estadísticos de forma y ajuste de distribuciones) y la 
+construcción del índice de factores de riesgo acumulados $k$.
+
+**Referencias bibliográficas:** Se completaron las entradas del archivo 
+`.bib` que en la entrega anterior estaban incompletas o ausentes, 
+asegurando que todas las citas del documento tengan su referencia 
+completa en formato APA.
+
+**Ortografía y presentación:** Se revisó la redacción general del 
+documento, corrigiendo errores ortográficos y mejorando la consistencia 
+del formato entre secciones utilizando inteligencia artificial.s
+
 # Log de contribuciones
 
 | Integrante | Sección | Tarea realizada |
