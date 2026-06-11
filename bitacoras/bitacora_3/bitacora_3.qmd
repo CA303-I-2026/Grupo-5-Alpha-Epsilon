@@ -548,9 +548,9 @@ Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo
 
 | Integrante | Sección | Tarea realizada |
 |:------------------------|:----------------------------------------------|
-| César Salazar | Modelación en R, rastreo de deciciones, ortografía |
-| Gerardo Montero |Propuesta metodológica, Ordenamiento de Elementos, Arco Narrativo |
-| Óscar Espinoza | 8 fichas de resultados, Marco teórico, fichas B2 y B3 |
+| César Salazar | Propuesta metodológica, modelación en R, rastreo de deciciones, ortografía |
+| Gerardo Montero |Inferencia bayesiana, análisis fallido, Ordenamiento de Elementos, Arco Narrativo |
+| Óscar Espinoza | 8 fichas de resultados, Parte de escritura, fichas B2 y B3 |
 | Gabriel Robles | Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones |
 
 # UVE de Gowin
