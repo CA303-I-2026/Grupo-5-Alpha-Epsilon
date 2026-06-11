@@ -523,7 +523,7 @@ Con el fin de comenzar a construir el borrador final del proyecto, se identifica
 
 ## La imagen que cuenta la historia
 
-La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la más simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con H_1. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis H_1. Los Factores de Bayes obtenidos son astronómicamente grandes. $BF_{10} = 10^{3009}$ para la presión sistólica es un número que no cabe en ninguna celda de tabla, no se puede comparar visualmente entre filas, y técnicamente ni siquiera puede representarse en doble precisión flotante (que tiene límite $10^{309}$). La escala logarítmica en base 10 resuelve los tres problemas a la vez: comprime los valores a números legibles (3009, 1832, 181, 866), mantiene las proporciones relativas entre pruebas, y permite comparación directa con la escala de Jeffreys, que también opera en $log_{10}$.
+La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la más simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con $H_1$. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis $H_1$. Los Factores de Bayes obtenidos son astronómicamente grandes. $BF_{10} = 10^{3009}$ para la presión sistólica es un número que no cabe en ninguna celda de tabla, no se puede comparar visualmente entre filas, y técnicamente ni siquiera puede representarse en doble precisión flotante (que tiene límite $10^{309}$). La escala logarítmica en base 10 resuelve los tres problemas a la vez: comprime los valores a números legibles (3009, 1832, 181, 866), mantiene las proporciones relativas entre pruebas, y permite comparación directa con la escala de Jeffreys, que también opera en $\log_{10}$.
 
 # Arco narrativo
 
@@ -844,7 +844,7 @@ del formato entre secciones utilizando inteligencia artificial.
 
 | Integrante | Sección | Tarea realizada |
 |:------------------------|:----------------------------------------------|
-| César Salazar | Propuesta metodológica, modelación en R, rastro de deciciones, ortografía |
+| César Salazar | Propuesta metodológica, modelación en R, rastro de decisiones, ortografía |
 | Gerardo Montero |Inferencia bayesiana, análisis fallido, Ordenamiento de Elementos, Arco Narrativo |
 | Óscar Espinoza | 8 fichas de resultados, Parte de escritura, fichas B2 y B3 |
 | Gabriel Robles | Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones |
