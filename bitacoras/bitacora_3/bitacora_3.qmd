@@ -30,6 +30,10 @@ language:
 
 # Bitácora #3 {.unnumbered .unlisted}
 
+# Audiencia {.unnumbered .unlisted}
+
+Esta semana, le diría al actuario especializado en seguros de vida y salud que contamos ahora con evidencia bayesiana extrema de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular: Un pequeño resumen de este avance es que los pacientes con tres o más factores presentan una prevalencia de ECV 3,56 veces mayor que quienes no tienen ninguno, y la diferencia media en presión sistólica entre grupos es de 14,3 mmHg con un intervalo de credibilidad al 95% de [14,05; 14,50] mmHg, magnitud suficiente para justificar una diferenciación de prima en productos de salud.
+
 # Parte de planificación
 
 ## Propuesta metodológica
