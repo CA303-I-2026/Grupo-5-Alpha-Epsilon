@@ -436,51 +436,125 @@ con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores
 
 # Parte de escritura
 
-El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando enfoques que buscan no solo describir el fenómeno sino también estimar y cuantificar la evidencia de asociación entre factores de riesgo y la probabilidad de desarrollar la enfermedad.
-La literatura revisada permite identificar tres líneas de análisis complementarias: el enfoque teórico de la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado metodológico del campo.
+## Marco conceptual: inferencia bayesiana y riesgo cardiovascular {.unnumbered}
 
-El trabajo de @Gill propone que los médicos, incluso sin formalizarlo, operan bajo principios bayesianos al diagnosticar pacientes: el proceso diagnóstico es una actualización continua de probabilidades donde la información previa se combina con nueva evidencia clínica.
-Este encuadre teórico es relevante para el presente proyecto porque el Factor de Bayes, herramienta central del análisis, formaliza matemáticamente exactamente ese proceso: compara cuán verosímiles son los datos bajo dos hipótesis en competencia, sin limitarse a señalar si un valor $p$ cruza un umbral arbitrario.
-En una muestra de 68 474 pacientes, cualquier diferencia mínima entre grupos produciría un $p < 0{,}05$ con independencia de su relevancia clínica o práctica [@Pek]; el enfoque bayesiano resuelve este problema al cuantificar la fuerza de la evidencia en lugar de simplemente su existencia.
+El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando enfoques que buscan no solo describir el fenómeno sino también estimar y cuantificar la evidencia de asociación entre factores de riesgo y la probabilidad de desarrollar la enfermedad.
+La literatura revisada permite identificar tres grandes líneas de análisis complementarias: el enfoque teórico de la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado metodológico del campo.
+
+El trabajo de @Gill introduce una perspectiva fundamental sobre el uso del razonamiento probabilístico en el ámbito clínico, proponiendo que los médicos, incluso sin formalizarlo matemáticamente, operan bajo principios bayesianos al momento de diagnosticar pacientes.
+En este sentido, el proceso diagnóstico no debe entenderse como una decisión binaria, sino como una actualización continua de probabilidades donde la información previa se combina con nueva evidencia clínica para ajustar la probabilidad de que un paciente presente una enfermedad.
+Este enfoque resalta la importancia del contexto y de la incertidumbre en la toma de decisiones médicas, elementos que con frecuencia desaparecen cuando el análisis se reduce a la dicotomía de rechazar o no rechazar una hipótesis nula.
+
+Sin embargo, este planteamiento contrasta con enfoques más estructurados como el desarrollado por @DAgostino2013, quienes proponen modelos estadísticos específicos —basados en regresión de Cox— para estimar el riesgo cardiovascular a partir de un conjunto fijo de variables.
+Mientras que @Gill enfatiza la flexibilidad del razonamiento clínico y la adaptación continua a nueva información, el modelo de Framingham se basa en una estructura definida donde las variables y sus coeficientes están previamente determinados y el resultado es una probabilidad cuantificada dentro de un marco rígido.
+Esta diferencia plantea una tensión central en el análisis del riesgo cardiovascular: la necesidad de balancear flexibilidad e interpretabilidad.
+El enfoque bayesiano permite incorporar incertidumbre y adaptar conclusiones a contextos específicos, lo cual es especialmente útil cuando los datos son incompletos o heterogéneos.
+Sin embargo, los modelos estructurados ofrecen ventajas en términos de replicabilidad y validación, aspectos fundamentales para el uso clínico.
+
+Para el presente proyecto, esta dualidad determina la elección metodológica central: con aproximadamente 68 474 observaciones, cualquier diferencia entre grupos produce un valor $p < 0{,}05$ con independencia de su relevancia clínica o práctica [@Pek].
+El enfoque frecuentista no cuantifica la evidencia a favor de $H_1$: solo señala qué tan inusuales serían los datos si $H_0$ fuera cierta, sin que $H_1$ entre en el cálculo.
+El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de $H_1$ como a favor de $H_0$ [@Ramos-Vera; @Armero].
+Esta propiedad resulta especialmente relevante porque la pregunta de investigación no es simplemente si existe una diferencia estadística, sino **cuán fuerte es la evidencia** de que las variables clínicas se asocian con la enfermedad cardiovascular.
 La escala de Jeffreys provee el vocabulario para esa cuantificación: valores de $\log_{10}(\text{BF}_{10})$ superiores a 2 (equivalentes a $\text{BF}_{10} > 100$) constituyen evidencia extrema a favor de la hipótesis alternativa [@Armero; @Ramos-Vera].
 
-En este contexto, el modelo de Framingham desarrollado por @DAgostino2013 representa el referente empírico más consolidado en la cuantificación del riesgo cardiovascular.
-El modelo integra factores como edad, presión arterial sistólica, colesterol, tabaquismo y diabetes en una función de riesgo de Cox que estima la probabilidad de evento a diez años, con una capacidad de discriminación y calibración que lo ha convertido en estándar clínico durante más de dos décadas.
-La presión arterial sistólica ocupa en ese modelo uno de los coeficientes de mayor magnitud, lo cual anticipa el hallazgo central del presente análisis: los datos muestran que los pacientes con enfermedad cardiovascular presentan una presión sistólica media de 133,90 mmHg frente a 119,61 mmHg en quienes no la padecen, una diferencia de $\delta = 14{,}28$ mmHg con intervalo de credibilidad al 95 % de $[14{,}05;\; 14{,}50]$ mmHg.
-El Factor de Bayes asociado desborda la representación numérica estándar de R ($\log_{10}(\text{BF}_{10}) = 3\,009$), constituyendo evidencia extrema en la escala de Jeffreys.
+## La edad como primer predictor identificado {.unnumbered}
+
+El análisis exploratorio de la Bitácora 2 permitió identificar la edad como la primera variable que diferencia sistemáticamente a los pacientes con y sin enfermedad cardiovascular.
+Los pacientes con ECV presentan edades mayores respecto al grupo sin enfermedad, un patrón que se manifiesta de forma consistente en la distribución de densidad comparativa: la distribución del grupo con ECV está desplazada hacia valores más altos, con una diferencia media de aproximadamente 3,3 años.
+Este hallazgo coincide plenamente con @DAgostino2013, donde la edad aparece como uno de los factores de mayor peso en el modelo de Framingham, y con la evidencia acumulada en la literatura que establece al envejecimiento como uno de los factores de riesgo no modificables más relevantes en la fisiopatología cardiovascular.
+
+La importancia de este resultado no radica únicamente en confirmar lo conocido, sino en validar que la base de datos disponible reproduce patrones coherentes con la literatura.
+Un dataset que no mostrara diferencias de edad entre grupos con y sin ECV generaría dudas sobre su calidad o representatividad.
+El hecho de que el patrón esperado aparezca con claridad en la exploración descriptiva establece un primer punto de confianza metodológica sobre el cual construir los análisis inferenciales de la Bitácora 3.
+No obstante, el análisis descriptivo no permite determinar cuánto influye exactamente la edad ni si su efecto cambia en presencia de otras variables fisiológicas como la presión arterial o el IMC, limitación que motiva directamente el enfoque multivariable implícito en el índice de factores acumulados desarrollado posteriormente.
+
+## La presión arterial sistólica: predictor central del análisis {.unnumbered}
+
+Si la edad es el primer predictor identificado descriptivamente, la presión arterial sistólica es la que concentra la mayor masa de evidencia bayesiana en el análisis.
+La Bitácora 2 mostró que la prevalencia de ECV aumenta conforme incrementa la presión arterial sistólica, con una correlación de aproximadamente 0,43 entre ambas variables, la más alta de todas las variables continuas analizadas.
+Este hallazgo anticipó la hipótesis primaria de la Bitácora 3 y motivó que la presión sistólica ocupara el lugar central en el diseño del análisis inferencial.
+
+Los resultados de la Bitácora 3 confirman y cuantifican ese patrón con toda la precisión que permite la inferencia bayesiana.
+Los pacientes con enfermedad cardiovascular presentan una presión sistólica media de 133,90 mmHg frente a 119,61 mmHg en quienes no la padecen, una diferencia de $\delta = 14{,}28$ mmHg cuyo intervalo de credibilidad al 95 % es $[14{,}05;\; 14{,}50]$ mmHg.
+Este intervalo excluye el cero con holgura y tiene una interpretación directa: existe una probabilidad posterior del 95 % de que las personas con ECV presenten entre 14,05 y 14,50 mmHg más de presión sistólica que quienes no la presentan.
+El Factor de Bayes asociado desborda la representación numérica estándar de R, con $\log_{10}(\text{BF}_{10}) = 3\,009$, lo que significa que los datos observados son $10^{3009}$ veces más verosímiles bajo $H_1$ que bajo $H_0$.
 La magnitud del efecto ($d = 0{,}948$) es grande según los criterios convencionales, lo que implica que la presión sistólica no solo discrimina estadísticamente entre grupos sino que lo hace con una separación prácticamente distinguible en las distribuciones.
-Esta diferencia es clínicamente relevante: las guías internacionales clasifican como elevada una presión sistólica $\geq 120$ mmHg y como alta $\geq 140$ mmHg [@WHO_ISH_2020], y la media del grupo con ECV (133,90 mmHg) se sitúa en la categoría de presión elevada, mientras que la del grupo sin ECV (119,61 mmHg) queda en el límite superior de la categoría normal.
 
-La presión diastólica muestra un patrón análogo aunque de menor magnitud: los pacientes con ECV presentan 84,55 mmHg de media frente a 78,13 mmHg en el grupo sano ($\delta = 6{,}42$ mmHg, IC 95 %: $[6{,}29;\; 6{,}55]$ mmHg, $d = 0{,}725$, $\log_{10}(\text{BF}_{10}) = 1\,832$).
-@Visseren2021 señalan que ambos componentes de la presión arterial constituyen factores de riesgo independientes, aunque la sistólica adquiere mayor peso predictivo en pacientes mayores de 50 años, patrón coherente con la diferencia en tamaño del efecto observada.
-En conjunto, los resultados sobre presión arterial confirman que la asociación entre hipertensión y enfermedad cardiovascular es robusta, consistente con la literatura y de magnitud clínicamente relevante.
+Esta diferencia es además clínicamente relevante.
+Las guías internacionales clasifican como elevada una presión sistólica $\geq 120$ mmHg y como alta $\geq 140$ mmHg [@WHO_ISH_2020].
+La media del grupo con ECV (133,90 mmHg) se sitúa en la categoría de presión elevada, a tan solo 6 mmHg del umbral de hipertensión, mientras que la del grupo sin ECV (119,61 mmHg) queda en el límite superior de la categoría normal.
+Este resultado es plenamente coherente con @DAgostino2013, quienes identifican la presión arterial sistólica como uno de los predictores de mayor coeficiente en el modelo de Framingham, y con @WHO_ISH_2020, que establece la hipertensión arterial como el principal factor de riesgo cardiovascular modificable a nivel global.
 
-Más allá de los factores individuales, el análisis de la Bitácora 2 reveló un patrón de gradiente en la prevalencia de ECV conforme se acumulan factores de riesgo clínicos: hipertensión, obesidad, colesterol elevado y edad igual o superior a 55 años.
-Este patrón se formaliza en la Bitácora 3 mediante un índice $k$ que cuenta el número de factores presentes en cada paciente.
-Los resultados son contundentes: la prevalencia escala de 22,8 % con $k = 0$ hasta 83,6 % con $k = 4$, pasando por 47,0 %, 68,8 % y 80,6 % en los niveles intermedios (@tbl-gradiente).
-El contraste entre los extremos ($k = 0$ versus $k \geq 3$) arroja evidencia extrema según la escala de Jeffreys ($\log_{10}(\text{BF}_{10}) = 866$) y un tamaño del efecto de $d = 1{,}424$, el valor más alto del análisis.
-Expresado en términos prácticos, un paciente con tres o más factores de riesgo tiene una probabilidad observada de ECV 3,56 veces mayor que uno sin ningún factor.
-@DAgostino2013 concluyen que la combinación de múltiples factores de riesgo supera en poder predictivo a cualquier factor individual; los datos del presente análisis reproducen esa conclusión de forma directa.
+La presión arterial diastólica exhibe un patrón análogo aunque de menor magnitud: los pacientes con ECV presentan 84,55 mmHg de media frente a 78,13 mmHg en el grupo sano ($\delta = 6{,}42$ mmHg, IC 95 %: $[6{,}29;\; 6{,}55]$ mmHg, $d = 0{,}725$, $\log_{10}(\text{BF}_{10}) = 1\,832$).
+@Visseren2021 señalan que tanto la presión sistólica como la diastólica constituyen factores de riesgo independientes, aunque la sistólica adquiere mayor peso predictivo en pacientes mayores de 50 años, patrón coherente con la diferencia en tamaños del efecto observada ($d = 0{,}948$ versus $d = 0{,}725$).
+La diferencia diastólica es real y estadísticamente inequívoca, pero su menor magnitud confirma que la presión sistólica es el componente dominante en la diferenciación entre grupos.
+
+## El colesterol: resultado parcialmente contraintuitivo {.unnumbered}
+
+El análisis descriptivo de la Bitácora 2 mostró que los pacientes con colesterol muy alto presentan mayor prevalencia de enfermedad cardiovascular, resultado que coincide con @DAgostino2013 y @Damen, donde el colesterol aparece consistentemente como variable relevante en modelos de riesgo cardiovascular.
+Sin embargo, la correlación individual del colesterol con ECV en los datos resultó notablemente menor que la de la presión arterial o la edad, una discrepancia que merece análisis cuidadoso.
+
+Una explicación posible reside en las limitaciones del dataset: la variable de colesterol está codificada en tres categorías ordinales (Normal, Alto, Muy Alto) sin valores continuos, lo que reduce su capacidad discriminativa respecto a una medición en mg/dL.
+Adicionalmente, el dataset no incluye información sobre tratamientos con estatinas u otros hipolipemiantes, que son ampliamente prescritos en pacientes con riesgo cardiovascular elevado y que reducen los niveles de colesterol sérico de forma significativa.
+Es plausible que una fracción considerable de los pacientes con ECV en la muestra tenga colesterol controlado farmacológicamente, lo que atenuaría la asociación observada entre los niveles medidos y la presencia de enfermedad.
+Esta limitación es precisamente del tipo que @Damen identifican como frecuente en modelos predictivos cardiovasculares: la ausencia de variables de confusión clínicamente relevantes puede distorsionar las estimaciones de asociación.
+
+## El índice de masa corporal y la multidimensionalidad del riesgo {.unnumbered}
+
+El análisis exploratorio de la Bitácora 2 mostró que los pacientes con enfermedad cardiovascular presentan distribuciones de IMC desplazadas hacia valores mayores, con una diferencia media de aproximadamente 1,9 kg/m².
+Este resultado coincide parcialmente con @Damen, donde el índice de masa corporal aparece como predictor presente en múltiples modelos de riesgo cardiovascular.
+Sin embargo, la diferencia observada es más modesta que la reportada en muchos estudios de referencia, lo que refleja una limitación conocida del IMC como indicador de adiposidad: no diferencia composición corporal, masa muscular ni distribución de grasa.
+
+Este hallazgo, tomado aisladamente, podría interpretarse como evidencia débil de la asociación entre obesidad y ECV.
+Sin embargo, al integrarlo con los demás factores de riesgo, su relevancia aumenta sustancialmente.
+La Bitácora 3 formaliza esta intuición mediante la construcción del índice $k$, que incluye la obesidad (IMC $\geq 30$ kg/m²) como uno de los cuatro componentes del gradiente de riesgo acumulado.
+La lógica subyacente es coherente con la propuesta de @DAgostino2013: ningún factor de riesgo cardiovascular actúa de forma completamente independiente, y la combinación de múltiples factores supera en poder predictivo a cualquier factor individual.
+
+## El gradiente de riesgo acumulado: síntesis del análisis {.unnumbered}
+
+La convergencia de los hallazgos descriptivos de la Bitácora 2 —edad, presión arterial, colesterol e IMC como variables diferenciadores— condujo a la hipótesis central de la Bitácora 3: que la acumulación de factores de riesgo clínicos tiene un efecto dosis-respuesta sobre la probabilidad de ECV.
+Esta hipótesis se operacionaliza mediante el índice $k$, que cuenta cuántos de los cuatro factores de riesgo (hipertensión, obesidad, colesterol elevado y edad $\geq 55$ años) están presentes simultáneamente en cada paciente.
+
+Los resultados son contundentes y constituyen el hallazgo más comunicable del proyecto.
+La prevalencia de ECV escala de forma monotónica desde 22,8 % con $k = 0$ hasta 83,6 % con $k = 4$, con niveles intermedios de 47,0 % ($k=1$), 68,8 % ($k=2$) y 80,6 % ($k=3$) (@tbl-gradiente).
+El contraste entre los extremos del gradiente ($k = 0$ versus $k \geq 3$) arroja evidencia bayesiana extrema ($\log_{10}(\text{BF}_{10}) = 866$) y un tamaño del efecto de $d = 1{,}424$, el valor más alto de todos los análisis realizados.
+Expresado en términos prácticos: un paciente con tres o más factores de riesgo tiene una probabilidad observada de ECV 3,56 veces mayor que uno sin ningún factor.
+Este resultado reproduce de forma directa la conclusión central de @DAgostino2013, quienes establecen que la combinación de múltiples factores de riesgo supera en poder predictivo a cualquier factor individual.
 
 La correlación entre el índice $k$ y la presencia de ECV, estimada mediante `correlationBF()` sobre un submuestreo reproducible de $n = 5\,000$ observaciones (`set.seed(2002)`), es $\hat{\rho} = 0{,}394$ con IC 95 % de credibilidad $[0{,}370;\; 0{,}417]$ y $\log_{10}(\text{BF}_{10}) = 181$.
-El intento de aplicar `correlationBF()` sobre la muestra completa ($n = 68\,474$) produjo desbordamiento numérico (`WARNING: Series not converged`), resultado documentado en la Sección 1.2 como análisis fallido: la función implementa una expansión en serie de la función hipergeométrica gaussiana $_2F_1$ que no converge para muestras de ese tamaño.
+El intervalo de credibilidad excluye el cero con amplio margen y está completamente concentrado en valores positivos, confirmando que la acumulación de factores de riesgo se asocia monotónicamente con mayor probabilidad de ECV.
+El intento de aplicar `correlationBF()` sobre la muestra completa ($n = 68\,474$) produjo desbordamiento numérico (`WARNING: Series not converged`), resultado documentado en la Sección 1.2 como análisis fallido.
 Este caso ilustra una tensión práctica del cómputo bayesiano: con muestras muy grandes, la evidencia puede ser tan abrumadora que supera los límites de la representación numérica de punto flotante estándar, no porque el resultado sea incorrecto, sino porque su magnitud excede las herramientas disponibles.
+La solución de submuestreo es válida porque con $n = 5\,000$ ya existe evidencia concluyente.
 
-No obstante, la pertinencia del análisis debe evaluarse a la luz de sus limitaciones.
-La revisión sistemática de @Damen muestra que la mayoría de los modelos predictivos cardiovasculares publicados presentan deficiencias metodológicas, en particular ausencia de validación externa.
-Esta advertencia aplica directamente al conjunto de datos utilizado: la prevalencia global de ECV en la muestra es de 49,5 %, distribución inusual para una muestra poblacional donde la prevalencia típica oscila entre 5 % y 15 %.
-El modelo Beta-Bernoulli con prior uniforme estima la prevalencia en $\theta = 0{,}4948$ con IC 95 %: $[0{,}4911;\; 0{,}4986]$, intervalo extraordinariamente estrecho producto del tamaño muestral.
+Desde la perspectiva actuarial que enmarca el proyecto, este gradiente tiene una implicación directa: @Visseren2021 establecen que la estratificación por número de factores de riesgo es la herramienta clínica estándar para comunicar el riesgo al paciente, y los datos analizados confirman empíricamente que esa estratificación es internamente coherente dentro de la muestra disponible.
+Un actuario especializado en seguros de vida y salud puede interpretar el índice $k$ como una variable proxy del perfil de riesgo acumulado del asegurado, con diferencias de prevalencia suficientemente pronunciadas como para justificar diferenciación de primas entre grupos.
+
+## Limitaciones del análisis y alcance de los resultados {.unnumbered}
+
+La pertinencia de los resultados descritos debe evaluarse a la luz de las limitaciones metodológicas del dataset.
+La revisión sistemática de @Damen muestra que la mayoría de los modelos predictivos cardiovasculares publicados presentan deficiencias metodológicas, en particular ausencia de validación externa, y que incluso modelos bien construidos como el de Framingham pierden calibración cuando se aplican fuera de la población en que fueron desarrollados.
+
+Esta advertencia aplica directamente al conjunto de datos utilizado.
+La prevalencia global de ECV en la muestra es de 49,5 %, distribución inusual para una muestra poblacional donde la prevalencia típica oscila entre 5 % y 15 % según @Damen.
+El modelo Beta-Bernoulli con prior uniforme estima esa prevalencia en $\theta = 0{,}4948$ con IC 95 % de credibilidad $[0{,}4911;\; 0{,}4986]$, intervalo extraordinariamente estrecho producto del tamaño muestral: con 68 474 observaciones, la incertidumbre posterior sobre la prevalencia es prácticamente nula.
 Sin embargo, la discrepancia con la literatura sugiere que el dataset proviene de un registro clínico con sobrerepresentación de casos, lo que amplifica los gradientes observados sin invalidar las relaciones entre variables.
-Los resultados deben interpretarse como evidencia de asociaciones internas a la muestra, sin implicar directamente la cuantificación del riesgo en la población general.
+La distribución prácticamente balanceada entre casos positivos y negativos tiene, sin embargo, una consecuencia metodológica favorable: elimina el sesgo de clase como fuente de confusión en los análisis comparativos.
 
-Esta limitación conecta con la observación de @Damen sobre el valor de la validación externa: incluso modelos bien construidos como el de Framingham pierden calibración cuando se aplican fuera de la población en que fueron desarrollados.
+Adicionalmente, el dataset no incluye información sobre el origen geográfico de los pacientes, lo que impide cualquier generalización a poblaciones específicas.
+Como señala @Gill, el contexto es fundamental en el razonamiento clínico probabilístico: las probabilidades pre-test varían sustancialmente entre poblaciones, y un modelo calibrado en una muestra con prevalencia del 50 % producirá estimaciones sesgadas cuando se aplique a poblaciones con prevalencia del 10 %.
 El presente análisis no busca construir un modelo predictivo sino cuantificar la fuerza de la evidencia de asociación entre variables clínicas y la presencia de ECV dentro de la muestra disponible.
-En ese sentido, el enfoque bayesiano propuesto por @Gill resulta especialmente apropiado: permite responder cuán verosímil es cada hipótesis dado lo observado, sin pretender generalizar más allá de lo que los datos permiten [@Lorca; @Armero].
+Los resultados deben interpretarse, por tanto, como evidencia de asociaciones internas a la muestra, sin que ello implique directamente la cuantificación del riesgo en la población general [@Lorca; @Armero].
 
-Integradas las tres perspectivas —el marco conceptual bayesiano, los referentes empíricos del modelo de Framingham y la lectura crítica de @Damen—, el análisis conduce a una conclusión articulada: la evidencia disponible es extrema a favor de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la presencia de enfermedad cardiovascular en esta muestra.
+## Síntesis: dos historias que convergen {.unnumbered}
+
+Integradas las perspectivas de la literatura y los resultados propios, emerge una historia coherente en la que ambas narrativas se refuerzan mutuamente.
+La literatura establece que la enfermedad cardiovascular es un fenómeno multifactorial en el que la presión arterial, la edad, el colesterol y el índice de masa corporal actúan como predictores consistentes [@DAgostino2013; @Damen], que el razonamiento clínico sobre el riesgo es inherentemente bayesiano [@Gill], y que la validación externa de los modelos es una condición necesaria para su utilidad práctica [@Damen].
+Los datos analizados reproducen los patrones esperados por la literatura en cuanto a dirección y magnitud relativa de los efectos, cuantifican la evidencia de cada asociación mediante el Factor de Bayes con valores que exceden cualquier umbral razonable de la escala de Jeffreys, y reconocen explícitamente la limitación de generalización derivada de la prevalencia atípica de la muestra.
+
+La evidencia disponible es extrema a favor de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la presencia de enfermedad cardiovascular en esta muestra.
 La magnitud de esa asociación es grande, consistente con la literatura y robusta ante las decisiones metodológicas del análisis.
-Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportunidad de discutir con precisión la diferencia entre evidencia interna y capacidad de generalización, distinción que está en el corazón del razonamiento estadístico responsable.
-
+Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportunidad de discutir con precisión la diferencia entre evidencia interna y capacidad de generalización: distinción que está en el corazón del razonamiento estadístico responsable y que es, a fin de cuentas, la habilidad central que un actuario debe desarrollar al construir modelos de riesgo sobre datos observacionales.
 
 # Parte de reflexión
 
