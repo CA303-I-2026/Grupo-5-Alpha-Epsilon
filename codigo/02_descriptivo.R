@@ -417,7 +417,7 @@ list(
   grafico_colesterol = grafico_colesterol,
   grafico_imc = grafico_imc,
   grafico_presion = grafico_presion,
-  grafico_gradiante,
+  grafico_gradiante = grafico_gradiante,
   eda_tipos = eda_tipos,
   eda_faltantes = eda_faltantes,
   eda_numericas = eda_numericas,

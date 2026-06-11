@@ -39,16 +39,16 @@ cat("Skewness ap_hi:", skewness(cardio$ap_hi))
 cat("Kurtosis ap_hi:", kurtosis(cardio$ap_hi))  
 
 # 2. Ajuste MLE
-fit_normal <- fitdistr(cardio$ap_hi, "normal")
-fit_gamma  <- fitdistr(cardio$ap_hi, "gamma")
+fit_normal_hi <- fitdistr(cardio$ap_hi, "normal")
+fit_gamma_hi  <- fitdistr(cardio$ap_hi, "gamma")
 
 # 3. Visual: superponer ambas curvas y comparar con histograma
-ggplot(cardio, aes(x = ap_hi)) +
+grafico_dist_ap_hi <- ggplot(cardio, aes(x = ap_hi)) +
   geom_histogram(aes(y = after_stat(density)), bins = 60,
                  fill = "grey80", color = "grey60") +
   stat_function(fun = dnorm,
-                args = list(mean = fit_normal$estimate["mean"],
-                            sd   = fit_normal$estimate["sd"]),
+                args = list(mean = fit_normal_hi$estimate["mean"],
+                            sd   = fit_normal_hi$estimate["sd"]),
                 aes(color = "Normal"), linewidth = 1) +
   stat_function(fun = dgamma,
                 args = list(shape = fit_gamma$estimate["shape"],
@@ -67,16 +67,16 @@ cat("Skewness ap_lo:", skewness(cardio$ap_lo))
 cat("Kurtosis ap_lo:", kurtosis(cardio$ap_lo))  
 
 # 2. Ajuste MLE
-fit_normal <- fitdistr(cardio$ap_lo, "normal")
-fit_gamma  <- fitdistr(cardio$ap_lo, "gamma")
+fit_normal_lo <- fitdistr(cardio$ap_lo, "normal")
+fit_gamma_lo  <- fitdistr(cardio$ap_lo, "gamma")
 
 # 3. Visual: superponer ambas curvas y comparar con histograma
-ggplot(cardio, aes(x = ap_lo)) +
+grafico_dist_ap_lo <- ggplot(cardio, aes(x = ap_lo)) +
   geom_histogram(aes(y = after_stat(density)), bins = 60,
                  fill = "grey80", color = "grey60") +
   stat_function(fun = dnorm,
-                args = list(mean = fit_normal$estimate["mean"],
-                            sd   = fit_normal$estimate["sd"]),
+                args = list(mean = fit_normal_lo$estimate["mean"],
+                            sd   = fit_normal_lo$estimate["sd"]),
                 aes(color = "Normal"), linewidth = 1) +
   stat_function(fun = dgamma,
                 args = list(shape = fit_gamma$estimate["shape"],
