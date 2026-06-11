@@ -248,7 +248,7 @@ muestra completa hubiera sido redundante.
 
 **Ficha 1**
 
-- Nivel descriptivo (qué encontraron)
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** La presión sistólica es 14 mmHg mayor en pacientes con ECV
 
@@ -274,9 +274,9 @@ Esto responde directamente la hipótesis primaria: los datos son abrumadoramente
 
 ---
 
-### Ficha 2 {.unnumbered}
+**Ficha 2**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** Presión diastólica también separa grupos, pero con menor fuerza
 
@@ -288,7 +288,7 @@ Esto responde directamente la hipótesis primaria: los datos son abrumadoramente
 
 **Evidencia:** Cuadro resumen descriptivo estratificado por grupo (Bitácora 2); distribución posterior de $\delta$ para `ap_lo` (@tbl-bf).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** El Factor de Bayes también desborda numéricamente ($\log_{10}(\text{BF}_{10}) = 1\,832$), confirmando evidencia extrema a favor de $H_1$ para la hipótesis secundaria.
 El intervalo de credibilidad al 95% es $\delta \in [6{,}29;\; 6{,}55]$ mmHg.
@@ -302,9 +302,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 3 {.unnumbered}
+**Ficha 3**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** Acumular factores de riesgo multiplica por 3,6 la prevalencia de ECV
 
@@ -326,7 +326,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 : Prevalencia de ECV según número de factores de riesgo acumulados {#tbl-gradiente}
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** El gradiente es monotónico y pronunciado, sugiriendo un efecto dosis-respuesta de la acumulación de factores de riesgo sobre la probabilidad de ECV. Responde directamente la pregunta sobre cuán fuerte es la evidencia de asociación.
 
@@ -338,9 +338,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 4 {.unnumbered}
+**Ficha 4**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** Evidencia extrema de correlación entre factores acumulados y ECV
 
@@ -352,7 +352,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 **Evidencia:** Distribución posterior de $\rho$; IC 95 % de credibilidad: $[0{,}370;\; 0{,}417]$.
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** El $\log_{10}(\text{BF}_{10}) = 181$ confirma evidencia extrema de que $\rho \neq 0$. La distribución posterior de $\rho$ está completamente concentrada en valores positivos, confirmando que acumular factores de riesgo se asocia monotónicamente con mayor probabilidad de ECV.
 
@@ -364,9 +364,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 5 {.unnumbered}
+**Ficha 5**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** Tener 3 o más factores de riesgo aumenta 3,6 veces la prevalencia de ECV
 
@@ -378,7 +378,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 **Evidencia:** @tbl-gradiente; $\log_{10}(\text{BF}_{10}) = 866$; $d = 1{,}424$ (efecto muy grande).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** Pasar de cero a tres o más factores multiplica el riesgo observado de ECV por 3,56. Este resultado cuantifica de forma directa y comunicable la magnitud práctica de la acumulación de factores de riesgo.
 
@@ -390,9 +390,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 6 {.unnumbered}
+**Ficha 6**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** La prevalencia de ECV en la muestra es del 49,5 %, con incertidumbre mínima
 
@@ -404,7 +404,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 **Evidencia:** Gráfico de la posterior Beta-Bernoulli (Bitácora 3).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** La prevalencia casi equilibrada confirma que la base de datos es prácticamente balanceada, eliminando el sesgo de clase como fuente de confusión en los análisis comparativos. El intervalo de credibilidad extremadamente estrecho refleja la alta precisión que aportan las 68 474 observaciones.
 
@@ -416,9 +416,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 7 {.unnumbered}
+**Ficha 7**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** La distribución de `ap_hi` se aparta de la normalidad: asimétrica y leptocúrtica
 
@@ -430,7 +430,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 **Evidencia:** Gráfico de ajuste distribucional `ap_hi` (Bitácora 3).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** El `ttestBF()` es robusto ante desviaciones moderadas de la normalidad con muestras grandes (teorema central del límite), por lo que los Factores de Bayes de las Fichas 1 y 2 siguen siendo válidos. Sin embargo, la cola derecha de `ap_hi` puede corresponder a casos de crisis hipertensiva clínicamente distintos.
 
@@ -442,9 +442,9 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Ficha 8 {.unnumbered}
+**Ficha 8**
 
-#### Nivel descriptivo (qué encontraron) {.unnumbered}
+- **Nivel descriptivo (qué encontraron)**
 
 **Titular:** La edad, el IMC y la presión arterial marcan perfiles diferenciados entre grupos
 
@@ -456,7 +456,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 **Evidencia:** Cuadro resumen descriptivo por grupo (Bitácora 2).
 
-#### Nivel analítico (qué significa) {.unnumbered}
+- **Nivel analítico (qué significa)**
 
 **Conexión con la pregunta de investigación:** Los tres factores cuantitativos con mayor diferencia entre grupos (presión sistólica, edad e IMC) son precisamente los que la literatura identifica como predictores primarios del riesgo cardiovascular, validando la coherencia externa de la base de datos.
 
@@ -532,7 +532,7 @@ con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores
 
 # Parte de escritura
 
-## Marco conceptual: inferencia bayesiana y riesgo cardiovascular {.unnumbered}
+## Marco conceptual {.unnumbered}
 
 El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando enfoques que buscan no solo describir el fenómeno sino también estimar y cuantificar la evidencia de asociación entre factores de riesgo y la probabilidad de desarrollar la enfermedad.
 La literatura revisada permite identificar tres grandes líneas de análisis complementarias: el enfoque teórico de la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado metodológico del campo.
@@ -642,7 +642,7 @@ Como señala @Gill, el contexto es fundamental en el razonamiento clínico proba
 El presente análisis no busca construir un modelo predictivo sino cuantificar la fuerza de la evidencia de asociación entre variables clínicas y la presencia de ECV dentro de la muestra disponible.
 Los resultados deben interpretarse, por tanto, como evidencia de asociaciones internas a la muestra, sin que ello implique directamente la cuantificación del riesgo en la población general [@Lorca; @Armero].
 
-## Síntesis: dos historias que convergen {.unnumbered}
+## Síntesis {.unnumbered}
 
 Integradas las perspectivas de la literatura y los resultados propios, emerge una historia coherente en la que ambas narrativas se refuerzan mutuamente.
 La literatura establece que la enfermedad cardiovascular es un fenómeno multifactorial en el que la presión arterial, la edad, el colesterol y el índice de masa corporal actúan como predictores consistentes [@DAgostino2013; @Damen], que el razonamiento clínico sobre el riesgo es inherentemente bayesiano [@Gill], y que la validación externa de los modelos es una condición necesaria para su utilidad práctica [@Damen].
@@ -654,6 +654,13 @@ Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportun
 
 # Parte de reflexión
 
+## UVE de Gowin
+::: {.landscape}
+
+![V de Gowin](figures/uve_gowin.svg){fig-align="center" height="90%"}
+
+:::
+
 ## Diario de aprendizaje
 
 Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para aceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete `BayesFactor`. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes independientes. La más destacada de estas es que la presión sistólica, que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular: suele ser 14.5 *mmHg* más alta con personas con ECV el 95% de las veces. 
@@ -661,7 +668,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 
 # Registro de uso de IA
 
-## Consulta: Propuesta metodológica y validación bayesiana
+**Consulta: Propuesta metodológica y validación bayesiana**
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Revisar la redacción de la sección de propuesta metodológica de la Bitácora #3, con base en los resultados reales del script `03_modelacion.R`.
@@ -671,7 +678,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
   `# Este test falla, va en la sección de fallos`.
 - **Aprendizaje:** El Factor de Bayes con muestras grandes produce valores astronómicos que requieren expresarse en escala logarítmica, y su interpretación debe complementarse con intervalos de credibilidad para evaluar relevancia clínica.
 
-## Consulta: Análisis fallido
+**Consulta: Análisis fallido**
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Explicar por qué `correlationBF()` falla con $n = 68\,474$ observaciones y cómo documentarlo en la bitácora.
@@ -680,7 +687,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 - **Modificaciones:** Se mantuvo la solución de submuestreo que ya estaba implementada en `03_modelacion.R` con `set.seed(2002)`.
 - **Aprendizaje:** Un tamaño de muestra grande puede ser un obstáculo numérico en algoritmos bayesianos diseñados para muestras moderadas, y el submuestreo reproducible es una solución metodológicamente válida cuando la evidencia ya es concluyente con una fracción de los datos.
 
-## Consulta: Ordenamiento de elementos de reporte
+**Consulta: Ordenamiento de elementos de reporte**
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Construir la tabla de elementos primarios y secundarios y la estructura de secciones del trabajo final, basándose en el contenido de las Bitácoras #1 y #2 y lo indicado por el usuario.
@@ -689,7 +696,7 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
 - **Modificaciones:** Se usó directamente la estructura propuesta, con leves modificaciones.
 - **Aprendizaje:** Organizar los elementos del trabajo en primarios y secundarios antes de escribir ayuda a priorizar el espacio de redacción y evitar que secciones importantes queden subdesarrolladas.
 
-## Consulta: Arco narrativo
+**Consulta: Arco narrativo**
 
 - **Herramienta:** Claude (claude.ai)
 - **Prompt resumido:** Revisar la frase del arco narrativo con los resultados reales del modelo bayesiano.
@@ -702,7 +709,8 @@ Gracias al avance de la investigación se ha desarrollado el conocimiento del fa
   ejercicio útil para identificar si los resultados están suficientemente interpretados.
 
 
-## Consulta: UVE de Gowin
+**Consulta: UVE de Gowin**
+
 - **Herramienta:** Claude (claude.ai)
 - **Prompt:** Actualice esta uve de godwin usando la informacion nueva del html, en particular la metodologia de factor de bayes y las fichas de resultado junto con lo de la plantilla de anterior. Usar letra 13 para que sea legible. Ser breve, no como el ejemplo anterior, puede abreviar unas partes como la verosimilitud. Puede cambiar los colores.
 -**Respuesta:** La V de Gowin está actualizada con la información de la Bitácora 3. Los cambios principales respecto a la versión anterior:
@@ -719,7 +727,7 @@ Se reflejó el tamaño de muestra real (68 474 pacientes)
 Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo el cuerpo, fichas compactas en lugar de párrafos extensos.
 - **Modificaciones:** Se usó directamente la imagen *svg* propuesta, modificando errores visuales en InkScape.
 
-## Consulta: Explicación de Factor de Bayes.
+**Consulta: Explicación de Factor de Bayes.**
 
 - **Herramienta:** Claude (Anthropic)
 - **Prompt resumido:** Comparar el enfoque frecuentista con el Factor de
@@ -745,7 +753,7 @@ Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo
 
 ---
 
-### Consulta: Redacción y ortografía de secciones.
+**Consulta: Redacción y ortografía de secciones.**
 
 - **Herramienta:** Claude (Anthropic)
 - **Prompt resumido:** Revisión del estado actual de la Bitácora 3 y
@@ -849,12 +857,7 @@ del formato entre secciones utilizando inteligencia artificial.s
 | Óscar Espinoza | 8 fichas de resultados, Parte de escritura, fichas B2 y B3 |
 | Gabriel Robles | Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones |
 
-# UVE de Gowin
-::: {.landscape}
 
-![V de Gowin](figures/uve_gowin.svg){fig-align="center" height="90%"}
-
-:::
 
 # Bibliografía
 
