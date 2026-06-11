@@ -215,7 +215,7 @@ cat("  Media posterior:  ", round(media_ap_hi, 2), "mmHg\n")
 cat("  Mediana posterior:", round(mediana_ap_hi, 2), "mmHg\n")
 cat("  IC 95% credibilidad: [", round(ic_ap_hi[1], 2), ",", round(ic_ap_hi[2], 2), "] mmHg\n")
 
-# Gráfico: distribución posterior de la diferencia de medias
+# Gráfico: distribución posterior de la diferencia de medias en ap_hi
 grafico_posterior_ap_hi <- ggplot(
   data.frame(delta = delta_ap_hi),
   aes(x = delta)
@@ -228,6 +228,34 @@ grafico_posterior_ap_hi <- ggplot(
     title    = "Distribución posterior: diferencia de presión sistólica",
     x        = "\u0394\u03bc (mmHg)",
     y        = "Densidad posterior"
+  ) +
+  set_tipografia()
+
+# Posterior de ap_lo
+cat("\n====== Posterior: ap_lo (10 000 iteraciones MCMC) ======\n")
+post_ap_lo <- posterior(bf_ap_lo, iterations = 10000)
+
+delta_ap_lo  <- as.numeric(post_ap_lo[, "delta"] * sqrt(post_ap_lo[, "sig2"]))
+ic_ap_lo     <- quantile(delta_ap_lo, c(0.025, 0.975))
+media_ap_lo  <- mean(delta_ap_lo)
+
+cat("Diferencia de medias ap_lo (con ECV − sin ECV):\n")
+cat("  Media posterior:  ", round(media_ap_lo, 2), "mmHg\n")
+cat("  IC 95% credibilidad: [", round(ic_ap_lo[1], 2), ",", round(ic_ap_lo[2], 2), "] mmHg\n")
+
+# Gráfico de diferencia de medias en ap_lo
+grafico_posterior_ap_lo <- ggplot(
+  data.frame(delta = delta_ap_lo),
+  aes(x = delta)
+) +
+  geom_density(fill = "#2E86AB", alpha = 0.4, color = "#2E86AB", linewidth = 1) +
+  geom_vline(xintercept = media_ap_lo,  linetype = "dashed", color = "black") +
+  geom_vline(xintercept = ic_ap_lo[1],  linetype = "dotted", color = "#E63946", linewidth = 1) +
+  geom_vline(xintercept = ic_ap_lo[2],  linetype = "dotted", color = "#E63946", linewidth = 1) +
+  labs(
+    title = "Distribución posterior: diferencia de presión diastólica",
+    x     = "\u0394\u03bc (mmHg)",
+    y     = "Densidad posterior"
   ) +
   set_tipografia()
 
