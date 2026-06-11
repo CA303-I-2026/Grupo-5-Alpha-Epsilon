@@ -30,7 +30,7 @@ language:
 
 # Bitácora #3 {.unnumbered .unlisted}
 
-# Audiencia {.unnumbered .unlisted}
+# Audiencia del proyecto {.unnumbered .unlisted}
 
 Esta semana, le diría al actuario especializado en seguros de vida y salud que contamos ahora con evidencia bayesiana extrema de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular: Un pequeño resumen de este avance es que los pacientes con tres o más factores presentan una prevalencia de ECV 3,56 veces mayor que quienes no tienen ninguno, y la diferencia media en presión sistólica entre grupos es de 14,3 mmHg con un intervalo de credibilidad al 95% de [14,05; 14,50] mmHg, magnitud suficiente para justificar una diferenciación de prima en productos de salud.
 
@@ -548,6 +548,57 @@ Se reflejó el tamaño de muestra real (68 474 pacientes)
 
 Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo el cuerpo, fichas compactas en lugar de párrafos extensos.
 - **Modificaciones:** Se usó directamente la imagen *svg* propuesta, modificando errores visuales en InkScape.
+
+# Rastro de decisiones
+
+**Decisión 1: Factor de Bayes como método de prueba de hipótesis
+en lugar de pruebas frecuentistas**
+
+Se evaluó el uso de pruebas t de Student bajo el enfoque frecuentista 
+para comparar las medias de presión arterial entre grupos. Esta opción 
+se descartó porque con $n = 68\,474$ observaciones cualquier diferencia 
+mínima entre grupos produce $p < 0{,}05$, independientemente de su 
+relevancia clínica [@Pek]. En su lugar se adoptó el Factor de Bayes, 
+que cuantifica la fuerza de la evidencia en favor de cada hipótesis en 
+lugar de limitarse a señalar si un umbral arbitrario se cruza.
+
+**Decisión 2: Submuestreo a $n = 5\,000$ para `correlationBF()`**
+
+Al aplicar `correlationBF()` sobre la muestra completa ($n = 68\,474$), 
+la función emitió `WARNING: Series not converged` y no produjo un 
+resultado válido. Se evaluaron dos alternativas: ignorar el aviso y 
+reportar el resultado de todas formas, o reducir el tamaño de muestra. 
+La primera opción se descartó por comprometer la validez del análisis. 
+Se optó por submuestrear a $n = 5\,000$ con semilla fija 
+(`set.seed(2002)`) para garantizar reproducibilidad, lo que permitió 
+la convergencia y produjo evidencia igualmente concluyente 
+($\log_{10}(\text{BF}_{10}) = 181$).
+
+**Decisión 3: Mantener la escala JZS predeterminada ($r = \sqrt{2}/2$)
+sin ajuste**
+
+La previa de Cauchy sobre el tamaño del efecto en `ttestBF()` admite 
+distintos valores del parámetro de escala $r$. Se consideró ajustarlo 
+a valores más conservadores ($r = 0{,}3$) o más amplios ($r = 1{,}0$) 
+siguiendo recomendaciones de la literatura. Esta variación se descartó 
+tras verificar que con BF del orden de $10^{800}$ o superiores, 
+cualquier valor de $r$ dentro del rango habitual produce conclusiones 
+idénticas: la evidencia es extrema en todos los casos. Se reporta 
+explícitamente la insensibilidad al prior como parte de la validación.
+
+**Decisión 4: Peso igual para los cuatro factores del índice $k$**
+
+Al construir el índice de factores de riesgo acumulados $k$ se 
+consideró asignar pesos diferenciados según la correlación individual 
+de cada factor con la variable `cardio` (lo que daría mayor peso a la 
+hipertensión, que mostró la correlación más alta en la Bitácora 2). 
+Esta opción se descartó porque introducir pesos requeriría un modelo de 
+optimización adicional no justificado en esta etapa del análisis, y 
+haría el índice menos interpretable. Se adoptó el peso unitario por 
+simplicidad y reproducibilidad, reconociendo en las fichas de resultados 
+que esta decisión puede subestimar la contribución relativa de la 
+hipertensión.
+
 # Log de contribuciones
 
 | Integrante | Sección | Tarea realizada |
