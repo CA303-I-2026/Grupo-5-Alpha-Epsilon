@@ -15,6 +15,7 @@ format:
     embed-resources: true
   pdf:
     toc: true
+    fig-pos: 'H'
 bibliography: ../../referencias/referencias.bib
 csl: ../../referencias/apa.csl
 number-sections: true
@@ -23,6 +24,10 @@ editor:
     wrap: sentence
 header-includes:
   - \usepackage{pdflscape}
+  - \usepackage{float}
+  - \usepackage{etoolbox}
+  - \pretocmd{\tableofcontents}{\clearpage}{}{}
+  - \apptocmd{\tableofcontents}{\clearpage}{}{}
 language:
   label:
     tbl: "Cuadro"
@@ -144,7 +149,7 @@ La interpretación sigue la escala de Jeffreys, donde valores entre 3 y 10 const
 **Justificación de la elección del método.** Con aproximadamente 68,000 observaciones, cualquier diferencia mínima entre grupos producirá un valor $p < 0{,}05$ en una prueba frecuentista, independientemente de su relevancia clínica o práctica [@Pek].
 El enfoque frecuentista no cuantifica la evidencia a favor de $H_1$: solo señala qué tan inusuales serían los datos si $H_0$ fuera cierta, sin que $H_1$ entre en el cálculo [@Pek; @Lorca].
 El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de $H_1$ como a favor de $H_0$ [@Ramos-Vera; @Armero].
-Esta propiedad resulta especialmente relevante en el contexto del proyecto, cuya pregunta de investigación no es simplemente si existe una diferencia estadística, sino **cuán fuerte es la evidencia** de que las variables de presión arterial y el número de factores de riesgo acumulados se asocian con la enfermedad cardiovascular.
+Esta propiedad resulta especialmente relevante en el contexto del proyecto, cuya pregunta de investigación no es simplemente si existe una diferencia estadística, sino cuán fuerte es la evidencia de que las variables de presión arterial y el número de factores de riesgo acumulados se asocian con la enfermedad cardiovascular.
 La implementación se realizará con las funciones `ttestBF()` y `correlationBF()` del paquete `BayesFactor` de R [@Ramos-Vera].
 
 Complementariamente, se extraerá la distribución posterior de la diferencia de medias mediante simulación de la distribución posterior implícita en el modelo de `ttestBF()` en R.
@@ -158,7 +163,8 @@ Este intervalo cuantifica la magnitud y dirección del efecto, información que 
 ### Validación
 
 Dado que el enfoque es de inferencia bayesiana, la validación se organiza en tres componentes: cuantificación de evidencia mediante el Factor de Bayes, estimación de la magnitud del efecto mediante distribuciones posteriores e intervalos de credibilidad, y análisis de sensibilidad a la distribución a priori.
-**Factor de Bayes.** Los cuatro BF calculados superan con enorme margen el umbral de evidencia extrema ($\text{BF}_{10} > 100$) de la escala de Jeffreys [@Armero; @Ramos-Vera]:
+
+**Factor de Bayes:** Los cuatro BF calculados superan con enorme margen el umbral de evidencia extrema ($\text{BF}_{10} > 100$) de la escala de Jeffreys [@Armero; @Ramos-Vera]:
 
 | Prueba | $H_0$ | $\log_{10}(\text{BF}_{10})$ | Evidencia |
 |---|---|---|---|
@@ -468,7 +474,7 @@ Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicam
 
 ---
 
-### Comparación explícita con la literatura: resultado principal {.unnumbered}
+### Resultado principal {.unnumbered}
 
 El hallazgo más importante de esta bitácora —el gradiente de prevalencia de ECV según número de factores de riesgo acumulados (Ficha 3)— coincide en dirección con lo reportado por @DAgostino2013 y con las guías internacionales de estratificación de riesgo [@Visseren2021]: la acumulación de factores de riesgo clásicos se asocia de forma monotónica y pronunciada con mayor probabilidad de enfermedad.
 
@@ -527,8 +533,7 @@ La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha i
 
 # Arco narrativo
 
-«El modelo reveló que **la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación
-con la enfermedad cardiovascular** —con $\log_{10}(\text{BF}_{10})$ superiores a $800$ en todos los casos y una diferencia de medias de $\approx 14$ mmHg en presión sistólica entre grupos con y sin ECV—, lo que significa que **un actuario especializado en seguros de vida y salud dispone de evidencia concluyente para priorizar la presión arterial sistólica y el perfil de riesgo acumulado como variables centrales en modelos de tarificación cardiovascular, y que la magnitud clínica de las diferencias justifica tratarlas como factores diferenciadores de prima en productos de salud**.»
+El modelo reveló que **la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación con la enfermedad cardiovascular con $\log_{10}(\text{BF}_{10})$ superiores a $800$ en todos los casos y una diferencia de medias de $\approx 14$ mmHg en presión sistólica entre grupos con y sin ECV**, lo que significa que un actuario especializado en seguros de vida y salud dispone de evidencia concluyente para priorizar la presión arterial sistólica y el perfil de riesgo acumulado como variables centrales en modelos de tarificación cardiovascular, y que la magnitud clínica de las diferencias justifica tratarlas como factores diferenciadores de prima en productos de salud
 
 # Parte de escritura
 
@@ -552,7 +557,7 @@ Sin embargo, los modelos estructurados ofrecen ventajas en términos de replicab
 Para el presente proyecto, esta dualidad determina la elección metodológica central: con aproximadamente 68 474 observaciones, cualquier diferencia entre grupos produce un valor $p < 0{,}05$ con independencia de su relevancia clínica o práctica [@Pek].
 El enfoque frecuentista no cuantifica la evidencia a favor de $H_1$: solo señala qué tan inusuales serían los datos si $H_0$ fuera cierta, sin que $H_1$ entre en el cálculo.
 El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de $H_1$ como a favor de $H_0$ [@Ramos-Vera; @Armero].
-Esta propiedad resulta especialmente relevante porque la pregunta de investigación no es simplemente si existe una diferencia estadística, sino **cuán fuerte es la evidencia** de que las variables clínicas se asocian con la enfermedad cardiovascular.
+Esta propiedad resulta especialmente relevante porque la pregunta de investigación no es simplemente si existe una diferencia estadística, sino cuán fuerte es la evidencia de que las variables clínicas se asocian con la enfermedad cardiovascular.
 La escala de Jeffreys provee el vocabulario para esa cuantificación: valores de $\log_{10}(\text{BF}_{10})$ superiores a 2 (equivalentes a $\text{BF}_{10} > 100$) constituyen evidencia extrema a favor de la hipótesis alternativa [@Armero; @Ramos-Vera].
 
 ## Resultados {.unnumbered}
@@ -649,7 +654,7 @@ Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportun
 ## UVE de Gowin
 ::: {.landscape}
 
-![V de Gowin](figures/uve_gowin.svg){fig-align="center" height="90%"}
+![V de Gowin](figures/uve_gowin.png){fig-align="center" height="90%"}
 
 :::
 
@@ -849,7 +854,7 @@ del formato entre secciones utilizando inteligencia artificial.
 | Óscar Espinoza | 8 fichas de resultados, Parte de escritura, fichas B2 y B3 |
 | Gabriel Robles | Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones |
 
-
+\clearpage
 
 # Bibliografía
 

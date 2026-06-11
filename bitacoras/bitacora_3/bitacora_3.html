@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.5.56" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Oscar Espinoza C32699" />
+<meta name="author" content="Gerardo Montero C05010" />
+<meta name="author" content="Gabriel Robles C36611" />
+<meta name="author" content="César Salazar C27103" />
+
+<title>Bitácora #3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<!-- htmldependencies:E3FAD763 -->
+\usepackage{pdflscape}
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bitácora #3</h1>
+<p class="subtitle lead">CA-0303 Estadística Actuarial I</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autores/as</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Espinoza C32699 </p>
+             <p>Gerardo Montero C05010 </p>
+             <p>Gabriel Robles C36611 </p>
+             <p>César Salazar C27103 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10 de junio de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="bitácora-3" class="level1 unnumbered unlisted">
+<h1 class="unnumbered unlisted">Bitácora #3</h1>
+</section>
+<section id="audiencia-del-proyecto" class="level1 unnumbered unlisted">
+<h1 class="unnumbered unlisted">Audiencia del proyecto</h1>
+<p>Esta semana, le diría al actuario especializado en seguros de vida y salud que contamos ahora con evidencia bayesiana extrema de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular: Un pequeño resumen de este avance es que los pacientes con tres o más factores presentan una prevalencia de ECV 3,56 veces mayor que quienes no tienen ninguno, y la diferencia media en presión sistólica entre grupos es de 14,3 mmHg con un intervalo de credibilidad al 95% de [14,05; 14,50] mmHg, magnitud suficiente para justificar una diferenciación de prima en productos de salud.</p>
+</section>
+<section id="parte-de-planificación" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Parte de planificación</h1>
+<section id="análisis-descriptivo" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span> Análisis descriptivo</h2>
+<p>Los siguientes resultados se derivan del análisis exploratorio ejecutado en <code>02_descriptivo.R</code>, que corre automáticamente al cargar el pipeline de modelación.</p>
+<div class="cell">
+<div id="tbl-balance" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla 1: Balance de la variable respuesta
+</figcaption>
+<div aria-describedby="tbl-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Enfermedad Cardiovascular</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: left;">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No</td>
+<td style="text-align: right;">34591</td>
+<td style="text-align: left;">50.517%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Si</td>
+<td style="text-align: right;">33883</td>
+<td style="text-align: left;">49.483%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-medias" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-medias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla 2: Media ± DE de variables numéricas según ECV
+</figcaption>
+<div aria-describedby="tbl-medias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Sin enfermedad</th>
+<th style="text-align: left;">Con enfermedad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Edad</td>
+<td style="text-align: left;">51.7 ± 6.8</td>
+<td style="text-align: left;">55 ± 6.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IMC</td>
+<td style="text-align: left;">26.5 ± 4.7</td>
+<td style="text-align: left;">28.4 ± 5.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Presión sistólica</td>
+<td style="text-align: left;">119.6 ± 12.5</td>
+<td style="text-align: left;">133.9 ± 17.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Presión diastólica</td>
+<td style="text-align: left;">78.1 ± 8.1</td>
+<td style="text-align: left;">84.6 ± 9.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peso</td>
+<td style="text-align: left;">71.6 ± 13.2</td>
+<td style="text-align: left;">76.7 ± 14.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-correlacion" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-correlacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-correlacion-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-correlacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 1: Correlación de variables con enfermedad cardiovascular
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-gradiante" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-gradiante-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-gradiante-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gradiante-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 2: Gradiente de prevalencia de ECV por número de factores de riesgo
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El análisis distribucional de las variables de presión arterial revela que ambas se apartan de la normalidad. La presión sistólica presenta asimetría positiva y curtosis elevada, lo que sugiere que la distribución Gamma ajusta mejor que la Normal.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>grafico_dist_ap_hi</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-dist-aphi" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-dist-aphi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-dist-aphi-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-aphi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 3: Ajuste distribucional de ap_hi: Normal vs. Gamma (MLE)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grafico_dist_ap_lo</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-dist-aplo" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-dist-aplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-dist-aplo-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-aplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 4: Ajuste distribucional de ap_lo: Normal vs. Gamma (MLE)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="propuesta-metodológica" class="level2" data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span> Propuesta metodológica</h2>
+<p>En el análisis exploratorio se reveló que la presión arterial sistólica es la variable con mayor correlación con la presencia de enfermedad cardiovascular (alrededor de <span class="math inline">\(0{,}43\)</span>), hallazgo coherente con los factores de riesgo identificados tanto en modelos clásicos de predicción cardiovascular <span class="citation" data-cites="DAgostino2013 Damen">(<a href="#ref-DAgostino2013" role="doc-biblioref">D’Agostino et al., 2013</a>; <a href="#ref-Damen" role="doc-biblioref">Damen et al., 2016</a>)</span> como en las guías internacionales de hipertensión arterial <span class="citation" data-cites="WHO_ISH_2020 Visseren2021">(<a href="#ref-Visseren2021" role="doc-biblioref">Visseren et al., 2021</a>; <a href="#ref-WHO_ISH_2020" role="doc-biblioref">World Health Organization &amp; International Society of Hypertension, 2020</a>)</span>. Con base en este resultado se formulan las siguientes hipótesis de interés.</p>
+<p><strong>Hipótesis primaria: presión arterial sistólica</strong></p>
+<p><span class="math display">\[H_0: \mu_{(\text{sin ECV})} = \mu_{(\text{con ECV})}\]</span></p>
+<p><span class="math display">\[H_1: \mu_{(\text{sin ECV})} \neq \mu_{(\text{con ECV})}\]</span></p>
+<p><strong>Hipótesis secundaria: presión arterial diastólica</strong></p>
+<p><span class="math display">\[H_0: \mu_{(\text{sin ECV})}^{\text{*}} = \mu_{(\text{con ECV})}^{\text{*}}\]</span></p>
+<p><span class="math display">\[H_1: \mu_{(\text{sin ECV})}^{\text{*}} \neq \mu_{(\text{con ECV})}^{\text{*}}\]</span></p>
+<p>Adicionalmente, el análisis exploratorio mostró un patrón de gradiente en la prevalencia de enfermedad cardiovascular conforme se acumulan factores de riesgo clínicos: hipertensión (presión arterial sistólica <span class="math inline">\(\geq 140\)</span> mmHg <span class="citation" data-cites="WHO_ISH_2020">(<a href="#ref-WHO_ISH_2020" role="doc-biblioref">World Health Organization &amp; International Society of Hypertension, 2020</a>)</span>), obesidad (índice de masa corporal <span class="math inline">\(\geq 30\)</span> kg/m² <span class="citation" data-cites="WHO_obesity_2000">(<a href="#ref-WHO_obesity_2000" role="doc-biblioref">World Health Organization, 2000</a>)</span>), colesterol elevado (categorías <em>Alto</em> o <em>Muy Alto</em> en la escala ordinal del conjunto de datos) y edad <span class="math inline">\(\geq 55\)</span> años. Para cuantificar si ese patrón constituye evidencia estadística de asociación, se plantean dos hipótesis complementarias sobre el gradiente: <strong>Hipótesis de correlación acumulada:</strong></p>
+<p><span class="math display">\[H_0^{**}: \rho(\texttt{n°factores},\ \texttt{cardio}) = 0\]</span></p>
+<p><span class="math display">\[H_1^{**}: \rho(\texttt{n° factores},\ \texttt{cardio}) \neq 0\]</span></p>
+<p><strong>Hipótesis de contraste entre extremos del gradiente:</strong></p>
+<p><span class="math display">\[H_0^{***}: P(\text{ECV} \mid k = 0) = P(\text{ECV} \mid k \geq 3)\]</span></p>
+<p><span class="math display">\[H_1^{***}: P(\text{ECV} \mid k = 0) \neq P(\text{ECV} \mid k \geq 3)\]</span></p>
+<p>Para evaluar todas las hipótesis anteriores se empleará el <strong>Factor de Bayes</strong> (BF), definido como el cociente entre las verosimilitudes marginales de los datos bajo cada hipótesis <span class="citation" data-cites="Degroot">(<a href="#ref-Degroot" role="doc-biblioref">DeGroot &amp; Schrevish, 2012</a>)</span>:</p>
+<p><span class="math display">\[\text{BF}_{10} = \frac{P(\mathbf{x} \mid H_1)}{P(\mathbf{x} \mid H_0)} = \frac{\displaystyle\int P(\mathbf{x} \mid \theta_1,\, H_1)\,\pi(\theta_1 \mid H_1)\,d\theta_1}
+{\displaystyle\int P(\mathbf{x} \mid \theta_0,\, H_0)\,\pi(\theta_0 \mid H_0)\,d\theta_0}\]</span></p>
+<p>Un valor <span class="math inline">\(\text{BF}_{10} &gt; 1\)</span> indica que los datos son más verosímiles bajo <span class="math inline">\(H_1\)</span>; un valor <span class="math inline">\(&lt; 1\)</span> indica lo contrario. La interpretación sigue la escala de Jeffreys, donde valores entre 3 y 10 constituyen evidencia moderada, entre 10 y 30 evidencia fuerte, y superiores a 100 evidencia extrema <span class="citation" data-cites="Armero Ramos-Vera">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>.</p>
+<p><strong>Justificación de la elección del método.</strong> Con aproximadamente 68,000 observaciones, cualquier diferencia mínima entre grupos producirá un valor <span class="math inline">\(p &lt; 0{,}05\)</span> en una prueba frecuentista, independientemente de su relevancia clínica o práctica <span class="citation" data-cites="Pek">(<a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span>. El enfoque frecuentista no cuantifica la evidencia a favor de <span class="math inline">\(H_1\)</span>: solo señala qué tan inusuales serían los datos si <span class="math inline">\(H_0\)</span> fuera cierta, sin que <span class="math inline">\(H_1\)</span> entre en el cálculo <span class="citation" data-cites="Pek Lorca">(<a href="#ref-Lorca" role="doc-biblioref">Lorca &amp; Águila, 2024</a>; <a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span>. El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de <span class="math inline">\(H_1\)</span> como a favor de <span class="math inline">\(H_0\)</span> <span class="citation" data-cites="Ramos-Vera Armero">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>. Esta propiedad resulta especialmente relevante en el contexto del proyecto, cuya pregunta de investigación no es simplemente si existe una diferencia estadística, sino <strong>cuán fuerte es la evidencia</strong> de que las variables de presión arterial y el número de factores de riesgo acumulados se asocian con la enfermedad cardiovascular. La implementación se realizará con las funciones <code>ttestBF()</code> y <code>correlationBF()</code> del paquete <code>BayesFactor</code> de R <span class="citation" data-cites="Ramos-Vera">(<a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>.</p>
+<p>Complementariamente, se extraerá la distribución posterior de la diferencia de medias mediante simulación de la distribución posterior implícita en el modelo de <code>ttestBF()</code> en R. A partir de esta distribución se construirá un intervalo de credibilidad del 95%, definido como el intervalo <span class="math inline">\([\theta_{\alpha/2},\, \theta_{1-\alpha/2}]\)</span> tal que</p>
+<p><span class="math display">\[P(\theta_{\alpha/2} \leq \delta \leq \theta_{1-\alpha/2} \mid \mathbf{x}) = 0.95\]</span></p>
+<p>donde <span class="math inline">\(\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}\)</span> es la diferencia de medias de presión arterial sistólica entre grupos. Este intervalo cuantifica la magnitud y dirección del efecto, información que el Factor de Bayes por sí solo no provee <span class="citation" data-cites="Lorca Armero">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Lorca" role="doc-biblioref">Lorca &amp; Águila, 2024</a>)</span>.</p>
+<section id="validación" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1"><span class="header-section-number">1.2.1</span> Validación</h3>
+<p>Dado que el enfoque es de inferencia bayesiana, la validación se organiza en tres componentes: cuantificación de evidencia mediante el Factor de Bayes, estimación de la magnitud del efecto mediante distribuciones posteriores e intervalos de credibilidad, y análisis de sensibilidad a la distribución a priori. <strong>Factor de Bayes.</strong> Los cuatro BF calculados superan con enorme margen el umbral de evidencia extrema (<span class="math inline">\(\text{BF}_{10} &gt; 100\)</span>) de la escala de Jeffreys <span class="citation" data-cites="Armero Ramos-Vera">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>:</p>
+<div id="tbl-bf" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla 3: Factores de Bayes para las cuatro hipótesis evaluadas
+</figcaption>
+<div aria-describedby="tbl-bf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prueba</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span></th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Presión sistólica (<code>ap_hi</code>)</td>
+<td><span class="math inline">\(\mu\)</span> igual entre grupos</td>
+<td><span class="math inline">\(3\,009\)</span></td>
+<td>Extrema a favor de <span class="math inline">\(H_1\)</span></td>
+</tr>
+<tr class="even">
+<td>Presión diastólica (<code>ap_lo</code>)</td>
+<td><span class="math inline">\(\mu\)</span> igual entre grupos</td>
+<td><span class="math inline">\(1\,832\)</span></td>
+<td>Extrema a favor de <span class="math inline">\(H_1\)</span></td>
+</tr>
+<tr class="odd">
+<td>Correlación gradiente ECV</td>
+<td><span class="math inline">\(\rho = 0\)</span></td>
+<td><span class="math inline">\(181\)</span></td>
+<td>Extrema a favor de <span class="math inline">\(H_1\)</span></td>
+</tr>
+<tr class="even">
+<td>Extremos del gradiente (<span class="math inline">\(k=0\)</span> vs <span class="math inline">\(k\geq3\)</span>)</td>
+<td><span class="math inline">\(P(\text{ECV})\)</span> igual entre extremos</td>
+<td><span class="math inline">\(866\)</span></td>
+<td>Extrema a favor de <span class="math inline">\(H_1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Para dar una intuición de la magnitud: <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 3\,009\)</span> en la presión sistólica significa que los datos observados son <span class="math inline">\(9{,}74 \times 10^{3009}\)</span> veces más verosímiles bajo <span class="math inline">\(H_1\)</span> que bajo <span class="math inline">\(H_0\)</span>. El uso de <span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span> es necesario para comunicar estas magnitudes dado que los valores absolutos exceden cualquier escala de representación numérica habitual.</p>
+<p><strong>Advertencia de interpretación.</strong> El Factor de Bayes detecta evidencia de que la diferencia <em>existe</em>, no que sea clínicamente relevante. Con <span class="math inline">\(n = 68\,474\)</span> observaciones, cualquier diferencia real producirá BF extremos independientemente de su magnitud práctica <span class="citation" data-cites="Pek">(<a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span>. Para evaluar relevancia clínica se recurre a los intervalos de credibilidad.</p>
+<p><strong>Distribuciones posteriores e intervalos de credibilidad.</strong> A partir de las distribuciones posteriores simuladas mediante MCMC (10 000 iteraciones) se obtienen los siguientes resultados:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-posterior-aphi" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-posterior-aphi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-posterior-aphi-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posterior-aphi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 5: Distribución posterior de la diferencia de medias en presión sistólica
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><em>Presión sistólica:</em> diferencia de medias <span class="math inline">\(\delta = \mu_{(\text{con ECV})} - \mu_{(\text{sin ECV})}\)</span> con media posterior <span class="math inline">\(14{,}28\)</span> mmHg e IC 95% de credibilidad <span class="math inline">\([14{,}05;\ 14{,}50]\)</span> mmHg. Existe una probabilidad posterior del 95% de que las personas con ECV presenten entre <span class="math inline">\(14{,}05\)</span> y <span class="math inline">\(14{,}50\)</span> mmHg más de presión sistólica que quienes no la presentan. Esta diferencia es clínicamente relevante: las guías internacionales clasifican como elevada una presión sistólica <span class="math inline">\(\geq 120\)</span> mmHg y como alta <span class="math inline">\(\geq 140\)</span> mmHg <span class="citation" data-cites="WHO_ISH_2020">(<a href="#ref-WHO_ISH_2020" role="doc-biblioref">World Health Organization &amp; International Society of Hypertension, 2020</a>)</span>.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-posterior-aplo" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-posterior-aplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-posterior-aplo-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posterior-aplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 6: Distribución posterior de la diferencia de medias en presión diastólica
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><em>Presión diastólica:</em> media posterior <span class="math inline">\(6{,}42\)</span> mmHg, IC 95%: <span class="math inline">\([6{,}29;\ 6{,}55]\)</span> mmHg. La diferencia diastólica es real pero de menor magnitud que la sistólica, lo cual es coherente con la literatura <span class="citation" data-cites="DAgostino2013">(<a href="#ref-DAgostino2013" role="doc-biblioref">D’Agostino et al., 2013</a>)</span>.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-posterior-rho" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-posterior-rho-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-posterior-rho-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posterior-rho-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 7: Distribución posterior de la correlación entre gradiente de riesgo y ECV
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><em>Correlación del gradiente:</em> media posterior <span class="math inline">\(\hat{\rho} = 0{,}3939\)</span>, IC 95%: <span class="math inline">\([0{,}3701;\ 0{,}4172]\)</span>. El intervalo excluye el cero con amplio margen, confirmando que la acumulación de factores de riesgo se asocia positivamente con la prevalencia de ECV.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-beta-bernoulli" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-beta-bernoulli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bitacora_3_files/figure-html/fig-beta-bernoulli-1.png" class="img-fluid" width="672" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beta-bernoulli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8: Posterior Beta-Bernoulli para la prevalencia de ECV
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Prevalencia de ECV — modelo Beta-Bernoulli.</strong> Con <span class="math inline">\(n = 68\,474\)</span> observaciones y <span class="math inline">\(33\,883\)</span> casos positivos (<span class="math inline">\(49{,}48\%\)</span>), la distribución posterior es <span class="math inline">\(\text{Beta}(33\,884,\ 34\,592)\)</span>, con media <span class="math inline">\(\theta = 0{,}4948\)</span> e IC 95% de credibilidad <span class="math inline">\([0{,}4911;\ 0{,}4986]\)</span>. La base de datos está prácticamente balanceada entre casos positivos y negativos, lo cual es favorable para el análisis inferencial.</p>
+<p><strong>Sensibilidad a la distribución a priori.</strong> Las pruebas <code>ttestBF()</code> utilizan una previa de Cauchy sobre el tamaño del efecto estandarizado con escala <span class="math inline">\(r = \sqrt{2}/2\)</span>, que corresponde a la previa predeterminada de Jeffreys-Zellner-Siow (JZS) <span class="citation" data-cites="Ramos-Vera">(<a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>. Con BF del orden de <span class="math inline">\(10^{800}\)</span> o superiores, cualquier variación razonable en <span class="math inline">\(r\)</span> (por ejemplo <span class="math inline">\(r \in [0{,}3;\ 1{,}0]\)</span>) produce conclusiones idénticas: la evidencia es extrema en todos los casos. El modelo es por tanto insensible a la elección de la previa dentro del rango habitual de la literatura.</p>
+</section>
+<section id="análisis-fallido" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2"><span class="header-section-number">1.2.2</span> Análisis fallido</h3>
+<p>Al intentar calcular el Factor de Bayes para la hipótesis de correlación acumulada utilizando el conjunto completo de <span class="math inline">\(n = 68\,474\)</span> observaciones, la función <code>correlationBF()</code> del paquete <code>BayesFactor</code> emitió el siguiente aviso: <code>WARNING: Series not converged</code>.</p>
+<p>Este mensaje indica que la serie de potencias utilizada internamente para aproximar la integral de la verosimilitud marginal no convergió. La función implementa el método de Jeffreys-beta para correlaciones, que requiere calcular una función hipergeométrica gaussiana <span class="math inline">\(_2F_1\)</span> mediante una expansión en serie. Cuando <span class="math inline">\(n\)</span> es muy grande, los términos de esa serie crecen en magnitud antes de estabilizarse, y la suma parcial nunca converge dentro de la precisión de punto flotante de 64 bits que usa R.</p>
+<p>La correlación observada con los datos completos era <span class="math inline">\(\hat{\rho} = 0{,}3859\)</span>, valor que por sí solo no genera el problema: la causa es exclusivamente el tamaño de muestra. Esto se verificó porque al reducir la muestra a <span class="math inline">\(n = 5\,000\)</span> mediante submuestreo aleatorio reproducible (<code>set.seed(2002)</code>), la función convergió sin advertencias y produjo <span class="math inline">\(\text{BF}_{10} = 5{,}03 \times 10^{181}\)</span>.</p>
+<p>Este caso ilustra que en estadística bayesiana computacional, un tamaño de muestra grande no siempre es una ventaja: puede generar problemas numéricos en algoritmos diseñados para muestras moderadas. La solución de submuestreo es válida porque con <span class="math inline">\(n = 5\,000\)</span> ya existe evidencia concluyente — un resultado aún más extremo con la muestra completa hubiera sido redundante.</p>
+</section>
+</section>
+<section id="fichas-de-resultados" class="level2" data-number="1.3">
+<h2 data-number="1.3"><span class="header-section-number">1.3</span> Fichas de resultados</h2>
+<p><strong>Ficha 1</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> La presión sistólica es 14 mmHg mayor en pacientes con ECV</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Diferencia de medias de presión arterial sistólica entre grupos con y sin enfermedad cardiovascular.</p>
+<p><strong>Resumen en una oración:</strong> Los pacientes con enfermedad cardiovascular presentan una presión sistólica media de 133,90 mmHg frente a 119,61 mmHg en quienes no la padecen.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Factor de Bayes para comparación de dos medias independientes (<code>ttestBF</code>, escala JZS, <span class="math inline">\(r = \sqrt{2}/2\)</span>) sobre las 68 474 observaciones.</p>
+<p><strong>Evidencia:</strong> Cuadro resumen descriptivo estratificado por grupo (Bitácora 2); distribución posterior de <span class="math inline">\(\delta\)</span> con intervalo de credibilidad (<a href="#tbl-bf" class="quarto-xref">Tabla 3</a>).</p>
+<ul>
+<li>Nivel analítico (qué significa)</li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> El Factor de Bayes desborda la representación numérica estándar de R (<code>Inf</code>), lo que constituye evidencia extrema a favor de <span class="math inline">\(H_1\)</span> según la escala de Jeffreys (<span class="math inline">\(\log_{10}(\text{BF}_{10}) = 3\,009\)</span>). El intervalo de credibilidad al 95% para la diferencia de medias es <span class="math inline">\(\delta \in [14{,}05;\; 14{,}50]\)</span> mmHg, el cual excluye el cero con holgura. Esto responde directamente la hipótesis primaria: los datos son abrumadoramente más verosímiles bajo <span class="math inline">\(H_1\)</span> que bajo <span class="math inline">\(H_0\)</span>.</p>
+<p><strong>Contraste con la literatura:</strong> El resultado es consistente con <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, quienes identifican la presión arterial sistólica como uno de los predictores más robustos en el modelo de Framingham, y con <span class="citation" data-cites="WHO_ISH_2020">World Health Organization &amp; International Society of Hypertension (<a href="#ref-WHO_ISH_2020" role="doc-biblioref">2020</a>)</span>, que establece el umbral clínico de hipertensión en 140 mmHg.</p>
+<p><strong>Lo que NO explica este resultado:</strong> El análisis no distingue si la hipertensión es causa o consecuencia del proceso cardiovascular, ni controla por edad, medicación antihipertensiva o comorbilidades.</p>
+<p><strong>Implicación para el siguiente paso:</strong> La magnitud del efecto (<span class="math inline">\(d = 0{,}948\)</span>, efecto grande) justifica que la presión sistólica ocupe un lugar primario en la sección de escritura y en cualquier análisis multivariable posterior.</p>
+<hr />
+<p><strong>Ficha 2</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> Presión diastólica también separa grupos, pero con menor fuerza</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Diferencia de medias de presión arterial diastólica entre grupos con y sin enfermedad cardiovascular.</p>
+<p><strong>Resumen en una oración:</strong> Los pacientes con ECV presentan una presión diastólica media de 84,55 mmHg versus 78,13 mmHg en el grupo sano, una diferencia de 6,42 mmHg.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Factor de Bayes para comparación de dos medias independientes (<code>ttestBF</code>, escala JZS, <span class="math inline">\(r = \sqrt{2}/2\)</span>).</p>
+<p><strong>Evidencia:</strong> Cuadro resumen descriptivo estratificado por grupo (Bitácora 2); distribución posterior de <span class="math inline">\(\delta\)</span> para <code>ap_lo</code> (<a href="#tbl-bf" class="quarto-xref">Tabla 3</a>).</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> El Factor de Bayes también desborda numéricamente (<span class="math inline">\(\log_{10}(\text{BF}_{10}) = 1\,832\)</span>), confirmando evidencia extrema a favor de <span class="math inline">\(H_1\)</span> para la hipótesis secundaria. El intervalo de credibilidad al 95% es <span class="math inline">\(\delta \in [6{,}29;\; 6{,}55]\)</span> mmHg. Aunque la diferencia absoluta es menor que la sistólica, sigue siendo clínicamente relevante y estadísticamente inequívoca.</p>
+<p><strong>Contraste con la literatura:</strong> <span class="citation" data-cites="Visseren2021">Visseren et al. (<a href="#ref-Visseren2021" role="doc-biblioref">2021</a>)</span> señalan que tanto la presión sistólica como la diastólica son factores de riesgo independientes, aunque la sistólica gana mayor peso en pacientes mayores de 50 años, patrón que coincide con lo observado (mayor <span class="math inline">\(d\)</span> en <code>ap_hi</code>).</p>
+<p><strong>Lo que NO explica este resultado:</strong> La presión diastólica y la sistólica están correlacionadas entre sí; no es posible cuantificar su efecto independiente sin un modelo conjunto.</p>
+<p><strong>Implicación para el siguiente paso:</strong> La presión diastólica se clasifica como elemento secundario: refuerza el hallazgo principal pero no añade información sustancialmente distinta.</p>
+<hr />
+<p><strong>Ficha 3</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> Acumular factores de riesgo multiplica por 3,6 la prevalencia de ECV</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Gradiente de prevalencia de enfermedad cardiovascular según número de factores de riesgo acumulados (<span class="math inline">\(k = 0, 1, 2, 3, 4\)</span>).</p>
+<p><strong>Resumen en una oración:</strong> La prevalencia de ECV escala de 22,8 % con cero factores de riesgo hasta 83,6 % con los cuatro factores presentes.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Construcción de índice <span class="math inline">\(k\)</span> (hipertensión + obesidad + colesterol alto + edad <span class="math inline">\(\geq\)</span> 55), agrupación y cálculo de prevalencia por nivel.</p>
+<p><strong>Evidencia:</strong> Cuadro de gradiente de prevalencia (<a href="#tbl-gradiente" class="quarto-xref">Tabla 4</a>).</p>
+<div id="tbl-gradiente" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gradiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla 4: Prevalencia de ECV según número de factores de riesgo acumulados
+</figcaption>
+<div aria-describedby="tbl-gradiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(k\)</span></th>
+<th>Prevalencia ECV</th>
+<th><span class="math inline">\(n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>22,8 %</td>
+<td>20 163</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>47,0 %</td>
+<td>23 547</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>68,8 %</td>
+<td>15 280</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>80,6 %</td>
+<td>7 438</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>83,6 %</td>
+<td>2 046</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> El gradiente es monotónico y pronunciado, sugiriendo un efecto dosis-respuesta de la acumulación de factores de riesgo sobre la probabilidad de ECV. Responde directamente la pregunta sobre cuán fuerte es la evidencia de asociación.</p>
+<p><strong>Contraste con la literatura:</strong> <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span> reportan que la combinación de múltiples factores de riesgo supera en poder predictivo a cualquier factor individual, lo cual es consistente con el patrón observado.</p>
+<p><strong>Lo que NO explica este resultado:</strong> El índice <span class="math inline">\(k\)</span> trata todos los factores con peso igual (1 cada uno), lo que puede subestimar la contribución de la hipertensión, que en la Bitácora 2 mostró la correlación individual más alta con ECV.</p>
+<p><strong>Implicación para el siguiente paso:</strong> Este gráfico es candidato a ser la visualización central del proyecto, ya que comunica el mensaje principal de forma intuitiva sin requerir formalismos matemáticos.</p>
+<hr />
+<p><strong>Ficha 4</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> Evidencia extrema de correlación entre factores acumulados y ECV</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Factor de Bayes para la correlación entre el índice de factores de riesgo acumulados (<span class="math inline">\(k\)</span>) y la presencia de ECV.</p>
+<p><strong>Resumen en una oración:</strong> La correlación observada entre <span class="math inline">\(k\)</span> y ECV es <span class="math inline">\(\hat{\rho} = 0{,}394\)</span>, con evidencia extrema a favor de <span class="math inline">\(\rho \neq 0\)</span> según la escala de Jeffreys (<span class="math inline">\(\log_{10}(\text{BF}_{10}) = 181\)</span>).</p>
+<p><strong>Método o análisis que lo produjo:</strong> <code>correlationBF()</code> del paquete <code>BayesFactor</code> aplicado sobre submuestreo aleatorio con semilla 2002 (<span class="math inline">\(n = 5\,000\)</span>); el análisis con <span class="math inline">\(n\)</span> completo produjo desbordamiento numérico (documentado en Sec. 1.2).</p>
+<p><strong>Evidencia:</strong> Distribución posterior de <span class="math inline">\(\rho\)</span>; IC 95 % de credibilidad: <span class="math inline">\([0{,}370;\; 0{,}417]\)</span>.</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> El <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 181\)</span> confirma evidencia extrema de que <span class="math inline">\(\rho \neq 0\)</span>. La distribución posterior de <span class="math inline">\(\rho\)</span> está completamente concentrada en valores positivos, confirmando que acumular factores de riesgo se asocia monotónicamente con mayor probabilidad de ECV.</p>
+<p><strong>Contraste con la literatura:</strong> <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span> señalan que la combinación de predictores clásicos mejora sistemáticamente la discriminación de modelos cardiovasculares, resultado coherente con la correlación moderada-alta observada.</p>
+<p><strong>Lo que NO explica este resultado:</strong> La correlación de Pearson asume linealidad; el gradiente de la Ficha 3 sugiere que la relación puede saturarse a partir de <span class="math inline">\(k = 3\)</span>.</p>
+<p><strong>Implicación para el siguiente paso:</strong> Considerar una transformación no lineal de <span class="math inline">\(k\)</span> o un análisis por tramos para capturar mejor la forma funcional de la asociación.</p>
+<hr />
+<p><strong>Ficha 5</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> Tener 3 o más factores de riesgo aumenta 3,6 veces la prevalencia de ECV</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Contraste de prevalencia de ECV entre los extremos del gradiente: <span class="math inline">\(k = 0\)</span> versus <span class="math inline">\(k \geq 3\)</span>.</p>
+<p><strong>Resumen en una oración:</strong> La prevalencia de ECV en el grupo <span class="math inline">\(k \geq 3\)</span> (81,25 %) es 3,56 veces la del grupo <span class="math inline">\(k = 0\)</span> (22,79 %), con evidencia bayesiana extrema.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Factor de Bayes para comparación de dos proporciones (<code>ttestBF</code> sobre variable binaria <code>cardio</code>, escala JZS, <span class="math inline">\(r = \sqrt{2}/2\)</span>).</p>
+<p><strong>Evidencia:</strong> <a href="#tbl-gradiente" class="quarto-xref">Tabla 4</a>; <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 866\)</span>; <span class="math inline">\(d = 1{,}424\)</span> (efecto muy grande).</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> Pasar de cero a tres o más factores multiplica el riesgo observado de ECV por 3,56. Este resultado cuantifica de forma directa y comunicable la magnitud práctica de la acumulación de factores de riesgo.</p>
+<p><strong>Contraste con la literatura:</strong> <span class="citation" data-cites="Visseren2021">Visseren et al. (<a href="#ref-Visseren2021" role="doc-biblioref">2021</a>)</span> establecen que la estratificación por número de factores de riesgo es la herramienta clínica estándar para comunicar el riesgo al paciente, resultado coherente con la diferenciación extrema encontrada.</p>
+<p><strong>Lo que NO explica este resultado:</strong> El contraste entre extremos ignora los grupos intermedios (<span class="math inline">\(k = 1, 2\)</span>) y puede exagerar la percepción del efecto si la distribución de <span class="math inline">\(k\)</span> no es representativa de la población general.</p>
+<p><strong>Implicación para el siguiente paso:</strong> Este resultado es el más comunicable y debería aparecer al inicio de la sección de resultados como hallazgo ancla.</p>
+<hr />
+<p><strong>Ficha 6</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> La prevalencia de ECV en la muestra es del 49,5 %, con incertidumbre mínima</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Estimación bayesiana de la prevalencia de enfermedad cardiovascular mediante el modelo Beta-Bernoulli con prior uniforme.</p>
+<p><strong>Resumen en una oración:</strong> La distribución posterior de la prevalencia <span class="math inline">\(\theta\)</span> es <span class="math inline">\(\text{Beta}(33\,884,\; 34\,592)\)</span> con media <span class="math inline">\(0{,}4948\)</span> e IC 95 % <span class="math inline">\([0{,}4911;\; 0{,}4986]\)</span>.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Modelo conjugado Beta-Bernoulli con prior <span class="math inline">\(\theta \sim \text{Beta}(1, 1)\)</span> (prior uniforme, no informativo).</p>
+<p><strong>Evidencia:</strong> Gráfico de la posterior Beta-Bernoulli (Bitácora 3).</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> La prevalencia casi equilibrada confirma que la base de datos es prácticamente balanceada, eliminando el sesgo de clase como fuente de confusión en los análisis comparativos. El intervalo de credibilidad extremadamente estrecho refleja la alta precisión que aportan las 68 474 observaciones.</p>
+<p><strong>Contraste con la literatura:</strong> La prevalencia del 49,5 % es marcadamente superior a la reportada en estudios poblacionales (típicamente 5–15 % según <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span>), lo que sugiere que la muestra proviene de un registro clínico con sobrerepresentación de casos.</p>
+<p><strong>Lo que NO explica este resultado:</strong> El modelo Beta-Bernoulli es una estimación marginal; no permite analizar prevalencia condicional por subgrupos.</p>
+<p><strong>Implicación para el siguiente paso:</strong> La discrepancia con la literatura debe mencionarse explícitamente como limitación: los resultados son internamente válidos pero de extrapolación limitada.</p>
+<hr />
+<p><strong>Ficha 7</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> La distribución de <code>ap_hi</code> se aparta de la normalidad: asimétrica y leptocúrtica</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Diagnóstico distribucional de la presión arterial sistólica mediante estadísticos de forma.</p>
+<p><strong>Resumen en una oración:</strong> La presión sistólica presenta asimetría positiva (<span class="math inline">\(\text{skewness} = 0{,}932\)</span>) y curtosis elevada (<span class="math inline">\(\text{kurtosis} = 4{,}829\)</span>), indicando que la Normal no es el ajuste óptimo.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Cálculo de estadísticos de forma con el paquete <code>moments</code>; ajuste MLE de distribuciones Normal y Gamma con <code>fitdistr</code> (MASS).</p>
+<p><strong>Evidencia:</strong> Gráfico de ajuste distribucional <code>ap_hi</code> (Bitácora 3).</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> El <code>ttestBF()</code> es robusto ante desviaciones moderadas de la normalidad con muestras grandes (teorema central del límite), por lo que los Factores de Bayes de las Fichas 1 y 2 siguen siendo válidos. Sin embargo, la cola derecha de <code>ap_hi</code> puede corresponder a casos de crisis hipertensiva clínicamente distintos.</p>
+<p><strong>Contraste con la literatura:</strong> La asimetría positiva de la presión sistólica en poblaciones clínicas es frecuente cuando se incluyen pacientes con hipertensión no controlada <span class="citation" data-cites="WHO_ISH_2020">(<a href="#ref-WHO_ISH_2020" role="doc-biblioref">World Health Organization &amp; International Society of Hypertension, 2020</a>)</span>.</p>
+<p><strong>Lo que NO explica este resultado:</strong> El diagnóstico es univariado; no evalúa si la asimetría se mantiene dentro de cada grupo por separado.</p>
+<p><strong>Implicación para el siguiente paso:</strong> Para análisis de regresión futuros, considerar una transformación logarítmica de <code>ap_hi</code> o modelos con distribución Gamma.</p>
+<hr />
+<p><strong>Ficha 8</strong></p>
+<ul>
+<li><strong>Nivel descriptivo (qué encontraron)</strong></li>
+</ul>
+<p><strong>Titular:</strong> La edad, el IMC y la presión arterial marcan perfiles diferenciados entre grupos</p>
+<p><strong>Nombre del hallazgo/resultado:</strong> Comparación del perfil cuantitativo promedio entre pacientes con y sin ECV para las variables numéricas principales.</p>
+<p><strong>Resumen en una oración:</strong> Los pacientes con ECV son en promedio 3,3 años mayores, tienen 1,9 kg/m² más de IMC y 14,3 mmHg más de presión sistólica que los pacientes sin ECV.</p>
+<p><strong>Método o análisis que lo produjo:</strong> Cuadro resumen de medias y desviaciones estándar estratificado por grupo (análisis descriptivo, Bitácora 2).</p>
+<p><strong>Evidencia:</strong> Cuadro resumen descriptivo por grupo (Bitácora 2).</p>
+<ul>
+<li><strong>Nivel analítico (qué significa)</strong></li>
+</ul>
+<p><strong>Conexión con la pregunta de investigación:</strong> Los tres factores cuantitativos con mayor diferencia entre grupos (presión sistólica, edad e IMC) son precisamente los que la literatura identifica como predictores primarios del riesgo cardiovascular, validando la coherencia externa de la base de datos.</p>
+<p><strong>Contraste con la literatura:</strong> <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span> incluyen edad y presión sistólica como los dos predictores de mayor peso en el modelo de Framingham, en línea con las diferencias observadas. La diferencia de IMC (1,9 kg/m²) es más modesta que lo esperado, lo que puede reflejar las limitaciones del IMC como indicador de adiposidad señaladas en la Bitácora 2.</p>
+<p><strong>Lo que NO explica este resultado:</strong> Las diferencias son descriptivas y no controlan la correlación entre variables. La colinealidad entre edad, presión e IMC impide atribuir efectos independientes sin un modelo conjunto.</p>
+<p><strong>Implicación para el siguiente paso:</strong> Este resultado actúa como ficha de cierre del análisis descriptivo y puente hacia la sección de escritura, donde las historias de la literatura y los datos propios convergen.</p>
+<hr />
+<section id="comparación-explícita-con-la-literatura-resultado-principal" class="level3 unnumbered">
+<h3 class="unnumbered">Comparación explícita con la literatura: resultado principal</h3>
+<p>El hallazgo más importante de esta bitácora —el gradiente de prevalencia de ECV según número de factores de riesgo acumulados (Ficha 3)— coincide en dirección con lo reportado por <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span> y con las guías internacionales de estratificación de riesgo <span class="citation" data-cites="Visseren2021">(<a href="#ref-Visseren2021" role="doc-biblioref">Visseren et al., 2021</a>)</span>: la acumulación de factores de riesgo clásicos se asocia de forma monotónica y pronunciada con mayor probabilidad de enfermedad.</p>
+<p>Sin embargo, la magnitud del gradiente observado (de 22,8 % a 83,6 %) es notablemente más pronunciada que la reportada en estudios de base poblacional, donde los modelos de Framingham estiman riesgos a 10 años de entre 5 % y 30 % para perfiles similares. Esta discrepancia tiene una explicación plausible: como señala la Ficha 6, la prevalencia global de la muestra (~49,5 %) es muy superior a la prevalencia poblacional típica, lo que sugiere un registro clínico con sobrerepresentación de casos. La implicación no invalida el análisis —las relaciones entre variables siguen siendo informativas—, pero exige cautela al trasladar los porcentajes absolutos a conclusiones sobre la población general.</p>
+</section>
+</section>
+<section id="ordenamiento-de-elementos-de-reporte" class="level2" data-number="1.4">
+<h2 data-number="1.4"><span class="header-section-number">1.4</span> Ordenamiento de elementos de reporte</h2>
+<p>Con el fin de comenzar a construir el borrador final del proyecto, se identifican los elementos primarios y secundarios del trabajo. Los elementos primarios son aquellos fundamentales para el proyecto: sin ellos, el trabajo no tendría sentido. Los elementos secundarios son importantes pero no fundamentales: si no existieran, el trabajo seguiría teniendo sentido.</p>
+<section id="elementos-primarios-y-secundarios" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1"><span class="header-section-number">1.4.1</span> Elementos primarios y secundarios</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Primarios</th>
+<th>Secundarios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inferencia bayesiana como marco teórico</td>
+<td>Enfoque frecuentista como contraste metodológico</td>
+</tr>
+<tr class="even">
+<td>Presión arterial sistólica como predictor principal</td>
+<td>Presión arterial diastólica</td>
+</tr>
+<tr class="odd">
+<td>Factor de Bayes como método de cuantificación de evidencia</td>
+<td>Escala de Jeffreys como criterio de interpretación</td>
+</tr>
+<tr class="even">
+<td>Gradiente de riesgo acumulado (<span class="math inline">\(k\)</span> factores)</td>
+<td>Modelo Beta-Bernoulli para prevalencia</td>
+</tr>
+<tr class="odd">
+<td>Intervalos de credibilidad al 95%</td>
+<td>Submuestreo como solución al problema de convergencia numérica</td>
+</tr>
+<tr class="even">
+<td>Modelo de Framingham como referencia empírica <span class="citation" data-cites="DAgostino2013">(<a href="#ref-DAgostino2013" role="doc-biblioref">D’Agostino et al., 2013</a>)</span></td>
+<td>Limitaciones de generalización externa <span class="citation" data-cites="Damen">(<a href="#ref-Damen" role="doc-biblioref">Damen et al., 2016</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>Edad como predictor relevante del riesgo cardiovascular</td>
+<td>IMC como predictor asociado</td>
+</tr>
+<tr class="even">
+<td>Pregunta de investigación: características más influyentes en ECV</td>
+<td>Ausencia de variables genéticas y antecedentes familiares en el dataset</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="estructura-del-trabajo-final" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2"><span class="header-section-number">1.4.2</span> Estructura del trabajo final</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sección</th>
+<th>Temas a tratar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introducción</td>
+<td>1. Riesgo cardiovascular como fenómeno multifactorial (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2. Necesidad de cuantificar incertidumbre en diagnóstico clínico (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3. Modelo de Framingham como antecedente empírico <span class="citation" data-cites="DAgostino2013">(<a href="#ref-DAgostino2013" role="doc-biblioref">D’Agostino et al., 2013</a>)</span> (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4. Limitaciones metodológicas de modelos existentes <span class="citation" data-cites="Damen">(<a href="#ref-Damen" role="doc-biblioref">Damen et al., 2016</a>)</span> (Secundario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>5. Pregunta de investigación y justificación del enfoque bayesiano (Primario)</td>
+</tr>
+<tr class="even">
+<td>Marco teórico</td>
+<td>1. Estadístico, distribución previa y distribución posterior <span class="citation" data-cites="Degroot">(<a href="#ref-Degroot" role="doc-biblioref">DeGroot &amp; Schrevish, 2012</a>)</span> (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>2. Teorema de Bayes aplicado al diagnóstico clínico <span class="citation" data-cites="Gill">(<a href="#ref-Gill" role="doc-biblioref">Gill et al., 2005</a>)</span> (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>3. Factor de Bayes: definición e interpretación <span class="citation" data-cites="Armero Ramos-Vera">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span> (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>4. Asociación estadística vs. causalidad (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>5. Diferencia entre intervalo de credibilidad e intervalo de confianza <span class="citation" data-cites="Pek Lorca">(<a href="#ref-Lorca" role="doc-biblioref">Lorca &amp; Águila, 2024</a>; <a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span> (Secundario)</td>
+</tr>
+<tr class="odd">
+<td>Metodología</td>
+<td>1. Descripción del dataset <code>cardio_train.csv</code> (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2. Construcción de la variable <code>n_factores</code> (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3. Hipótesis planteadas y justificación del BF (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4. Extracción de distribuciones posteriores e intervalos de credibilidad (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>5. Modelo Beta-Bernoulli para estimación de prevalencia (Secundario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>6. Problema de convergencia numérica y solución por submuestreo (Secundario)</td>
+</tr>
+<tr class="odd">
+<td>Resultados</td>
+<td>1. Tabla resumen de factores de Bayes (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2. Distribución posterior de <span class="math inline">\(\delta\)</span> para presión sistólica (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3. Intervalo de credibilidad para correlación del gradiente (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4. Prevalencia de ECV vía Beta-Bernoulli (Secundario)</td>
+</tr>
+<tr class="odd">
+<td>Discusión</td>
+<td>1. Coincidencia con literatura — <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span> (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2. Colesterol como resultado contraintuitivo respecto a la literatura (Primario)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3. Implicaciones para tarificación actuarial (Primario)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4. Limitaciones del dataset: origen geográfico desconocido (Secundario)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="la-imagen-que-cuenta-la-historia" class="level2" data-number="1.5">
+<h2 data-number="1.5"><span class="header-section-number">1.5</span> La imagen que cuenta la historia</h2>
+<p>La tabla 1 se escogió como la imagen que cuenta la historia pues aporta mucha información sobre los datos en una sola tabla. Son cuatro conclusiones que se derivaron solo al tomar el factor de bayes. Primero, la más simple: la media general difiere mucho al tener ECV, esto se demostró pues el factor de Bayes demuestra que los datos son mucho más verosimilares con H_1. Todas las conclusiones indicaron que la media difería más entre ambos grupos. La última vez, se demostró que la presión sistólica es la que se correlaciona más con ECV; y el gráfico comparando las distribuciones de esta con y sin ECV difieren mucho en su media. El factor de bayes representa esta diferencia numéricamente para la hipótesis H_1. Los Factores de Bayes obtenidos son astronómicamente grandes. <span class="math inline">\(BF_{10} = 10^{3009}\)</span> para la presión sistólica es un número que no cabe en ninguna celda de tabla, no se puede comparar visualmente entre filas, y técnicamente ni siquiera puede representarse en doble precisión flotante (que tiene límite <span class="math inline">\(10^{309}\)</span>). La escala logarítmica en base 10 resuelve los tres problemas a la vez: comprime los valores a números legibles (3009, 1832, 181, 866), mantiene las proporciones relativas entre pruebas, y permite comparación directa con la escala de Jeffreys, que también opera en <span class="math inline">\(log_{10}\)</span>.</p>
+</section>
+</section>
+<section id="arco-narrativo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Arco narrativo</h1>
+<p>«El modelo reveló que <strong>la presión arterial sistólica y el gradiente de factores de riesgo acumulados son los predictores con evidencia bayesiana más sólida de asociación con la enfermedad cardiovascular</strong> —con <span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span> superiores a <span class="math inline">\(800\)</span> en todos los casos y una diferencia de medias de <span class="math inline">\(\approx 14\)</span> mmHg en presión sistólica entre grupos con y sin ECV—, lo que significa que <strong>un actuario especializado en seguros de vida y salud dispone de evidencia concluyente para priorizar la presión arterial sistólica y el perfil de riesgo acumulado como variables centrales en modelos de tarificación cardiovascular, y que la magnitud clínica de las diferencias justifica tratarlas como factores diferenciadores de prima en productos de salud</strong>.»</p>
+</section>
+<section id="parte-de-escritura" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Parte de escritura</h1>
+<section id="introducción" class="level2 unnumbered">
+<h2 class="unnumbered">Introducción</h2>
+<p>El estudio de las enfermedades cardiovasculares desde una perspectiva estadística ha evolucionado considerablemente en las últimas décadas, incorporando enfoques que buscan no solo describir el fenómeno sino también estimar y cuantificar la evidencia de asociación entre factores de riesgo y la probabilidad de desarrollar la enfermedad. La literatura revisada permite identificar tres grandes líneas de análisis complementarias: el enfoque teórico de la inferencia bayesiana, el desarrollo de modelos predictivos estructurados y la evaluación crítica del estado metodológico del campo.</p>
+</section>
+<section id="marco-teórico" class="level2 unnumbered">
+<h2 class="unnumbered">Marco teórico</h2>
+<p>El trabajo de <span class="citation" data-cites="Gill">Gill et al. (<a href="#ref-Gill" role="doc-biblioref">2005</a>)</span> introduce una perspectiva fundamental sobre el uso del razonamiento probabilístico en el ámbito clínico, proponiendo que los médicos, incluso sin formalizarlo matemáticamente, operan bajo principios bayesianos al momento de diagnosticar pacientes. En este sentido, el proceso diagnóstico no debe entenderse como una decisión binaria, sino como una actualización continua de probabilidades donde la información previa se combina con nueva evidencia clínica para ajustar la probabilidad de que un paciente presente una enfermedad. Este enfoque resalta la importancia del contexto y de la incertidumbre en la toma de decisiones médicas, elementos que con frecuencia desaparecen cuando el análisis se reduce a la dicotomía de rechazar o no rechazar una hipótesis nula.</p>
+<p>Sin embargo, este planteamiento contrasta con enfoques más estructurados como el desarrollado por <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, quienes proponen modelos estadísticos específicos —basados en regresión de Cox— para estimar el riesgo cardiovascular a partir de un conjunto fijo de variables. Mientras que <span class="citation" data-cites="Gill">Gill et al. (<a href="#ref-Gill" role="doc-biblioref">2005</a>)</span> enfatiza la flexibilidad del razonamiento clínico y la adaptación continua a nueva información, el modelo de Framingham se basa en una estructura definida donde las variables y sus coeficientes están previamente determinados y el resultado es una probabilidad cuantificada dentro de un marco rígido. Esta diferencia plantea una tensión central en el análisis del riesgo cardiovascular: la necesidad de balancear flexibilidad e interpretabilidad. El enfoque bayesiano permite incorporar incertidumbre y adaptar conclusiones a contextos específicos, lo cual es especialmente útil cuando los datos son incompletos o heterogéneos. Sin embargo, los modelos estructurados ofrecen ventajas en términos de replicabilidad y validación, aspectos fundamentales para el uso clínico.</p>
+<p>Para el presente proyecto, esta dualidad determina la elección metodológica central: con aproximadamente 68 474 observaciones, cualquier diferencia entre grupos produce un valor <span class="math inline">\(p &lt; 0{,}05\)</span> con independencia de su relevancia clínica o práctica <span class="citation" data-cites="Pek">(<a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span>. El enfoque frecuentista no cuantifica la evidencia a favor de <span class="math inline">\(H_1\)</span>: solo señala qué tan inusuales serían los datos si <span class="math inline">\(H_0\)</span> fuera cierta, sin que <span class="math inline">\(H_1\)</span> entre en el cálculo. El Factor de Bayes, en cambio, compara directamente la plausibilidad de ambas hipótesis dada la evidencia observada, y puede arrojar evidencia tanto a favor de <span class="math inline">\(H_1\)</span> como a favor de <span class="math inline">\(H_0\)</span> <span class="citation" data-cites="Ramos-Vera Armero">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>. Esta propiedad resulta especialmente relevante porque la pregunta de investigación no es simplemente si existe una diferencia estadística, sino <strong>cuán fuerte es la evidencia</strong> de que las variables clínicas se asocian con la enfermedad cardiovascular. La escala de Jeffreys provee el vocabulario para esa cuantificación: valores de <span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span> superiores a 2 (equivalentes a <span class="math inline">\(\text{BF}_{10} &gt; 100\)</span>) constituyen evidencia extrema a favor de la hipótesis alternativa <span class="citation" data-cites="Armero Ramos-Vera">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Ramos-Vera" role="doc-biblioref">Ramos-Vera, 2021</a>)</span>.</p>
+</section>
+<section id="resultados" class="level2 unnumbered">
+<h2 class="unnumbered">Resultados</h2>
+<p>El análisis exploratorio de la Bitácora 2 permitió identificar la edad como la primera variable que diferencia sistemáticamente a los pacientes con y sin enfermedad cardiovascular. Los pacientes con ECV presentan edades mayores respecto al grupo sin enfermedad, un patrón que se manifiesta de forma consistente en la distribución de densidad comparativa: la distribución del grupo con ECV está desplazada hacia valores más altos, con una diferencia media de aproximadamente 3,3 años. Este hallazgo coincide plenamente con <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, donde la edad aparece como uno de los factores de mayor peso en el modelo de Framingham, y con la evidencia acumulada en la literatura que establece al envejecimiento como uno de los factores de riesgo no modificables más relevantes en la fisiopatología cardiovascular.</p>
+<p>La importancia de este resultado no radica únicamente en confirmar lo conocido, sino en validar que la base de datos disponible reproduce patrones coherentes con la literatura. Un dataset que no mostrara diferencias de edad entre grupos con y sin ECV generaría dudas sobre su calidad o representatividad. El hecho de que el patrón esperado aparezca con claridad en la exploración descriptiva establece un primer punto de confianza metodológica sobre el cual construir los análisis inferenciales de la Bitácora 3. No obstante, el análisis descriptivo no permite determinar cuánto influye exactamente la edad ni si su efecto cambia en presencia de otras variables fisiológicas como la presión arterial o el IMC, limitación que motiva directamente el enfoque multivariable implícito en el índice de factores acumulados desarrollado posteriormente.</p>
+<p>Si la edad es el primer predictor identificado descriptivamente, la presión arterial sistólica es la que concentra la mayor masa de evidencia bayesiana en el análisis. La Bitácora 2 mostró que la prevalencia de ECV aumenta conforme incrementa la presión arterial sistólica, con una correlación de aproximadamente 0,43 entre ambas variables, la más alta de todas las variables continuas analizadas. Este hallazgo anticipó la hipótesis primaria de la Bitácora 3 y motivó que la presión sistólica ocupara el lugar central en el diseño del análisis inferencial.</p>
+<p>Los resultados de la Bitácora 3 confirman y cuantifican ese patrón con toda la precisión que permite la inferencia bayesiana. Los pacientes con enfermedad cardiovascular presentan una presión sistólica media de 133,90 mmHg frente a 119,61 mmHg en quienes no la padecen, una diferencia de <span class="math inline">\(\delta = 14{,}28\)</span> mmHg cuyo intervalo de credibilidad al 95 % es <span class="math inline">\([14{,}05;\; 14{,}50]\)</span> mmHg. Este intervalo excluye el cero con holgura y tiene una interpretación directa: existe una probabilidad posterior del 95 % de que las personas con ECV presenten entre 14,05 y 14,50 mmHg más de presión sistólica que quienes no la presentan. El Factor de Bayes asociado desborda la representación numérica estándar de R, con <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 3\,009\)</span>, lo que significa que los datos observados son <span class="math inline">\(10^{3009}\)</span> veces más verosímiles bajo <span class="math inline">\(H_1\)</span> que bajo <span class="math inline">\(H_0\)</span>. La magnitud del efecto (<span class="math inline">\(d = 0{,}948\)</span>) es grande según los criterios convencionales, lo que implica que la presión sistólica no solo discrimina estadísticamente entre grupos sino que lo hace con una separación prácticamente distinguible en las distribuciones.</p>
+<p>Esta diferencia es además clínicamente relevante. Las guías internacionales clasifican como elevada una presión sistólica <span class="math inline">\(\geq 120\)</span> mmHg y como alta <span class="math inline">\(\geq 140\)</span> mmHg <span class="citation" data-cites="WHO_ISH_2020">(<a href="#ref-WHO_ISH_2020" role="doc-biblioref">World Health Organization &amp; International Society of Hypertension, 2020</a>)</span>. La media del grupo con ECV (133,90 mmHg) se sitúa en la categoría de presión elevada, a tan solo 6 mmHg del umbral de hipertensión, mientras que la del grupo sin ECV (119,61 mmHg) queda en el límite superior de la categoría normal. Este resultado es plenamente coherente con <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, quienes identifican la presión arterial sistólica como uno de los predictores de mayor coeficiente en el modelo de Framingham, y con <span class="citation" data-cites="WHO_ISH_2020">World Health Organization &amp; International Society of Hypertension (<a href="#ref-WHO_ISH_2020" role="doc-biblioref">2020</a>)</span>, que establece la hipertensión arterial como el principal factor de riesgo cardiovascular modificable a nivel global.</p>
+<p>La presión arterial diastólica exhibe un patrón análogo aunque de menor magnitud: los pacientes con ECV presentan 84,55 mmHg de media frente a 78,13 mmHg en el grupo sano (<span class="math inline">\(\delta = 6{,}42\)</span> mmHg, IC 95 %: <span class="math inline">\([6{,}29;\; 6{,}55]\)</span> mmHg, <span class="math inline">\(d = 0{,}725\)</span>, <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 1\,832\)</span>). <span class="citation" data-cites="Visseren2021">Visseren et al. (<a href="#ref-Visseren2021" role="doc-biblioref">2021</a>)</span> señalan que tanto la presión sistólica como la diastólica constituyen factores de riesgo independientes, aunque la sistólica adquiere mayor peso predictivo en pacientes mayores de 50 años, patrón coherente con la diferencia en tamaños del efecto observada (<span class="math inline">\(d = 0{,}948\)</span> versus <span class="math inline">\(d = 0{,}725\)</span>). La diferencia diastólica es real y estadísticamente inequívoca, pero su menor magnitud confirma que la presión sistólica es el componente dominante en la diferenciación entre grupos.</p>
+<p>El análisis descriptivo de la Bitácora 2 mostró que los pacientes con colesterol muy alto presentan mayor prevalencia de enfermedad cardiovascular, resultado que coincide con <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span> y <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span>, donde el colesterol aparece consistentemente como variable relevante en modelos de riesgo cardiovascular. Sin embargo, la correlación individual del colesterol con ECV en los datos resultó notablemente menor que la de la presión arterial o la edad, una discrepancia que merece análisis cuidadoso.</p>
+<p>Una explicación posible reside en las limitaciones del dataset: la variable de colesterol está codificada en tres categorías ordinales (Normal, Alto, Muy Alto) sin valores continuos, lo que reduce su capacidad discriminativa respecto a una medición en mg/dL. Adicionalmente, el dataset no incluye información sobre tratamientos con estatinas u otros hipolipemiantes, que son ampliamente prescritos en pacientes con riesgo cardiovascular elevado y que reducen los niveles de colesterol sérico de forma significativa. Es plausible que una fracción considerable de los pacientes con ECV en la muestra tenga colesterol controlado farmacológicamente, lo que atenuaría la asociación observada entre los niveles medidos y la presencia de enfermedad. Esta limitación es precisamente del tipo que <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span> identifican como frecuente en modelos predictivos cardiovasculares: la ausencia de variables de confusión clínicamente relevantes puede distorsionar las estimaciones de asociación.</p>
+<p>El análisis exploratorio de la Bitácora 2 mostró que los pacientes con enfermedad cardiovascular presentan distribuciones de IMC desplazadas hacia valores mayores, con una diferencia media de aproximadamente 1,9 kg/m². Este resultado coincide parcialmente con <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span>, donde el índice de masa corporal aparece como predictor presente en múltiples modelos de riesgo cardiovascular. Sin embargo, la diferencia observada es más modesta que la reportada en muchos estudios de referencia, lo que refleja una limitación conocida del IMC como indicador de adiposidad: no diferencia composición corporal, masa muscular ni distribución de grasa.</p>
+<p>Este hallazgo, tomado aisladamente, podría interpretarse como evidencia débil de la asociación entre obesidad y ECV. Sin embargo, al integrarlo con los demás factores de riesgo, su relevancia aumenta sustancialmente. La Bitácora 3 formaliza esta intuición mediante la construcción del índice <span class="math inline">\(k\)</span>, que incluye la obesidad (IMC <span class="math inline">\(\geq 30\)</span> kg/m²) como uno de los cuatro componentes del gradiente de riesgo acumulado. La lógica subyacente es coherente con la propuesta de <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>: ningún factor de riesgo cardiovascular actúa de forma completamente independiente, y la combinación de múltiples factores supera en poder predictivo a cualquier factor individual.</p>
+<p>La convergencia de los hallazgos descriptivos de la Bitácora 2 —edad, presión arterial, colesterol e IMC como variables diferenciadores— condujo a la hipótesis central de la Bitácora 3: que la acumulación de factores de riesgo clínicos tiene un efecto dosis-respuesta sobre la probabilidad de ECV. Esta hipótesis se operacionaliza mediante el índice <span class="math inline">\(k\)</span>, que cuenta cuántos de los cuatro factores de riesgo (hipertensión, obesidad, colesterol elevado y edad <span class="math inline">\(\geq 55\)</span> años) están presentes simultáneamente en cada paciente.</p>
+<p>Los resultados son contundentes y constituyen el hallazgo más comunicable del proyecto. La prevalencia de ECV escala de forma monotónica desde 22,8 % con <span class="math inline">\(k = 0\)</span> hasta 83,6 % con <span class="math inline">\(k = 4\)</span>, con niveles intermedios de 47,0 % (<span class="math inline">\(k=1\)</span>), 68,8 % (<span class="math inline">\(k=2\)</span>) y 80,6 % (<span class="math inline">\(k=3\)</span>) (<a href="#tbl-gradiente" class="quarto-xref">Tabla 4</a>). El contraste entre los extremos del gradiente (<span class="math inline">\(k = 0\)</span> versus <span class="math inline">\(k \geq 3\)</span>) arroja evidencia bayesiana extrema (<span class="math inline">\(\log_{10}(\text{BF}_{10}) = 866\)</span>) y un tamaño del efecto de <span class="math inline">\(d = 1{,}424\)</span>, el valor más alto de todos los análisis realizados. Expresado en términos prácticos: un paciente con tres o más factores de riesgo tiene una probabilidad observada de ECV 3,56 veces mayor que uno sin ningún factor. Este resultado reproduce de forma directa la conclusión central de <span class="citation" data-cites="DAgostino2013">D’Agostino et al. (<a href="#ref-DAgostino2013" role="doc-biblioref">2013</a>)</span>, quienes establecen que la combinación de múltiples factores de riesgo supera en poder predictivo a cualquier factor individual.</p>
+<p>La correlación entre el índice <span class="math inline">\(k\)</span> y la presencia de ECV, estimada mediante <code>correlationBF()</code> sobre un submuestreo reproducible de <span class="math inline">\(n = 5\,000\)</span> observaciones (<code>set.seed(2002)</code>), es <span class="math inline">\(\hat{\rho} = 0{,}394\)</span> con IC 95 % de credibilidad <span class="math inline">\([0{,}370;\; 0{,}417]\)</span> y <span class="math inline">\(\log_{10}(\text{BF}_{10}) = 181\)</span>. El intervalo de credibilidad excluye el cero con amplio margen y está completamente concentrado en valores positivos, confirmando que la acumulación de factores de riesgo se asocia monotónicamente con mayor probabilidad de ECV. El intento de aplicar <code>correlationBF()</code> sobre la muestra completa (<span class="math inline">\(n = 68\,474\)</span>) produjo desbordamiento numérico (<code>WARNING: Series not converged</code>), resultado documentado en la Sección 1.2 como análisis fallido. Este caso ilustra una tensión práctica del cómputo bayesiano: con muestras muy grandes, la evidencia puede ser tan abrumadora que supera los límites de la representación numérica de punto flotante estándar, no porque el resultado sea incorrecto, sino porque su magnitud excede las herramientas disponibles. La solución de submuestreo es válida porque con <span class="math inline">\(n = 5\,000\)</span> ya existe evidencia concluyente.</p>
+<p>Desde la perspectiva actuarial que enmarca el proyecto, este gradiente tiene una implicación directa: <span class="citation" data-cites="Visseren2021">Visseren et al. (<a href="#ref-Visseren2021" role="doc-biblioref">2021</a>)</span> establecen que la estratificación por número de factores de riesgo es la herramienta clínica estándar para comunicar el riesgo al paciente, y los datos analizados confirman empíricamente que esa estratificación es internamente coherente dentro de la muestra disponible. Un actuario especializado en seguros de vida y salud puede interpretar el índice <span class="math inline">\(k\)</span> como una variable proxy del perfil de riesgo acumulado del asegurado, con diferencias de prevalencia suficientemente pronunciadas como para justificar diferenciación de primas entre grupos.</p>
+</section>
+<section id="discusión" class="level2 unnumbered">
+<h2 class="unnumbered">Discusión</h2>
+<p>La pertinencia de los resultados descritos debe evaluarse a la luz de las limitaciones metodológicas del dataset. La revisión sistemática de <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span> muestra que la mayoría de los modelos predictivos cardiovasculares publicados presentan deficiencias metodológicas, en particular ausencia de validación externa, y que incluso modelos bien construidos como el de Framingham pierden calibración cuando se aplican fuera de la población en que fueron desarrollados.</p>
+<p>Esta advertencia aplica directamente al conjunto de datos utilizado. La prevalencia global de ECV en la muestra es de 49,5 %, distribución inusual para una muestra poblacional donde la prevalencia típica oscila entre 5 % y 15 % según <span class="citation" data-cites="Damen">Damen et al. (<a href="#ref-Damen" role="doc-biblioref">2016</a>)</span>. El modelo Beta-Bernoulli con prior uniforme estima esa prevalencia en <span class="math inline">\(\theta = 0{,}4948\)</span> con IC 95 % de credibilidad <span class="math inline">\([0{,}4911;\; 0{,}4986]\)</span>, intervalo extraordinariamente estrecho producto del tamaño muestral: con 68 474 observaciones, la incertidumbre posterior sobre la prevalencia es prácticamente nula. Sin embargo, la discrepancia con la literatura sugiere que el dataset proviene de un registro clínico con sobrerepresentación de casos, lo que amplifica los gradientes observados sin invalidar las relaciones entre variables. La distribución prácticamente balanceada entre casos positivos y negativos tiene, sin embargo, una consecuencia metodológica favorable: elimina el sesgo de clase como fuente de confusión en los análisis comparativos.</p>
+<p>Adicionalmente, el dataset no incluye información sobre el origen geográfico de los pacientes, lo que impide cualquier generalización a poblaciones específicas. Como señala <span class="citation" data-cites="Gill">Gill et al. (<a href="#ref-Gill" role="doc-biblioref">2005</a>)</span>, el contexto es fundamental en el razonamiento clínico probabilístico: las probabilidades pre-test varían sustancialmente entre poblaciones, y un modelo calibrado en una muestra con prevalencia del 50 % producirá estimaciones sesgadas cuando se aplique a poblaciones con prevalencia del 10 %. El presente análisis no busca construir un modelo predictivo sino cuantificar la fuerza de la evidencia de asociación entre variables clínicas y la presencia de ECV dentro de la muestra disponible. Los resultados deben interpretarse, por tanto, como evidencia de asociaciones internas a la muestra, sin que ello implique directamente la cuantificación del riesgo en la población general <span class="citation" data-cites="Lorca Armero">(<a href="#ref-Armero" role="doc-biblioref">Armero et al., 2022</a>; <a href="#ref-Lorca" role="doc-biblioref">Lorca &amp; Águila, 2024</a>)</span>.</p>
+<p>Integradas las perspectivas de la literatura y los resultados propios, emerge una historia coherente en la que ambas narrativas se refuerzan mutuamente. La literatura establece que la enfermedad cardiovascular es un fenómeno multifactorial en el que la presión arterial, la edad, el colesterol y el índice de masa corporal actúan como predictores consistentes <span class="citation" data-cites="DAgostino2013 Damen">(<a href="#ref-DAgostino2013" role="doc-biblioref">D’Agostino et al., 2013</a>; <a href="#ref-Damen" role="doc-biblioref">Damen et al., 2016</a>)</span>, que el razonamiento clínico sobre el riesgo es inherentemente bayesiano <span class="citation" data-cites="Gill">(<a href="#ref-Gill" role="doc-biblioref">Gill et al., 2005</a>)</span>, y que la validación externa de los modelos es una condición necesaria para su utilidad práctica <span class="citation" data-cites="Damen">(<a href="#ref-Damen" role="doc-biblioref">Damen et al., 2016</a>)</span>. Los datos analizados reproducen los patrones esperados por la literatura en cuanto a dirección y magnitud relativa de los efectos, cuantifican la evidencia de cada asociación mediante el Factor de Bayes con valores que exceden cualquier umbral razonable de la escala de Jeffreys, y reconocen explícitamente la limitación de generalización derivada de la prevalencia atípica de la muestra.</p>
+<p>La evidencia disponible es extrema a favor de que la presión arterial sistólica y la acumulación de factores de riesgo clínicos se asocian con la presencia de enfermedad cardiovascular en esta muestra. La magnitud de esa asociación es grande, consistente con la literatura y robusta ante las decisiones metodológicas del análisis. Las limitaciones del dataset, lejos de debilitar el proyecto, ofrecen la oportunidad de discutir con precisión la diferencia entre evidencia interna y capacidad de generalización: distinción que está en el corazón del razonamiento estadístico responsable y que es, a fin de cuentas, la habilidad central que un actuario debe desarrollar al construir modelos de riesgo sobre datos observacionales.</p>
+</section>
+</section>
+<section id="parte-de-reflexión" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Parte de reflexión</h1>
+<section id="uve-de-gowin" class="level2" data-number="4.1">
+<h2 data-number="4.1"><span class="header-section-number">4.1</span> UVE de Gowin</h2>
+<div class="landscape">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img src="figures/uve_gowin.svg" style="height:90.0%" /></p>
+<figcaption>V de Gowin</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="diario-de-aprendizaje" class="level2" data-number="4.2">
+<h2 data-number="4.2"><span class="header-section-number">4.2</span> Diario de aprendizaje</h2>
+<p>Gracias al avance de la investigación se ha desarrollado el conocimiento del factor de Bayes como metodología estadística. Primero, como su uso para aceptar o rechazar pruebas de hipótesis. El factor de Bayes ayudó a derivar conclusiones de los datos, y calcularlo se simplificó con el paquete <code>BayesFactor</code>. Segundo, un factor de Bayes independiente para las cuatro hipótesis presentó en sí cuatro aportes independientes. La más destacada de estas es que la presión sistólica, que se demostró que era la variable con mayor correlación con la enfermedad cardiovascular: suele ser 14.5 <em>mmHg</em> más alta con personas con ECV el 95% de las veces.</p>
+</section>
+</section>
+<section id="registro-de-uso-de-ia" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Registro de uso de IA</h1>
+<p><strong>Consulta: Propuesta metodológica y validación bayesiana</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (claude.ai)</li>
+<li><strong>Prompt resumido:</strong> Revisar la redacción de la sección de propuesta metodológica de la Bitácora #3, con base en los resultados reales del script <code>03_modelacion.R</code>.</li>
+<li><strong>Respuesta de la IA resumida:</strong> Se corrigen faltas ortográficas de la sección, la tabla de factores de Bayes con valores reales (<span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span> entre 181 y 3 009), los intervalos de credibilidad al 95% para presión sistólica, diastólica y correlación del gradiente, el modelo Beta-Bernoulli para prevalencia, y el análisis de sensibilidad a la distribución a priori, además de brindar las tablas de forma que sea mas sencilla su lectura.</li>
+<li><strong>Evaluación:</strong> La redacción incorporó correctamente los valores numéricos reales obtenidos al correr el código, además de corregir errores humanos y mejorar la visualización.</li>
+<li><strong>Modificaciones:</strong> Se verificó que el análisis fallido correspondiera a un intento real documentado en el script con el comentario <code># Este test falla, va en la sección de fallos</code>.</li>
+<li><strong>Aprendizaje:</strong> El Factor de Bayes con muestras grandes produce valores astronómicos que requieren expresarse en escala logarítmica, y su interpretación debe complementarse con intervalos de credibilidad para evaluar relevancia clínica.</li>
+</ul>
+<p><strong>Consulta: Análisis fallido</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (claude.ai)</li>
+<li><strong>Prompt resumido:</strong> Explicar por qué <code>correlationBF()</code> falla con <span class="math inline">\(n = 68\,474\)</span> observaciones y cómo documentarlo en la bitácora.</li>
+<li><strong>Respuesta de la IA resumida:</strong> Se explicó que la función implementa una expansión en serie de la función hipergeométrica gaussiana <span class="math inline">\(_2F_1\)</span>, que no converge con muestras muy grandes dentro de la precisión de punto flotante de 64 bits de R, produciendo el aviso <code>WARNING: Series not converged.</code> Se propuso el submuestreo a <span class="math inline">\(n = 5\,000\)</span> como solución válida.</li>
+<li><strong>Evaluación:</strong> La explicación técnica es correcta y verificable — el warning apareció realmente al correr el código.</li>
+<li><strong>Modificaciones:</strong> Se mantuvo la solución de submuestreo que ya estaba implementada en <code>03_modelacion.R</code> con <code>set.seed(2002)</code>.</li>
+<li><strong>Aprendizaje:</strong> Un tamaño de muestra grande puede ser un obstáculo numérico en algoritmos bayesianos diseñados para muestras moderadas, y el submuestreo reproducible es una solución metodológicamente válida cuando la evidencia ya es concluyente con una fracción de los datos.</li>
+</ul>
+<p><strong>Consulta: Ordenamiento de elementos de reporte</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (claude.ai)</li>
+<li><strong>Prompt resumido:</strong> Construir la tabla de elementos primarios y secundarios y la estructura de secciones del trabajo final, basándose en el contenido de las Bitácoras #1 y #2 y lo indicado por el usuario.</li>
+<li><strong>Respuesta de la IA resumida:</strong> Se generó la tabla de elementos primarios y secundarios y la estructura de secciones con temas clasificados por primario o secundario, conectando los resultados del análisis bayesiano con el marco teórico ya desarrollado.</li>
+<li><strong>Evaluación:</strong> La tabla refleja correctamente los elementos trabajados en bitácoras anteriores sin agregar elementos no discutidos previamente, siguiendo las indicaciones de primario y secundario que se le indicó.</li>
+<li><strong>Modificaciones:</strong> Se usó directamente la estructura propuesta, con leves modificaciones.</li>
+<li><strong>Aprendizaje:</strong> Organizar los elementos del trabajo en primarios y secundarios antes de escribir ayuda a priorizar el espacio de redacción y evitar que secciones importantes queden subdesarrolladas.</li>
+</ul>
+<p><strong>Consulta: Arco narrativo</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (claude.ai)</li>
+<li><strong>Prompt resumido:</strong> Revisar la frase del arco narrativo con los resultados reales del modelo bayesiano.</li>
+<li><strong>Respuesta de la IA resumida:</strong> Se revisó la oración conectando los valores concretos de <span class="math inline">\(\log_{10}(\text{BF}_{10})\)</span> y la diferencia de medias de presión sistólica con la implicación actuarial para tarificación de seguros de vida y salud.</li>
+<li><strong>Evaluación:</strong> La oración cumple con el formato solicitado por el profesor y conecta resultados con la pregunta de investigación y la audiencia del proyecto, además de tener orden lógico.</li>
+<li><strong>Modificaciones:</strong> Se ajustó para que la magnitud citada (<span class="math inline">\(&gt; 800\)</span> en <span class="math inline">\(\log_{10}\)</span>) fuera la más conservadora entre los cuatro BF calculados.</li>
+<li><strong>Aprendizaje:</strong> El arco narrativo obliga a sintetizar en una sola oración qué encontró el modelo y qué significa para la audiencia, lo cual es un ejercicio útil para identificar si los resultados están suficientemente interpretados.</li>
+</ul>
+<p><strong>Consulta: UVE de Gowin</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (claude.ai)</li>
+<li><strong>Prompt:</strong> Actualice esta uve de godwin usando la informacion nueva del html, en particular la metodologia de factor de bayes y las fichas de resultado junto con lo de la plantilla de anterior. Usar letra 13 para que sea legible. Ser breve, no como el ejemplo anterior, puede abreviar unas partes como la verosimilitud. Puede cambiar los colores. -<strong>Respuesta:</strong> La V de Gowin está actualizada con la información de la Bitácora 3. Los cambios principales respecto a la versión anterior: Parte metodológica (derecha):</li>
+</ul>
+<p>Las 6 fichas de resultados condensadas con sus valores clave: <span class="math inline">\(BF_{10}\)</span>(<span class="math inline">\(log_{10}\)</span>), intervalos de credibilidad al 95% y tamaños de efecto El procedimiento ahora incluye la fórmula del Factor de Bayes, la posterior, y las 4 hipótesis evaluadas con sus notas de implementación (ttestBF, correlationBF, submuestreo)</p>
+<p>Conceptos (izquierda):</p>
+<p>Se añadieron tags de Factor de Bayes, Escala de Jeffreys e IC de credibilidad en la sección de conceptos estadísticos Se reflejó el tamaño de muestra real (68 474 pacientes)</p>
+<p>Diseño: paleta verde–teal / violeta / ámbar más limpia, fuente 13px en todo el cuerpo, fichas compactas en lugar de párrafos extensos. - <strong>Modificaciones:</strong> Se usó directamente la imagen <em>svg</em> propuesta, modificando errores visuales en InkScape.</p>
+<p><strong>Consulta: Explicación de Factor de Bayes.</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (Anthropic)</li>
+<li><strong>Prompt resumido:</strong> Comparar el enfoque frecuentista con el Factor de Bayes para comparar distribuciones de <code>ap_hi</code> y <code>ap_lo</code> entre grupos.</li>
+<li><strong>Respuesta de la IA resumida:</strong> Confirmó que la distribución Gamma ajusta mejor que la Normal a <code>ap_hi</code> (Δ log-verosimilitud ≈ 770 por grupo). Identificó un patrón de gradiente de riesgo acumulado (0 factores → 23 %, 4 factores → 84 % de prevalencia) y recomendó usar <code>BayesFactor::ttestBF()</code> en lugar de Stan/MCMC por complejidad. Propuso arquitectura de scripts encadenados: <code>01_limpieza.R</code> → <code>02_descriptivo.R</code> → <code>03_modelacion.R</code> vía <code>source()</code>. Ayudó a delimitar el alcance real de trabajo pendiente para reducir la sensación de saturación.</li>
+<li><strong>Evaluación:</strong> Claude comprende muy bien temas de estadística, entonces su recomendación fue de gran utilidad.</li>
+<li><strong>Modificaciones:</strong> Se adoptó la arquitectura de scripts propuesta y el umbral de edad ≥ 55 años, justificado empíricamente por el salto más pronunciado en prevalencia y la proximidad a la mediana muestral. Se descartó la distribución Gamma como modelo formal y se mantuvo el enfoque en el Factor de Bayes como herramienta central.</li>
+<li><strong>Aprendizaje:</strong> Se aprendió sobre funciones y paquetes en R que ayudan a hacer inferencia bayesiana.</li>
+</ul>
+<hr />
+<hr />
+<p><strong>Consulta: Redacción y ortografía de secciones.</strong></p>
+<ul>
+<li><strong>Herramienta:</strong> Claude (Anthropic)</li>
+<li><strong>Prompt resumido:</strong> Revisión del estado actual de la Bitácora 3 y diagnóstico de secciones faltantes. Corrección de redacción de log de contribuciones, frase de audiencia, rastro de decisiones y respuesta a retroalimentación</li>
+<li><strong>Respuesta de la IA resumida:</strong> Diagnóstico comparativo entre las indicaciones y el <code>.qmd</code> actual; identificación de cinco elementos preparatorios faltantes y dos secciones incompletas (Sec. 1.5 y Sec. 3). Entrega de borradores listos para revisar y modificar.</li>
+<li><strong>Evaluación:</strong> Excelente, existen errores gramaticales y ortográficos que Claude detecta rápid, además de identificar partes faltantes.</li>
+<li><strong>Modificaciones:</strong> Redacción de los bloques antes mencionados.</li>
+<li><strong>Aprendizaje:</strong> Siempre se puede agilizar más la realización de tareas sencillas.</li>
+</ul>
+</section>
+<section id="rastro-de-decisiones" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Rastro de decisiones</h1>
+<p><strong>Decisión 1: Factor de Bayes como método de prueba de hipótesis en lugar de pruebas frecuentistas</strong></p>
+<p>Se evaluó el uso de pruebas t de Student bajo el enfoque frecuentista para comparar las medias de presión arterial entre grupos. Esta opción se descartó porque con <span class="math inline">\(n = 68\,474\)</span> observaciones cualquier diferencia mínima entre grupos produce <span class="math inline">\(p &lt; 0{,}05\)</span>, independientemente de su relevancia clínica <span class="citation" data-cites="Pek">(<a href="#ref-Pek" role="doc-biblioref">Pek &amp; Van Zandt, 2019</a>)</span>. En su lugar se adoptó el Factor de Bayes, que cuantifica la fuerza de la evidencia en favor de cada hipótesis en lugar de limitarse a señalar si un umbral arbitrario se cruza.</p>
+<p><strong>Decisión 2: Submuestreo a <span class="math inline">\(n = 5\,000\)</span> para <code>correlationBF()</code></strong></p>
+<p>Al aplicar <code>correlationBF()</code> sobre la muestra completa (<span class="math inline">\(n = 68\,474\)</span>), la función emitió <code>WARNING: Series not converged</code> y no produjo un resultado válido. Se evaluaron dos alternativas: ignorar el aviso y reportar el resultado de todas formas, o reducir el tamaño de muestra. La primera opción se descartó por comprometer la validez del análisis. Se optó por submuestrear a <span class="math inline">\(n = 5\,000\)</span> con semilla fija (<code>set.seed(2002)</code>) para garantizar reproducibilidad, lo que permitió la convergencia y produjo evidencia igualmente concluyente (<span class="math inline">\(\log_{10}(\text{BF}_{10}) = 181\)</span>).</p>
+<p><strong>Decisión 3: Mantener la escala JZS predeterminada (<span class="math inline">\(r = \sqrt{2}/2\)</span>) sin ajuste</strong></p>
+<p>La previa de Cauchy sobre el tamaño del efecto en <code>ttestBF()</code> admite distintos valores del parámetro de escala <span class="math inline">\(r\)</span>. Se consideró ajustarlo a valores más conservadores (<span class="math inline">\(r = 0{,}3\)</span>) o más amplios (<span class="math inline">\(r = 1{,}0\)</span>) siguiendo recomendaciones de la literatura. Esta variación se descartó tras verificar que con BF del orden de <span class="math inline">\(10^{800}\)</span> o superiores, cualquier valor de <span class="math inline">\(r\)</span> dentro del rango habitual produce conclusiones idénticas: la evidencia es extrema en todos los casos. Se reporta explícitamente la insensibilidad al prior como parte de la validación.</p>
+<p><strong>Decisión 4: Peso igual para los cuatro factores del índice <span class="math inline">\(k\)</span></strong></p>
+<p>Al construir el índice de factores de riesgo acumulados <span class="math inline">\(k\)</span> se consideró asignar pesos diferenciados según la correlación individual de cada factor con la variable <code>cardio</code> (lo que daría mayor peso a la hipertensión, que mostró la correlación más alta en la Bitácora 2). Esta opción se descartó porque introducir pesos requeriría un modelo de optimización adicional no justificado en esta etapa del análisis, y haría el índice menos interpretable. Se adoptó el peso unitario por simplicidad y reproducibilidad, reconociendo en las fichas de resultados que esta decisión puede subestimar la contribución relativa de la hipertensión.</p>
+</section>
+<section id="respuesta-a-la-retroalimentación" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Respuesta a la retroalimentación</h1>
+<p><strong>Rastro de decisiones:</strong> La retroalimentación señaló la ausencia de documentación sobre las decisiones metodológicas tomadas durante el análisis. En esta bitácora se incorpora una sección de rastro de decisiones que documenta las opciones consideradas, las descartadas y las razones detrás de cada elección.</p>
+<p><strong>Identidad visual:</strong> Se identificó que la paleta de colores utilizada en la Bitácora 2 generaba poco contraste entre grupos en los gráficos comparativos. Se migró a una identidad visual con mayor diferenciación cromática, lo que facilita la lectura de los gráficos estratificados por presencia o ausencia de enfermedad cardiovascular.</p>
+<p><strong>Profundidad del análisis de datos:</strong> Se observó que el análisis descriptivo de la Bitácora 2 no profundizaba en la distribución de las variables de presión arterial ni en el patrón de gradiente de riesgo. En esta bitácora se incorpora el análisis distribucional de <code>ap_hi</code> y <code>ap_lo</code> (con estadísticos de forma y ajuste de distribuciones) y la construcción del índice de factores de riesgo acumulados <span class="math inline">\(k\)</span>.</p>
+<p><strong>Referencias bibliográficas:</strong> Se completaron las entradas del archivo <code>.bib</code> que en la entrega anterior estaban incompletas o ausentes, asegurando que todas las citas del documento tengan su referencia completa en formato APA.</p>
+<p><strong>Ortografía y presentación:</strong> Se revisó la redacción general del documento, corrigiendo errores ortográficos y mejorando la consistencia del formato entre secciones utilizando inteligencia artificial.</p>
+</section>
+<section id="log-de-contribuciones" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Log de contribuciones</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Integrante</th>
+<th style="text-align: left;">Sección</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">César Salazar</td>
+<td style="text-align: left;">Propuesta metodológica, modelación en R, rastro de deciciones, ortografía</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gerardo Montero</td>
+<td style="text-align: left;">Inferencia bayesiana, análisis fallido, Ordenamiento de Elementos, Arco Narrativo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Óscar Espinoza</td>
+<td style="text-align: left;">8 fichas de resultados, Parte de escritura, fichas B2 y B3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gabriel Robles</td>
+<td style="text-align: left;">Imagen que cuenta la historia, Diario de aprendizaje, UVE de Gowin, log de contribuciones</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bibliografía" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Bibliografía</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Armero" class="csl-entry" role="listitem">
+Armero, C., Rodríguez Y, P., &amp; Torre Hernández, J. M. D. L. (2022). Una pequñea mirada a la estadística bayesiana en el análisis de datos cardiológicos. <em><span>REC</span>: interventional cardiology</em>, 8378. <a href="https://doi.org/10.24875/RECIC.M22000284">https://doi.org/10.24875/RECIC.M22000284</a>
+</div>
+<div id="ref-DAgostino2013" class="csl-entry" role="listitem">
+D’Agostino, R. B., Pencina, M. J., Massaro, J. M., &amp; Coady, S. (2013). Cardiovascular Disease Risk Assessment: Insights from Framingham. <em>Global Heart</em>, <em>8</em>(1), 11-23. <a href="https://doi.org/10.1016/j.gheart.2013.01.001">https://doi.org/10.1016/j.gheart.2013.01.001</a>
+</div>
+<div id="ref-Damen" class="csl-entry" role="listitem">
+Damen, J. A. A. G., Hooft, L., Schuit, E., Debray, T. P. A., Collins, G. S., Tzoulaki, I., Lassale, C. M., Siontis, G. C. M., Chiocchia, V., Roberts, C., Schlüssel, M. M., Gerry, S., Black, J. A., Heus, P., Van Der Schouw, Y. T., Peelen, L. M., &amp; Moons, K. G. M. (2016). Prediction models for cardiovascular disease risk in the general population: systematic review. <em><span>BMJ</span></em>, i2416. <a href="https://doi.org/10.1136/bmj.i2416">https://doi.org/10.1136/bmj.i2416</a>
+</div>
+<div id="ref-Degroot" class="csl-entry" role="listitem">
+DeGroot, M., &amp; Schrevish, M. (2012). <em>Probability &amp; Statistics</em> (4.ª ed.). Pearson. <a href="https://educationexclusive.com/upload/pdf/Probability%20and%20Statistics%20by%20Morris%20H.%20DeGroot%20and%20Mark%20J.%20Schervish.pdf">https://educationexclusive.com/upload/pdf/Probability%20and%20Statistics%20by%20Morris%20H.%20DeGroot%20and%20Mark%20J.%20Schervish.pdf</a>
+</div>
+<div id="ref-Gill" class="csl-entry" role="listitem">
+Gill, C. J., Sabin, L., &amp; Schmid, C. H. (2005). Why clinicians are natural bayesians. <em><span>BMJ</span></em>, <em>330</em>(7499), 1080-1083. <a href="https://doi.org/10.1136/bmj.330.7499.1080">https://doi.org/10.1136/bmj.330.7499.1080</a>
+</div>
+<div id="ref-Lorca" class="csl-entry" role="listitem">
+Lorca, J. C., &amp; Águila, L. C. (2024). Inferencia Bayesiana en el proceso de diagnóstico clínico: un enfoque docente para la toma de decisiones. <em>Revista Chilena de Infectología</em>, <em>41</em>(6), 762-768. <a href="https://doi.org/10.4067/s0716-10182024000600168">https://doi.org/10.4067/s0716-10182024000600168</a>
+</div>
+<div id="ref-Pek" class="csl-entry" role="listitem">
+Pek, T., &amp; Van Zandt, T. (2019). Frequentist and Bayesian approaches to to data analysis: Evaluation and estimation. <em><span>SageJournals</span></em>, <em>19</em>(1). <a href="https://doi.org/10.1177/1475725719874542">https://doi.org/10.1177/1475725719874542</a>
+</div>
+<div id="ref-Ramos-Vera" class="csl-entry" role="listitem">
+Ramos-Vera, C. A. (2021). El uso del factor Bayes en la investigación clínica de cardiología. <em>Revista Española de Cardiología</em>, <em>74</em>(7), 641-642. <a href="https://doi.org/10.1016/j.recesp.2021.01.013">https://doi.org/10.1016/j.recesp.2021.01.013</a>
+</div>
+<div id="ref-Visseren2021" class="csl-entry" role="listitem">
+Visseren, F. L. J., Mach, F., Smulders, Y. M., Carballo, D., Koskinas, K. C., Bäck, M., et al. (2021). 2021 <span>ESC</span> Guidelines on cardiovascular disease prevention in clinical practice. <em>European Heart Journal</em>, <em>42</em>(34), 3227-3337. <a href="https://doi.org/10.1093/eurheartj/ehab484">https://doi.org/10.1093/eurheartj/ehab484</a>
+</div>
+<div id="ref-WHO_obesity_2000" class="csl-entry" role="listitem">
+World Health Organization. (2000). <em>Obesity: Preventing and Managing the Global Epidemic</em> (WHO Technical Report Series 894). World Health Organization. <a href="https://apps.who.int/iris/handle/10665/42330">https://apps.who.int/iris/handle/10665/42330</a>
+</div>
+<div id="ref-WHO_ISH_2020" class="csl-entry" role="listitem">
+World Health Organization, &amp; International Society of Hypertension. (2020). <em><span>WHO/ISH</span> Global Hypertension Practice Guidelines</em>. World Health Organization. <a href="https://www.who.int/publications/i/item/9789240015111">https://www.who.int/publications/i/item/9789240015111</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+</body>
+
+</html>
