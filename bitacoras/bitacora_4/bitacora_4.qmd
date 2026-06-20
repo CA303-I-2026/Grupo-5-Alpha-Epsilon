@@ -37,6 +37,32 @@ language:
 
 # Parte de planificación
 
+## Ajuste de modelo
+
+**Análisis de sensibilidad a la distribución previa.** En la bitácora anterior se afirmó que la conclusión de evidencia extrema sería insensible a la elección de la previa. En esta iteración final se incorpora el cálculo explícito, completando la validación metodológica.
+
+Se recalcularon los cuatro Factores de Bayes bajo las tres escalas estándar de la previa de Cauchy JZS que ofrece el paquete `BayesFactor`: *medium* ($r = \sqrt{2}/2$, la empleada en el análisis principal), *wide* ($r = 1$) y *ultrawide* ($r = \sqrt{2}$).
+
+```{r}
+#| label: fig-sensibilidad
+#| echo: false
+#| fig-cap: "Sensibilidad del log10(BF) a la escala de la previa de Cauchy"
+grafico_sensibilidad
+```
+
+```{r}
+#| label: tbl-sensibilidad
+#| echo: false
+#| tbl-cap: "Rango de log10(BF10) entre escalas de la previa, por hipótesis"
+knitr::kable(rango_sensibilidad, digits = 3)
+```
+
+El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medium*) y la más permisiva (*ultrawide*) fue menor a 0,11 unidades en las cuatro hipótesis (presión sistólica: 0,033; presión diastólica: 0,090; extremos del gradiente: 0,099; correlación del gradiente: 0,108), frente a valores base de entre $10^{204}$ y $10^{3010}$. Esta variación es prácticamente nula en términos relativos, lo que confirma numéricamente que la conclusión de evidencia extrema **no depende de la elección de la previa** dentro del rango habitual de la literatura [@Ramos-Vera].
+
+## Fichas de resultados
+
+
+
 # Parte de escritura
 
 ## Escritura
