@@ -194,6 +194,65 @@ cat("\n====== Tabla resumen: Factores de Bayes ======\n")
 print(tabla_bf, n = Inf)
 
 # =============================================================================
+# Análisis de sensibilidad a la distribución previa
+# =============================================================================
+
+escalas <- c("medium", "wide", "ultrawide") # para funcion extractBF
+
+sensibilidad_lista <- lapply(escalas, function(r) {
+  bf_hi    <- extractBF(ttestBF(x = ap_hi_si, y = ap_hi_no, rscale = r), logbf = TRUE)$bf
+  bf_lo    <- extractBF(ttestBF(x = ap_lo_si, y = ap_lo_no, rscale = r), logbf = TRUE)$bf
+  bf_ext   <- extractBF(ttestBF(x = ecv_k3, y = ecv_k0, rscale = r), logbf = TRUE)$bf
+  bf_cor_r <- extractBF(correlationBF(y = cardio_num_sub, x = n_factores_sub, rscale = r), logbf = TRUE)$bf
+
+  tibble(
+    Escala   = r,
+    Prueba   = c("Presión sistólica",
+                 "Presión diastólica",
+                 "Extremos del gradiente",
+                 "Correlación gradiente ECV"),
+    log10_BF = c(bf_hi, bf_lo, bf_ext, bf_cor_r) / log(10)
+  )
+})
+
+tabla_sensibilidad <- bind_rows(sensibilidad_lista) %>%
+  mutate(Escala = factor(Escala, levels = escalas))
+
+cat("\n====== Sensibilidad de log10(BF) a la escala de la previa ======\n")
+print(tabla_sensibilidad, n = Inf)
+
+# Sensibilidad del rango de log10(BF) por hipótesis
+rango_sensibilidad <- tabla_sensibilidad %>%
+  group_by(Prueba) %>%
+  summarise(
+    min_log10BF = min(log10_BF),
+    max_log10BF = max(log10_BF),
+    rango       = max_log10BF - min_log10BF,
+    .groups = "drop"
+  )
+
+cat("\nRango de log10(BF) entre escalas:\n")
+print(rango_sensibilidad, n = Inf)
+
+# Gráfica de sensibilidad
+
+grafico_sensibilidad <- ggplot(
+  tabla_sensibilidad,
+  aes(x = Escala, y = log10_BF, group = Prueba, color = Prueba)
+) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2.5) +
+  facet_wrap(~ Prueba, scales = "free_y", ncol = 2) +
+  labs(
+    title    = "Sensibilidad de BF a la escala de la previa",
+    x        = "Escala de la previa de Cauchy (JZS)",
+    y        = expression(log[10](BF[10]))
+  ) +
+  theme(legend.position = "none") +
+  set_tipografia()
+
+
+# =============================================================================
 # Posteriores e intervalos de credibilidad
 # =============================================================================
 
