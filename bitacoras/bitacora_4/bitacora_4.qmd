@@ -1,0 +1,59 @@
+---
+title: "Bitácora #4"
+subtitle: "CA-0303 Estadística Actuarial I"
+author:
+  - name: "Oscar Espinoza  C32699"
+  - name: "Gerardo Montero  C05010"
+  - name: "Gabriel Robles  C36611"
+  - name: "César Salazar  C27103"
+
+date: today
+lang: es
+format:
+  html:
+    theme: cerulean
+    embed-resources: true
+  pdf:
+    toc: true
+    fig-pos: 'H'
+bibliography: ../../referencias/referencias.bib
+csl: ../../referencias/apa.csl
+number-sections: true
+editor: 
+  markdown: 
+    wrap: sentence
+header-includes:
+  - \usepackage{pdflscape}
+  - \usepackage{float}
+  - \usepackage{etoolbox}
+  - \pretocmd{\tableofcontents}{\clearpage}{}{}
+  - \apptocmd{\tableofcontents}{\clearpage}{}{}
+language:
+  label:
+    tbl: "Cuadro"
+---
+
+# Bitácora #3 {.unnumbered .unlisted}
+
+# Parte de planificación
+
+# Parte de escritura
+
+## Escritura
+
+## Conclusión
+
+## Introducción
+
+## Resumen
+
+## Ordenamiento final
+
+# Revisiones Finales
+
+\newpage
+
+# Referencias
+
+::: {#refs}
+:::
