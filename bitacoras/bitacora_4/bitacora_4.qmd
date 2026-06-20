@@ -61,7 +61,40 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medi
 
 ## Fichas de resultados
 
+**Ficha 1**
 
+- **Nivel descriptivo (qué encontraron)**
+
+**Titular:** Estabilidad de evidencia bayesiana ante previa.
+
+**Nombre del hallazgo/resultado:** Análisis de sensibilidad del Factor de Bayes a la escala de la previa de Cauchy (JZS), para las cuatro hipótesis evaluadas en el proyecto.
+
+**Resumen en una oración:** El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medium*) y la más permisiva (*ultrawide*) fue menor a 0,11 unidades en las cuatro hipótesis, frente a magnitudes base de entre $10^{204}$ y $10^{3010}$.
+
+**Método o análisis que lo produjo:** Recálculo de `ttestBF()` y `correlationBF()` bajo las tres escalas estándar de la previa JZS (*medium*, $r=\sqrt{2}/2$; *wide*, $r=1$; *ultrawide*, $r=\sqrt{2}$), extrayendo el Factor de Bayes en escala logarítmica (`extractBF(..., logbf = TRUE)`) para evitar el desbordamiento numérico de valores que exceden $10^{308}$.
+
+**Evidencia:** Tabla de rangos por hipótesis (@tbl-sensibilidad) y gráfico de paneles por hipótesis con escala libre (@fig-sensibilidad).
+
+| Prueba | $\min \log_{10}(\text{BF})$ | $\max \log_{10}(\text{BF})$ | Rango |
+|---|---|---|---|
+| Presión sistólica (`ap_hi`) | 3 010 | 3 010 | 0,033 |
+| Presión diastólica (`ap_lo`) | 1 833 | 1 833 | 0,090 |
+| Extremos del gradiente ($k=0$ vs $k\geq3$) | 2 351 | 2 351 | 0,099 |
+| Correlación gradiente ECV | 204 | 205 | 0,108 |
+
+: Rango de $\log_{10}(\text{BF}_{10})$ entre escalas de la previa, por hipótesis {#tbl-sensibilidad-ficha}
+
+- **Nivel analítico (qué significa)**
+
+**Conexión con la pregunta de investigación:** Las variaciones observadas (0,03 a 0,11 unidades de $\log_{10}(\text{BF})$) son insignificantes frente a la magnitud de la evidencia base, lo que descarta que las conclusiones de evidencia extrema reportadas en la bitácora anterior dependan de una elección subjetiva de la previa. Esto fortalece la validez de las cuatro hipótesis del proyecto, que están directamente relacionadas con la pregunta de investigación.
+
+**Contraste con la literatura:** El análisis de sensibilidad a la previa es una práctica estándar recomendada en inferencia bayesiana para descartar que los resultados sean un artefacto de los supuestos previos elegidos [@Ramos-Vera; @Armero].
+
+**Lo que NO explica este resultado:** El análisis solo varió la escala de la previa de Cauchy, no la familia de la previa en sí. Además, tampoco evalúa sensibilidad al tamaño de la submuestra usada en la correlación del gradiente.
+
+**Implicación para el siguiente paso:** Con la robustez de la previa confirmada, el análisis bayesiano del proyecto queda completamente validado. Falta incluir esta información en las conclusiones del proyecto.
+
+---
 
 # Parte de escritura
 
