@@ -123,6 +123,49 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medi
 
 **Implicación para el siguiente paso:** Con la robustez de la previa confirmada, el análisis bayesiano del proyecto queda completamente validado. Falta incluir esta información en las conclusiones del proyecto.
 
+**Ficha de modelación 2**
+
+---
+
+**Nivel descriptivo (qué encontraron)**
+
+**Titular:** La probabilidad posterior de que la prevalencia de ECV en la muestra sea compatible con la prevalencia poblacional de referencia es prácticamente cero.
+
+**Nombre del hallazgo/resultado:** Cuantificación formal, mediante la distribución posterior ya estimada en la Bitácora 3, de la incompatibilidad entre la prevalencia muestral ($\hat{\theta} = 0{,}4948$) y el rango de prevalencia poblacional de ECV reportado en la literatura (5%–15%, según @Damen).
+
+**Resumen en una oración:** Usando la distribución posterior $\text{Beta}(33\,884,\, 34\,592)$ estimada en la Ficha 6 de la Bitácora 3, la probabilidad acumulada de que la prevalencia real sea $\theta \leq 0{,}15$ es indistinguible de cero dentro de la precisión numérica de punto flotante de 64 bits de R.
+
+**Método o análisis que lo produjo:** Evaluación de la función de distribución acumulada de la posterior Beta-Bernoulli ya estimada (prior uniforme $\theta \sim \text{Beta}(1,1)$, $n = 68\,474$, $y = 33\,883$ casos positivos):
+
+$$
+P(\theta \leq 0{,}15 \mid \mathbf{x}) = 
+\int_0^{0{,}15} 
+\frac{\theta^{33\,883}(1-\theta)^{34\,590}}{B(33\,884,\,34\,592)}
+\, d\theta
+$$
+
+Calculado en R como `pbeta(0.15, 33884, 34592)`, que devuelve `0` por desbordamiento hacia abajo (*underflow*): el valor real es positivo pero menor que $10^{-308}$, límite inferior de la representación de 
+punto flotante de 64 bits. Este es el mismo fenómeno numérico, pero en dirección inversa, al que produjo el desbordamiento hacia arriba en los Factores de Bayes de la Bitácora 3.
+
+**Evidencia:** Distribución posterior $\text{Beta}(33\,884, 34\,592)$ de la Figura 8 (Bitácora 3); resultado de `pbeta(0.15, 33884, 34592)`.
+
+---
+
+**Nivel analítico (qué significa)**
+
+**Conexión con la pregunta de investigación:** Este resultado no contrasta una hipótesis sustantiva sobre ECV, sino que formaliza con rigor lo que la Bitácora 3 señaló solo descriptivamente en el Resultado 
+principal y en la Ficha 6: que la discrepancia entre la prevalencia muestral y la poblacional no es atribuible a variabilidad aleatoria. Con $n = 68\,474$ observaciones, el IC 95% de credibilidad sobre
+$\theta$ es $[0{,}4911;\, 0{,}4986]$, un intervalo tan estrecho que el valor de referencia poblacional ($\theta = 0{,}15$) queda a cientos de desviaciones estándar posteriores de la media estimada. El resultado respalda cuantitativamente la decisión, ya tomada en la Bitácora 3, de tratar los hallazgos del proyecto como evidencia interna a la muestra y no como estimaciones extrapolables directamente a la población general.
+
+**Contraste con la literatura:** @Damen reportan prevalencias poblacionales de ECV típicamente entre 5% y 15% en estudios de base comunitaria. La Bitácora 3 ya señaló esta discrepancia como limitación; este resultado la convierte de una observación descriptiva en una afirmación con respaldo cuantitativo dentro del mismo marco bayesiano usado en el resto del proyecto, lo que da coherencia metodológica a la limitación.
+
+**Lo que NO explica este resultado:** El cálculo confirma que la muestra no es representativa de la prevalencia poblacional, pero no identifica el mecanismo de selección que produjo esa sobrerrepresentación de casos (por ejemplo, si el dataset proviene de un registro clínico, un ensayo de tamizaje o una cohorte de alto riesgo), limitación ya reconocida en la Discusión de la Bitácora 3 al señalar que el origen geográfico y el proceso de recolección de `cardio_train.csv` no están documentados en la fuente original.
+
+**Implicación para el siguiente paso:** Este resultado debe incorporarse a la Discusión de la Bitácora 4 como respaldo cuantitativo de la limitación de generalización externa, sustituyendo la afirmación descriptiva de la Bitácora 3 por una con soporte numérico. Además, justifica recomendar en la Conclusión que trabajos futuros repliquen el análisis sobre muestras con prevalencia documentada y representativa, recomendación que ahora tiene fundamento estadístico explícito y no solo cualitativo.
+
+
+
+
 **Ficha 4**
 
 **Nivel descriptivo (qué encontraron)**
