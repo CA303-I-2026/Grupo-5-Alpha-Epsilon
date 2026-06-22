@@ -122,7 +122,7 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (mediu
 
 **Nivel analítico.** Las variaciones observadas son insignificantes frente a la magnitud de la evidencia base, por lo que se descarta que las conclusiones dependan de una elección subjetiva de la previa. El resultado fortalece la validez de las cuatro hipótesis y coincide con la recomendación de reportar sensibilidad a la previa en análisis bayesianos [@Ramos-Vera; @Armero]. Este resultado no evalúa otras familias de previas ni la sensibilidad al tamaño de la submuestra usada en la correlación del gradiente, pero sí deja metodológicamente respaldado el análisis principal.
 
-### Ficha de modelación 2
+### Ficha 2
 
 **Nivel descriptivo.**  
 **Titular:** La prevalencia de ECV en la muestra es incompatible con una prevalencia poblacional típica.  
@@ -133,7 +133,7 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (mediu
 
 **Nivel analítico.** Este resultado formaliza que la discrepancia entre la prevalencia muestral y la poblacional no es atribuible a variabilidad aleatoria. Con $n=68.474$, el IC 95% de credibilidad para $\theta$ es $[0{,}4911;0{,}4986]$, muy lejos del valor de referencia $\theta=0{,}15$. Por tanto, los hallazgos deben interpretarse como evidencia interna a la muestra, no como estimaciones extrapolables directamente a la población general. El cálculo no identifica el mecanismo de selección del dataset, pero justifica recomendar replicaciones con muestras de prevalencia documentada.
 
-### Ficha de modelación 3
+### Ficha 3
 
 **Nivel descriptivo.**  
 **Titular:** El gradiente acumulado de factores de riesgo mantiene una asociación robusta con la ECV aun bajo ajuste computacional.  
