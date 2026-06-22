@@ -8,7 +8,7 @@ author:
   - name: "César Salazar C27103"
 date: today
 lang: es
-fontsize: 12pt
+fontsize: 13pt
 geometry: margin=1in
 linestretch: 1.18
 format:
@@ -18,7 +18,7 @@ format:
     include-in-header:
       text: |
         <style>
-          body { font-size: 17px; line-height: 1.65; }
+          body { font-size: 15px; line-height: 1.25; }
           main, .content { max-width: 980px; }
           p { margin-bottom: 0.95rem; }
           li { margin-bottom: 0.35rem; }
@@ -61,23 +61,22 @@ language:
     tbl: "Cuadro"
 ---
 
-# Bitácora #4 {.unnumbered .unlisted}
-
+\newpage
 # Resumen / *Abstract*
 
-Se analizaron 68.474 registros de `cardio_train.csv` para evaluar si la presión arterial y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular (ECV), usando inferencia bayesiana como alternativa al rechazo automático de hipótesis con muestras grandes. Se contrastaron cuatro hipótesis: diferencias de presión sistólica y diastólica entre personas con y sin ECV, correlación entre un índice acumulado de factores de riesgo (hipertensión, obesidad, colesterol elevado y edad ≥55 años) y ECV, y diferencia de prevalencia entre los extremos del índice. Se calcularon Factores de Bayes con `ttestBF()` y `correlationBF()` del paquete `BayesFactor` (escala JZS, $r=\sqrt{2}/2$), se estimaron distribuciones posteriores e intervalos de credibilidad al 95% vía MCMC, y se verificó la sensibilidad de los resultados ante distintas escalas de la previa. Las cuatro hipótesis mostraron evidencia bayesiana extrema ($\log_{10}(\text{BF}_{10})$ entre 181 y 3.009): la presión sistólica fue 14,28 mmHg mayor en pacientes con ECV, la diastólica 6,42 mmHg mayor, y la prevalencia de ECV aumentó de 22,8% con cero factores a 83,6% con cuatro factores. La evidencia respalda una estratificación actuarial del riesgo dentro de esta muestra, aunque la prevalencia atípica del dataset (49,5%) limita su generalización directa a la población general.
+**Antecedentes** - La enfermedad cardiovascular (ECV) es una de las principales causas de mortalidad a nivel global y su evaluación de riesgo suele basarse en pruebas frecuentistas que, con muestras grandes, casi siempre rechazan la hipótesis nula independientemente de la relevancia clínica del hallazgo. La inferencia bayesiana, a través del Factor de Bayes, ofrece una alternativa que cuantifica directamente la fuerza de la evidencia a favor de una hipótesis sobre otra, sin ese sesgo asociado al tamaño muestral. **Métodos** - Se analizaron 68.474 registros de `cardio_train.csv` para evaluar si la presión arterial y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular (ECV), usando inferencia bayesiana como alternativa al rechazo automático de hipótesis con muestras grandes. Se contrastaron cuatro hipótesis: diferencias de presión sistólica y diastólica entre personas con y sin ECV, correlación entre un índice acumulado de factores de riesgo (hipertensión, obesidad, colesterol elevado y edad ≥55 años) y ECV, y diferencia de prevalencia entre los extremos del índice. Se calcularon Factores de Bayes con `ttestBF()` y `correlationBF()` del paquete `BayesFactor` (escala JZS, $r=\sqrt{2}/2$), se estimaron distribuciones posteriores e intervalos de credibilidad al 95% vía MCMC, y se verificó la sensibilidad de los resultados ante distintas escalas de la previa. **Resultados** - Las cuatro hipótesis mostraron evidencia bayesiana extrema ($\log_{10}(\text{BF}_{10})$ entre 181 y 3.009): la presión sistólica fue 14,28 mmHg mayor en pacientes con ECV, la diastólica 6,42 mmHg mayor, y la prevalencia de ECV aumentó de 22,8% con cero factores a 83,6% con cuatro factores. **Conclusión** - La evidencia respalda una estratificación actuarial del riesgo dentro de esta muestra. A pesar de esto, la prevalencia atípica del dataset (49,5%) limita su generalización directa a la población general.
 
-*We analyzed 68,474 records from `cardio_train.csv` to evaluate Bayesian evidence linking blood pressure and cumulative clinical risk factors with cardiovascular disease (CVD). Four hypotheses were assessed using Bayes Factors from `ttestBF()` and `correlationBF()` in the `BayesFactor` R package, posterior distributions, 95% credibility intervals, and prior-sensitivity checks. All four hypotheses showed extreme Bayesian evidence: systolic blood pressure was 14.28 mmHg higher among individuals with CVD, diastolic pressure was 6.42 mmHg higher, and CVD prevalence increased from 22.8% with zero risk factors to 83.6% with four. These findings support actuarial risk stratification within this sample, although the dataset's atypical CVD prevalence (49.5%) limits direct generalization to the general population.*
+**Palabras clave**
 
-# Palabras clave
+Factor de Bayes, enfermedad cardiovascular, presión arterial, inferencia bayesiana, riesgo actuarial.
 
-Factor de Bayes; enfermedad cardiovascular; presión arterial; inferencia bayesiana; riesgo actuarial.
+\newpage
 
 # Introducción
 
 Cada año, las enfermedades cardiovasculares cobran más vidas que cualquier otra causa en el mundo y, sin embargo, la decisión de si una persona enfrenta un riesgo elevado suele depender de umbrales fijos que no siempre comunican cuánta evidencia existe detrás de un diagnóstico. Esta tensión motiva el proyecto: pasar de describir factores asociados a cuantificar la evidencia que respalda esas asociaciones, especialmente cuando los resultados pueden incidir en decisiones actuariales de seguros de vida y salud.
 
-Este trabajo evalúa, mediante inferencia bayesiana, la fuerza de la evidencia que vincula la presión arterial sistólica y diastólica, junto con la acumulación de factores de riesgo clínicos clásicos —hipertensión, obesidad, colesterol elevado y edad avanzada—, con la presencia de enfermedad cardiovascular. El análisis se realiza sobre 68.474 registros del conjunto de datos de Kaggle `cardio_train.csv`, una muestra de adultos con variables clínicas y de estilo de vida. El origen geográfico y temporal exacto de estos datos no está documentado en la fuente original, por lo que la generalización externa se trata como una limitación central.
+Este trabajo evalúa, mediante inferencia bayesiana, la fuerza de la evidencia que vincula la presión arterial sistólica y diastólica, junto con la acumulación de factores de riesgo clínicos clásicos. El análisis se realiza sobre 68.474 registros del conjunto de datos de Kaggle `cardio_train.csv`, una muestra de adultos con variables clínicas y de estilo de vida. El origen geográfico y temporal exacto de estos datos no está documentado en la fuente original, por lo que la generalización externa se trata como una limitación central.
 
 La relevancia metodológica del estudio se basa en que, con tamaños muestrales grandes, las pruebas frecuentistas tienden a rechazar la hipótesis nula incluso cuando la magnitud práctica puede ser limitada [@Pek]. El Factor de Bayes, en cambio, cuantifica directamente cuánto más verosímiles son los datos bajo una hipótesis que bajo otra, ofreciendo una métrica de evidencia útil para decisiones clínicas y actuariales [@Ramos-Vera; @Armero]. La pregunta central es: ¿qué tan fuerte es la evidencia de que la presión arterial y el perfil acumulado de riesgo se asocian con la ECV, y qué tan robusta es esa evidencia frente a decisiones de modelación? El documento presenta la metodología, los resultados, la discusión, las conclusiones, los agradecimientos, las revisiones finales y las referencias.
 
@@ -85,7 +84,7 @@ La relevancia metodológica del estudio se basa en que, con tamaños muestrales 
 
 ## Datos, variables y estrategia de análisis
 
-El análisis utiliza 68.474 registros del conjunto `cardio_train.csv`. La variable de respuesta es la presencia de enfermedad cardiovascular (ECV), codificada de forma binaria. Las variables clínicas centrales son la presión arterial sistólica (`ap_hi`), la presión arterial diastólica (`ap_lo`) y un índice acumulado de factores de riesgo construido a partir de hipertensión, obesidad, colesterol elevado y edad mayor o igual a 55 años. Este índice resume el perfil de riesgo en una escala de $k=0$ a $k=4$.
+ La variable de respuesta es la presencia de enfermedad cardiovascular (ECV), codificada de forma binaria. Las variables clínicas centrales son la presión arterial sistólica (`ap_hi`), la presión arterial diastólica (`ap_lo`) y un índice acumulado de factores de riesgo construido a partir de hipertensión, obesidad, colesterol elevado y edad mayor o igual a 55 años. Este índice resume el perfil de riesgo en una escala de $k=0$ a $k=4$.
 
 La estrategia de modelación se basa en cuatro contrastes bayesianos: diferencias de presión sistólica entre personas con y sin ECV, diferencias de presión diastólica entre esos mismos grupos, asociación entre el índice acumulado de factores de riesgo y la presencia de ECV, y contraste entre los extremos del gradiente de riesgo. Para los contrastes de medias se utilizó `ttestBF()` y para la asociación entre variables se utilizó `correlationBF()`, ambos del paquete `BayesFactor`.
 
@@ -93,13 +92,11 @@ El enfoque bayesiano se eligió porque permite cuantificar la evidencia relativa
 
 ## Ajuste de modelo
 
-En la bitácora anterior se afirmó que la conclusión de evidencia extrema sería insensible a la elección de la previa. En esta iteración final se incorpora el cálculo explícito, completando la validación metodológica.
+En esta iteración final se incorpora el cálculo explícito de la evidencia extrema siendo insensible a la elección de la previa, completando la validación metodológica.
 
 Se recalcularon los cuatro Factores de Bayes bajo las tres escalas estándar de la previa de Cauchy JZS que ofrece el paquete `BayesFactor`: medium ($r=\sqrt{2}/2$, empleada en el análisis principal), wide ($r=1$) y ultrawide ($r=\sqrt{2}$).
 
 El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (medium) y la más permisiva (ultrawide) fue menor a 0,11 unidades en las cuatro hipótesis: presión sistólica (0,033), presión diastólica (0,090), extremos del gradiente (0,099) y correlación del gradiente (0,108). Esta variación es prácticamente nula frente a valores base de $10^{204}$ a $10^{3010}$, lo que confirma que la conclusión de evidencia extrema no depende de la elección de la previa dentro del rango habitual de la literatura [@Ramos-Vera].
-
-\newpage
 
 # Resultados
 
@@ -115,7 +112,7 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (mediu
 **Evidencia:** La @tbl-sensibilidad-ficha resume la estabilidad de la evidencia.
 
 | Prueba | $\min \log_{10}(\text{BF})$ | $\max \log_{10}(\text{BF})$ | Rango |
-|:------|-----------------------------:|-----------------------------:|------:|
+|:-------------|------------------:|-----------------------------:|------:|
 | Presión sistólica (`ap_hi`) | 3.010 | 3.010 | 0,033 |
 | Presión diastólica (`ap_lo`) | 1.833 | 1.833 | 0,090 |
 | Extremos del gradiente ($k=0$ vs. $k\geq 3$) | 2.351 | 2.351 | 0,099 |
@@ -158,9 +155,8 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (mediu
 
 **Nivel analítico.** Este resultado no contrasta una hipótesis nueva sobre ECV, sino que cuantifica formalmente la limitación de generalización externa. La diferencia con la prevalencia poblacional es estadísticamente real, pero el cálculo no identifica la causa de la sobrerrepresentación de casos. Por ello, el hallazgo queda incorporado como respaldo cuantitativo de la principal limitación del proyecto y justifica recomendar futuras aplicaciones con muestras poblacionales documentadas.
 
-\newpage
 
-# Discusión
+# Discusión de resultados
 
 Los resultados muestran una señal coherente entre evidencia estadística, magnitud clínica e interpretación actuarial. Las diferencias de presión arterial son amplias y los Factores de Bayes no solo rechazan un escenario nulo, sino que cuantifican una ventaja extrema de las hipótesis alternativas. Además, el gradiente acumulado de factores de riesgo traduce variables clínicas simples en una regla de estratificación que puede comunicar riesgo de forma clara a una audiencia actuarial.
 
@@ -175,8 +171,6 @@ La metodología resolvió la pregunta al combinar Factores de Bayes, distribucio
 # Agradecimientos
 
 Agradecemos al profesor Maikol Solís por la guía metodológica y la retroalimentación brindada durante el desarrollo de las bitácoras, así como las discusiones internas del grupo que ayudaron a depurar la pregunta, la modelación y la interpretación actuarial de los resultados.
-
-\newpage
 
 # Revisiones finales
 
@@ -201,6 +195,7 @@ Se revisaron las claves de citación usadas en el documento y se confirmó que l
 | Óscar Espinoza | Pulido de metodología y resultados, Ficha de modelación 3, revisión LanguageTool + refcheck |
 | Gabriel Robles | Ficha de modelación 4, introducción reestructurada, resumen / abstract, ordenamiento final, log de contribuciones |
 
+\newpage
 
 # Referencias
 
