@@ -1,6 +1,6 @@
 ---
 title: "Bitácora #4"
-subtitle: "CA-0303 Estadística Actuarial I"
+subtitle: "CA-0303 Estadística Actuarial I" 
 author:
   - name: "Oscar Espinoza  C32699"
   - name: "Gerardo Montero  C05010"
