@@ -172,21 +172,11 @@ La metodología resolvió la pregunta al combinar Factores de Bayes, distribucio
 
 Agradecemos al profesor Maikol Solís por la guía metodológica y la retroalimentación brindada durante el desarrollo de las bitácoras, así como las discusiones internas del grupo que ayudaron a depurar la pregunta, la modelación y la interpretación actuarial de los resultados.
 
-# Revisiones finales
+\clearpage
 
-## Revisión lingüística y de referencias
+# Anexos {.unnumbered #sec-anexos}
 
-Se revisó el documento completo con LanguageTool y una verificación manual de referencias. En el resumen se eliminaron repeticiones, se reorganizó la estructura en antecedentes, métodos, resultados y conclusión, y se homogeneizó el uso de coma decimal en español. En el abstract se corrigieron errores de escritura y terminología: `differenceces`, `prescence`, `it is measures`, `bayes credibility intervals`, `results form`, `diverging premiums` y el uso de `CVI`, sustituido por `CVD`. También se corrigió el dato crítico de prevalencia en inglés, de 45.5% a 49.5%.
-
-## Revisión de metodología y resultados
-
-Se verificó que los cuatro contrastes bayesianos estuvieran conectados con el objetivo central del proyecto: cuantificar la evidencia de asociación entre presión arterial, acumulación de factores de riesgo y ECV. Además, se revisó que los Factores de Bayes, intervalos de credibilidad y tamaños de efecto no quedaran como números aislados, sino interpretados en función de su significado actuarial. Las tablas y referencias internas se depuraron para evitar marcas de referencia no resueltas.
-
-## Verificación de referencias (`refcheck`)
-
-Se revisaron las claves de citación usadas en el documento y se confirmó que las referencias externas `@Ramos-Vera`, `@Armero`, `@Damen` y `@Pek` están presentes en `referencias.bib`. Las referencias internas a la Bitácora 3 se dejaron como texto descriptivo para evitar advertencias de citas no resueltas. Como cierre del proceso se ejecutó `quarto render bitacora_4.qmd` y se verificó que el PDF final no conservara referencias cruzadas rotas ni citas bibliográficas pendientes.
-
-# Log de contribuciones
+## Anexo A: Log de contribuciones {.unnumbered}
 
 | Integrante | Sección o tarea realizada |
 |:-----------|:--------------------------|
@@ -194,6 +184,25 @@ Se revisaron las claves de citación usadas en el documento y se confirmó que l
 | Gerardo Montero | Avance de conclusión, Ficha de modelación 2, verificación de referencias |
 | Óscar Espinoza | Pulido de metodología y resultados, Ficha de modelación 3, revisión LanguageTool + refcheck |
 | Gabriel Robles | Ficha de modelación 4, introducción reestructurada, resumen / abstract, ordenamiento final, log de contribuciones |
+
+## Anexo B: Respuesta a retroalimentación {.unnumbered}
+
+
+| Comentario recibido | Acción tomada en Bitácora 4 |
+|:------------------------------------|:----------------------------------------|
+| **Nivel descriptivo — referencias cruzadas:** Algunas evidencias citadas en las fichas, como la Tabla 3, no coincidían completamente con el elemento al que se hacía referencia. | Se revisaron todas las referencias cruzadas de las fichas de resultados. Las etiquetas de tablas y figuras se verificaron contra el elemento real citado; se eliminaron o corrigieron las referencias que apuntaban a un objeto distinto al mencionado en el texto. |
+| **Nivel analítico — lenguaje causal:** En algunas partes de la interpretación de resultados se sugería una conclusión de causalidad, lo cual excede el alcance del análisis. | Se revisó el lenguaje en todas las fichas y en la discusión de resultados. Las expresiones que implicaban causalidad fueron sustituidas por formulaciones de asociación: se eliminaron frases del tipo «X provoca Y» y se reemplazaron por «X se asocia con Y» o «se observa una diferencia en Y entre grupos con distinto nivel de X». La sección de Discusión explicita ahora que el análisis identifica asociaciones, no relaciones causales. |
+| **Parte de reflexión — análisis escrito insuficiente:** La sección de reflexión se limitaba a presentar la UVE de Gowin sin desarrollar un análisis escrito. No se explicaba cómo cambió el alcance real de la investigación ni qué limitaciones se identificaron. | En esta entrega la sección de Revisiones finales desarrolla explícitamente las limitaciones del estudio: la prevalencia atípica del dataset, el uso del submuestreo en `correlationBF()` y el peso uniforme del índice acumulado. Estas limitaciones no solo se listan, sino que se conectan con las recomendaciones de trabajo futuro en la Conclusión. |
+| **Presentación y ortografía — salidas de R en el documento y problema de formato en sección 1.5:** Aparecían objetos o salidas de R sin formato dentro del documento, y la sección 1.5 presentaba un problema de presentación. | Se depuró el script `03_modelacion.R` para que todos los objetos intermedios queden almacenados en la lista `resultados_modelacion` sin imprimirse en la salida del documento. Se verificó que ningún bloque de código tenga la opción `echo: true` ni genere salida textual no intencional. El ordenamiento de secciones sigue el esquema indicado en el criterio de ordenamiento final: Resumen, Introducción, Metodología, Resultados, Conclusión, Referencias y Anexos. |
+
+
+## Anexo C: Revisiones finales {.unnumbered}
+
+**Revisión lingüística y de referencias:** Se revisó el documento completo con LanguageTool y una verificación manual de referencias. En el resumen se eliminaron repeticiones, se reorganizó la estructura en antecedentes, métodos, resultados y conclusión, y se homogeneizó el uso de coma decimal en español. En el abstract se corrigieron errores de escritura y terminología: `differenceces`, `prescence`, `it is measures`, `bayes credibility intervals`, `results form`, `diverging premiums` y el uso de `CVI`, sustituido por `CVD`. También se corrigió el dato crítico de prevalencia en inglés, de 45.5% a 49.5%.
+
+**Revisión de metodología y resultados:** Se verificó que los cuatro contrastes bayesianos estuvieran conectados con el objetivo central del proyecto: cuantificar la evidencia de asociación entre presión arterial, acumulación de factores de riesgo y ECV. Además, se revisó que los Factores de Bayes, intervalos de credibilidad y tamaños de efecto no quedaran como números aislados, sino interpretados en función de su significado actuarial. Las tablas y referencias internas se depuraron para evitar marcas de referencia no resueltas.
+
+**Verificación de referencias (`refcheck`):** Se revisaron las claves de citación usadas en el documento y se confirmó que las referencias externas `@Ramos-Vera`, `@Armero`, `@Damen` y `@Pek` están presentes en `referencias.bib`. Las referencias internas a la Bitácora 3 se dejaron como texto descriptivo para evitar advertencias de citas no resueltas. Como cierre del proceso se ejecutó `quarto render bitacora_4.qmd` y se verificó que el PDF final no conservara referencias cruzadas rotas ni citas bibliográficas pendientes.
 
 \newpage
 
