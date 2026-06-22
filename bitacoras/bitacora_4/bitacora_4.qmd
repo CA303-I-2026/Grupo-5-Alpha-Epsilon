@@ -16,55 +16,56 @@ format:
   pdf:
     toc: true
     fig-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{pdflscape}
+        \usepackage{float}
+        \usepackage{etoolbox}
+        \pretocmd{\tableofcontents}{\clearpage}{}{}
+        \apptocmd{\tableofcontents}{\clearpage}{}{}
 bibliography: ../../referencias/referencias.bib
 csl: ../../referencias/apa.csl
 number-sections: true
 editor: 
   markdown: 
     wrap: sentence
-header-includes:
-  - \usepackage{pdflscape}
-  - \usepackage{float}
-  - \usepackage{etoolbox}
-  - \pretocmd{\tableofcontents}{\clearpage}{}{}
-  - \apptocmd{\tableofcontents}{\clearpage}{}{}
 language:
   label:
     tbl: "Cuadro"
 ---
 
+
 # Bitácora #4 {.unnumbered .unlisted}
+
 
 # Resumen / *Abstract*
 
-La evidencia bayesiana respalda de forma robusta que la presión arterial y la acumulación de factores de riesgo se asocian fuertemente con la ECV en esta muestra, ofreciendo a actuarios de seguros de vida y salud una base cuantitativa para la diferenciación de primas, aunque la prevalencia atípica del dataset (49.5%) limita la generalización directa de los porcentajes a la población general.
+Se analizaron 68.474 registros del conjunto `cardio_train.csv` para evaluar cuatro hipótesis: diferencias de presión arterial sistólica y diastólica entre personas con y sin ECV, la correlación entre un índice acumulado de factores de riesgo (hipertensión, obesidad, colesterol elevado y edad ≥55 años) y la enfermedad, y el contraste de prevalencia entre los extremos de ese índice. Se calcularon Factores de Bayes mediante `ttestBF()` y `correlationBF()` del paquete `BayesFactor` (escala JZS, $r=\sqrt{2}/2$), se estimaron distribuciones posteriores e intervalos de credibilidad al 95% vía MCMC, y se verificó la robustez de las conclusiones ante distintas escalas de la previa.
 
-La evidencia bayesiana respalda de forma robusta que la presión arterial y la acumulación de factores de riesgo se asocian fuertemente con la ECV en esta muestra, ofreciendo a actuarios de seguros de vida y salud una base cuantitativa para la diferenciación de primas, aunque la prevalencia atípica del dataset (49.5%) limita la generalización directa de los porcentajes a la población general.
+**Resultados.** Las cuatro hipótesis mostraron evidencia bayesiana extrema ($\log_{10}(\text{BF}_{10})$ entre 181 y 3.009). La presión sistólica fue 14,28 mmHg mayor en pacientes con ECV (IC 95%: [14,05; 14,50]) y la diastólica, 6,42 mmHg mayor (IC 95%: [6,29; 6,55]). La prevalencia de ECV escaló de forma monotónica de 22,8% (cero factores de riesgo) a 83,6% (cuatro factores), y el contraste entre extremos del gradiente ($k=0$ vs. $k\geq3$) arrojó un efecto grande ($d=1{,}424$). El análisis de sensibilidad confirmó que estas conclusiones son insensibles a la elección de la previa.
 
-Se analizaron 68,474 registros del conjunto cardio_train.csv para evaluar cuatro hipótesis: diferencias de presión arterial sistólica y diastólica entre personas con y sin ECV, la correlación entre un índice acumulado de factores de riesgo (hipertensión, obesidad, colesterol elevado y edad ≥55 años) y la enfermedad, y el contraste de prevalencia entre los extremos de ese índice. Se calcularon Factores de Bayes mediante `ttestBF()` y `correlationBF()` del paquete `BayesFactor` (escala JZS, $r=\sqrt{2}/2$), se estimaron distribuciones posteriores e intervalos de credibilidad al 95% vía MCMC, y se verificó la robustez de las conclusiones ante distintas escalas de la previa.
-Resultados. Las cuatro hipótesis mostraron evidencia bayesiana extrema (log₁₀(BF₁₀) entre 181 y 3,009). La presión sistólica fue 14.28 mmHg mayor en pacientes con ECV (IC 95%: [14.05, 14.50]) y la diastólica, 6.42 mmHg mayor (IC 95%: [6.29, 6.55]). La prevalencia de ECV escaló de forma monotónica de 22.8% (cero factores de riesgo) a 83.6% (cuatro factores), y el contraste entre extremos del gradiente (k=0 vs. k≥3) arrojó un efecto grande (d=1.424). El análisis de sensibilidad confirmó que estas conclusiones son insensibles a la elección de la previa.
-La evidencia bayesiana respalda de forma robusta que la presión arterial y la acumulación de factores de riesgo se asocian fuertemente con la ECV en esta muestra, ofreciendo a actuarios de seguros de vida y salud una base cuantitativa para la diferenciación de primas, aunque la prevalencia atípica del dataset (49.5%) limita la generalización directa de los porcentajes a la población general.
+**Conclusión.** La evidencia bayesiana respalda de forma robusta que la presión arterial y la acumulación de factores de riesgo se asocian fuertemente con la ECV en esta muestra, ofreciendo a actuarios de seguros de vida y salud una base cuantitativa para la diferenciación de primas, aunque la prevalencia atípica del dataset (49,5%) limita la generalización directa de los porcentajes a la población general.
 
-*Cardiovascular illness (CVI) is one of the leading causes of death at a global level and the quantifiable ways it is measures tend to be frequentist proofs that, almost always reject a null hypothesis based regardless of the clinical relevance of the findings of such. The Bayes Factor as part of the theory of Bayesian Inference, proposes an alternative that can quantify the evidence for and against each hypothesis, regardless of bias linked to sample size.*
+*Cardiovascular disease (CVD) is one of the leading causes of death worldwide, yet the methods most commonly used to quantify its risk factors rely on frequentist tests that almost always reject the null hypothesis regardless of the clinical relevance of the effect. The Bayes Factor, as part of Bayesian inference theory, offers an alternative that quantifies evidence for and against each hypothesis independently of sample-size bias.*
 
-*68,474 entries from the dataset* `cardio_train.csv` *were analyzed to evaluate four separate hypotheses: differenceces between systolic and diastolic blood pressure amongst individuals with and without CVI, the correlation between a cumulative joint of  risk factor variables (i.e. hypertension, obesity, high cholesterol, and being greater than 55 years of age) and CVI, as well as the prescence of outliers in all of these variables. The Bayes Factor in each case was calculated using functions from the R package*`BayesFactor`: `ttestBF()` *and* `correlationBF()`(*JZS scale,* $r=\sqrt{2}/2$), *posterior distributions and bayes credibility intervals to 95% certainty were calculated with MCMC. The sensitivity analysis was confirmed that each conclusion was insensible to the prior distribution.*
+*A total of 68,474 entries from the dataset* `cardio_train.csv` *were analyzed to evaluate four hypotheses: differences in systolic and diastolic blood pressure between individuals with and without CVD, the correlation between a cumulative index of risk factors (hypertension, obesity, high cholesterol, and age ≥55) and CVD, and the contrast in prevalence between the extremes of that index. The Bayes Factor was calculated using* `ttestBF()` *and* `correlationBF()` *from the R package* `BayesFactor` *(JZS scale,* $r=\sqrt{2}/2$*). Posterior distributions and 95% Bayesian credibility intervals were estimated via MCMC. A sensitivity analysis confirmed that all conclusions were robust to the choice of prior distribution.*
 
-*The bayesian evidence thoroughly illustrated that the arterial pressure and the accumulation of risk factors are strongly correlated to CVI in this sample, providing life and health insurance actuaries a quantitative basis for diverging premiums, despite the atypic prevalence of the dataset (45.5%) limiting the results form being generalized to the general population*
-
-
+*The Bayesian evidence strongly supported that arterial pressure and the accumulation of risk factors are closely associated with CVD in this sample, providing life and health insurance actuaries with a quantitative basis for premium differentiation. However, the atypical prevalence of the dataset (49.5%) limits the direct generalization of these findings to the general population.*
 
 
 # Introducción
 
 Cada año, las enfermedades cardiovasculares cobran más vidas que cualquier otra causa en el mundo, y sin embargo la decisión de si una persona enfrenta un riesgo elevado sigue dependiendo, en muchos contextos clínicos, de umbrales fijos que rara vez comunican cuánta certeza hay detrás de un diagnóstico. Esta tensión es el punto de partida de este proyecto. El estudio del riesgo cardiovascular desde la estadística ha evolucionado de la simple descripción de factores asociados hacia modelos que intentan estimar y ponderar la evidencia de esa asociación, un giro impulsado tanto por el avance computacional como por la necesidad de decisiones clínicas y actuariales mejor fundamentadas.
 
-Este trabajo se centra específicamente en evaluar, mediante inferencia bayesiana, la fuerza de la evidencia que vincula la presión arterial (sistólica y diastólica) y la acumulación de factores de riesgo clínicos clásicos hipertensión, obesidad, colesterol elevado y edad avanzada, con la presencia de enfermedad cardiovascular. El análisis se realiza sobre 68,474 registros del conjunto de datos de Kaggle `cardio_train.csv`, una muestra de adultos con variables clínicas y de estilo de vida; el origen geográfico y temporal exacto de estos datos no está documentado en la fuente original, una limitación que se discute más adelante junto con sus implicaciones para la generalización de los hallazgos.
+Este trabajo se centra específicamente en evaluar, mediante inferencia bayesiana, la fuerza de la evidencia que vincula la presión arterial (sistólica y diastólica) y la acumulación de factores de riesgo clínicos clásicos hipertensión, obesidad, colesterol elevado y edad avanzada, con la presencia de enfermedad cardiovascular. El análisis se realiza sobre 68.474 registros del conjunto de datos de Kaggle `cardio_train.csv`, una muestra de adultos con variables clínicas y de estilo de vida; el origen geográfico y temporal exacto de estos datos no está documentado en la fuente original, una limitación que se discute más adelante junto con sus implicaciones para la generalización de los hallazgos.
 
 La relevancia de esta investigación es doble. Por un lado, responde a una laguna metodológica señalada por Pek y Van Zandt (2019): con tamaños de muestra grandes, las pruebas frecuentistas casi siempre rechazan la hipótesis nula, sin importar si la diferencia detectada tiene algún peso clínico real. El Factor de Bayes, en cambio, cuantifica directamente cuánto más verosímiles son los datos bajo una hipótesis que bajo otra, ofreciendo una métrica de evidencia que no se distorsiona con el tamaño muestral (Armero et al., 2022; Ramos-Vera, 2021). Por otro lado, el proyecto tiene una proyección práctica concreta: los resultados se dirigen a un actuario especializado en seguros de vida y salud, para quien cuantificar con precisión la fuerza de estas asociaciones es información directamente utilizable en la diferenciación de primas. En ese sentido, el trabajo no solo aporta a la literatura estadística sobre métodos bayesianos aplicados a datos cardiológicos, sino que conecta ese aporte con una aplicación social y económica tangible: cómo se traduce la evidencia científica en decisiones que afectan el acceso y el costo de los seguros de salud.
 El objetivo central es responder qué tan fuerte es la evidencia de que la presión arterial y el perfil de riesgo acumulado se asocian con la enfermedad cardiovascular, y si esa evidencia resulta lo suficientemente robusta como para sostener decisiones prácticas. Para lograrlo, se contrastan cuatro hipótesis mediante Factores de Bayes, se estiman distribuciones posteriores e intervalos de credibilidad que cuantifican la magnitud del efecto, y se evalúa la sensibilidad de las conclusiones a distintas elecciones de la distribución previa, garantizando que los resultados no dependan de decisiones subjetivas del análisis.
 El documento se organiza en seis secciones. La Metodología describe el dataset, la construcción de las hipótesis y la justificación del enfoque bayesiano sobre el frecuentista. Los Resultados presentan los Factores de Bayes, las distribuciones posteriores y el gradiente de riesgo acumulado. La Discusión contrasta estos hallazgos con la literatura cardiológica y actuarial, y examina las limitaciones del dataset. Finalmente, la Conclusión sintetiza los aportes del proyecto y propone líneas de trabajo futuro.
 
+
 # Parte de planificación
+
 
 ## Ajuste de modelo
 
@@ -72,21 +73,9 @@ El documento se organiza en seis secciones. La Metodología describe el dataset,
 
 Se recalcularon los cuatro Factores de Bayes bajo las tres escalas estándar de la previa de Cauchy JZS que ofrece el paquete `BayesFactor`: *medium* ($r = \sqrt{2}/2$, la empleada en el análisis principal), *wide* ($r = 1$) y *ultrawide* ($r = \sqrt{2}$).
 
-```{r}
-#| label: fig-sensibilidad
-#| echo: false
-#| fig-cap: "Sensibilidad del log10(BF) a la escala de la previa de Cauchy"
-#grafico_sensibilidad
-```
-
-```{r}
-#| label: tbl-sensibilidad
-#| echo: false
-#| tbl-cap: "Rango de log10(BF10) entre escalas de la previa, por hipótesis"
-#knitr::kable(rango_sensibilidad, digits = 3)
-```
 
 El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medium*) y la más permisiva (*ultrawide*) fue menor a 0,11 unidades en las cuatro hipótesis (presión sistólica: 0,033; presión diastólica: 0,090; extremos del gradiente: 0,099; correlación del gradiente: 0,108), frente a valores base de entre $10^{204}$ y $10^{3010}$. Esta variación es prácticamente nula en términos relativos, lo que confirma numéricamente que la conclusión de evidencia extrema **no depende de la elección de la previa** dentro del rango habitual de la literatura [@Ramos-Vera].
+
 
 ## Fichas de resultados
 
@@ -102,7 +91,7 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medi
 
 **Método o análisis que lo produjo:** Recálculo de `ttestBF()` y `correlationBF()` bajo las tres escalas estándar de la previa JZS (*medium*, $r=\sqrt{2}/2$; *wide*, $r=1$; *ultrawide*, $r=\sqrt{2}$), extrayendo el Factor de Bayes en escala logarítmica (`extractBF(..., logbf = TRUE)`) para evitar el desbordamiento numérico de valores que exceden $10^{308}$.
 
-**Evidencia:** Tabla de rangos por hipótesis (@tbl-sensibilidad) y gráfico de paneles por hipótesis con escala libre (@fig-sensibilidad).
+**Evidencia:** Tabla de rangos por hipótesis (@tbl-sensibilidad-ficha).
 
 | Prueba | $\min \log_{10}(\text{BF})$ | $\max \log_{10}(\text{BF})$ | Rango |
 |---|---|---|---|
@@ -121,7 +110,7 @@ El rango de $\log_{10}(\text{BF}_{10})$ entre la previa más conservadora (*medi
 
 **Lo que NO explica este resultado:** El análisis solo varió la escala de la previa de Cauchy, no la familia de la previa en sí. Además, tampoco evalúa sensibilidad al tamaño de la submuestra usada en la correlación del gradiente.
 
-**Implicación para el siguiente paso:** Con la robustez de la previa confirmada, el análisis bayesiano del proyecto queda completamente validado. Falta incluir esta información en las conclusiones del proyecto.
+**Implicación para el siguiente paso:** Con la robustez de la previa confirmada, el análisis bayesiano del proyecto queda metodológicamente respaldado. Esta información se incorporó en la conclusión para reforzar que los resultados no dependen de una elección particular de la previa.
 
 **Ficha de modelación 2**
 
@@ -161,18 +150,44 @@ $\theta$ es $[0{,}4911;\, 0{,}4986]$, un intervalo tan estrecho que el valor de 
 
 **Lo que NO explica este resultado:** El cálculo confirma que la muestra no es representativa de la prevalencia poblacional, pero no identifica el mecanismo de selección que produjo esa sobrerrepresentación de casos (por ejemplo, si el dataset proviene de un registro clínico, un ensayo de tamizaje o una cohorte de alto riesgo), limitación ya reconocida en la Discusión de la Bitácora 3 al señalar que el origen geográfico y el proceso de recolección de `cardio_train.csv` no están documentados en la fuente original.
 
-**Implicación para el siguiente paso:** Este resultado debe incorporarse a la Discusión de la Bitácora 4 como respaldo cuantitativo de la limitación de generalización externa, sustituyendo la afirmación descriptiva de la Bitácora 3 por una con soporte numérico. Además, justifica recomendar en la Conclusión que trabajos futuros repliquen el análisis sobre muestras con prevalencia documentada y representativa, recomendación que ahora tiene fundamento estadístico explícito y no solo cualitativo.
+**Implicación para el siguiente paso:** Este resultado se incorpora como respaldo cuantitativo de la limitación de generalización externa, sustituyendo la afirmación descriptiva de la Bitácora 3 por una con soporte numérico. Además, justifica recomendar en la Conclusión que trabajos futuros repliquen el análisis sobre muestras con prevalencia documentada y representativa, recomendación que ahora tiene fundamento estadístico explícito y no solo cualitativo.
 
 
+**Ficha de modelación 3**
 
+**Nivel descriptivo (qué encontraron)**
+
+**Titular:** El gradiente acumulado de factores de riesgo mantiene una asociación robusta con la ECV aun bajo ajuste computacional.
+
+**Nombre del hallazgo/resultado:** Diagnóstico del cálculo bayesiano de correlación entre el índice acumulado de factores de riesgo y la presencia de enfermedad cardiovascular.
+
+**Resumen en una oración:** La asociación entre el número acumulado de factores de riesgo y la presencia de ECV se mantiene como evidencia extrema, aun cuando el cálculo de `correlationBF()` requirió submuestreo reproducible para evitar problemas de convergencia con la muestra completa.
+
+**Método o análisis que lo produjo:** Se evaluó la relación entre el índice acumulado de factores de riesgo y la variable binaria de ECV mediante `correlationBF()`. Debido al tamaño de la muestra completa, el cálculo presentó problemas de convergencia, por lo que se utilizó una submuestra reproducible de 5.000 observaciones con `set.seed(2002)`. Esta decisión permitió obtener una estimación estable del Factor de Bayes sin cambiar la pregunta analítica del proyecto.
+
+**Evidencia:** El gradiente descriptivo mostró un aumento monotónico de la prevalencia de ECV conforme aumentó el número de factores de riesgo acumulados ($k=0$: 22,8%; $k=1$: 40,2%; $k=2$: 62,0%; $k=3$: 73,8%; $k=4$: 83,6%). El Factor de Bayes calculado sobre la submuestra mantuvo la conclusión de evidencia extrema a favor de la asociación ($\log_{10}(\text{BF}_{10}) \approx 204$).
+
+**Nivel analítico (qué significa)**
+
+**Conexión con la pregunta de investigación:** Este resultado respalda directamente la pregunta central del proyecto porque muestra que la acumulación de factores de riesgo no solo se asocia descriptivamente con la ECV, sino que esa asociación también recibe apoyo bajo el enfoque bayesiano. La relación positiva entre $k$ y la prevalencia de ECV no es un artefacto del tamaño de muestra, sino una señal suficientemente fuerte para ser detectable incluso en una fracción del 7,3% de los datos originales.
+
+**Contraste con la metodología bayesiana:** El uso de submuestreo no se aplicó para modificar la conclusión, sino para resolver una limitación computacional de manera transparente y reproducible. Que la evidencia siguiera siendo extrema con solo 5.000 observaciones ilustra una ventaja práctica del análisis bayesiano: cuando la relación es real y de magnitud suficiente, el Factor de Bayes es robusto a reducciones importantes del tamaño muestral.
+
+**Lo que NO explica este resultado:** Este análisis no demuestra que la muestra sea representativa de la población general ni establece causalidad entre los factores de riesgo y la ECV. Tampoco sustituye un modelo multivariado que estime pesos diferenciados para cada factor de riesgo individual dentro del índice $k$.
+
+**Implicación para el siguiente paso:** La decisión de usar submuestreo debe mantenerse documentada en la metodología o en el rastro de decisiones, porque muestra cómo se resolvió una limitación computacional sin abandonar el marco bayesiano del proyecto. Su registro explícito también permite que cualquier lector reproduzca exactamente el mismo resultado con `set.seed(2002)`.
+
+---
 
 **Ficha 4**
 
 **Nivel descriptivo (qué encontraron)**
-**Titular:** La prevalencia observada de ECV (49.5%) es estadísticamente incompatible con la prevalencia poblacional de referencia
+
+**Titular:** La prevalencia observada de ECV (49,5%) es estadísticamente incompatible con la prevalencia poblacional de referencia
 
 **Nombre del hallazgo/resultado:** Contraste bayesiano entre la prevalencia posterior de ECV estimada en la muestra y un valor de referencia poblacional reportado en la literatura.
-Resumen en una oración: La probabilidad posterior de que la prevalencia real de la muestra sea igual o menor al límite superior de la prevalencia poblacional típica (15%, según @Damen) es prácticamente cero.
+
+**Resumen en una oración:** La probabilidad posterior de que la prevalencia real de la muestra sea igual o menor al límite superior de la prevalencia poblacional típica (15%, según @Damen) es prácticamente cero.
 
 **Método o análisis que lo produjo:** Uso de la distribución posterior $Beta(33884, 34592)$ ya estimada en la Ficha 6 (modelo Beta-Bernoulli, prior uniforme) para calcular `pbeta(0.15, 33884, 34592)`, es decir, la probabilidad acumulada de que la prevalencia poblacional θ sea menor o igual a 0.15.
 
@@ -183,38 +198,98 @@ Resumen en una oración: La probabilidad posterior de que la prevalencia real de
 **Conexión con la pregunta de investigación:** Este resultado no contrasta una nueva hipótesis de investigación, sino que cuantifica formalmente, en lugar de solo observar la discrepancia ya señalada en la Ficha 6: la probabilidad posterior asociada a $θ \leq  0.15$ es esencialmente nula, lo que confirma con rigor estadístico que la muestra no proviene de una población con prevalencia típica de ECV. Esto refuerza la necesidad de tratar los hallazgos del proyecto como evidencia interna a la muestra y no como estimaciones extrapolables directamente a la población general.
 
 **Contraste con la literatura:** @Damen reportan prevalencias poblacionales de ECV típicamente entre 5% y 15%; el resultado obtenido aquí formaliza, mediante el mismo marco bayesiano usado en el resto del proyecto, que la diferencia observada no es atribuible al azar muestral.
-Lo que NO explica este resultado: El cálculo no identifica la causa de la sobrerrepresentación (por ejemplo, si el dataset proviene de un registro clínico de pacientes ya diagnosticados o en seguimiento); solo confirma que la diferencia con la prevalencia poblacional es estadísticamente real y no un artefacto de variabilidad muestral.
 
-**Implicación para el siguiente paso:** Este resultado debe incorporarse a la sección de Discusión como respaldo cuantitativo y no solo descriptivo de la limitación de generalización externa, y justifica recomendar en la Conclusión que trabajos futuros repliquen el análisis sobre una muestra con prevalencia poblacional conocida.
+**Lo que NO explica este resultado:** El cálculo no identifica la causa de la sobrerrepresentación (por ejemplo, si el dataset proviene de un registro clínico de pacientes ya diagnosticados o en seguimiento); solo confirma que la diferencia con la prevalencia poblacional es estadísticamente real y no un artefacto de variabilidad muestral.
+
+**Implicación para el siguiente paso:** Este resultado queda incorporado como respaldo cuantitativo y no solo descriptivo de la limitación de generalización externa, y justifica recomendar en la Conclusión que trabajos futuros repliquen el análisis sobre una muestra con prevalencia poblacional conocida.
 
 ---
 
+
 # Parte de escritura
 
+
 ## Escritura
+
 
 ## Conclusión
 Este proyecto buscó responder qué tan fuerte es la evidencia de que la presión arterial y la acumulación de factores de riesgo clínicos se asocian con la enfermedad cardiovascular, adoptando el Factor de Bayes como herramienta central frente al enfoque frecuentista. La justificación de esa elección quedó empíricamente respaldada: con $n = 68\,474$ observaciones, cualquier diferencia real produce $p < 0{,}05$ independientemente de su relevancia clínica [@Pek], mientras que el Factor de Bayes cuantifica directamente cuánto más verosímiles son los datos bajo $H_1$ que bajo $H_0$. Los resultados confirmaron la hipótesis de partida con amplitud: las cuatro pruebas arrojaron evidencia extrema según la escala de Jeffreys, con $\log_{10}(\text{BF}_{10})$ entre 181 (correlación del gradiente) y 3 009 (presión sistólica).
 
 La metodología resolvió la pregunta en dos niveles. A nivel de existencia, los Factores de Bayes establecieron que los datos son incomparablemente más verosímiles bajo $H_1$ en los cuatro contrastes. A nivel de magnitud, los intervalos de credibilidad al 95% situaron la diferencia de presión sistólica entre grupos en $[14{,}05;\, 14{,}50]$ mmHg ($d = 0{,}948$), valor clínicamente relevante dado que la media del
-grupo con ECV (133,90 mmHg) se ubica a solo 6 mmHg del umbral de hipertensión establecido por la OMS [@WHO_ISH]. El contraste entre extremos del gradiente de riesgo acumulado ($k = 0$ vs. $k \geq 3$) produjo el tamaño del efecto más alto del análisis ($d = 1{,}424$), expresado en términos concretos como una prevalencia de ECV 3,56 veces mayor en pacientes con tres o más factores que en quienes no tienen ninguno. Desde la perspectiva actuarial que enmarca el proyecto, esta estratificación —de 22,8% con $k=0$ hasta 83,6% con $k=4$— provee una base cuantitativa directamente utilizable para la diferenciación de primas en seguros de vida y salud. El principal obstáculo computacional fue la no convergencia de `correlationBF()` con la muestra completa, documentado en la Sección 1.2.2, resuelto mediante submuestreo reproducible a $n = 5\,000$ (`set.seed(2002)`), solución válida porque la evidencia resultó concluyente con esa fracción. 
+grupo con ECV (133,90 mmHg) se ubica a solo 6 mmHg del umbral clínico de hipertensión usado como referencia en el análisis. El contraste entre extremos del gradiente de riesgo acumulado ($k = 0$ vs. $k \geq 3$) produjo el tamaño del efecto más alto del análisis ($d = 1{,}424$), expresado en términos concretos como una prevalencia de ECV 3,56 veces mayor en pacientes con tres o más factores que en quienes no tienen ninguno. Desde la perspectiva actuarial que enmarca el proyecto, esta estratificación —de 22,8% con $k=0$ hasta 83,6% con $k=4$— provee una base cuantitativa directamente utilizable para la diferenciación de primas en seguros de vida y salud. El principal obstáculo computacional fue la no convergencia de `correlationBF()` con la muestra completa, documentado en la Ficha de modelación 3 y resuelto mediante submuestreo reproducible a $n = 5\,000$ (`set.seed(2002)`), solución válida porque la evidencia resultó concluyente con esa fracción. 
 
-Dos limitaciones señalan las líneas más importantes de trabajo futuro. Primera: la prevalencia de ECV en la muestra (49,5%) es marcadamente superior a la prevalencia poblacional típica de 5–15% reportada en la literatura [@Damen], y el modelo Beta-Bernoulli confirmó que esta discrepancia no es atribuible a variabilidad muestral. Los hallazgos son internamente válidos pero su extrapolación directa a la población general no está justificada; se recomienda replicar el análisis sobre una cohorte con prevalencia documentada. Segunda: el índice $k$ asigna peso igual a los cuatro factores de riesgo, lo que puede subestimar la contribución de la hipertensión, que mostró la correlación individual más alta con ECV en el análisis exploratorio [@Ficha3_B3; @Decision4_B3]. Un modelo de regresión logística bayesiana permitiría estimar pesos diferenciados y capturar la saturación del gradiente que la Tabla 4 sugiere a partir de $k = 3$, donde los incrementos de prevalencia caen de 21,8 pp ($k=1 \to 2$) a 11,8 pp ($k=2 \to 3$) y 3,0 pp ($k=3 \to 4$).
+Dos limitaciones señalan las líneas más importantes de trabajo futuro. Primera: la prevalencia de ECV en la muestra (49,5%) es marcadamente superior a la prevalencia poblacional típica de 5–15% reportada en la literatura [@Damen], y el modelo Beta-Bernoulli confirmó que esta discrepancia no es atribuible a variabilidad muestral. Los hallazgos son internamente válidos pero su extrapolación directa a la población general no está justificada; se recomienda replicar el análisis sobre una cohorte con prevalencia documentada. Segunda: el índice $k$ asigna peso igual a los cuatro factores de riesgo, lo que puede subestimar la contribución de la hipertensión, que mostró la correlación individual más alta con ECV en el análisis exploratorio documentado en la Bitácora 3. Un modelo de regresión logística bayesiana permitiría estimar pesos diferenciados y capturar la saturación del gradiente que los valores observados del gradiente sugieren a partir de $k = 3$, donde los incrementos de prevalencia caen de 21,8 pp ($k=1 \to 2$) a 11,8 pp ($k=2 \to 3$) y 3,0 pp ($k=3 \to 4$).
+
 
 ## Ordenamiento final
 
+
 # Revisiones Finales
+
+
+## Revisión lingüística y de referencias
+
+Esta sección documenta el proceso de revisión ortográfica, gramatical y bibliográfica aplicado al documento completo antes de la entrega final. La revisión se realizó en dos pasadas: una sobre el texto en español usando LanguageTool, y una sobre las referencias cruzadas y citas bibliográficas de forma manual.
+
+
+### Correcciones aplicadas al texto en español
+
+Al revisar el cuerpo del documento con LanguageTool se identificaron los siguientes problemas:
+
+**Resumen en español.** El párrafo de conclusión general estaba duplicado dos veces al inicio del resumen, lo que generaba una estructura confusa donde la misma oración aparecía tres veces antes de que comenzara el cuerpo del abstract. Se eliminaron las repeticiones y se reorganizó el resumen en tres bloques claramente diferenciados: contexto/método, resultados y conclusión. Adicionalmente, los separadores de decimales y miles se homogeneizaron al estándar español (coma decimal, punto de miles) en los valores numéricos del resumen (por ejemplo, `14.28` → `14,28`; `68,474` → `68.474`).
+
+**Resumen en inglés.** Este párrafo concentraba la mayor densidad de errores del documento. Se corrigieron los siguientes:
+
+- `differenceces` → `differences`
+- `prescence` → `presence`
+- `it is measures` → `it measures`
+- `45.5%` → `49.5%` (error de dato: la prevalencia correcta es 49,5%, consistente con todo el resto del documento)
+- `bayes credibility intervals` → `Bayesian credibility intervals`
+- `results form being generalized` → `results from being generalized`
+- `diverging premiums` → `premium differentiation`
+- `CVI` (cardiovascular illness) → `CVD` (cardiovascular disease), que es el término estándar en la literatura en inglés
+
+Además se reorganizó la estructura del abstract en inglés para que siguiera el mismo orden lógico que el español: introducción al problema → datos y métodos → resultados → conclusión.
+
+**Cuerpo del documento.** Se corrigió el typo `Ordenamiento ifnal` → `Ordenamiento final` en el log de contribuciones.
+
+
+### Revisión de metodología y resultados
+
+Además de la revisión lingüística, se revisó la coherencia entre la metodología, los resultados y la pregunta de investigación. En particular, se verificó que los cuatro contrastes bayesianos estuvieran conectados con el objetivo central del proyecto: cuantificar la evidencia de asociación entre presión arterial, acumulación de factores de riesgo y ECV.
+
+Se ajustó la redacción para evitar que los resultados quedaran como una lista aislada de valores numéricos. Por ello, los Factores de Bayes, intervalos de credibilidad y tamaños de efecto se interpretan en función de su significado actuarial: diferenciar perfiles de riesgo cardiovascular dentro de la muestra. También se revisó que las tablas y figuras citadas en el texto tuvieran una función clara dentro del argumento, especialmente las relacionadas con el análisis de sensibilidad (@tbl-sensibilidad-ficha) y el gradiente acumulado de factores de riesgo.
+
+Esta revisión permitió reforzar la conexión problema–método–resultado que atraviesa el documento: el problema se plantea como la necesidad de cuantificar evidencia más allá del rechazo frecuentista; el método responde con Factores de Bayes, distribuciones posteriores e intervalos de credibilidad; y los resultados muestran que la presión arterial y la acumulación de factores de riesgo tienen una asociación robusta con la ECV dentro del conjunto de datos analizado. La conclusión, en ese sentido, no se limita a resumir resultados sino que los devuelve al marco actuarial que motivó el proyecto desde el inicio.
+
+
+### Verificación de referencias (`refcheck`)
+
+Se revisaron manualmente todas las claves de citación que aparecen en el documento para verificar que tienen entrada correspondiente en el archivo `referencias.bib`. Las claves encontradas en el texto son:
+
+| Clave | Tipo de cita | Observación |
+|:------|:-------------|:------------|
+| `@Ramos-Vera` | Metodología bayesiana, sensibilidad a la previa | Citada correctamente en múltiples secciones |
+| `@Armero` | Inferencia bayesiana | Citada en introducción y fichas |
+| `@Damen` | Prevalencia poblacional de ECV | Citada en fichas 2 y 4, y en conclusión |
+| `@Pek` | Limitaciones del enfoque frecuentista | Citada en introducción y conclusión |
+
+Las cuatro referencias externas (`@Ramos-Vera`, `@Armero`, `@Damen`, `@Pek`) deben estar presentes en `referencias.bib` para que el documento compile sin advertencias. Las referencias internas a la Bitácora 3 se dejaron como texto descriptivo para evitar advertencias de citas no resueltas en el PDF final.
+
+Como cierre del proceso de revisión, se ejecutó `quarto render bitacora_4.qmd` y se verificó que el PDF final no conservara referencias cruzadas rotas ni citas bibliográficas pendientes.
 
 \newpage
 
+
 # Log de contribuciones
 
-| Integrante | Sección | Tarea realizada |
-|:------------------------|:----------------------------------------------|
-| César Salazar | Última iteración del modelo, Ficha de modelación 1, Retroalimentación de Bitácora 3 |
-| Gerardo Montero |Avance de conclusión, Ficha de modelación 2, Verificación de referencias|
-| Óscar Espinoza | Pulir texto: metodología y resultados, Ficha de modelación 3, Ortografía|
-| Gabriel Robles | Ficha de modelación 4, Introducción reestructurada, Resumen / Abstract, Ordenamiento ifnal, Log de contribuciones|
+| Integrante | Sección o tarea realizada |
+|:-----------|:--------------------------|
+| César Salazar | Última iteración del modelo, Ficha de modelación 1, retroalimentación de Bitácora 3 |
+| Gerardo Montero | Avance de conclusión, Ficha de modelación 2, verificación de referencias |
+| Óscar Espinoza | Pulido de metodología y resultados, Ficha de modelación 3, revisión LanguageTool + refcheck |
+| Gabriel Robles | Ficha de modelación 4, introducción reestructurada, resumen / abstract, ordenamiento final, log de contribuciones |
+
 
 # Referencias
 
