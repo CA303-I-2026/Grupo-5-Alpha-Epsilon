@@ -1,0 +1,207 @@
+/*-- scss:defaults --*/
+
+// ─── Paleta aqua / turquesa ───
+$primary:       #0C3547;   // Azul petróleo oscuro (fondos)
+$secondary:     #17A2B8;   // Turquesa medio (acentos)
+$tertiary:      #48D1CC;   // Aqua claro (highlights)
+$light-bg:      #F0FAFA;   // Fondo claro con tinte celeste
+$accent-warm:   #E8F8F5;   // Verde-agua muy suave para callouts
+
+// ─── Tipografía ───
+$font-family-sans-serif: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$presentation-font-size-root: 32px;
+$presentation-heading-font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$presentation-heading-color: $primary;
+
+// ─── Colores base ───
+$body-bg: $light-bg;
+$body-color: #1a2a33;
+$link-color: $secondary;
+$link-color-hover: darken($secondary, 15%);
+
+// ─── Slides ───
+$presentation-h1-font-size: 1.7em;
+$presentation-h2-font-size: 1.35em;
+$presentation-h3-font-size: 1.05em;
+
+/*-- scss:rules --*/
+
+// ─── Títulos ───
+.reveal h2 {
+  border-bottom: 3px solid $tertiary;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.6em;
+}
+
+.reveal h3 {
+  color: $secondary;
+  font-weight: 600;
+}
+
+// ─── Slides con fondo oscuro ───
+.reveal section[data-background-color="#0C3547"] {
+  color: #e8f4f8;
+
+  h2, h3 {
+    color: $tertiary;
+    border-bottom-color: rgba($tertiary, 0.4);
+  }
+
+  .callout {
+    background-color: rgba(255,255,255,0.08);
+    border-color: $tertiary;
+    color: #e8f4f8;
+  }
+}
+
+// ─── Tablas ───
+.reveal table {
+  font-size: 0.72em;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.reveal table thead th {
+  background-color: $primary;
+  color: #fff;
+  padding: 0.45em 0.6em;
+  font-weight: 600;
+  border-bottom: 2px solid $tertiary;
+}
+
+.reveal table tbody td {
+  padding: 0.35em 0.6em;
+  border-bottom: 1px solid #d1e7e7;
+}
+
+.reveal table.striped tbody tr:nth-child(even) {
+  background-color: rgba($tertiary, 0.08);
+}
+
+// ─── Callouts ───
+.reveal .callout {
+  border-radius: 8px;
+  border-left: 4px solid $secondary;
+  background-color: $accent-warm;
+  padding: 0.6em 0.9em;
+  font-size: 0.82em;
+}
+
+.reveal .callout-note {
+  border-left-color: $secondary;
+}
+
+.reveal .callout-important {
+  border-left-color: #e74c3c;
+}
+
+.reveal .callout-tip {
+  border-left-color: $tertiary;
+}
+
+.reveal .callout .callout-title {
+  font-weight: 700;
+  color: $primary;
+}
+
+// ─── Blockquote ───
+.reveal blockquote {
+  border-left: 4px solid $tertiary;
+  background: rgba($tertiary, 0.07);
+  padding: 0.6em 1em;
+  font-style: italic;
+  font-size: 0.9em;
+  margin: 0.5em 0;
+}
+
+// ─── Code ───
+.reveal code {
+  background: rgba($tertiary, 0.12);
+  color: $primary;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.reveal pre code {
+  background: $primary;
+  color: #e8f4f8;
+  padding: 0.8em;
+  border-radius: 6px;
+  font-size: 0.62em;
+  line-height: 1.4;
+}
+
+// ─── Footer ───
+.reveal .footer {
+  font-size: 0.42em;
+  color: rgba($primary, 0.5);
+}
+
+// ─── Slide number ───
+.reveal .slide-number {
+  background-color: $primary;
+  color: $tertiary;
+  font-size: 0.55em;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+// ─── Listas ───
+.reveal ul, .reveal ol {
+  font-size: 0.82em;
+  line-height: 1.5;
+}
+
+.reveal ul li::marker {
+  color: $secondary;
+}
+
+// ─── Columnas ───
+.reveal .columns {
+  gap: 1.5em;
+}
+
+// ─── Fragmentos (. . .) ───
+.reveal .fragment {
+  transition: opacity 0.3s ease;
+}
+
+// ─── r-fit-text en slides oscuros ───
+.reveal section[data-background-color="#0C3547"] .r-fit-text {
+  color: $tertiary;
+}
+
+// ─── Título slide ───
+#title-slide {
+  text-align: left;
+
+  h1.title {
+    color: $tertiary;
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.15em;
+  }
+
+  p.subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85em;
+    font-weight: 300;
+  }
+
+  p.author {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.65em;
+  }
+
+  p.institute {
+    color: rgba($tertiary, 0.7);
+    font-size: 0.55em;
+  }
+
+  p.date {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.5em;
+  }
+}
