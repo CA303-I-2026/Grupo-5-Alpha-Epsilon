@@ -363,16 +363,7 @@ La prevalencia muestral es **estadísticamente incompatible** con la prevalencia
 
 
 
-## {background-color="#0C3547"}
+## Referencias {.smaller}
 
-::: {.r-fit-text}
-¡Gracias!
-:::
-
-**¿Preguntas?**
-
-::: {style="text-align: center; margin-top: 1em; font-size: 0.7em; opacity: 0.8;"}
-César Salazar · Gerardo Montero · Gabriel Robles · Óscar Espinoza
-
-CA-0303 Estadística Actuarial I · Prof. Maikol Solís · UCR · I-2026
+::: {#refs}
 :::
