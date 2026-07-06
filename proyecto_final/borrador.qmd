@@ -53,26 +53,31 @@ La variable de respuesta es la presencia de ECV, codificada de forma binaria. La
 
 La muestra contiene 68 474 registros, de los cuales 33 883 corresponden a casos positivos de ECV, lo que arroja una prevalencia muestral de 49,5 %. Como se detalla en la Sección 4, esta prevalencia es sustancialmente mayor a la reportada en estudios poblacionales de referencia, lo que condiciona la interpretación de todos los resultados.
 
-<!--
-NOTA PARA LOS AUTORES: el criterio del trabajo final pide un "análisis descriptivo conciso pero exhaustivo". La bitácora NO reporta medias, desviaciones estándar ni
-tamaños de grupo para ap_hi/ap_lo, así que NO los inventé. Inserten una tabla descriptiva generada desde su base con un chunk como el siguiente (rellenen la
-ruta y las variables reales). Elimine este comentario antes de entregar.
+El análisis descriptivo (@tbl-descriptivos) muestra que ambas medidas de presión arterial son mayores en el grupo con ECV. La presión sistólica media pasa de 119,61 mmHg en el grupo sin ECV a 133,90 mmHg en el grupo con ECV, una diferencia de 14,28 mmHg; la diastólica pasa de 78,13 a 84,55 mmHg, una diferencia de 6,42 mmHg.
 
 ```{r}
 #| label: tbl-descriptivos
-#| tbl-cap: "Estadísticos descriptivos de las variables clínicas por grupo de ECV."
+#| tbl-cap: "Estadísticos descriptivos de la presión arterial por grupo de ECV."
 library(dplyr)
 library(knitr)
+
+datos <- read.csv("../datos/procesados/cardio_procesado.csv")
+
 datos |>
-  group_by(cardio) |>
+  mutate(grupo = if_else(cardio == "Si", "Con ECV", "Sin ECV")) |>
+  group_by(grupo) |>
   summarise(
-    n         = n(),
-    media_aphi = mean(ap_hi),  de_aphi = sd(ap_hi),
-    media_aplo = mean(ap_lo),  de_aplo = sd(ap_lo)
+    n           = n(),
+    media_ap_hi = mean(ap_hi),
+    de_ap_hi    = sd(ap_hi),
+    media_ap_lo = mean(ap_lo),
+    de_ap_lo    = sd(ap_lo)
   ) |>
-  kable(digits = 2)
+  kable(
+    digits    = 2,
+    col.names = c("Grupo", "n", "Media ap_hi", "DE ap_hi", "Media ap_lo", "DE ap_lo")
+  )
 ```
--->
 
 ## Selección y justificación del modelo
 
