@@ -1,11 +1,12 @@
 /*-- scss:defaults --*/
 
-// ─── Paleta aqua / turquesa ───
-$primary:       #0C3547;   // Azul petróleo oscuro (fondos)
-$secondary:     #17A2B8;   // Turquesa medio (acentos)
-$tertiary:      #48D1CC;   // Aqua claro (highlights)
+// ─── Paleta aqua / turquesa (todo claro) ───
+$primary:       #0C3547;   // Azul petróleo (texto, headers)
+$secondary:     #17A2B8;   // Turquesa medio (acentos, h3)
+$tertiary:      #48D1CC;   // Aqua claro (highlights, bordes)
 $light-bg:      #F0FAFA;   // Fondo claro con tinte celeste
-$accent-warm:   #E8F8F5;   // Verde-agua muy suave para callouts
+$title-bg:      #E8F8F5;   // Fondo título (verde-agua suave)
+$accent-warm:   #E0F4F1;   // Callouts
 
 // ─── Tipografía ───
 $font-family-sans-serif: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -38,25 +39,9 @@ $presentation-h3-font-size: 1.05em;
   font-weight: 600;
 }
 
-// ─── Slides con fondo oscuro ───
-.reveal section[data-background-color="#0C3547"] {
-  color: #e8f4f8;
-
-  h2, h3 {
-    color: $tertiary;
-    border-bottom-color: rgba($tertiary, 0.4);
-  }
-
-  .callout {
-    background-color: rgba(255,255,255,0.08);
-    border-color: $tertiary;
-    color: #e8f4f8;
-  }
-}
-
 // ─── Tablas ───
 .reveal table {
-  font-size: 0.72em;
+  font-size: 0.75em;
   border-collapse: collapse;
   width: 100%;
 }
@@ -149,7 +134,7 @@ $presentation-h3-font-size: 1.05em;
 
 // ─── Listas ───
 .reveal ul, .reveal ol {
-  font-size: 0.82em;
+  font-size: 0.85em;
   line-height: 1.5;
 }
 
@@ -162,22 +147,17 @@ $presentation-h3-font-size: 1.05em;
   gap: 1.5em;
 }
 
-// ─── Fragmentos (. . .) ───
+// ─── Fragmentos ───
 .reveal .fragment {
   transition: opacity 0.3s ease;
 }
 
-// ─── r-fit-text en slides oscuros ───
-.reveal section[data-background-color="#0C3547"] .r-fit-text {
-  color: $tertiary;
-}
-
-// ─── Título slide ───
+// ─── Título slide (fondo claro) ───
 #title-slide {
   text-align: left;
 
   h1.title {
-    color: $tertiary;
+    color: $primary;
     font-size: 1.8em;
     font-weight: 700;
     line-height: 1.15;
@@ -185,23 +165,38 @@ $presentation-h3-font-size: 1.05em;
   }
 
   p.subtitle {
-    color: rgba(255,255,255,0.85);
+    color: $secondary;
     font-size: 0.85em;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   p.author {
-    color: rgba(255,255,255,0.7);
+    color: rgba($primary, 0.7);
     font-size: 0.65em;
   }
 
   p.institute {
-    color: rgba($tertiary, 0.7);
+    color: rgba($secondary, 0.8);
     font-size: 0.55em;
   }
 
   p.date {
-    color: rgba(255,255,255,0.5);
+    color: rgba($primary, 0.5);
     font-size: 0.5em;
   }
+}
+
+// ─── Referencias (slide final) ───
+.reveal .scrollable {
+  overflow-y: auto;
+  max-height: 75vh;
+}
+
+.reveal section.smaller {
+  font-size: 0.65em;
+}
+
+.reveal .csl-entry {
+  margin-bottom: 0.6em;
+  line-height: 1.4;
 }
