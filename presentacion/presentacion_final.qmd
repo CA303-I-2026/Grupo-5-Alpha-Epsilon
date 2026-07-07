@@ -27,55 +27,21 @@ csl: ../referencias/apa.csl
 nocite: '@*'
 ---
 
-## Contexto y motivación
+## ¿Por qué este estudio?
 
-::: {.columns}
-::: {.column width="55%"}
+- ECV = **primera causa de muerte** mundial.
 
-- Las **enfermedades cardiovasculares (ECV)** son la primera causa de muerte a nivel mundial.
+- Con muestras grandes, las pruebas frecuentistas **siempre rechazan** $H_0$.
 
-- La evaluación de riesgo clásica usa pruebas frecuentistas que, con muestras grandes, **rechazan $H_0$ casi siempre**, independientemente de la relevancia clínica.
+- El **Factor de Bayes** cuantifica *cuánta* evidencia hay, no solo si es "significativa".
 
-- Se necesita una métrica que cuantifique **cuánta evidencia** respalda una asociación, no solo si es "significativa".
-
-:::
-::: {.column width="45%"}
-
-:::{.callout-note appearance="minimal"}
-### ¿Por qué inferencia bayesiana?
-El **Factor de Bayes** mide directamente cuánto más verosímiles son los datos bajo $H_1$ que bajo $H_0$, sin depender de un umbral $\alpha$ fijo.
-:::
-
-:::
-:::
-
-::: footer
-Ramos-Vera (2021); Armero et al. (2022)
-:::
+$$\text{BF}_{10} = \frac{P(\mathbf{y} \mid H_1)}{P(\mathbf{y} \mid H_0)}$$
 
 
 
-## Pregunta de investigación y objetivos {.smaller}
+## Pregunta y objetivos
 
-::: {.columns}
-::: {.column width="60%"}
-
-### Pregunta central
-
-> ¿Qué tan fuerte es la evidencia de que la presión arterial y el perfil acumulado de factores de riesgo clínicos se asocian con la ECV?
-
-### Objetivos
-
-1. Cuantificar la evidencia bayesiana de asociación entre presión arterial (sistólica y diastólica) y ECV.
-
-2. Evaluar si la acumulación de factores de riesgo produce un **gradiente monotónico** de prevalencia.
-
-3. Verificar la **robustez** de los resultados ante distintas previas.
-
-:::
-::: {.column width="40%"}
-
-### Cuatro hipótesis
+> ¿Qué tan fuerte es la evidencia de que la presión arterial y la acumulación de factores de riesgo se asocian con la ECV?
 
 | # | Contraste |
 |:-:|:----------|
@@ -84,30 +50,25 @@ Ramos-Vera (2021); Armero et al. (2022)
 | H3 | $\rho(\text{índice}, \text{ECV}) \neq 0$ |
 | H4 | $P(\text{ECV} \mid k{=}0) \neq P(\text{ECV} \mid k{\geq}3)$ |
 
-:::
-:::
 
 
-
-## Datos: `cardio_train.csv`
+## Datos
 
 ::: {.columns}
-::: {.column width="50%"}
+::: {.column width="45%"}
 
-- Dataset de Kaggle: **70 000** registros originales.
-- Tras filtrar valores imposibles: **68 474** registros.
-- Variables: presión sistólica/diastólica, colesterol, glucosa, edad, peso, talla, tabaquismo, alcohol, actividad física.
-- **Prevalencia de ECV:** 49,5% en la muestra vs. 5–15% poblacional → resultados válidos internamente.
+- Kaggle: **70 000** → filtrado → **68 474**
+- Prevalencia ECV: **49,5%** (vs. 5–15% poblacional)
 
 :::
-::: {.column width="50%"}
+::: {.column width="55%"}
 
 | Variable | Sin ECV | Con ECV |
 |:---------|:-------:|:-------:|
-| Edad (años) | 51,4 ± 6,8 | 54,4 ± 6,5 |
-| P. sistólica (mmHg) | 119,6 ± 15,1 | 133,9 ± 22,6 |
-| P. diastólica (mmHg) | 78,1 ± 9,1 | 84,6 ± 11,5 |
-| IMC (kg/m²) | 27,3 ± 5,2 | 28,7 ± 5,7 |
+| P. sistólica | 119,6 ± 15,1 | 133,9 ± 22,6 |
+| P. diastólica | 78,1 ± 9,1 | 84,6 ± 11,5 |
+| Edad | 51,4 ± 6,8 | 54,4 ± 6,5 |
+| IMC | 27,3 ± 5,2 | 28,7 ± 5,7 |
 
 : {.striped}
 
@@ -116,29 +77,25 @@ Ramos-Vera (2021); Armero et al. (2022)
 
 
 
-## Datos: gradiente de riesgo acumulado
+## Gradiente de riesgo acumulado
 
 ::: {.columns}
-::: {.column width="40%"}
+::: {.column width="35%"}
 
-### Índice $k = 0 \ldots 4$
+Índice $k$: suma de 4 factores binarios.
 
-Suma de cuatro factores clínicos binarios:
-
-- Hipertensión (ap_hi $\geq$ 140)
-- Obesidad (IMC $\geq$ 30)
+- Hipertensión
+- Obesidad
 - Colesterol elevado
-- Edad $\geq$ 55 años
-
-La prevalencia crece de **22,8%** ($k{=}0$) a **83,6%** ($k{=}4$).
+- Edad $\geq$ 55
 
 :::
-::: {.column width="60%"}
+::: {.column width="65%"}
 
 ```{r}
 #| echo: false
-#| fig-width: 6
-#| fig-height: 4.2
+#| fig-width: 6.5
+#| fig-height: 4.5
 library(ggplot2)
 
 gradiente <- data.frame(
@@ -153,7 +110,7 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
              shape = 21, stroke = 1.2) +
   geom_text(
     aes(label = scales::percent(prevalencia, accuracy = 0.1)),
-    vjust = -1.4, size = 4.5, fontface = "bold", color = "#0C3547"
+    vjust = -1.4, size = 5.5, fontface = "bold", color = "#0C3547"
   ) +
   scale_y_continuous(
     labels = scales::percent_format(),
@@ -164,14 +121,11 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
   scale_size_continuous(range = c(4, 12)) +
   guides(size = "none") +
   labs(
-    title = "Gradiente de riesgo cardiovascular acumulado",
     x = "Número de factores de riesgo (k)",
     y = "Prevalencia de ECV"
   ) +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 17) +
   theme(
-    plot.title = element_text(face = "bold", hjust = 0.5,
-                              color = "#0C3547", size = 16),
     axis.title = element_text(face = "italic", color = "#0C3547"),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank()
@@ -183,17 +137,20 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
 
 
 
-## Metodología: Factor de Bayes JZS {.smaller}
+## Metodología
 
 ::: {.columns}
-::: {.column width="55%"}
+::: {.column width="50%"}
 
-### Herramientas
+### Factor de Bayes JZS
 
-- Paquete `BayesFactor` en R.
-- `ttestBF()` para contrastes de medias (H1, H2, H4).
-- `correlationBF()` para asociación (H3).
-- Previa de Cauchy JZS, escala $r = \tfrac{\sqrt{2}}{2}$.
+- `ttestBF()` → H1, H2, H4
+- `correlationBF()` → H3
+- Previa Cauchy: $r = \tfrac{\sqrt{2}}{2}$
+- 10 000 iteraciones MCMC
+
+:::
+::: {.column width="50%"}
 
 ### Escala de Jeffreys
 
@@ -201,177 +158,121 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
 |:-:|:----------|
 | 1 – 3 | Anecdótica |
 | 3 – 10 | Moderada |
-| 10 – 100 | Fuerte / Muy fuerte |
+| 10 – 100 | Fuerte |
 | > 100 | **Extrema** |
 
 :::
-::: {.column width="45%"}
-
-### Estimación posterior
-
-- **10 000 iteraciones MCMC** vía `posterior()`.
-- Intervalos de credibilidad al **95%**.
-- Diferencias en mmHg: $\Delta\mu = \delta \cdot \sqrt{\sigma^2}$
-
-### Nota técnica
-
-`correlationBF()` no converge con $n = 68\,474$. Submuestreo reproducible:
-
-```r
-set.seed(2002)
-idx <- sample(nrow(cardio), 5000)
-```
-
-:::
 :::
 
 
 
-## Resultados: Factores de Bayes
+## Resultados: evidencia
 
 | Prueba | $\log_{10}(\text{BF}_{10})$ | Evidencia |
 |:-------|----------------------------:|:----------|
-| Presión sistólica | **3 010** | Extrema |
-| Presión diastólica | **1 833** | Extrema |
-| Correlación gradiente–ECV | **204** | Extrema |
-| Extremos del gradiente ($k{=}0$ vs $k{\geq}3$) | **2 351** | Extrema |
+| P. sistólica | **3 010** | Extrema |
+| P. diastólica | **1 833** | Extrema |
+| Correlación gradiente | **204** | Extrema |
+| Extremos ($k{=}0$ vs $k{\geq}3$) | **2 351** | Extrema |
 
 . . .
 
-Las cuatro hipótesis muestran evidencia **extrema** a favor de $H_1$: los datos son incomparablemente más verosímiles bajo asociación que bajo ausencia de asociación.
+Las cuatro hipótesis: evidencia **extrema** a favor de $H_1$.
 
 
 
-## Resultados: magnitud del efecto
+## Resultados: magnitud
 
 ::: {.columns}
 ::: {.column width="50%"}
 
-### Diferencias de presión arterial
+### Presión arterial
 
-| Medida | $\Delta\mu$ | IC 95% |
-|:-------|:-----------:|:------:|
-| Sistólica | **+14,28 mmHg** | [13,89 ; 14,67] |
-| Diastólica | **+6,42 mmHg** | [6,17 ; 6,67] |
+| | $\Delta\mu$ | IC 95% |
+|:--|:-----------:|:------:|
+| Sistólica | **+14,28** | [13,89 ; 14,67] |
+| Diastólica | **+6,42** | [6,17 ; 6,67] |
 
-La presión sistólica del grupo con ECV es **14 mmHg mayor**
+*Unidades: mmHg*
 
-### Correlación gradiente–ECV
+### Correlación
 
-$\hat{\rho} = 0{,}329$, IC 95%: $[0{,}303 ; 0{,}355]$
+$\hat{\rho} = 0{,}329$ · IC: $[0{,}303 ; 0{,}355]$
 
 :::
 ::: {.column width="50%"}
 
-### Contraste de extremos
+### Extremos del gradiente
 
-- $P(\text{ECV} \mid k{=}0) = 22{,}8\%$
-- $P(\text{ECV} \mid k{\geq}3) = 77{,}1\%$
-- Tamaño de efecto: $d = 1{,}424$ (grande)
+- $k{=}0$: prevalencia **22,8%**
+- $k{\geq}3$: prevalencia **77,1%**
+- $d = 1{,}424$ (efecto **grande**)
 
 . . .
 
-:::{.callout-important appearance="minimal"}
-### Implicación actuarial
-Un asegurado con 4 factores de riesgo tiene **3,7 veces** más prevalencia de ECV que uno con 0 factores. Esto fundamenta una **estratificación de primas** diferenciada.
-:::
+→ Un asegurado con 4 factores tiene **3,7×** más prevalencia que uno con 0.
 
 :::
 :::
 
 
 
-## Resultados: sensibilidad a la previa
-
-::: {.columns}
-::: {.column width="55%"}
-
-### Tres escalas de Cauchy JZS
-
-| Prueba | Rango $\log_{10}(\text{BF})$ |
-|:-------|:----------------------------:|
-| Presión sistólica | 0,033 |
-| Presión diastólica | 0,090 |
-| Extremos gradiente | 0,099 |
-| Correlación gradiente | 0,108 |
-
-- Rango máximo: **0,108 unidades** en escala $\log_{10}$.
-- Frente a valores del orden de $10^{204}$ a $10^{3010}$, la variación es **despreciable**.
-
-:::
-::: {.column width="45%"}
-
-### Interpretación
-
-:::{.callout-tip appearance="minimal"}
-### Conclusión de robustez
-La evidencia extrema **no depende** de la elección de la previa dentro del rango habitual (medium, wide, ultrawide).
-:::
-
-La subjetividad en la previa no altera las conclusiones cuando la muestra es suficientemente informativa.
-
-:::
-:::
-
-
-
-## Resultados: prevalencia Beta-Bernoulli
+## Resultados: robustez y prevalencia
 
 ::: {.columns}
 ::: {.column width="50%"}
 
-### Modelo conjugado
+### Sensibilidad a la previa
 
-$$\theta \sim \text{Beta}(1,1)$$
-$$\theta \mid \mathbf{y} \sim \text{Beta}(33\,884,\; 34\,592)$$
+Variación entre escalas *medium*, *wide*, *ultrawide*:
 
-- Media posterior: $\hat{\theta} = 0{,}4948$
-- IC 95%: $[0{,}4911 ;\; 0{,}4986]$
+**Rango máximo: 0,108** en $\log_{10}$
 
-### Test de compatibilidad
+→ Despreciable frente a $10^{204}$ – $10^{3010}$.
+
+La evidencia **no depende** de la previa elegida.
+
+:::
+::: {.column width="50%"}
+
+### Prevalencia Beta-Bernoulli
+
+$\hat{\theta} = 0{,}4948$, IC: $[0{,}4911 ; 0{,}4986]$
 
 $$P(\theta \leq 0{,}15 \mid \mathbf{y}) \approx 0$$
 
-:::
-::: {.column width="50%"}
+→ El 49,5% de ECV es **real**, no aleatorio.
 
-### ¿Qué significa?
-
-- La sobrerrepresentación de ECV es **real**, no un artefacto aleatorio.
-- El mecanismo de selección del dataset no está documentado.
-- Los hallazgos son válidos **dentro** de la muestra, pero las prevalencias absolutas no son estimaciones poblacionales.
+→ Resultados válidos **internamente**, no extrapolables.
 
 :::
 :::
 
 
 
-## Conclusiones y trabajo futuro
+## Conclusiones
 
 ::: {.columns}
 ::: {.column width="55%"}
 
-### Tres conclusiones principales
+1. Evidencia **extrema** en las 4 hipótesis ($\log_{10}\text{BF} \geq 204$).
 
-1. Las **cuatro pruebas bayesianas** apoyan de forma extrema las hipótesis alternativas ($\log_{10}\text{BF} \geq 204$).
+2. Efectos con **interpretación práctica**: +14 mmHg sistólica, $d = 1{,}4$ en el gradiente.
 
-2. La magnitud del efecto tiene **interpretación práctica**: +14,28 mmHg en sistólica, $d = 1{,}424$ en el gradiente.
-
-3. El gradiente de riesgo ofrece una **estructura útil** para actuarios: prevalencia de 22,8% ($k{=}0$) a 83,6% ($k{=}4$).
+3. Gradiente útil para **estratificación actuarial**: 22,8% → 83,6%.
 
 :::
 ::: {.column width="45%"}
 
 ### Limitaciones
 
-- Prevalencia atípica del dataset (49,5%).
-- Peso uniforme de los factores en el índice.
-- Submuestreo en `correlationBF()`.
+- Prevalencia atípica (49,5%)
+- Peso uniforme en el índice
 
 ### Trabajo futuro
 
-- Replicar en una **cohorte con prevalencia documentada**.
-- Estimar una **regresión logística bayesiana** con pesos diferenciados por factor.
+- Cohorte con prevalencia documentada
+- Regresión logística bayesiana
 
 :::
 :::
