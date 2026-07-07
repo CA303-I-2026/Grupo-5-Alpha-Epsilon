@@ -55,7 +55,7 @@ Ramos-Vera (2021); Armero et al. (2022)
 
 
 
-## Pregunta de investigación y objetivos
+## Pregunta de investigación y objetivos {.smaller}
 
 ::: {.columns}
 ::: {.column width="60%"}
@@ -66,11 +66,9 @@ Ramos-Vera (2021); Armero et al. (2022)
 
 ### Objetivos
 
-1. Cuantificar la evidencia bayesiana de asociación entre presión arterial (sistólica y diastólica) y ECV.
-
-2. Evaluar si la acumulación de factores de riesgo produce un **gradiente monotónico** de prevalencia.
-
-3. Verificar la **robustez** de los resultados ante distintas previas.
+1. Cuantificar la evidencia bayesiana de asociación entre presión arterial y ECV.
+2. Evaluar si la acumulación de factores de riesgo produce un **gradiente monotónico**.
+3. Verificar la **robustez** ante distintas previas.
 
 :::
 ::: {.column width="40%"}
@@ -183,17 +181,16 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
 
 
 
-## Metodología: Factor de Bayes JZS
+## Metodología: Factor de Bayes JZS {.smaller}
+
+### Definición
+
+$$\text{BF}_{10} = \frac{P(\mathbf{y} \mid H_1)}{P(\mathbf{y} \mid H_0)}, \qquad P(\mathbf{y} \mid H_1) = \int P(\mathbf{y} \mid \theta, H_1)\,\pi(\theta)\,d\theta$$
+
+Si $\text{BF}_{10} > 1$, los datos favorecen $H_1$. Previa JZS: $\delta \sim \text{Cauchy}(0, r)$, $r = \tfrac{\sqrt{2}}{2}$.
 
 ::: {.columns}
-::: {.column width="55%"}
-
-### Herramientas
-
-- Paquete `BayesFactor` en R.
-- `ttestBF()` para contrastes de medias (H1, H2, H4).
-- `correlationBF()` para asociación (H3).
-- Previa de Cauchy JZS, escala $r = \tfrac{\sqrt{2}}{2}$.
+::: {.column width="45%"}
 
 ### Escala de Jeffreys
 
@@ -205,22 +202,14 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
 | > 100 | **Extrema** |
 
 :::
-::: {.column width="45%"}
+::: {.column width="55%"}
 
-### Estimación posterior
+### Implementación en R
 
-- **10 000 iteraciones MCMC** vía `posterior()`.
-- Intervalos de credibilidad al **95%**.
-- Diferencias en mmHg: $\Delta\mu = \delta \cdot \sqrt{\sigma^2}$
-
-### Nota técnica
-
-`correlationBF()` no converge con $n = 68\,474$. Submuestreo reproducible:
-
-```r
-set.seed(2002)
-idx <- sample(nrow(cardio), 5000)
-```
+- `ttestBF()` → contrastes de medias (H1, H2, H4).
+- `correlationBF()` → asociación (H3).
+- 10 000 iteraciones MCMC, IC credibilidad 95%.
+- `correlationBF()` no converge con $n{=}68\,474$: submuestreo $n{=}5\,000$ (`set.seed(2002)`).
 
 :::
 :::
@@ -254,7 +243,7 @@ Las cuatro hipótesis muestran evidencia **extrema** a favor de $H_1$: los datos
 | Sistólica | **+14,28 mmHg** | [13,89 ; 14,67] |
 | Diastólica | **+6,42 mmHg** | [6,17 ; 6,67] |
 
-La presión sistólica del grupo con ECV es **14 mmHg mayor** 
+La presión sistólica del grupo con ECV es **14 mmHg mayor**
 
 ### Correlación gradiente–ECV
 
