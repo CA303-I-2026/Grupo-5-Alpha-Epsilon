@@ -66,9 +66,11 @@ Ramos-Vera (2021); Armero et al. (2022)
 
 ### Objetivos
 
-1. Cuantificar la evidencia bayesiana de asociación entre presión arterial y ECV.
-2. Evaluar si la acumulación de factores de riesgo produce un **gradiente monotónico**.
-3. Verificar la **robustez** ante distintas previas.
+1. Cuantificar la evidencia bayesiana de asociación entre presión arterial (sistólica y diastólica) y ECV.
+
+2. Evaluar si la acumulación de factores de riesgo produce un **gradiente monotónico** de prevalencia.
+
+3. Verificar la **robustez** de los resultados ante distintas previas.
 
 :::
 ::: {.column width="40%"}
@@ -103,8 +105,8 @@ Ramos-Vera (2021); Armero et al. (2022)
 | Variable | Sin ECV | Con ECV |
 |:---------|:-------:|:-------:|
 | Edad (años) | 51,4 ± 6,8 | 54,4 ± 6,5 |
-| P. sistólica (mmHg) | 121,1 ± 15,1 | 135,4 ± 22,6 |
-| P. diastólica (mmHg) | 78,5 ± 9,1 | 84,9 ± 11,5 |
+| P. sistólica (mmHg) | 119,6 ± 15,1 | 133,9 ± 22,6 |
+| P. diastólica (mmHg) | 78,1 ± 9,1 | 84,6 ± 11,5 |
 | IMC (kg/m²) | 27,3 ± 5,2 | 28,7 ± 5,7 |
 
 : {.striped}
@@ -183,14 +185,15 @@ ggplot(gradiente, aes(x = k, y = prevalencia)) +
 
 ## Metodología: Factor de Bayes JZS {.smaller}
 
-### Definición
-
-$$\text{BF}_{10} = \frac{P(\mathbf{y} \mid H_1)}{P(\mathbf{y} \mid H_0)}, \qquad P(\mathbf{y} \mid H_1) = \int P(\mathbf{y} \mid \theta, H_1)\,\pi(\theta)\,d\theta$$
-
-Si $\text{BF}_{10} > 1$, los datos favorecen $H_1$. Previa JZS: $\delta \sim \text{Cauchy}(0, r)$, $r = \tfrac{\sqrt{2}}{2}$.
-
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="55%"}
+
+### Herramientas
+
+- Paquete `BayesFactor` en R.
+- `ttestBF()` para contrastes de medias (H1, H2, H4).
+- `correlationBF()` para asociación (H3).
+- Previa de Cauchy JZS, escala $r = \tfrac{\sqrt{2}}{2}$.
 
 ### Escala de Jeffreys
 
@@ -202,14 +205,22 @@ Si $\text{BF}_{10} > 1$, los datos favorecen $H_1$. Previa JZS: $\delta \sim \te
 | > 100 | **Extrema** |
 
 :::
-::: {.column width="55%"}
+::: {.column width="45%"}
 
-### Implementación en R
+### Estimación posterior
 
-- `ttestBF()` → contrastes de medias (H1, H2, H4).
-- `correlationBF()` → asociación (H3).
-- 10 000 iteraciones MCMC, IC credibilidad 95%.
-- `correlationBF()` no converge con $n{=}68\,474$: submuestreo $n{=}5\,000$ (`set.seed(2002)`).
+- **10 000 iteraciones MCMC** vía `posterior()`.
+- Intervalos de credibilidad al **95%**.
+- Diferencias en mmHg: $\Delta\mu = \delta \cdot \sqrt{\sigma^2}$
+
+### Nota técnica
+
+`correlationBF()` no converge con $n = 68\,474$. Submuestreo reproducible:
+
+```r
+set.seed(2002)
+idx <- sample(nrow(cardio), 5000)
+```
 
 :::
 :::
